@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deadlock", "04_lesson_07_05_2015\deadlock.csproj", "{EEFD1FCB-0791-4C37-AB5D-554971430220}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mutex", "ConsoleApplication1\mutex.csproj", "{400607FD-BFFC-477A-A2A5-B8ED09A719BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semaphore", "ConsoleApplication2\Semaphore.csproj", "{A53C00B6-EF15-413A-8269-B2D92C48B168}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEFD1FCB-0791-4C37-AB5D-554971430220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEFD1FCB-0791-4C37-AB5D-554971430220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEFD1FCB-0791-4C37-AB5D-554971430220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEFD1FCB-0791-4C37-AB5D-554971430220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400607FD-BFFC-477A-A2A5-B8ED09A719BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400607FD-BFFC-477A-A2A5-B8ED09A719BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400607FD-BFFC-477A-A2A5-B8ED09A719BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400607FD-BFFC-477A-A2A5-B8ED09A719BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A53C00B6-EF15-413A-8269-B2D92C48B168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A53C00B6-EF15-413A-8269-B2D92C48B168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A53C00B6-EF15-413A-8269-B2D92C48B168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A53C00B6-EF15-413A-8269-B2D92C48B168}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
