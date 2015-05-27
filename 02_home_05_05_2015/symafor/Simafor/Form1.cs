@@ -14,60 +14,91 @@ namespace Simafor
     public partial class Form1 : Form
     {
         Semaphore s = new Semaphore(3, 3, "My_SEMAPHORE"); // скільки можна заняти з початку (доступне місце ) , максимум який може доступитися
-          
+        int count = 0;
+
         public Form1()
         {
+
             InitializeComponent();
 
             for (int i = 0; i < 10; i++)
             {
                 comboBox1.Items.Add(i);
             }
-        }
 
-        List<Thread> lt = new List<Thread>();
+
+
+        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
             ThreadStart ts = new ThreadStart(Method1);
             Thread t = new Thread(ts);
             t.Name = "thread";
-        
+
             AddThread(t);
-          //  listBox1.Items.Add(t.Name + number.ToString());
+
         }
 
-      //  List<Thread> sli = new List<Thread>();
+        //public void AddThread()
         public void AddThread(Thread t)
         {
-            int number = 0;
-
-            foreach (Thread s in listBox1.Items)
-            {
-                if (t.Name.StartsWith("thread"))
-                {
-                    number++;
-                }
-                if (number > 0)
-                {
-                    t.Name = "thread" + number.ToString();
-                }
-            }
-
-            MessageBox.Show(t.Name);
+           listBox1.Items.Add(t.Name + " " + t.ManagedThreadId);
+           
+            //String thName = "Thread ";
+            //listBox1.Items.Add(thName + " " + Thread.CurrentThread.ManagedThreadId);
         }
 
+ 
         private void Method1()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                MessageBox.Show(i.ToString());
-            }
+            count++;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             s = new Semaphore(comboBox1.SelectedIndex + 1, comboBox1.SelectedIndex + 1);
         }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            listBox2.Items.Add(listBox1.SelectedItem);
+            listBox1.Items.Remove(listBox1.SelectedItem);
+        }
+
+
+        public void Method2(object obj)
+        {
+            Semaphore s = obj as Semaphore;
+            bool stop = false;
+
+            while (!stop)
+            {
+                if (s.WaitOne())
+                {
+                    try
+                    {
+                        //  Console.WriteLine("Поток {0} блокировку получил", Thread.CurrentThread.ManagedThreadId);
+                        //  Thread.Sleep(2000);
+                        Method1();
+                    }
+                    finally
+                    {
+                        stop = true;//коли завершиться пеший потік
+                        s.Release();
+                        //  Console.WriteLine("Поток {0} блокировку снял", Thread.CurrentThread.ManagedThreadId);
+                    }
+                }
+                else
+                {
+                    //  Console.WriteLine("Таймаут для потока {0} истек. Повторное ожидание", Thread.CurrentThread.ManagedThreadId);
+                }
+
+            }
+        }
+
+
+
     }
 }

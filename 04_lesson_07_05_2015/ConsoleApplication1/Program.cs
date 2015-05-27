@@ -13,25 +13,58 @@ namespace ConsoleApplication1
         {
             Console.WriteLine("Синхронизация мютексом:");
             Counter c = new Counter();
-
-            Thread[] threads = new Thread[5];
-            for (int i = 0; i < threads.Length; ++i)
+         
+            Mutex mtm = new Mutex(false, "SYNC_MUTEX");
+            if (mtm.WaitOne(0))
             {
-                threads[i] = new Thread(c.UpdateFields);
-                threads[i].Start();
+                Thread[] threads = new Thread[5];
+                for (int i = 0; i < threads.Length; ++i)
+                {
+                    threads[i] = new Thread(c.UpdateFields);
+                    threads[i].Start();
+                }
+
+                for (int i = 0; i < threads.Length; ++i)
+                    threads[i].Join();
+
+                Console.WriteLine("Count: {0}\n\n", c.Count);
+                Console.ReadKey();
+            }
+            else 
+            {
+                Console.WriteLine("-----");
+                Console.ReadKey();
             }
 
-            for (int i = 0; i < threads.Length; ++i)
-                threads[i].Join();
+        //Mutex t;
+        //    try
+        //    {
+        //        t = Mutex.OpenExisting("SYNC_MUTEX");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //       // Console.WriteLine(ex.Message);
+        //        t = new Mutex(false,"SYNC_MUTEX");
+        //    }
 
-            Console.WriteLine("Count: {0}\n\n", c.Count);
+        //    Mutex tt;
+        //    try
+        //    {
+        //        tt = Mutex.OpenExisting("SYNC_MUTEX");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
 
-        }
+           // Mutex ttt =
 
+        } // main
+     
         class Counter
-        {
-            int count;
-            Mutex m = new Mutex(false, "SYNC_MUTEX");
+        {         
+           int count;
+           //Mutex mtm = new Mutex(false, "SYNC_MUTEX");
 
             public int Count
             {

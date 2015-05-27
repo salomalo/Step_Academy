@@ -11,16 +11,12 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-
             Semaphore s = new Semaphore(3, 3, "My_SEMAPHORE"); // скільки можна заняти з початку (доступне місце ) , максимум який може доступитися
           
-
             for (int i = 0; i < 6; ++i)
                 ThreadPool.QueueUserWorkItem(SomeMethod, s);
 
             Console.ReadKey();
-
-
         }
 
 
@@ -48,6 +44,15 @@ namespace ConsoleApplication2
                 else
                     Console.WriteLine("Таймаут для потока {0} истек. Повторное ожидание", Thread.CurrentThread.ManagedThreadId);
             }
+            
         }
-    }
+
+
+
+
+
+
+
+
+    } // Program
 }
