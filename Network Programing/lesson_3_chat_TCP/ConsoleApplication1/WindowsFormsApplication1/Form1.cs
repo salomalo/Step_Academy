@@ -27,9 +27,10 @@ namespace WindowsFormsApplication1
 
         private void start_server_Click(object sender, EventArgs e)
         {
-            server = new Server();
+            server = new Server(tbIP.Text, tbPortServer.Text);
             server.OnTextRecieved += new EventHandler(TextRecieved);
             server.CreateServer();
+
         } // start listen 
 
 
@@ -38,7 +39,7 @@ namespace WindowsFormsApplication1
             Username = tbxUsername.Text;
 
             //server = new Server();
-            client = new Client();
+            client = new Client(tbIP.Text, tbMyPort.Text, tbPortServer.Text);
         }
 
 
@@ -70,6 +71,11 @@ namespace WindowsFormsApplication1
             {
                 this.chat.Text = text;
             }
+        }
+
+        private void chat_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

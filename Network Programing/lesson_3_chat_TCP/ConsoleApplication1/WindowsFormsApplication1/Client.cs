@@ -11,6 +11,7 @@ namespace WindowsFormsApplication1
     public class Client
     {
         IPAddress ipAddr;
+        IPAddress myIP;
 
         IPEndPoint ipEPServer;
         IPEndPoint ipEPClient;
@@ -21,13 +22,19 @@ namespace WindowsFormsApplication1
         byte[] buffer;
         int offset;
 
-        public Client()
+        public Client(string serverIP, string myPort, string serverPort)
         {
-            ipAddr = IPAddress.Parse("127.0.0.1");
+           //ipAddr = IPAddress.Parse("127.0.0.1");
 
-            ipEPServer = new IPEndPoint(ipAddr, 50000);
-            ipEPClient = new IPEndPoint(ipAddr, 50001);
+            ipAddr = IPAddress.Parse(serverIP);
+            myIP = IPAddress.Parse("127.0.0.1");
+
+            ipEPServer = new IPEndPoint(ipAddr, Int32.Parse(serverPort));
+      
+            // ipEPClient = new IPEndPoint(myIP, Int32.Parse(myPort));
+
         } // constructor
+
 
         public void CreateUseer()
         {

@@ -7,7 +7,7 @@ namespace WindowsFormsApplication1
 {
     public class Server
     {
-        private IPAddress ipAddr;
+        private IPAddress serverIP;
         private IPEndPoint ipEndPoint; //конечная точка(IP и порт)
 
         private Socket sListener;
@@ -17,11 +17,14 @@ namespace WindowsFormsApplication1
         public delegate void TextRecieved(object sender, EventArgs e);
         public event EventHandler OnTextRecieved;
 
-        public Server()
+        public Server(string _serverIP, string serverPort)
         {
-            ipAddr = IPAddress.Parse("127.0.0.1");
-            ipEndPoint = new IPEndPoint(ipAddr, 50000);
+            //serverIP = IPAddress.Parse("127.0.0.1");
+
+            serverIP = IPAddress.Parse(_serverIP);
+            ipEndPoint = new IPEndPoint(serverIP, Int32.Parse(serverPort));
             message = null;
+
         } // constructor
 
         public void CreateServer()

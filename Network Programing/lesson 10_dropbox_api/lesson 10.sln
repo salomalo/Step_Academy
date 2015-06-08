@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lesson 10", "lesson 10\lesson 10.csproj", "{D56A68A6-D0DB-4F62-AD9E-77197FF3229B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dropBox", "dropBox\dropBox.csproj", "{CBB2D02C-8450-4CF2-9EB3-31824DE3121B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D56A68A6-D0DB-4F62-AD9E-77197FF3229B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56A68A6-D0DB-4F62-AD9E-77197FF3229B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56A68A6-D0DB-4F62-AD9E-77197FF3229B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56A68A6-D0DB-4F62-AD9E-77197FF3229B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB2D02C-8450-4CF2-9EB3-31824DE3121B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB2D02C-8450-4CF2-9EB3-31824DE3121B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB2D02C-8450-4CF2-9EB3-31824DE3121B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB2D02C-8450-4CF2-9EB3-31824DE3121B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
