@@ -38,7 +38,8 @@ namespace WindowsFormsApplication1
         {
             Username = tbxUsername.Text;
 
-            //server = new Server();
+            //
+           // server = new Server(tbIP.Text, tbPortServer.Text);
             client = new Client(tbIP.Text, tbMyPort.Text, tbPortServer.Text);
         }
 

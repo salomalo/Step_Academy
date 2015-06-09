@@ -29,9 +29,9 @@ namespace WindowsFormsApplication1
             ipAddr = IPAddress.Parse(serverIP);
             myIP = IPAddress.Parse("127.0.0.1");
 
-            ipEPServer = new IPEndPoint(ipAddr, Int32.Parse(serverPort));
+            //ipEPServer = new IPEndPoint(ipAddr, Int32.Parse(serverPort));
       
-            // ipEPClient = new IPEndPoint(myIP, Int32.Parse(myPort));
+             ipEPClient = new IPEndPoint(myIP, Int32.Parse(myPort));
 
         } // constructor
 

@@ -12,10 +12,13 @@ namespace WindowsFormsApplication1
 
         private Socket sListener;
         public String message;
-        byte[] bytes;
+
+        byte[] buffer = new byte[1024];
+
 
         public delegate void TextRecieved(object sender, EventArgs e);
         public event EventHandler OnTextRecieved;
+
 
         public Server(string _serverIP, string serverPort)
         {
@@ -43,12 +46,14 @@ namespace WindowsFormsApplication1
             var lsock = res.AsyncState as Socket;
 
             Socket conect = lsock.EndAccept(res);
-            sListener.BeginAccept((new AsyncCallback(OnAccept)), lsock);
-            bytes = new byte[1024];
-            conect.BeginReceive(bytes, 0, 1024, SocketFlags.None, OnReceive, conect);
+            lsock.BeginAccept((new AsyncCallback(OnAccept)), lsock);
+            //sListener.BeginAccept((new AsyncCallback(OnAccept)), lsock);
+            
+
+            conect.BeginReceive(buffer, 0, 1024, SocketFlags.None, OnReceive, conect);
         }
 
-
+        
         void OnReceive(IAsyncResult res)
         {
             var lsock = (res.AsyncState as Socket);
@@ -56,20 +61,24 @@ namespace WindowsFormsApplication1
 
             if (recievedLength > 0)
             {
-                message += Encoding.UTF8.GetString(bytes, 0, recievedLength);
-                (lsock as Socket).BeginReceive(bytes, 0, 1024, SocketFlags.None, OnReceive, (lsock as Socket));
+                message = Encoding.UTF8.GetString(buffer, 0, recievedLength);
+                (lsock as Socket).BeginReceive(buffer, 0, 1024, SocketFlags.None, OnReceive, (lsock as Socket));
+
 
                 if (recievedLength < 1024)
                 {
                     OnTextRecieved(this, EventArgs.Empty);
-                }
 
+                }
+ 
             }
+
             else
             {
-                (lsock as Socket).Shutdown(SocketShutdown.Both);
-                (lsock as Socket).Close();
+                lsock.Shutdown(SocketShutdown.Both);
+                lsock.Close();
             }
+
         }
 
     }
