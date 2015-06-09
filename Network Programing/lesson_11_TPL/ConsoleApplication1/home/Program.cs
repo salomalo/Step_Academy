@@ -21,20 +21,20 @@ namespace home
 
             Task <int>_task3 = _task2.ContinueWith((res) => {
                 var sum = a + b;
-                return Tuple.Create(sum);
+                return Tuple.Create<int>(sum);
             })
             .ContinueWith((res) =>
             {
                 var sum = res.Result.Item1;
                 var min = a > b ? a : b;
-                return Tuple.Create(sum, min);
+                return Tuple.Create<int,int>(sum, min);
             })
             .ContinueWith((res) =>
             {
                 var sum = res.Result.Item1;
                 var min = res.Result.Item2;
                 var mid = (a + b) / 2;
-                return Tuple.Create(sum, min, mid);
+                return Tuple.Create<int,int,int>(sum, min, mid);
             })
             .ContinueWith((res) => {
                 Console.WriteLine("a {0} b {1} sum{2} min{3} mid {4}", a, b, res.Result.Item1, res.Result.Item2, res.Result.Item3);

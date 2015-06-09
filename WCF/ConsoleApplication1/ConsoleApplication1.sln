@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{17BC0B13-02E8-4F7D-A843-17F586E583AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{7B7887F1-2DFC-4895-BDAE-422C389A7CAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17BC0B13-02E8-4F7D-A843-17F586E583AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BC0B13-02E8-4F7D-A843-17F586E583AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BC0B13-02E8-4F7D-A843-17F586E583AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BC0B13-02E8-4F7D-A843-17F586E583AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B7887F1-2DFC-4895-BDAE-422C389A7CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B7887F1-2DFC-4895-BDAE-422C389A7CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B7887F1-2DFC-4895-BDAE-422C389A7CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B7887F1-2DFC-4895-BDAE-422C389A7CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
