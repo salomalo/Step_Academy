@@ -118,6 +118,7 @@
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(120, 95);
             this.listBox3.TabIndex = 11;
+            this.listBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseClick);
             // 
             // Form1
             // 

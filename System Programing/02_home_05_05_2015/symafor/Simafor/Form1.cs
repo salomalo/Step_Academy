@@ -18,7 +18,6 @@ namespace Simafor
 
         public Form1()
         {
-
             InitializeComponent();
 
             for (int i = 0; i < 10; i++)
@@ -26,8 +25,8 @@ namespace Simafor
                 comboBox1.Items.Add(i);
             }
 
-
-
+           
+       
         }
         
 
@@ -39,18 +38,20 @@ namespace Simafor
 
             AddThread(t);
 
+
+            MessageBox.Show(listBox1.Items.Count.ToString());
+
+            ////
+            //for (int i = 0; i < listBox1.Items.Count; ++i)
+            //   ThreadPool.QueueUserWorkItem(Method2, s);
+        
         }
 
-        //public void AddThread()
         public void AddThread(Thread t)
         {
-           listBox1.Items.Add(t.Name + " " + t.ManagedThreadId);
-           
-            //String thName = "Thread ";
-            //listBox1.Items.Add(thName + " " + Thread.CurrentThread.ManagedThreadId);
+           listBox1.Items.Add(t.Name + " " + t.ManagedThreadId);      
         }
 
- 
         private void Method1()
         {
             count++;
@@ -58,7 +59,8 @@ namespace Simafor
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            s = new Semaphore(comboBox1.SelectedIndex + 1, comboBox1.SelectedIndex + 1);
+            int count=comboBox1.SelectedIndex + 1;
+            s = new Semaphore(count, count, "My_SEMAPHORE");
         }
 
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
@@ -66,7 +68,6 @@ namespace Simafor
             listBox2.Items.Add(listBox1.SelectedItem);
             listBox1.Items.Remove(listBox1.SelectedItem);
         }
-
 
         public void Method2(object obj)
         {
@@ -96,6 +97,14 @@ namespace Simafor
                 }
 
             }
+        }
+
+        private void listBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            listBox2.Items.Remove(listBox1.SelectedItem);
+
+
         }
 
 
