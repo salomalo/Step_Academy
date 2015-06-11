@@ -5,6 +5,8 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using Client_Proxy.ServiceNS;
+
 
 namespace Client_Proxy
 {
@@ -12,13 +14,10 @@ namespace Client_Proxy
     {
         static void Main(string[] args)
         {
+            GetDiskInfoClient GetDisk = new GetDiskInfoClient();
+            string result = GetDisk.FreeSpace("D");
 
-            //ChannelFactory<IGetDiskInfo> factory = new ChannelFactory<IGetDiskInfo>(
-            //   new WSHttpBinding()
-            //   , new EndpointAddress("http://localhost/GetDiskInfo/Ep1"));
-           // IGetDiskInfo channel = factory.CreateChannel();
-           // string result = channel.FreeSpace("D");
-           // Console.WriteLine(result);
+            Console.WriteLine(result);
         }
     }
 
@@ -29,7 +28,6 @@ namespace Client_Proxy
         string FreeSpace(string diskName);
         [OperationContract]
         string TotalSpace(string diskName);
-
     }
 
 }
