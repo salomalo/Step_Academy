@@ -13,12 +13,13 @@ namespace MyDiskInfo
     {
         static void Main(string[] args)
         {
+
             ServiceHost sh = new ServiceHost(typeof(GetDiskInfo), new Uri("http://localhost/GetDiskInfo/"));
-            //ServiceMetadataBehavior behavior = new ServiceMetadataBehavior();      
+            //ServiceMetadataBehavior behavior = new ServiceMetadataBehavior();
             //behavior.HttpGetEnabled = true;
             //sh.Description.Behaviors.Add(behavior);
             //sh.AddServiceEndpoint(typeof(IMetadataExchange), MetadataExchangeBindings.CreateMexHttpBinding(), "mex");
-            sh.Open();
+            //sh.Open();
             Console.WriteLine("enter");
             Console.ReadLine();
         }
