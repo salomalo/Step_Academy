@@ -26,6 +26,7 @@ namespace ConsoleApplication1
         }
     }
 
+	
     class My
     {
         public int intA { set; get; }

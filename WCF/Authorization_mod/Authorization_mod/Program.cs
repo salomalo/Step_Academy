@@ -1,4 +1,4 @@
-﻿//using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +6,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-
 // database for module
+
 //create database Author_Mod
 //go
 
@@ -31,39 +31,34 @@ using System.Threading.Tasks;
 
 //select * from [Users]
 
-
 namespace Authorization_mod
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //ServiceHost sh = new ServiceHost(typeof(GetUserInfo), new Uri("http://localhost/GetUserInfo/"));
-            //sh.Open();
-            //Console.WriteLine("enter");
-            //Console.ReadLine();
+            ServiceHost sh = new ServiceHost(typeof(GetUserInfo), new Uri("http://localhost/GetUserInfo/"));
+            sh.Open();
+            Console.WriteLine("enter");
+            Console.ReadLine();
 
-            GetUserInfo tmp = new GetUserInfo();
-            tmp.Authorize("romaska", "1234test");
-         
-            //   tmp.GetInfo("toc");
+          // GetUserInfo tmp = new GetUserInfo();
+          // tmp.Authorize("romaska", "1234test");     
+    
+           // tmp.GetInfo("toc");
         }
     }
 
-
     public class User
     {
-        public int Id;
-        public string Name;
-        public string Surname;
+        public string Name;      
         public string LoginName;
-        public string Pasword;
+        
+        //public string Surname;
+        //public string Pasword;
         public string Token;
-        public DateTime ExpDate;
-
-    } // сереалізувати юзера в клас
-
-
+        //public DateTime ExpDate;
+    }
 
     [ServiceContract]
     public interface IGetUserInfo
@@ -73,7 +68,6 @@ namespace Authorization_mod
         [OperationContract]
         string Authorize(string LoginName, string Pasword);
     }
-
 
     public class GetUserInfo : IGetUserInfo
     {
@@ -87,20 +81,17 @@ namespace Authorization_mod
                 if (res.FirstOrDefault() != null) // якщо користувач з таким токеном є
                 {
                  //Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
-             //           return JsonConvert.SerializeObject(res.FirstOrDefault());
+                       return JsonConvert.SerializeObject(res.FirstOrDefault());
                 }
 
                 if (res.FirstOrDefault() == null) // якщо користувача з таким токеном НЕМАє
                 {
                     //Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
-             //       return JsonConvert.SerializeObject("wrong token");
+                   return JsonConvert.SerializeObject("wrong token");
                 }
-
             }
-
             return null;
         } // GetInfo
-
 
         public string Token_Generator(int length)
         {
@@ -112,11 +103,11 @@ namespace Authorization_mod
                 result.Append(characters[random.Next(characters.Length)]);
             }
             return result.ToString();
-        } // token creator
-
+        } //Token_Generator
 
         public string Authorize(string LoginName, string Pasword)
         {
+            User tmp = new User();
          
             using (var ctx = new Author_ModEntities1())
             {
@@ -126,45 +117,51 @@ namespace Authorization_mod
 
                 if (res.FirstOrDefault() != null)
                 {
-                    if (res.FirstOrDefault().ExpDate >= DateTime.Today) // якщо такий користувач з логыном ы пасвордом э ы токен в нього  дыючий
+                    if (res.FirstOrDefault().ExpDate >= DateTime.Now) // якщо такий користувач з логыном ы пасвордом э ы токен в нього  дыючий
                     {
-                        Console.WriteLine(res.FirstOrDefault().Name);
-                //        return JsonConvert.SerializeObject(res.FirstOrDefault());
+                        tmp.Name = res.FirstOrDefault().Name;
+                        tmp.LoginName = res.FirstOrDefault().LoginName;
+                      
+                        // Console.WriteLine(tmp.Name);
+                        return JsonConvert.SerializeObject(tmp);
+
                     }
-                    else // якщо такий користувач з логыном ы пасвордом э але ще немаэ токена (зареэстрований але ще не авторизований, або токен недыючий)
+                    else if (res.FirstOrDefault().ExpDate < DateTime.Now || res.FirstOrDefault().Token == null)
                     {
                         res.FirstOrDefault().ExpDate = DateTime.Now;
                         res.FirstOrDefault().Token = Token_Generator(15);
                         ctx.SaveChanges();
-               //         return JsonConvert.SerializeObject(res.FirstOrDefault());
+                        //return JsonConvert.SerializeObject(res.FirstOrDefault());
+
+                        tmp.Name = res.FirstOrDefault().Name;
+                        tmp.LoginName = res.FirstOrDefault().LoginName;
+                        tmp.Token = res.FirstOrDefault().Token;
+                      //  Console.WriteLine(tmp.Name);
+
+                        return JsonConvert.SerializeObject(tmp);
                     }
                 }
+             
+                //var res2 = from e in ctx.Users
+                //          where e.LoginName == LoginName && e.Pasword != Pasword
+                //          select e;
+
+                //if (res2.FirstOrDefault() != null)
+                //{
+                //   return JsonConvert.SerializeObject("password inccorect");
+                //}
 
 
-                var res2 = from e in ctx.Users
-                          where e.LoginName == LoginName && e.Pasword != Pasword
-                          select e;
+                //var res3 = from e in ctx.Users
+                //           where e.LoginName != LoginName && e.Pasword == Pasword
+                //           select e;
 
-                if (res2.FirstOrDefault() != null)
-                {
-              //      return JsonConvert.SerializeObject("password inccorect");
-                }
+                //if (res3.FirstOrDefault() != null)
+                //{
+                //   return JsonConvert.SerializeObject("login inccorect");
+                //}
 
-
-                var res3 = from e in ctx.Users
-                           where e.LoginName != LoginName && e.Pasword == Pasword
-                           select e;
-
-                if (res3.FirstOrDefault() != null)
-                {
-              //      return JsonConvert.SerializeObject("login inccorect");
-                }
-
-
-
-
-
-                return null;
+                return "error";
             }
 
 
