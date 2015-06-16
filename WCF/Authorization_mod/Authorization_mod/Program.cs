@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿//using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,14 +45,15 @@ namespace Authorization_mod
 
             GetUserInfo tmp = new GetUserInfo();
             tmp.Authorize("romaska", "1234test");
-            tmp.GetInfo("toc");
+         
+            //   tmp.GetInfo("toc");
         }
     }
 
 
     public class User
     {
-        public int Name;
+        public int Id;
         public string Name;
         public string Surname;
         public string LoginName;
@@ -83,10 +84,16 @@ namespace Authorization_mod
                 var res = from e in ctx.Users
                           where e.Token == token
                           select e;
-                if (res.FirstOrDefault() != null)
+                if (res.FirstOrDefault() != null) // якщо користувач з таким токеном є
                 {
-                    Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
-                        return JsonConvert.SerializeObject(res.FirstOrDefault());
+                 //Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
+             //           return JsonConvert.SerializeObject(res.FirstOrDefault());
+                }
+
+                if (res.FirstOrDefault() == null) // якщо користувача з таким токеном НЕМАє
+                {
+                    //Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
+             //       return JsonConvert.SerializeObject("wrong token");
                 }
 
             }
@@ -95,14 +102,22 @@ namespace Authorization_mod
         } // GetInfo
 
 
-        public void Token_Generator()
+        public string Token_Generator(int length)
         {
-
+            Random random = new Random();
+            string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            StringBuilder result = new StringBuilder(length);
+            for (int i = 0; i < length; i++)
+            {
+                result.Append(characters[random.Next(characters.Length)]);
+            }
+            return result.ToString();
         } // token creator
 
 
         public string Authorize(string LoginName, string Pasword)
         {
+         
             using (var ctx = new Author_ModEntities1())
             {
                 var res = from e in ctx.Users
@@ -111,18 +126,44 @@ namespace Authorization_mod
 
                 if (res.FirstOrDefault() != null)
                 {
-                    if (res.FirstOrDefault().ExpDate >= DateTime.Today)
+                    if (res.FirstOrDefault().ExpDate >= DateTime.Today) // якщо такий користувач з логыном ы пасвордом э ы токен в нього  дыючий
                     {
-                        return JsonConvert.SerializeObject(res.FirstOrDefault());
+                        Console.WriteLine(res.FirstOrDefault().Name);
+                //        return JsonConvert.SerializeObject(res.FirstOrDefault());
                     }
-                    else
+                    else // якщо такий користувач з логыном ы пасвордом э але ще немаэ токена (зареэстрований але ще не авторизований, або токен недыючий)
                     {
                         res.FirstOrDefault().ExpDate = DateTime.Now;
-                        res.FirstOrDefault().Token = "toc"; // Token_Generator()
+                        res.FirstOrDefault().Token = Token_Generator(15);
                         ctx.SaveChanges();
-                        return JsonConvert.SerializeObject(res.FirstOrDefault());
+               //         return JsonConvert.SerializeObject(res.FirstOrDefault());
                     }
                 }
+
+
+                var res2 = from e in ctx.Users
+                          where e.LoginName == LoginName && e.Pasword != Pasword
+                          select e;
+
+                if (res2.FirstOrDefault() != null)
+                {
+              //      return JsonConvert.SerializeObject("password inccorect");
+                }
+
+
+                var res3 = from e in ctx.Users
+                           where e.LoginName != LoginName && e.Pasword == Pasword
+                           select e;
+
+                if (res3.FirstOrDefault() != null)
+                {
+              //      return JsonConvert.SerializeObject("login inccorect");
+                }
+
+
+
+
+
                 return null;
             }
 
