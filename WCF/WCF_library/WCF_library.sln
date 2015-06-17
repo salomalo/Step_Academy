@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_library", "WCF_library\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService1", "WindowsService1\WindowsService1.csproj", "{6A9E8614-EA79-4429-88A3-6F0C54122C1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{C56686C2-6DE0-4D0A-84AD-FAC2D344920D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{15B3E0D2-6217-493A-A690-158C497F5318} = {15B3E0D2-6217-493A-A690-158C497F5318}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +24,10 @@ Global
 		{6A9E8614-EA79-4429-88A3-6F0C54122C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A9E8614-EA79-4429-88A3-6F0C54122C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A9E8614-EA79-4429-88A3-6F0C54122C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C56686C2-6DE0-4D0A-84AD-FAC2D344920D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C56686C2-6DE0-4D0A-84AD-FAC2D344920D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C56686C2-6DE0-4D0A-84AD-FAC2D344920D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C56686C2-6DE0-4D0A-84AD-FAC2D344920D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

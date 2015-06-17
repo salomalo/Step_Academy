@@ -4,31 +4,42 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using System.ServiceModel;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.ServiceModel;
+
 namespace WindowsService1
 {
-    public partial class Service1 : ServiceBase
+    public partial class Win_Service1 : ServiceBase
     {
-        ServiceHost sh;
-        public Service1()
+       internal static ServiceHost sh;
+
+        public Win_Service1()
         {
             InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
         {
-            sh = new ServiceHost(typeof(Service1), new Uri("http://localhost/Service1/"));
-            sh.Open();
+            if (sh != null)
+            {
+                sh.Close();
+            }
+            sh = new ServiceHost(typeof(WCF_library.Service1));
+                sh.Open();
+            
         }
 
 
         protected override void OnStop()
         {
-            sh.Close();
+            if (sh != null)
+            {
+                sh.Close();
+                sh = null;
+            }
         }
 
 
