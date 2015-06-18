@@ -16,6 +16,7 @@ namespace _04_parametr_thread
             Thread t = new Thread(pts);
             t.Start((object)"2");
 
+			// create list<object>
 
         }
 

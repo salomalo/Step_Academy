@@ -32,6 +32,7 @@ namespace bank_
     }
 
     //класс службы	
+    //[ServiceBehavior(ConcurrencyMode=ConcurrencyMode.Multiple)]
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     //[ServiceBehavior(InstanceContextMode=InstanceContextMode.Single)]
     public class BankService : IBankService
