@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ using System.Threading.Tasks;
 //,LoginName nvarchar (512) not NULL
 //,Pasword nvarchar (512) not NULL
 //,Token nvarchar (512) 
+//,Hash nvarchar (512) 
+//,Sult nvarchar (512) 
 //,ExpDate DATETIME
 //)
 
@@ -54,10 +57,11 @@ namespace Authorization_mod
         public string Name;      
         public string LoginName;
         
-        //public string Surname;
-        //public string Pasword;
+        public string Surname;
+        public string Pasword;
         public string Token;
-        //public DateTime ExpDate;
+        
+        public DateTime ExpDate;
     }
 
     [ServiceContract]
@@ -66,7 +70,7 @@ namespace Authorization_mod
         [OperationContract]
         string GetInfo(string token);
         [OperationContract]
-        string Authorize(string LoginName, string Pasword);
+        string Authorize(string LoginName, string Pasword, );
     }
 
     public class GetUserInfo : IGetUserInfo
@@ -93,7 +97,7 @@ namespace Authorization_mod
             return null;
         } // GetInfo
 
-        public string Token_Generator(int length)
+        public string Token_Generator(int length) //make sult
         {
             Random random = new Random();
             string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -105,7 +109,66 @@ namespace Authorization_mod
             return result.ToString();
         } //Token_Generator
 
-        public string Authorize(string LoginName, string Pasword)
+
+                public string MakeHash(string input)
+        {
+            // step 1, calculate MD5 hash from input
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+            // step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+
+
+                    public string Hash_Sult(string input)
+        {
+            string has_sul = MakeHash(input) + Token_Generator(10);
+            return has_sul;     
+        }
+
+
+        public User Registration(string LoginName, string Pasword,string name,string surname)
+        {
+            User tmp = new User();
+            using (var ctx = new Author_ModEntities1())
+            {
+                var res = from e in ctx.Users
+                          where e.LoginName == LoginName && e.Pasword == Pasword
+                          select e;
+
+                if (res.FirstOrDefault() == null)
+                {
+                    res.FirstOrDefault().LoginName = LoginName;
+                    res.FirstOrDefault().Pasword = Pasword;
+                    res.FirstOrDefault().Name = name;
+                    res.FirstOrDefault().Surname = surname;
+
+                   tmp.LoginName = res.FirstOrDefault().LoginName;
+                   tmp.Pasword = res.FirstOrDefault().Pasword;
+                   tmp.Name = res.FirstOrDefault().Name;
+                   tmp.Name =res.FirstOrDefault().Surname;
+                  
+                    tmp.Hash = MakeHash(Pasword);
+                    tmp.Sult = Token_Generator(10);
+
+                    return tmp;
+                }
+            
+            }
+
+            return null;
+        }
+
+
+
+        public string Authorize(string LoginName, string Pasword, string name, string surname)
         {
             User tmp = new User();
          
@@ -121,7 +184,10 @@ namespace Authorization_mod
                     {
                         tmp.Name = res.FirstOrDefault().Name;
                         tmp.LoginName = res.FirstOrDefault().LoginName;
-                      
+                    
+
+
+
                         // Console.WriteLine(tmp.Name);
                         return JsonConvert.SerializeObject(tmp);
 
@@ -141,27 +207,15 @@ namespace Authorization_mod
                         return JsonConvert.SerializeObject(tmp);
                     }
                 }
-             
-                //var res2 = from e in ctx.Users
-                //          where e.LoginName == LoginName && e.Pasword != Pasword
-                //          select e;
 
-                //if (res2.FirstOrDefault() != null)
-                //{
-                //   return JsonConvert.SerializeObject("password inccorect");
-                //}
+                if(res.FirstOrDefault().LoginName != LoginName && res.FirstOrDefault().Pasword != Pasword)
+                {
+                  tmp = Registration(LoginName, Pasword, name, surname);
+                  return  JsonConvert.SerializeObject(tmp);
+                }
 
 
-                //var res3 = from e in ctx.Users
-                //           where e.LoginName != LoginName && e.Pasword == Pasword
-                //           select e;
-
-                //if (res3.FirstOrDefault() != null)
-                //{
-                //   return JsonConvert.SerializeObject("login inccorect");
-                //}
-
-                return "error";
+                return "login error";
             }
 
 

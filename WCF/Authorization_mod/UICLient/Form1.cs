@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,10 +18,11 @@ namespace UICLient
         public string Name;
         public string LoginName;
 
-        //public List<string> Surname;
-        //public List<string> Pasword;
+        public string Surname;
+        public string Pasword;
         public string Token;
-        //public DateTime ExpDate;
+        
+        public DateTime ExpDate;
     }
 
     public partial class Form1 : Form
@@ -35,7 +37,7 @@ namespace UICLient
 
         private void btnAuthorize_Click(object sender, EventArgs e)
         {
-            var token = user.Authorize(usLogin.Text, usPass.Text);
+            var token = user.Authorize(usLogin.Text, MakeHash(Hash_Sult(usPass.Text)) //, usName.Text, usSurname/Text );
         
             var obj = JsonConvert.DeserializeObject<User>(token);
 
@@ -45,6 +47,44 @@ namespace UICLient
 
 
         }
+
+        public string MakeSult(int length)
+        {
+            Random random = new Random();
+            string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            StringBuilder result = new StringBuilder(length);
+            for (int i = 0; i < length; i++)
+            {
+                result.Append(characters[random.Next(characters.Length)]);
+            }
+            return result.ToString();
+        } //Token_Generator
+
+
+        public string Hash_Sult(string input)
+        {
+            string has_sul = MakeHash(input) + MakeSult(10);
+            return has_sul;     
+        }
+
+
+        public string MakeHash(string input)
+        {
+            // step 1, calculate MD5 hash from input
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+            // step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+
+
 
     }
 
