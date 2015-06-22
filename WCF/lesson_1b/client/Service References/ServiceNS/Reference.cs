@@ -20,6 +20,12 @@ namespace client.ServiceNS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyMath/Add", ReplyAction="http://tempuri.org/IMyMath/AddResponse")]
         System.Threading.Tasks.Task<int> AddAsync(int a, int b);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyMath/Divide", ReplyAction="http://tempuri.org/IMyMath/DivideResponse")]
+        int Divide(int x);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyMath/Divide", ReplyAction="http://tempuri.org/IMyMath/DivideResponse")]
+        System.Threading.Tasks.Task<int> DivideAsync(int x);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace client.ServiceNS {
         
         public System.Threading.Tasks.Task<int> AddAsync(int a, int b) {
             return base.Channel.AddAsync(a, b);
+        }
+        
+        public int Divide(int x) {
+            return base.Channel.Divide(x);
+        }
+        
+        public System.Threading.Tasks.Task<int> DivideAsync(int x) {
+            return base.Channel.DivideAsync(x);
         }
     }
 }

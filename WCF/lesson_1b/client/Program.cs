@@ -1,5 +1,7 @@
-﻿using client.ServiceNS;
+﻿
+using client.ServiceNS;
 using System;
+using System.ServiceModel;
 //24 st
 namespace client
 {
@@ -8,17 +10,18 @@ namespace client
         static void Main(string[] args)
         {
             MyMathClient a = new MyMathClient();
-            int result = a.Add(3, 7);
+          //  int result = a.Add(3, 7);
 
 
 
-            //ChannelFactory<IMyMath>factory =new ChannelFactory<IMyMath>(
-            //    new WSHttpBinding()
-            //    ,new EndpointAddress("http://localhost/MyMath/Ep1"));
+            ChannelFactory<IMyMath>factory =new ChannelFactory<IMyMath>(
+                new WSHttpBinding()
+                ,new EndpointAddress("http://localhost/MyMath/Ep1"));
 
-            //IMyMath channel = factory.CreateChannel();
-            //int result = channel.Add(3,5);
-            Console.WriteLine(result);
+            IMyMath channel = factory.CreateChannel();
+           // int result = channel.Add(3,5);
+            int result = channel.Divide(5);
+           Console.WriteLine(result);
             a.Close();
         }
     }

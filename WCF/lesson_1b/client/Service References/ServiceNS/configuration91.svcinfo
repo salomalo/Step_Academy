@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="XctzF/QCoe4URR3hdSKTeoUuoEE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="YTJ3g4U5NQdG9PABD1oDpi23huQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IMyMath">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IMyMath" contract="ServiceNS.IMyMath" bindingType="wsHttpBinding" address="http://localhost/MyMath/Ep1/Ep1" bindingConfiguration="WSHttpBinding_IMyMath">
+    <endpoint name="WSHttpBinding_IMyMath" contract="ServiceNS.IMyMath" bindingType="wsHttpBinding" address="http://localhost/MyMath/Ep1" bindingConfiguration="WSHttpBinding_IMyMath">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost/MyMath/Ep1/Ep1</serializedValue>
+          <serializedValue>http://localhost/MyMath/Ep1</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

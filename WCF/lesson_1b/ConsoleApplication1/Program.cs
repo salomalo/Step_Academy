@@ -8,13 +8,9 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            //ServiceHost sh = ServiceHost(typeof(MyMath));
-            //sh.AddServiceEndpoint(
-
             ServiceHost sh = new ServiceHost(typeof(MyMath),new Uri("http://localhost/MyMath/Ep1"));
           
-           // sh.AddServiceEndpoint(typeof(IMyMath), new WSHttpBinding(), "http://localhost/MyMath/Ep1");
-
+            sh.AddServiceEndpoint(typeof(IMyMath), new WSHttpBinding(), "http://localhost/MyMath/Ep1");
             // новий обєкт поведінки
             ServiceMetadataBehavior behavior = new ServiceMetadataBehavior();
             //дозволяємо доступ по протоколу Http
@@ -33,29 +29,29 @@ namespace ConsoleApplication1
     }
 
 
-    //[ServiceContract]
-    //public class MyMath
-    //{
-    //    [OperationContract]
-    //    public int Add(int a,int b)
-    //    {
-    //        return a + b;
-    //    }   
-    //}
-
-    [ServiceContract] // контракт служби
+    [ServiceContract ]  // контракт служби
     public interface IMyMath
     {
         [OperationContract]
         int Add(int a, int b);
+        [OperationContract]
+        int Divide(int x);
     }
 
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class MyMath : IMyMath
     {       
         public int Add(int a, int b)
         {
             return a + b;
         }
+
+        public int Divide(int x)
+        {
+            int b = 0 ;
+            return x/b;
+        }
+
     }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9f21b713-d207-4b2b-9837-19f3864b621e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c6e1e60d-e08d-4c40-b5ba-43bb2600598b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost/MyMath/Ep1" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MyMath.wsdl" MetadataType="Wsdl" ID="9a7e603c-da06-473a-97a6-2c8c77c36c23" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?wsdl" />
-    <MetadataFile FileName="Ep1.xsd" MetadataType="Schema" ID="4056a902-3ea8-4518-8c34-b3c89a5907c1" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?xsd=xsd1" />
-    <MetadataFile FileName="Ep11.xsd" MetadataType="Schema" ID="ba49c2cd-1b64-4124-b28b-28ed5cf2ce86" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?xsd=xsd0" />
-    <MetadataFile FileName="Ep1.disco" MetadataType="Disco" ID="44ef9d87-64fa-4856-a4aa-8f7d6c920f7c" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?disco" />
+    <MetadataFile FileName="MyMath.wsdl" MetadataType="Wsdl" ID="a02de652-2393-4822-96b0-4e8de39bacb0" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?wsdl" />
+    <MetadataFile FileName="Ep1.xsd" MetadataType="Schema" ID="1005f422-7430-4a9b-9ba3-734e80af9168" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?xsd=xsd1" />
+    <MetadataFile FileName="Ep11.xsd" MetadataType="Schema" ID="9a6aa5e8-9b3c-4c66-b746-1989bfd6e033" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?xsd=xsd0" />
+    <MetadataFile FileName="Ep1.disco" MetadataType="Disco" ID="fc53828d-e31c-44cc-9a47-6db7cf529948" SourceId="1" SourceUrl="http://localhost/MyMath/Ep1?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
