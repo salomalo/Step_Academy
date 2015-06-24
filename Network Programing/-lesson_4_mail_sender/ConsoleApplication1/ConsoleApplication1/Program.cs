@@ -14,19 +14,12 @@ namespace ConsoleApplication1
         {
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("okssanamel@gmail.com", "GreenDay31"), // from who
+                Credentials = new NetworkCredential("okssanamel@gmail.com", ""), // from who
                 EnableSsl = true
-            };
-            
-            client.Send("okssanamel@gmail.com","okssanamel@gmail.com","te te te","yuo");
-            
+            };          
+           // client.Send("okssanamel@gmail.com","okssanamel@gmail.com","test 007","hello world");
+            client.Send("okssanamel@gmail.com", "denis.datsiuk@gmail.com", "-- 007 --", "hello world");
             MailMessage o = new MailMessage();
-            
-
-
-
-
-
         }
     }
 }

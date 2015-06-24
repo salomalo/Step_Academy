@@ -21,7 +21,7 @@ namespace ui_API_VK
             InitializeComponent();
         }
 
-        string token = "c9523bd80ec68726b664273d7277a6fedd381261b57939eb64deac42e29ecc2249f840751928f89304683";
+        string token = "76286ec72814e280c1869ca473ee0645ff3717b1a7baaa540df4bca8eea1d18f70cbcd052ca31aa222016";
 
         private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {

@@ -6,20 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace lesson
 {
     class Program
     {
         static void Main(string[] args)
         {
-          List<Message> qwe = 
-            FetchAllMessages("pop3.ukr.net", 110, false, "sarah_16", "GreenDay313");
-
+          List<Message> qwe =
+            FetchAllMessages("pop.gmail.com", 995, true, "okssanamel@gmail.com", "");
 
           for (int i=0; i < 10; i++)
           {
               Console.WriteLine(qwe[i].Headers.Subject);
           }
+
+        //  Console.WriteLine(qwe[1].Headers.Subject);
 
             //foreach (Message m in qwe)
             //{
@@ -27,10 +29,9 @@ namespace lesson
             //}
         }
 
-        //http://hpop.sourceforge.net/exampleFetchAllMessages.php
+        
         public static List<Message> FetchAllMessages(string hostname, int port, bool useSsl, string username, string password)
         {
-            // The client disconnects from the server when being disposed
             using (Pop3Client client = new Pop3Client())
             {
                 client.Connect(hostname, port, useSsl);
@@ -40,13 +41,10 @@ namespace lesson
 
                 List<Message> allMessages = new List<Message>(messageCount);
                
-
                 for (int i = messageCount; i > 0; i--)
                 {
                     allMessages.Add(client.GetMessage(i));
                 }
-
-                // Now return the fetched messages
                 return allMessages;
             }
         }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dns", "dns\dns.csproj", "{CC735A22-5525-4417-B219-B060BF2A687B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{6EE1B49D-59F6-429C-9866-E9213CC3A9F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Request", "WindowsFormsApplication1\Request.csproj", "{6EE1B49D-59F6-429C-9866-E9213CC3A9F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

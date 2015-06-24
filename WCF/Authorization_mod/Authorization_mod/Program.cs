@@ -60,7 +60,10 @@ namespace Authorization_mod
         public string Surname;
         public string Pasword;
         public string Token;
-        
+
+        public string Hash;
+        public string Sult;
+
         public DateTime ExpDate;
     }
 
@@ -70,7 +73,7 @@ namespace Authorization_mod
         [OperationContract]
         string GetInfo(string token);
         [OperationContract]
-        string Authorize(string LoginName, string Pasword, );
+        string Authorize(string LoginName, string Pasword );
     }
 
     public class GetUserInfo : IGetUserInfo
@@ -84,6 +87,7 @@ namespace Authorization_mod
                           select e;
                 if (res.FirstOrDefault() != null) // якщо користувач з таким токеном є
                 {
+                 //   Sult = res.FirstOrDefault().Sult;
                  //Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
                        return JsonConvert.SerializeObject(res.FirstOrDefault());
                 }
@@ -155,8 +159,7 @@ namespace Authorization_mod
                    tmp.Name = res.FirstOrDefault().Name;
                    tmp.Name =res.FirstOrDefault().Surname;
                   
-                    tmp.Hash = MakeHash(Pasword);
-                    tmp.Sult = Token_Generator(10);
+                    
 
                     return tmp;
                 }
