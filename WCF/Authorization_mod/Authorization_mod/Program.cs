@@ -45,26 +45,26 @@ namespace Authorization_mod
             Console.WriteLine("enter");
             Console.ReadLine();
 
-          // GetUserInfo tmp = new GetUserInfo();
-          // tmp.Authorize("romaska", "1234test");     
-    
-           // tmp.GetInfo("toc");
+            // GetUserInfo tmp = new GetUserInfo();
+            // tmp.Authorize("romaska", "1234test");     
+
+            // tmp.GetInfo("toc");
         }
     }
 
     public class User
     {
-        public string Name;      
         public string LoginName;
-        
-        public string Surname;
         public string Pasword;
+
+        public string Name;
+        public string Surname;
+
         public string Token;
-
-        public string Hash;
-        public string Sult;
-
         public DateTime ExpDate;
+
+        public string PasHash;
+        public string Sult;
     }
 
     [ServiceContract]
@@ -73,29 +73,30 @@ namespace Authorization_mod
         [OperationContract]
         string GetInfo(string token);
         [OperationContract]
-        string Authorize(string LoginName, string Pasword );
+        string Authorize(string LoginName, string Pasword, string name, string surname);
+        [OperationContract]
+        string GetSult(string LoginName);
     }
 
     public class GetUserInfo : IGetUserInfo
     {
         public string GetInfo(string token)
         {
-            using (var ctx = new Author_ModEntities1())
+            using (var ctx = new Author_ModEntities2())
             {
                 var res = from e in ctx.Users
                           where e.Token == token
                           select e;
                 if (res.FirstOrDefault() != null) // якщо користувач з таким токеном є
                 {
-                 //   Sult = res.FirstOrDefault().Sult;
-                 //Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
-                       return JsonConvert.SerializeObject(res.FirstOrDefault());
+                   res.FirstOrDefault().Sult= Token_Generator(10);
+                   return JsonConvert.SerializeObject(res.FirstOrDefault());
                 }
 
                 if (res.FirstOrDefault() == null) // якщо користувача з таким токеном НЕМАє
                 {
                     //Console.WriteLine(JsonConvert.SerializeObject(res.FirstOrDefault()));
-                   return JsonConvert.SerializeObject("wrong token");
+                    return JsonConvert.SerializeObject("wrong token");
                 }
             }
             return null;
@@ -113,8 +114,7 @@ namespace Authorization_mod
             return result.ToString();
         } //Token_Generator
 
-
-                public string MakeHash(string input)
+        public string MakeHash(string input)
         {
             // step 1, calculate MD5 hash from input
             MD5 md5 = System.Security.Cryptography.MD5.Create();
@@ -130,18 +130,16 @@ namespace Authorization_mod
             return sb.ToString();
         }
 
-
-                    public string Hash_Sult(string input)
+        public string Hash_Sult(string input)
         {
             string has_sul = MakeHash(input) + Token_Generator(10);
-            return has_sul;     
+            return has_sul;
         }
 
-
-        public User Registration(string LoginName, string Pasword,string name,string surname)
+        public void Registration(string LoginName, string Pasword, string name, string surname)
         {
-            User tmp = new User();
-            using (var ctx = new Author_ModEntities1())
+            Users tmp = new Users();
+            using (var ctx = new Author_ModEntities2())
             {
                 var res = from e in ctx.Users
                           where e.LoginName == LoginName && e.Pasword == Pasword
@@ -149,33 +147,40 @@ namespace Authorization_mod
 
                 if (res.FirstOrDefault() == null)
                 {
-                    res.FirstOrDefault().LoginName = LoginName;
-                    res.FirstOrDefault().Pasword = Pasword;
-                    res.FirstOrDefault().Name = name;
-                    res.FirstOrDefault().Surname = surname;
+                    tmp.Name = name;
+                    tmp.Surname = surname;
+                    tmp.LoginName = LoginName;
 
-                   tmp.LoginName = res.FirstOrDefault().LoginName;
-                   tmp.Pasword = res.FirstOrDefault().Pasword;
-                   tmp.Name = res.FirstOrDefault().Name;
-                   tmp.Name =res.FirstOrDefault().Surname;
-                  
-                    
-
-                    return tmp;
+                    tmp.Sult = Token_Generator(10);
+                    tmp.PasHash = MakeHash(MakeHash(Pasword) + tmp.Sult);
                 }
-            
             }
-
-            return null;
         }
 
+        string UserSult;
 
+        public string GetSult(string LoginName)
+        {
+            using (var ctx = new Author_ModEntities2())
+            {
+                var res = from e in ctx.Users
+                          where e.LoginName == LoginName
+                          select e;
+
+                if (res.FirstOrDefault() != null)
+                {
+                    return res.FirstOrDefault().Sult;
+                }          
+            }
+
+            return "user not found";
+        }
 
         public string Authorize(string LoginName, string Pasword, string name, string surname)
         {
             User tmp = new User();
-         
-            using (var ctx = new Author_ModEntities1())
+
+            using (var ctx = new Author_ModEntities2())
             {
                 var res = from e in ctx.Users
                           where e.LoginName == LoginName && e.Pasword == Pasword
@@ -187,13 +192,8 @@ namespace Authorization_mod
                     {
                         tmp.Name = res.FirstOrDefault().Name;
                         tmp.LoginName = res.FirstOrDefault().LoginName;
-                    
 
-
-
-                        // Console.WriteLine(tmp.Name);
                         return JsonConvert.SerializeObject(tmp);
-
                     }
                     else if (res.FirstOrDefault().ExpDate < DateTime.Now || res.FirstOrDefault().Token == null)
                     {
@@ -205,22 +205,19 @@ namespace Authorization_mod
                         tmp.Name = res.FirstOrDefault().Name;
                         tmp.LoginName = res.FirstOrDefault().LoginName;
                         tmp.Token = res.FirstOrDefault().Token;
-                      //  Console.WriteLine(tmp.Name);
 
                         return JsonConvert.SerializeObject(tmp);
                     }
                 }
 
-                if(res.FirstOrDefault().LoginName != LoginName && res.FirstOrDefault().Pasword != Pasword)
+                if (res.FirstOrDefault().LoginName != LoginName && res.FirstOrDefault().Pasword != Pasword)
                 {
-                  tmp = Registration(LoginName, Pasword, name, surname);
-                  return  JsonConvert.SerializeObject(tmp);
+                    Registration(LoginName, Pasword, name, surname);         
+                    return "user register";
                 }
 
-
-                return "login error";
+               return "login error";
             }
-
 
 
         } // Authorize

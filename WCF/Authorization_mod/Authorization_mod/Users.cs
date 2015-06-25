@@ -20,6 +20,8 @@ namespace Authorization_mod
         public string LoginName { get; set; }
         public string Pasword { get; set; }
         public string Token { get; set; }
+        public string PasHash { get; set; }
+        public string Sult { get; set; }
         public Nullable<System.DateTime> ExpDate { get; set; }
     }
 }

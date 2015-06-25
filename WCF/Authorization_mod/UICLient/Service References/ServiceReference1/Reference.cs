@@ -22,10 +22,16 @@ namespace UICLient.ServiceReference1 {
         System.Threading.Tasks.Task<string> GetInfoAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGetUserInfo/Authorize", ReplyAction="http://tempuri.org/IGetUserInfo/AuthorizeResponse")]
-        string Authorize(string LoginName, string Pasword);
+        string Authorize(string LoginName, string Pasword, string name, string surname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGetUserInfo/Authorize", ReplyAction="http://tempuri.org/IGetUserInfo/AuthorizeResponse")]
-        System.Threading.Tasks.Task<string> AuthorizeAsync(string LoginName, string Pasword);
+        System.Threading.Tasks.Task<string> AuthorizeAsync(string LoginName, string Pasword, string name, string surname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGetUserInfo/GetSult", ReplyAction="http://tempuri.org/IGetUserInfo/GetSultResponse")]
+        string GetSult(string LoginName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGetUserInfo/GetSult", ReplyAction="http://tempuri.org/IGetUserInfo/GetSultResponse")]
+        System.Threading.Tasks.Task<string> GetSultAsync(string LoginName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -63,12 +69,20 @@ namespace UICLient.ServiceReference1 {
             return base.Channel.GetInfoAsync(token);
         }
         
-        public string Authorize(string LoginName, string Pasword) {
-            return base.Channel.Authorize(LoginName, Pasword);
+        public string Authorize(string LoginName, string Pasword, string name, string surname) {
+            return base.Channel.Authorize(LoginName, Pasword, name, surname);
         }
         
-        public System.Threading.Tasks.Task<string> AuthorizeAsync(string LoginName, string Pasword) {
-            return base.Channel.AuthorizeAsync(LoginName, Pasword);
+        public System.Threading.Tasks.Task<string> AuthorizeAsync(string LoginName, string Pasword, string name, string surname) {
+            return base.Channel.AuthorizeAsync(LoginName, Pasword, name, surname);
+        }
+        
+        public string GetSult(string LoginName) {
+            return base.Channel.GetSult(LoginName);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetSultAsync(string LoginName) {
+            return base.Channel.GetSultAsync(LoginName);
         }
     }
 }

@@ -18,6 +18,8 @@
           <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="Pasword" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="Token" Type="nvarchar" MaxLength="512" />
+          <Property Name="PasHash" Type="nvarchar" MaxLength="512" />
+          <Property Name="Sult" Type="nvarchar" MaxLength="512" />
           <Property Name="ExpDate" Type="datetime" />
         </EntityType>
       </Schema>
@@ -25,7 +27,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Author_ModModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="Author_ModEntities1" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="Author_ModEntities2" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Author_ModModel.Users" />
         </EntityContainer>
         <EntityType Name="Users">
@@ -38,6 +40,8 @@
           <Property Name="LoginName" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
           <Property Name="Pasword" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
           <Property Name="Token" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="PasHash" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Sult" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
           <Property Name="ExpDate" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
@@ -45,7 +49,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Author_ModModelStoreContainer" CdmEntityContainer="Author_ModEntities1">
+        <EntityContainerMapping StorageEntityContainer="Author_ModModelStoreContainer" CdmEntityContainer="Author_ModEntities2">
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Author_ModModel.Users">
               <MappingFragment StoreEntitySet="Users">
@@ -55,6 +59,8 @@
                 <ScalarProperty Name="LoginName" ColumnName="LoginName" />
                 <ScalarProperty Name="Pasword" ColumnName="Pasword" />
                 <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="PasHash" ColumnName="PasHash" />
+                <ScalarProperty Name="Sult" ColumnName="Sult" />
                 <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
               </MappingFragment>
             </EntityTypeMapping>

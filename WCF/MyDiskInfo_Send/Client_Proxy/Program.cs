@@ -20,19 +20,16 @@ namespace Client_Proxy
         {
             GetDiskInfoClient GetDisk= new GetDiskInfoClient(); // відображення сервайс контракта
             DiskResult res = GetDisk.Res("D"); // метод повертає обєкт класу DiskResult
-
-
-            
+         
             //Async functions 
             IAsyncResult aR = GetDisk.BeginRes("D", new System.AsyncCallback(callback), res);
-            
-            
+                      
             //GetDisk.EndRes(
 
 
-            //string resTotalSpace = res.TotalSpace;
-            //string resFreeSpace = res.FreeSpace;
-            //Console.WriteLine("resTotalSpace - {0}; resFreeSpace - {1}", resTotalSpace, resFreeSpace);
+            string resTotalSpace = res.TotalSpace;
+            string resFreeSpace = res.FreeSpace;
+            Console.WriteLine("resTotalSpace - {0}; resFreeSpace - {1}", resTotalSpace, resFreeSpace);
 
         }
 

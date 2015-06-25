@@ -15,12 +15,11 @@ namespace duplex
         {
             ServiceHost sh = new ServiceHost(typeof(Duplex));
             sh.Open();
-            Console.WriteLine("Для завершения нажмите<ENTER>\n\n");
+            Console.WriteLine("enter");
             Console.ReadLine();
             sh.Close();
         }
     }
-
 
     public interface IClientCallback
     {
@@ -46,12 +45,10 @@ namespace duplex
             _clientCaller._IclCall = OperationContext.Current.GetCallbackChannel<IClientCallback>();
             Thread th = new Thread(_clientCaller.SendDataToClient);
             th.IsBackground = true;
-
             List<int> _lis = new List<int>();
             _lis.Add(period);
             _lis.Add(count);
             th.Start(_lis);
-
         }
     }
 
@@ -59,13 +56,11 @@ namespace duplex
     public class ClientCaller //створений для роботи в окр потоці 
     {
         public IClientCallback _IclCall;
-
         public void SendDataToClient(object obj)
         {
             List<int> tmp = (List<int>)obj;
             int period = tmp[0];
             int count = tmp[1];
-
             for (int i = 0; i < count; i++)
             {
                 Thread.Sleep(period);
@@ -77,11 +72,8 @@ namespace duplex
                 {
                     Console.WriteLine(e);
                 }
-
             }
         }
-
     }
-
 
 }

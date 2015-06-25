@@ -25,10 +25,6 @@ namespace Client
         {
             CallBackHendler.duClient.CallClientMethod(100, 10);
             Console.ReadLine();
-
-
         }
-
     }
-
 }

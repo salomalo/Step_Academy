@@ -13,10 +13,10 @@ namespace Authorization_mod
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Author_ModEntities1 : DbContext
+    public partial class Author_ModEntities2 : DbContext
     {
-        public Author_ModEntities1()
-            : base("name=Author_ModEntities1")
+        public Author_ModEntities2()
+            : base("name=Author_ModEntities2")
         {
         }
     
