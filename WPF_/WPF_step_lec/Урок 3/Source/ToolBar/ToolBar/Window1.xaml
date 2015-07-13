@@ -1,0 +1,22 @@
+﻿<Window x:Class="ToolBar.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ToolBar" Height="150" Width="300">
+    <Grid>
+        <ToolBar VerticalAlignment="Top">
+            <Button Content="File"/>
+            <CheckBox FontWeight="Bold">Bold</CheckBox>
+            <CheckBox FontStyle="Italic">Italic</CheckBox>
+            <CheckBox>
+                <TextBlock TextDecorations="Underline">Underline</TextBlock>
+            </CheckBox>
+            <Separator/>
+            <ComboBox SelectedIndex="0">
+                <ComboBoxItem>100%</ComboBoxItem>
+                <ComboBoxItem>50%</ComboBoxItem>
+                <ComboBoxItem>25%</ComboBoxItem>
+            </ComboBox>
+            <Separator/>
+        </ToolBar>
+    </Grid>
+</Window>

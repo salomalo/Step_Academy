@@ -1,0 +1,40 @@
+﻿<Window x:Class="_004_wpf_intro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hello WPF" Height="450" Width="600">
+    
+    <StackPanel Name="pnlMain">
+        
+        <!--<Button>Button #1</Button>
+        
+        <Button FontWeight="Bold" Content="Button #2" />
+        
+        <Button>
+            <Button.FontWeight>Bold</Button.FontWeight>
+            <Button.Content>Button #3</Button.Content>
+        </Button>
+        
+        <Button>
+            <Button.FontWeight>Bold</Button.FontWeight>
+            <Button.Content>
+                <WrapPanel>
+                    <TextBlock Foreground="Red">Multi</TextBlock>
+                    <TextBlock Foreground="Green">Color</TextBlock>
+                    <TextBlock Foreground="Blue"> Button #4</TextBlock>
+                </WrapPanel>
+            </Button.Content>
+        </Button>-->
+        
+        
+    </StackPanel>
+    
+    <!--<Grid>
+        <TextBlock Name="tblFirst"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   FontSize="72"
+                   MouseDown="TextBlock_MouseDown" >
+            Hello WPF!
+        </TextBlock>
+    </Grid>-->
+</Window>

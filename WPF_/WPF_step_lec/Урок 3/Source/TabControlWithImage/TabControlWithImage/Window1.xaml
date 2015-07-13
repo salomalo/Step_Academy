@@ -1,0 +1,23 @@
+﻿<Window x:Class="TabControlWithImage.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="TabControlWithImage" Height="500" Width="500">
+    <Grid>
+        <TabControl Margin="5" TabStripPlacement="Left" >
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel>
+                        <TextBlock Margin="3" >Image and Text Tab Title</TextBlock>
+                        <Image Source="pic.gif" Stretch="None" />
+                    </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel Margin="3">
+                        <CheckBox Margin="3">Setting One</CheckBox>
+                        <CheckBox Margin="3">Setting Two</CheckBox>
+                        <CheckBox Margin="3">Setting Three</CheckBox>
+                    </StackPanel>
+            </TabItem>
+            <TabItem Header="Tab Two"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="BS.Presentation.views.orders.Add_Out_Items"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            Height="Auto" Width="Auto">
+    <DockPanel Background="LightGray">
+        <DockPanel DockPanel.Dock="Top"  Margin="0,5,0,0">
+            <Label DockPanel.Dock="Left" Margin="15,0,0,0">Категорія</Label>
+            <ComboBox DockPanel.Dock="Left" Width="100" IsEditable="True" Name="cmbCat" >
+                <ComboBoxItem>Товар</ComboBoxItem>
+            </ComboBox>
+            <Button DockPanel.Dock="Right" Width="30" Margin="5,0,20,0" Name="btnSearch" ToolTip="Пошук" >
+                <Image Source="..\..\Resources\Zoom.png" Width="17" Stretch="Uniform"></Image>
+            </Button>
+            <TextBox DockPanel.Dock="Right" Width="90" Name="tbSearch"></TextBox>
+            <Label DockPanel.Dock="Right" >Пошук</Label>
+            <WrapPanel></WrapPanel>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="250">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Grid>
+                    <ListView Margin="5" Name="lvDataBind" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Назва" Width="180" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Виробник" Width="100" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Категорія" Width="90" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Кількість" Width="60" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Од.виміру" Width="90" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Вартість" Width="100" DisplayMemberBinding="{Binding Name}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </ScrollViewer>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <DockPanel DockPanel.Dock="Bottom">
+                <Button DockPanel.Dock="Left" Width="90" Height="25" Margin="15,5,10,5" Name="btnRenew">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="..\..\Resources\refresh.png" Margin="0,2,5,2" ></Image>
+                        <TextBlock>Оновити</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button DockPanel.Dock="Left" Width="140" Height="25" Name="btnSynch">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="..\..\Resources\synch.png" Margin="0,2,5,2" ></Image>
+                        <TextBlock>Синхронізувати БД</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <!--<Button DockPanel.Dock="Left" Width="110" Height="25" Margin="5,0,5,0">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="D:\Projects2014_2015\Projects\Catalog\Catalog\Resources\add_plus.png" Margin="0,2,5,2" ></Image>
+                        <TextBlock>Новий товар</TextBlock>
+                    </StackPanel>
+                </Button>-->
+                <Button DockPanel.Dock="Right" Width="110" Height="25" Margin="5,0,5,0" Name="btnOrder">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock>Замовлення</TextBlock>
+                    </StackPanel>
+                </Button>
+                <WrapPanel></WrapPanel>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Bottom" Height="35">
+                <Label Margin="15,0,0,0" VerticalAlignment="Center">Кількість</Label>
+                <TextBox Name="tbQuantItem" Height="25" Width="50" Margin="15,0,30,0"></TextBox>
+                <Button DockPanel.Dock="Left" Width="155" Height="25" Margin="5,0,20,0" Name="btnAddToOrder">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="..\..\Resources\add_plus.png" Margin="0,2,5,2" ></Image>
+                        <TextBlock>Додати до замовлення</TextBlock>
+                    </StackPanel>
+                </Button>
+                <WrapPanel></WrapPanel>
+            </DockPanel>
+            <WrapPanel></WrapPanel>
+        </DockPanel>
+
+    </DockPanel>
+</UserControl>

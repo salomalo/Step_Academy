@@ -1,0 +1,48 @@
+﻿<Window x:Class="_003_big_example_binding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Employee with photo" Height="350" Width="525"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="EmployeeTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border BorderThickness="3" BorderBrush="DarkGray" Grid.Column="0"
+                            CornerRadius="10" Width="80" Height="80" Margin="4" >
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding Path=Photo}" />
+                        </Border.Background>
+                    </Border>
+                    <StackPanel Orientation="Vertical" Grid.Column="1">
+                        <TextBlock Name="tbxName" Margin="4"
+                                   Text="{Binding Path=Name}"
+                                   Foreground="DarkBlue" FontWeight="Bold" FontSize="14" />
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        
+        <ListBox Name="lbxEmployees" ItemTemplate="{DynamicResource ResourceKey=EmployeeTemplate}" />
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+            <TextBox Name="tbxNewName" Margin="10,0" Width="180" />
+            <Button Name="btnNewName" Content=" New Name " Click="btnNewName_Click" />
+        </WrapPanel>
+
+        <Grid Grid.RowSpan="2" Background="#99000000" Name="LoadingGrid">
+            <TextBlock Text="Loading Data..." VerticalAlignment="Center" HorizontalAlignment="Center" 
+                       Foreground="Wheat" FontSize="32"/>
+        </Grid>
+        
+        
+    </Grid>
+</Window>

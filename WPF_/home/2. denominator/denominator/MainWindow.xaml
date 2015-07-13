@@ -1,0 +1,33 @@
+﻿<Window x:Class="denominator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel>
+                <Label>100</Label>
+                <Label>50</Label>
+                <Label>25</Label>
+                <Label>10</Label>
+                <Label>5</Label>
+                <Label>total</Label>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackPanel>
+                <TextBox Margin="2" Text="{Binding Path=Hundred, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox Margin="2" Text="{Binding Path=Fifty, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox Margin="2" Text="{Binding Path=Twentyfifty, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox Margin="2"  Text="{Binding Path=Ten, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox Margin="2"  Text="{Binding Path=F, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                <TextBlock Name="Tot" Margin="5" Text="{Binding Path=Total}"> </TextBlock>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

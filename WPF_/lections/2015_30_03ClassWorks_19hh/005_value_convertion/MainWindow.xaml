@@ -1,0 +1,18 @@
+﻿<Window x:Class="_005_value_convertion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:_005_value_convertion"
+        Title="MainWindow" Height="200" Width="300">
+    <Window.Resources>
+        <local:YesNoToBooleanConverter x:Key="YesNoBool" />
+    </Window.Resources>
+    
+    <StackPanel>
+        <TextBox Name="tbxValue" Margin="10" />
+        
+        <WrapPanel Margin="10">
+            <TextBlock Text="Current Value is: " />
+            <TextBlock Text="{Binding ElementName=tbxValue, Path=Text, Converter={StaticResource YesNoBool}}" />
+        </WrapPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  
+    <LinearGradientBrush x:Key="BrushForButton" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="White" Offset="0"/>
+        <GradientStop Color="DarkOrange" Offset="0.9"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BrushForPanel" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="Yellow" Offset="0"/>
+        <GradientStop Color="White" Offset="0.9"/>
+    </LinearGradientBrush>
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Background"  Value="{DynamicResource BrushForButton}"/>
+    </Style>
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>       
+    </Style>
+    <Style TargetType="{x:Type StackPanel}">
+        <Setter Property="Background" Value="{DynamicResource BrushForPanel}"/>
+    </Style>
+</ResourceDictionary>

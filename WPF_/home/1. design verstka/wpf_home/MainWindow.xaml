@@ -1,0 +1,149 @@
+﻿<Window x:Class="wpf_home.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Довідник 'Асортимент товарів'" Height="472" Width="732" >
+
+    <Window.Resources>
+        <BitmapImage x:Key="arrow_right"  UriSource="Images\arrow_right.png" />
+        <BitmapImage x:Key="arrow_left"  UriSource="Images\arrow_left.png" />
+        <BitmapImage x:Key="add"  UriSource="Images\add.png" />
+        <BitmapImage x:Key="Copy"  UriSource="Images\Copy.png" />
+        <BitmapImage x:Key="cross"  UriSource="Images\cross.png" />
+        <BitmapImage x:Key="tree"  UriSource="Images\tree.png" />
+        <BitmapImage x:Key="go-back"  UriSource="Images\go-back.png" />
+        <BitmapImage x:Key="update"  UriSource="Images\update.png" />
+        <BitmapImage x:Key="forward_stop"  UriSource="Images\forward_stop.png" />
+        <BitmapImage x:Key="back_stop"  UriSource="Images\back_stop.png" />
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+
+        <Grid Grid.Column="0">
+            <GroupBox Header="Групи товарів">
+                <DockPanel LastChildFill="True" >
+                    <WrapPanel DockPanel.Dock="Top">
+                        <Button  Margin="2" Height="20" Width="20">
+
+                        </Button>
+
+                        <Button  Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource add}"/>
+                        </Button>
+
+                        <Button  Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource update}"/>
+                        </Button>
+                        <Button  Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource cross}"/>
+                        </Button>
+                        <Button  Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource tree}"/>
+                        </Button>
+                        <Button  Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource go-back}"/>
+                        </Button>
+                    </WrapPanel>
+                    <TreeView DockPanel.Dock="Bottom"></TreeView>
+                </DockPanel>
+            </GroupBox>
+        </Grid>
+
+        <Grid Grid.Column="3">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <GridSplitter   Grid.Row="1" HorizontalAlignment="Stretch" />
+
+            <GroupBox Grid.Row="0" Header="Товари">
+                <DockPanel LastChildFill="True" >
+                    <WrapPanel DockPanel.Dock="Top">
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource add}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource update}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource Copy}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource cross}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource go-back}"/>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+                        <Label>Запис</Label>
+                        <Button  Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource back_stop}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource arrow_left}"/>
+                        </Button>
+                        <TextBox Height="20" Width="20"></TextBox>
+                        <Button  Margin="2"  Height="20" Width="20">
+                            <Image Source="{StaticResource arrow_right}"/>
+                        </Button>
+                        <Button Margin="2"  Height="20" Width="20">
+                            <Image Source="{StaticResource forward_stop}"/>
+                        </Button>
+                        <Label>із</Label>
+                        <TextBox Height="20" Width="20"></TextBox>
+                    </WrapPanel>
+                    <DataGrid></DataGrid>
+                </DockPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Row="3" Header="Пакування товару">
+                <DockPanel LastChildFill="True" >
+                    <WrapPanel DockPanel.Dock="Top">
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource add}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource update}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource Copy}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource cross}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource go-back}"/>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+                        <Label>Запис</Label>
+                        <Button  Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource back_stop}"/>
+                        </Button>
+                        <Button Margin="2" Height="20" Width="20">
+                            <Image Source="{StaticResource arrow_left}"/>
+                        </Button>
+                        <TextBox Height="20" Width="20"></TextBox>
+                        <Button  Margin="2"  Height="20" Width="20">
+                            <Image Source="{StaticResource arrow_right}"/>
+                        </Button>
+                        <Button Margin="2"  Height="20" Width="20">
+                            <Image Source="{StaticResource forward_stop}"/>
+                        </Button>
+                        <Label>із</Label>
+                        <TextBox Height="20" Width="20"></TextBox>
+                    </WrapPanel>
+                    <DataGrid></DataGrid>
+                </DockPanel>
+            </GroupBox>
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,18 @@
+﻿<Window x:Class="_005_TextBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="170" Width="230">
+
+    <StackPanel>
+        <TextBox Margin="5" SelectionChanged="TextBox_SelectionChanged" />
+        <TextBox Name="tbxStatus"
+                 Margin="5"
+                 AcceptsReturn="True" 
+                 TextWrapping="Wrap" 
+                 SpellCheck.IsEnabled="True" Language="en-US"
+                 IsReadOnly="True" 
+                 Height="80"
+                 />
+    
+    </StackPanel>
+</Window>

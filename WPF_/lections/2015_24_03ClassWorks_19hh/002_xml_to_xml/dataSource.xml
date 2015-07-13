@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Students>
+  <Student Country="USA">
+    <Name>Mark</Name>
+    <Gender>Male</Gender>
+    <TotalMarks>880</TotalMarks>
+  </Student>
+  <Student Country="USA">
+    <Name>Marie</Name>
+    <Gender>Female</Gender>
+    <TotalMarks>990</TotalMarks>
+  </Student>
+  <Student Country="Ukraine">
+    <Name>Hope</Name>
+    <Gender>Female</Gender>
+    <TotalMarks>850</TotalMarks>
+  </Student>
+  <Student Country="Ukraine">
+    <Name>John</Name>
+    <Gender>Male</Gender>
+    <TotalMarks>950</TotalMarks>
+  </Student>
+</Students>

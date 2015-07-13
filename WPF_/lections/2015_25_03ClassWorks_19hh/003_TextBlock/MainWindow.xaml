@@ -1,0 +1,26 @@
+﻿<Window x:Class="_003_TextBlock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel Name="pnlMain">
+        <TextBlock Margin="10" Foreground="Red">
+            This is a TextBlock
+            <LineBreak />
+            with multiple lines of text
+            <LineBreak />
+            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://google.com">see on google.com</Hyperlink>
+        </TextBlock>
+        
+        <TextBlock Margin="10" Foreground="Green" TextTrimming="WordEllipsis">
+            Like Charles Petzold, I am something of a Xamlholic: I'll try for hours to find a way of expressing my UI in pure XAML, rather than pollute its purity with C# code, even if the code could go in a code-behind file. This addiction is largely driven by WPF's fantastic support for Data Binding which lets anything in the UI be data-bound to anything else. Well, almost anything in the UI. Just occasionally I find myself having to fall back on property setters and getters, poking data into controls then sucking it back again, the way Windows Forms made me earn my living. One control which nearly had me beat was PasswordBox.
+        </TextBlock>
+        
+        <TextBlock Margin="10" Foreground="Blue"  TextWrapping="WrapWithOverflow">
+            <Span Background="Beige" FontWeight="Bold" Foreground="Red" FontSize="48">
+                Ben West 
+            </Span>
+            brook of <Bold>Microsoft</Bold> explains in a <Italic>forum post that it was</Italic> <Underline>not exposed</Underline> as a Dependency Property for security reasons. The values of Dependency Properties are managed centrally by the Dependency Property sub-system so that it can handle all the data-binding and cool animation stuff (animating a password - now that would be interesting!); the consequence of this is that the data effectively becomes public property. With something as sensitive as a password it's reasonable that a control (like PasswordBox) would want to keep the data closer to its chest. So internally the PasswordBox stores the password in a good old field, and in fact holds it using a SecureString - a string that is automatically encrypted in memory and obliterated when no longer needed; if you Reflector PasswordBox you'll see that the Password property setter stuffs any value you set into a SecureString, and the getter reads it out for you; PasswordBox appends characters one by one to the SecureString as you type them, so the password is never stored as clear text until you retrieve it through the Password property.
+        </TextBlock>
+        
+    </StackPanel>
+</Window>

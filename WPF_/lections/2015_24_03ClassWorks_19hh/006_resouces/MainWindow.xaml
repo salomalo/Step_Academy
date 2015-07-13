@@ -1,0 +1,22 @@
+﻿<Window x:Class="_006_resouces.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        
+        Title="MainWindow" Height="350" Width="525">
+    
+    <Window.Resources>
+        <sys:String x:Key="strHello">Hello Resources WPF!</sys:String>
+    </Window.Resources>
+    
+    <StackPanel Name="pnlMain" Margin="10">
+        
+        <TextBlock Text="{StaticResource strHello}" FontSize="48" />
+        <TextBlock> 
+            Another
+            <TextBlock Text="{StaticResource strHello}" />
+        </TextBlock>
+        
+    </StackPanel>
+</Window>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="_003_static_resorce.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        xmlns:local="clr-namespace:_003_static_resorce"
+        
+        Title="MainWindow" Height="200" Width="300">
+    
+    <Window.Resources>
+        <local:Employee x:Key="emp1" Id="101" Name="mike" Salary="100500" />
+    </Window.Resources>
+    
+    <StackPanel DataContext="{StaticResource emp1}">
+        <WrapPanel Margin="5">
+            <TextBlock Text="Employee Id: " Width="120" />
+            <TextBox Text="{Binding Path=Id}" Width="120"/>
+        </WrapPanel>
+        <WrapPanel Margin="5">
+            <TextBlock Text="Employee Name: " Width="120" />
+            <TextBox Text="{Binding Name}" Width="120"/>
+        </WrapPanel>
+        <WrapPanel Margin="5">
+            <TextBlock Text="Employee Salary: " Width="120" />
+            <TextBox Text="{Binding Salary}" Width="120"/>
+        </WrapPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="_001_StringFormat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:_001_StringFormat"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow" Height="350" Width="525"
+        Name="wnd">
+    <StackPanel>
+        <TextBlock Text="{Binding ElementName=wnd, Path=Width, StringFormat='Window Width: {0:0.0}'}" />
+        <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='Date: {0:dddd, MMMM d, yyyy}'}" />
+        <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='Time: {0:HH:mm:ss}'}" />
+
+        <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, ConverterCulture='de-De', StringFormat='Date: {0:D}'}" />
+        <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, ConverterCulture='uk-Ua', StringFormat='Date: {0:D}'}" />
+        <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, ConverterCulture='ko-Kr', StringFormat='Date: {0:D}'}" />
+        <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, ConverterCulture='ar-Sa', StringFormat='Date: {0:D}'}" />
+        
+        <TextBox AcceptsReturn="True" Height="180" Name="tbxCulturesNames"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                 FontFamily="Courier New" />
+        
+    </StackPanel>
+</Window>

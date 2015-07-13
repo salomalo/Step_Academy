@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--creating xml using LINQ to XML-->
+<Students>
+  <Student Id="101">
+    <Name>mike</Name>
+    <Gender>male</Gender>
+    <TotalMarks>800</TotalMarks>
+  </Student>
+  <Student Id="102">
+    <Name>john</Name>
+    <Gender>male</Gender>
+    <TotalMarks>900</TotalMarks>
+  </Student>
+  <Student Id="103">
+    <Name>marie</Name>
+    <Gender>female</Gender>
+    <TotalMarks>950</TotalMarks>
+  </Student>
+  <Student Id="104">
+    <Name>todd</Name>
+    <Gender>male</Gender>
+    <TotalMarks>850</TotalMarks>
+  </Student>
+</Students>

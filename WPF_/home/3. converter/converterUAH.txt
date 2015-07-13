@@ -1,0 +1,6 @@
+написати калкулятор валют (UAH = USD)
+
+- використати WPF
+- data binding 
+- IValueConverter
+

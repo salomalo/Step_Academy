@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="BS.Presentation.views.orders.Main_In_Out"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="Auto" Background="LightGray">
+    <TabControl>
+        <TabItem Header="Вхідні">
+            <DockPanel Background="LightGray">
+                <DockPanel DockPanel.Dock="Top">
+                    <Button DockPanel.Dock="Right" Width="30" Margin="5,0,20,0" Name="btnSearch" ToolTip="Пошук" >
+                        <Image Source="..\..\Resources\Zoom.png" Width="17" Stretch="Uniform"></Image>
+                    </Button>
+                    <TextBox DockPanel.Dock="Right" Width="90" Name="tbSearch"></TextBox>
+                    <Label DockPanel.Dock="Right" >Пошук</Label>
+                    <WrapPanel>
+                        <Button DockPanel.Dock="Right" Width="80" Height="25" Margin="5,0,5,0" Name="btnAddInOrd">
+                            <StackPanel Orientation="Horizontal" >
+                                <Image Source="..\..\Resources\add_plus.png" Margin="0,2,5,2" ></Image>
+                                <TextBlock>Додати</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
+                </DockPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Top" Height="210">
+                    <Grid>
+                        <ListView Margin="5" Name="lvDataBind1">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Клієнт" Width="120" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Дата" Width="100" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Сума" Width="60" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Статус" Width="90" DisplayMemberBinding="{Binding Name}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
+                <WrapPanel>
+                    <Button DockPanel.Dock="Right" Width="100" Height="25" Margin="5,0,5,0" Name="btnDetails">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="..\..\Resources\Zoom.png" Margin="0,2,5,2" ></Image>
+                            <TextBlock>Детальніше</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </WrapPanel>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Вихідні">
+            <DockPanel Background="LightGray">
+                <DockPanel DockPanel.Dock="Top">
+                    <Button DockPanel.Dock="Right" Width="30" Margin="5,0,20,0" Name="btnSearchOut" ToolTip="Пошук" >
+                        <Image Source="D:\Projects2014_2015\Projects\Catalog\Catalog\Resources\Zoom.png" Width="17" Stretch="Uniform"></Image>
+                    </Button>
+                    <TextBox DockPanel.Dock="Right" Width="90" Name="tbSearchOut"></TextBox>
+                    <Label DockPanel.Dock="Right" >Пошук</Label>
+                    <WrapPanel>
+                        <Button DockPanel.Dock="Right" Width="80" Height="25" Margin="5,0,5,0" Name="btnAddItemOut">
+                            <StackPanel Orientation="Horizontal" >
+                                <Image Source="D:\Projects2014_2015\Projects\Catalog\Catalog\Resources\add_plus.png" Margin="0,2,5,2" ></Image>
+                                <TextBlock>Додати</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
+                </DockPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Top" Height="220">
+                    <Grid ShowGridLines="True">
+                        <ListView Margin="5" Name="lvDataBind2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Клієнт" Width="120" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Дата" Width="100" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Сума" Width="60" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Статус" Width="90" DisplayMemberBinding="{Binding Name}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
+                <WrapPanel>
+                    <Button DockPanel.Dock="Right" Width="100" Height="25" Margin="5,0,5,0" Name="btnDetailsOut">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="D:\Projects2014_2015\Projects\Catalog\Catalog\Resources\Zoom.png" Margin="0,2,5,2" ></Image>
+                            <TextBlock>Детальніше</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </WrapPanel>
+            </DockPanel>
+        </TabItem>
+
+    </TabControl>
+</UserControl>

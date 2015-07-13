@@ -1,0 +1,11 @@
+﻿<Window x:Class="ThemeDemo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="150" Width="300">
+
+    <StackPanel>
+        <TextBox Name="textBox1" Width="200" Margin="5">какой-то текст</TextBox>
+        <Button Height="23" Name="button1" Width="75" Margin="5">Button</Button>
+    </StackPanel>
+
+</Window>

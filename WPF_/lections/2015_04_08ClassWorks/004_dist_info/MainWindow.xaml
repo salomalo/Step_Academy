@@ -1,0 +1,8 @@
+﻿<Window x:Class="_004_dist_info.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Margin="10">
+        <TreeView Name="tvDiskInfo" TreeViewItem.Expanded="tvDiskInfo_Expanded" Margin="4" />
+    </Grid>
+</Window>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="ControlTemplateDemo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="150" Width="250">
+<Window.Resources>
+    <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
+       <Grid>
+            <Ellipse Height="42" Stroke="CadetBlue" Width="180" Fill="LightBlue"/>
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+        </Grid>
+    </ControlTemplate>
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Template" Value="{StaticResource ButtonTemplate}"/>
+    </Style>
+</Window.Resources>
+<StackPanel>
+    <Button Name="button1" Margin="5">Кнопочка 1</Button>
+    <Button Name="button2" Margin="5">Кнопочка 2</Button>
+</StackPanel>
+</Window>
+

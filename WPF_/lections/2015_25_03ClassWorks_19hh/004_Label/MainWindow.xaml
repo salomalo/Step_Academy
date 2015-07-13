@@ -1,0 +1,20 @@
+﻿<Window x:Class="_004_Label.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="250">
+    <Grid>
+        <StackPanel Margin="10">
+            <!--<Label Content="_Login" Target="{Binding ElementName=tbxLogin}" />-->
+            <Label Target="{Binding ElementName=tbxLogin}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="green_ball_16_16.png" Margin="0,0,5,0"/>
+                    <AccessText Text="_Login" />
+                </StackPanel>    
+            </Label>
+            
+            <TextBox Name="tbxLogin" />
+            <Label Content="_Password" Target="{Binding ElementName=pbxPassword}" />
+            <PasswordBox Name="pbxPassword" PasswordChar="X" MaxLength="12" />
+        </StackPanel>        
+    </Grid>
+</Window>

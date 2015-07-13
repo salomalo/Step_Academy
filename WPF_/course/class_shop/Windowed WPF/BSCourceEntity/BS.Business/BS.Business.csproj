@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30B92098-6EB8-414C-B40B-DCC2A3931C5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BS.Business</RootNamespace>
+    <AssemblyName>BS.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Managers\Abstract\AbstractManager.cs" />
+    <Compile Include="Managers\Abstract\ICategoryManager.cs" />
+    <Compile Include="Managers\Abstract\ICustomerManager.cs" />
+    <Compile Include="Managers\Abstract\IInputOrderItemManager.cs" />
+    <Compile Include="Managers\Abstract\IInputOrderManager.cs" />
+    <Compile Include="Managers\Abstract\IManager.cs" />
+    <Compile Include="Managers\Abstract\IMeasureManager.cs" />
+    <Compile Include="Managers\Abstract\IOutputOrderItemManager.cs" />
+    <Compile Include="Managers\Abstract\IOutputOrderManager.cs" />
+    <Compile Include="Managers\Abstract\IPackageManager.cs" />
+    <Compile Include="Managers\Abstract\IPriceManager.cs" />
+    <Compile Include="Managers\Abstract\IProducerManager.cs" />
+    <Compile Include="Managers\Abstract\IProductManager.cs" />
+    <Compile Include="Managers\Abstract\IStatusManager.cs" />
+    <Compile Include="Managers\Abstract\IWarehouseItemManager.cs" />
+    <Compile Include="Managers\Abstract\IWarehouseManager.cs" />
+    <Compile Include="Managers\Concrete\CategoryManager.cs" />
+    <Compile Include="Managers\Concrete\CustomerManager.cs" />
+    <Compile Include="Managers\Concrete\InputOrderItemManager.cs" />
+    <Compile Include="Managers\Concrete\InputOrderManager.cs" />
+    <Compile Include="Managers\Concrete\MeasureManager.cs" />
+    <Compile Include="Managers\Concrete\OutputOrderItemManager.cs" />
+    <Compile Include="Managers\Concrete\OutputOrderManager.cs" />
+    <Compile Include="Managers\Concrete\PackageManager.cs" />
+    <Compile Include="Managers\Concrete\PriceManager.cs" />
+    <Compile Include="Managers\Concrete\ProducerManager.cs" />
+    <Compile Include="Managers\Concrete\ProductManager.cs" />
+    <Compile Include="Managers\Concrete\StatusManager.cs" />
+    <Compile Include="Managers\Concrete\WarehouseItemManager.cs" />
+    <Compile Include="Managers\Concrete\WarehouseManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\BS.Entity\BS.Entity.csproj">
+      <Project>{16b6fe6a-833e-4924-b0e3-2eded75ad147}</Project>
+      <Name>BS.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

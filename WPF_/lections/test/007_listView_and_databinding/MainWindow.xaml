@@ -1,0 +1,35 @@
+﻿<Window x:Class="_007_listView_and_databinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ListView Databinding Demo" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <ListView Margin="10" Name="lvwDataBinding">
+            
+            <!--<ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                </Style>
+            </ListView.Resources>-->
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
+                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Path=Age}"></GridViewColumn>
+                    <GridViewColumn Header="Email" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Email}" TextDecorations="Underline" Foreground="Blue" ></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

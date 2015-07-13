@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="BS.Presentation.views.shop.addCategory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="300">
+    <Grid Background="LightGray">
+        <StackPanel>
+            <Label HorizontalAlignment="Center" Margin="10,10">Name</Label>
+            <TextBox Height="25" Width="200" Margin="10,10" Name="tbxName"></TextBox>
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Height="25" Width="50" Margin="10,5,5,5" Name="btnOk">Ok</Button>
+                <Button Height="25" Width="50" Margin="10,5,5,5" Name="cancel">Cancel</Button>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

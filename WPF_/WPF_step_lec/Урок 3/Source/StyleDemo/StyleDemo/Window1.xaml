@@ -1,0 +1,30 @@
+﻿<Window x:Class="StyleDemo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="200" Width="200">
+    <StackPanel Name="StackPanel1" HorizontalAlignment="Left" >
+        <StackPanel.Resources>
+            <LinearGradientBrush x:Key ="GradientBrushForButton" StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="GreenYellow" Offset="0.0" />
+                <GradientStop Color="LightGreen" Offset="0.5" />
+                <GradientStop Color="Green" Offset="1.0" />
+            </LinearGradientBrush>
+            <Style TargetType="Label">
+                <Setter Property="FontStyle" Value="Italic"/>
+                <Setter Property="FontFamily" Value="Times New Roman"/>
+            </Style>         
+            <Style TargetType="Label" x:Key="LabelStyle">
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            </Style>
+            <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}" x:Key="AnotherLabelStyle">
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+        </StackPanel.Resources>
+        <Label Height="28" Name="label1" Width="170" Style="{StaticResource LabelStyle}">Надпись до кнопки № 1</Label>
+        <Button Height="23" Name="button1" Width="75" Background="{DynamicResource GradientBrushForButton}">Кнопка 1</Button>
+        <Label Height="28" Name="label2" Width="170">Надпись между кнопками</Label>
+        <Button Height="23" Name="button2" Width="75" Background="{StaticResource GradientBrushForButton}">Кнопка 2</Button>
+        <Label Height="28" Name="label3" Width="170" Style="{StaticResource AnotherLabelStyle}">Надпись после кнопки №2</Label>
+    </StackPanel>
+</Window>

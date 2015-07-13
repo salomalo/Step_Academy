@@ -1,0 +1,11 @@
+﻿<Window x:Class="_003_StackPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel Background="LightBlue" Orientation="Horizontal">
+        <Button Margin="5" Height="24" VerticalAlignment="Top">Button1</Button>
+        <Button Margin="5" VerticalAlignment="Center">Button2</Button>
+        <Button Margin="5" VerticalAlignment="Bottom">Button3</Button>
+        <Button Margin="5">Button4</Button>
+    </StackPanel>
+</Window>

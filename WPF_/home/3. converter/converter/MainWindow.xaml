@@ -1,0 +1,19 @@
+﻿<Window x:Class="converter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+
+        <StackPanel>
+            <WrapPanel>
+                <Label Width="100">грн</Label>
+                <TextBox Width="100" ></TextBox>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Width="100">долари</Label>
+                <TextBox Width="100" Text="{Binding Path=Hrn, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            </WrapPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

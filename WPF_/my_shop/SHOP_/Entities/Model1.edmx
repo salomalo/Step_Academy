@@ -1,0 +1,1101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_Shop_bud_materModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DB_Shop_bud_materModelStoreContainer">
+          <EntitySet Name="Categorys" EntityType="DB_Shop_bud_materModel.Store.Categorys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="DB_Shop_bud_materModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomersType" EntityType="DB_Shop_bud_materModel.Store.CustomersType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InputOrderItem" EntityType="DB_Shop_bud_materModel.Store.InputOrderItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InputOrders" EntityType="DB_Shop_bud_materModel.Store.InputOrders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Measures" EntityType="DB_Shop_bud_materModel.Store.Measures" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OutputOrderItem" EntityType="DB_Shop_bud_materModel.Store.OutputOrderItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OutputOrders" EntityType="DB_Shop_bud_materModel.Store.OutputOrders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Packeges" EntityType="DB_Shop_bud_materModel.Store.Packeges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Prices" EntityType="DB_Shop_bud_materModel.Store.Prices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Producers" EntityType="DB_Shop_bud_materModel.Store.Producers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="DB_Shop_bud_materModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Status" EntityType="DB_Shop_bud_materModel.Store.Status" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WarehouseItem" EntityType="DB_Shop_bud_materModel.Store.WarehouseItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Warehouses" EntityType="DB_Shop_bud_materModel.Store.Warehouses" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Categorys__Paren__15502E78" Association="DB_Shop_bud_materModel.Store.FK__Categorys__Paren__15502E78">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Categorys1" EntitySet="Categorys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customers__TypeI__1273C1CD" Association="DB_Shop_bud_materModel.Store.FK__Customers__TypeI__1273C1CD">
+            <End Role="CustomersType" EntitySet="CustomersType" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Custu__30F848ED" Association="DB_Shop_bud_materModel.Store.FK__InputOrde__Custu__30F848ED">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="InputOrders" EntitySet="InputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Input__34C8D9D1" Association="DB_Shop_bud_materModel.Store.FK__InputOrde__Input__34C8D9D1">
+            <End Role="InputOrders" EntitySet="InputOrders" />
+            <End Role="InputOrderItem" EntitySet="InputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Packe__35BCFE0A" Association="DB_Shop_bud_materModel.Store.FK__InputOrde__Packe__35BCFE0A">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="InputOrderItem" EntitySet="InputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Statu__31EC6D26" Association="DB_Shop_bud_materModel.Store.FK__InputOrde__Statu__31EC6D26">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="InputOrders" EntitySet="InputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Custu__29572725" Association="DB_Shop_bud_materModel.Store.FK__OutputOrd__Custu__29572725">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="OutputOrders" EntitySet="OutputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Outpu__2D27B809" Association="DB_Shop_bud_materModel.Store.FK__OutputOrd__Outpu__2D27B809">
+            <End Role="OutputOrders" EntitySet="OutputOrders" />
+            <End Role="OutputOrderItem" EntitySet="OutputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Packe__2E1BDC42" Association="DB_Shop_bud_materModel.Store.FK__OutputOrd__Packe__2E1BDC42">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="OutputOrderItem" EntitySet="OutputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Statu__2A4B4B5E" Association="DB_Shop_bud_materModel.Store.FK__OutputOrd__Statu__2A4B4B5E">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="OutputOrders" EntitySet="OutputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Packeges__Measur__21B6055D" Association="DB_Shop_bud_materModel.Store.FK__Packeges__Measur__21B6055D">
+            <End Role="Measures" EntitySet="Measures" />
+            <End Role="Packeges" EntitySet="Packeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Packeges__Produc__1FCDBCEB" Association="DB_Shop_bud_materModel.Store.FK__Packeges__Produc__1FCDBCEB">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Packeges" EntitySet="Packeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Packeges__Volume__20C1E124" Association="DB_Shop_bud_materModel.Store.FK__Packeges__Volume__20C1E124">
+            <End Role="Measures" EntitySet="Measures" />
+            <End Role="Packeges" EntitySet="Packeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prices__PackegeI__24927208" Association="DB_Shop_bud_materModel.Store.FK__Prices__PackegeI__24927208">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="Prices" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Catego__1B0907CE" Association="DB_Shop_bud_materModel.Store.FK__Products__Catego__1B0907CE">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Produc__1A14E395" Association="DB_Shop_bud_materModel.Store.FK__Products__Produc__1A14E395">
+            <End Role="Producers" EntitySet="Producers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Warehouse__Packe__3B75D760" Association="DB_Shop_bud_materModel.Store.FK__Warehouse__Packe__3B75D760">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Warehouse__Wareh__3A81B327" Association="DB_Shop_bud_materModel.Store.FK__Warehouse__Wareh__3A81B327">
+            <End Role="Warehouses" EntitySet="Warehouses" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItem" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="ParentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="TypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="CustomersType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="InputOrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InputOrderId" Type="int" />
+          <Property Name="PackegeId" Type="int" />
+          <Property Name="Quantity" Type="numeric" />
+          <Property Name="UnitCost" Type="numeric" />
+        </EntityType>
+        <EntityType Name="InputOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustumerId" Type="int" />
+          <Property Name="CreationTime" Type="datetime" />
+          <Property Name="Cost" Type="numeric" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Measures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="SmallName" Type="nvarchar" Nullable="false" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="OutputOrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OutputOrderId" Type="int" />
+          <Property Name="PackegeId" Type="int" />
+          <Property Name="Quantity" Type="numeric" />
+          <Property Name="UnitCost" Type="numeric" />
+        </EntityType>
+        <EntityType Name="OutputOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustumerId" Type="int" />
+          <Property Name="CreationTime" Type="datetime" />
+          <Property Name="Cost" Type="numeric" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Packeges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Volume" Type="int" />
+          <Property Name="VolumeMeasureID" Type="int" />
+          <Property Name="MeasureID" Type="int" />
+        </EntityType>
+        <EntityType Name="Prices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PackegeId" Type="int" />
+          <Property Name="PriceTime" Type="datetime" />
+          <Property Name="UnitCost" Type="numeric" />
+        </EntityType>
+        <EntityType Name="Producers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="512" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="ProducerId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="WarehouseItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WarehousId" Type="int" />
+          <Property Name="PackegeId" Type="int" />
+          <Property Name="Quantity" Type="numeric" />
+        </EntityType>
+        <EntityType Name="Warehouses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="1024" />
+        </EntityType>
+        <Association Name="FK__Categorys__Paren__15502E78">
+          <End Role="Categorys" Type="DB_Shop_bud_materModel.Store.Categorys" Multiplicity="0..1" />
+          <End Role="Categorys1" Type="DB_Shop_bud_materModel.Store.Categorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categorys1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customers__TypeI__1273C1CD">
+          <End Role="CustomersType" Type="DB_Shop_bud_materModel.Store.CustomersType" Multiplicity="0..1" />
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Store.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Custu__30F848ED">
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Store.Customers" Multiplicity="0..1" />
+          <End Role="InputOrders" Type="DB_Shop_bud_materModel.Store.InputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrders">
+              <PropertyRef Name="CustumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Input__34C8D9D1">
+          <End Role="InputOrders" Type="DB_Shop_bud_materModel.Store.InputOrders" Multiplicity="0..1" />
+          <End Role="InputOrderItem" Type="DB_Shop_bud_materModel.Store.InputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InputOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrderItem">
+              <PropertyRef Name="InputOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Packe__35BCFE0A">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Store.Packeges" Multiplicity="0..1" />
+          <End Role="InputOrderItem" Type="DB_Shop_bud_materModel.Store.InputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrderItem">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Statu__31EC6D26">
+          <End Role="Status" Type="DB_Shop_bud_materModel.Store.Status" Multiplicity="0..1" />
+          <End Role="InputOrders" Type="DB_Shop_bud_materModel.Store.InputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrders">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Custu__29572725">
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Store.Customers" Multiplicity="0..1" />
+          <End Role="OutputOrders" Type="DB_Shop_bud_materModel.Store.OutputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrders">
+              <PropertyRef Name="CustumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Outpu__2D27B809">
+          <End Role="OutputOrders" Type="DB_Shop_bud_materModel.Store.OutputOrders" Multiplicity="0..1" />
+          <End Role="OutputOrderItem" Type="DB_Shop_bud_materModel.Store.OutputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OutputOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrderItem">
+              <PropertyRef Name="OutputOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Packe__2E1BDC42">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Store.Packeges" Multiplicity="0..1" />
+          <End Role="OutputOrderItem" Type="DB_Shop_bud_materModel.Store.OutputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrderItem">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Statu__2A4B4B5E">
+          <End Role="Status" Type="DB_Shop_bud_materModel.Store.Status" Multiplicity="0..1" />
+          <End Role="OutputOrders" Type="DB_Shop_bud_materModel.Store.OutputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrders">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Packeges__Measur__21B6055D">
+          <End Role="Measures" Type="DB_Shop_bud_materModel.Store.Measures" Multiplicity="0..1" />
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Store.Packeges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Measures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Packeges">
+              <PropertyRef Name="MeasureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Packeges__Produc__1FCDBCEB">
+          <End Role="Products" Type="DB_Shop_bud_materModel.Store.Products" Multiplicity="0..1" />
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Store.Packeges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Packeges">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Packeges__Volume__20C1E124">
+          <End Role="Measures" Type="DB_Shop_bud_materModel.Store.Measures" Multiplicity="0..1" />
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Store.Packeges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Measures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Packeges">
+              <PropertyRef Name="VolumeMeasureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prices__PackegeI__24927208">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Store.Packeges" Multiplicity="0..1" />
+          <End Role="Prices" Type="DB_Shop_bud_materModel.Store.Prices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Prices">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Catego__1B0907CE">
+          <End Role="Categorys" Type="DB_Shop_bud_materModel.Store.Categorys" Multiplicity="0..1" />
+          <End Role="Products" Type="DB_Shop_bud_materModel.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Produc__1A14E395">
+          <End Role="Producers" Type="DB_Shop_bud_materModel.Store.Producers" Multiplicity="0..1" />
+          <End Role="Products" Type="DB_Shop_bud_materModel.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProducerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Warehouse__Packe__3B75D760">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Store.Packeges" Multiplicity="0..1" />
+          <End Role="WarehouseItem" Type="DB_Shop_bud_materModel.Store.WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Warehouse__Wareh__3A81B327">
+          <End Role="Warehouses" Type="DB_Shop_bud_materModel.Store.Warehouses" Multiplicity="0..1" />
+          <End Role="WarehouseItem" Type="DB_Shop_bud_materModel.Store.WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="WarehousId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_Shop_bud_materModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_Shop_bud_materEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorys" EntityType="DB_Shop_bud_materModel.Categorys" />
+          <EntitySet Name="Customers" EntityType="DB_Shop_bud_materModel.Customers" />
+          <EntitySet Name="CustomersType" EntityType="DB_Shop_bud_materModel.CustomersType" />
+          <EntitySet Name="InputOrderItem" EntityType="DB_Shop_bud_materModel.InputOrderItem" />
+          <EntitySet Name="InputOrders" EntityType="DB_Shop_bud_materModel.InputOrders" />
+          <EntitySet Name="Measures" EntityType="DB_Shop_bud_materModel.Measures" />
+          <EntitySet Name="OutputOrderItem" EntityType="DB_Shop_bud_materModel.OutputOrderItem" />
+          <EntitySet Name="OutputOrders" EntityType="DB_Shop_bud_materModel.OutputOrders" />
+          <EntitySet Name="Packeges" EntityType="DB_Shop_bud_materModel.Packeges" />
+          <EntitySet Name="Prices" EntityType="DB_Shop_bud_materModel.Prices" />
+          <EntitySet Name="Producers" EntityType="DB_Shop_bud_materModel.Producers" />
+          <EntitySet Name="Products" EntityType="DB_Shop_bud_materModel.Products" />
+          <EntitySet Name="Status" EntityType="DB_Shop_bud_materModel.Status" />
+          <EntitySet Name="WarehouseItem" EntityType="DB_Shop_bud_materModel.WarehouseItem" />
+          <EntitySet Name="Warehouses" EntityType="DB_Shop_bud_materModel.Warehouses" />
+          <AssociationSet Name="FK__Categorys__Paren__15502E78" Association="DB_Shop_bud_materModel.FK__Categorys__Paren__15502E78">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Categorys1" EntitySet="Categorys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Catego__1B0907CE" Association="DB_Shop_bud_materModel.FK__Products__Catego__1B0907CE">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customers__TypeI__1273C1CD" Association="DB_Shop_bud_materModel.FK__Customers__TypeI__1273C1CD">
+            <End Role="CustomersType" EntitySet="CustomersType" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Custu__30F848ED" Association="DB_Shop_bud_materModel.FK__InputOrde__Custu__30F848ED">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="InputOrders" EntitySet="InputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Custu__29572725" Association="DB_Shop_bud_materModel.FK__OutputOrd__Custu__29572725">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="OutputOrders" EntitySet="OutputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Input__34C8D9D1" Association="DB_Shop_bud_materModel.FK__InputOrde__Input__34C8D9D1">
+            <End Role="InputOrders" EntitySet="InputOrders" />
+            <End Role="InputOrderItem" EntitySet="InputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Packe__35BCFE0A" Association="DB_Shop_bud_materModel.FK__InputOrde__Packe__35BCFE0A">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="InputOrderItem" EntitySet="InputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InputOrde__Statu__31EC6D26" Association="DB_Shop_bud_materModel.FK__InputOrde__Statu__31EC6D26">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="InputOrders" EntitySet="InputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Packeges__Measur__21B6055D" Association="DB_Shop_bud_materModel.FK__Packeges__Measur__21B6055D">
+            <End Role="Measures" EntitySet="Measures" />
+            <End Role="Packeges" EntitySet="Packeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Packeges__Volume__20C1E124" Association="DB_Shop_bud_materModel.FK__Packeges__Volume__20C1E124">
+            <End Role="Measures" EntitySet="Measures" />
+            <End Role="Packeges" EntitySet="Packeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Outpu__2D27B809" Association="DB_Shop_bud_materModel.FK__OutputOrd__Outpu__2D27B809">
+            <End Role="OutputOrders" EntitySet="OutputOrders" />
+            <End Role="OutputOrderItem" EntitySet="OutputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Packe__2E1BDC42" Association="DB_Shop_bud_materModel.FK__OutputOrd__Packe__2E1BDC42">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="OutputOrderItem" EntitySet="OutputOrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutputOrd__Statu__2A4B4B5E" Association="DB_Shop_bud_materModel.FK__OutputOrd__Statu__2A4B4B5E">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="OutputOrders" EntitySet="OutputOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Packeges__Produc__1FCDBCEB" Association="DB_Shop_bud_materModel.FK__Packeges__Produc__1FCDBCEB">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Packeges" EntitySet="Packeges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prices__PackegeI__24927208" Association="DB_Shop_bud_materModel.FK__Prices__PackegeI__24927208">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="Prices" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Warehouse__Packe__3B75D760" Association="DB_Shop_bud_materModel.FK__Warehouse__Packe__3B75D760">
+            <End Role="Packeges" EntitySet="Packeges" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Produc__1A14E395" Association="DB_Shop_bud_materModel.FK__Products__Produc__1A14E395">
+            <End Role="Producers" EntitySet="Producers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Warehouse__Wareh__3A81B327" Association="DB_Shop_bud_materModel.FK__Warehouse__Wareh__3A81B327">
+            <End Role="Warehouses" EntitySet="Warehouses" />
+            <End Role="WarehouseItem" EntitySet="WarehouseItem" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <NavigationProperty Name="Categorys1" Relationship="DB_Shop_bud_materModel.FK__Categorys__Paren__15502E78" FromRole="Categorys" ToRole="Categorys1" />
+          <NavigationProperty Name="Categorys2" Relationship="DB_Shop_bud_materModel.FK__Categorys__Paren__15502E78" FromRole="Categorys1" ToRole="Categorys" />
+          <NavigationProperty Name="Products" Relationship="DB_Shop_bud_materModel.FK__Products__Catego__1B0907CE" FromRole="Categorys" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="TypeId" Type="Int32" />
+          <NavigationProperty Name="CustomersType" Relationship="DB_Shop_bud_materModel.FK__Customers__TypeI__1273C1CD" FromRole="Customers" ToRole="CustomersType" />
+          <NavigationProperty Name="InputOrders" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Custu__30F848ED" FromRole="Customers" ToRole="InputOrders" />
+          <NavigationProperty Name="OutputOrders" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Custu__29572725" FromRole="Customers" ToRole="OutputOrders" />
+        </EntityType>
+        <EntityType Name="CustomersType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Customers" Relationship="DB_Shop_bud_materModel.FK__Customers__TypeI__1273C1CD" FromRole="CustomersType" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="InputOrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="InputOrderId" Type="Int32" />
+          <Property Name="PackegeId" Type="Int32" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UnitCost" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="InputOrders" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Input__34C8D9D1" FromRole="InputOrderItem" ToRole="InputOrders" />
+          <NavigationProperty Name="Packeges" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Packe__35BCFE0A" FromRole="InputOrderItem" ToRole="Packeges" />
+        </EntityType>
+        <EntityType Name="InputOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustumerId" Type="Int32" />
+          <Property Name="CreationTime" Type="DateTime" Precision="3" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Custu__30F848ED" FromRole="InputOrders" ToRole="Customers" />
+          <NavigationProperty Name="InputOrderItem" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Input__34C8D9D1" FromRole="InputOrders" ToRole="InputOrderItem" />
+          <NavigationProperty Name="Status1" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Statu__31EC6D26" FromRole="InputOrders" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Measures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="SmallName" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Packeges" Relationship="DB_Shop_bud_materModel.FK__Packeges__Measur__21B6055D" FromRole="Measures" ToRole="Packeges" />
+          <NavigationProperty Name="Packeges1" Relationship="DB_Shop_bud_materModel.FK__Packeges__Volume__20C1E124" FromRole="Measures" ToRole="Packeges" />
+        </EntityType>
+        <EntityType Name="OutputOrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OutputOrderId" Type="Int32" />
+          <Property Name="PackegeId" Type="Int32" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UnitCost" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="OutputOrders" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Outpu__2D27B809" FromRole="OutputOrderItem" ToRole="OutputOrders" />
+          <NavigationProperty Name="Packeges" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Packe__2E1BDC42" FromRole="OutputOrderItem" ToRole="Packeges" />
+        </EntityType>
+        <EntityType Name="OutputOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustumerId" Type="Int32" />
+          <Property Name="CreationTime" Type="DateTime" Precision="3" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Custu__29572725" FromRole="OutputOrders" ToRole="Customers" />
+          <NavigationProperty Name="OutputOrderItem" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Outpu__2D27B809" FromRole="OutputOrders" ToRole="OutputOrderItem" />
+          <NavigationProperty Name="Status1" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Statu__2A4B4B5E" FromRole="OutputOrders" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Packeges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Volume" Type="Int32" />
+          <Property Name="VolumeMeasureID" Type="Int32" />
+          <Property Name="MeasureID" Type="Int32" />
+          <NavigationProperty Name="InputOrderItem" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Packe__35BCFE0A" FromRole="Packeges" ToRole="InputOrderItem" />
+          <NavigationProperty Name="Measures" Relationship="DB_Shop_bud_materModel.FK__Packeges__Measur__21B6055D" FromRole="Packeges" ToRole="Measures" />
+          <NavigationProperty Name="Measures1" Relationship="DB_Shop_bud_materModel.FK__Packeges__Volume__20C1E124" FromRole="Packeges" ToRole="Measures" />
+          <NavigationProperty Name="OutputOrderItem" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Packe__2E1BDC42" FromRole="Packeges" ToRole="OutputOrderItem" />
+          <NavigationProperty Name="Products" Relationship="DB_Shop_bud_materModel.FK__Packeges__Produc__1FCDBCEB" FromRole="Packeges" ToRole="Products" />
+          <NavigationProperty Name="Prices" Relationship="DB_Shop_bud_materModel.FK__Prices__PackegeI__24927208" FromRole="Packeges" ToRole="Prices" />
+          <NavigationProperty Name="WarehouseItem" Relationship="DB_Shop_bud_materModel.FK__Warehouse__Packe__3B75D760" FromRole="Packeges" ToRole="WarehouseItem" />
+        </EntityType>
+        <EntityType Name="Prices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PackegeId" Type="Int32" />
+          <Property Name="PriceTime" Type="DateTime" Precision="3" />
+          <Property Name="UnitCost" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Packeges" Relationship="DB_Shop_bud_materModel.FK__Prices__PackegeI__24927208" FromRole="Prices" ToRole="Packeges" />
+        </EntityType>
+        <EntityType Name="Producers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="DB_Shop_bud_materModel.FK__Products__Produc__1A14E395" FromRole="Producers" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ProducerId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Categorys" Relationship="DB_Shop_bud_materModel.FK__Products__Catego__1B0907CE" FromRole="Products" ToRole="Categorys" />
+          <NavigationProperty Name="Packeges" Relationship="DB_Shop_bud_materModel.FK__Packeges__Produc__1FCDBCEB" FromRole="Products" ToRole="Packeges" />
+          <NavigationProperty Name="Producers" Relationship="DB_Shop_bud_materModel.FK__Products__Produc__1A14E395" FromRole="Products" ToRole="Producers" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="InputOrders" Relationship="DB_Shop_bud_materModel.FK__InputOrde__Statu__31EC6D26" FromRole="Status" ToRole="InputOrders" />
+          <NavigationProperty Name="OutputOrders" Relationship="DB_Shop_bud_materModel.FK__OutputOrd__Statu__2A4B4B5E" FromRole="Status" ToRole="OutputOrders" />
+        </EntityType>
+        <EntityType Name="WarehouseItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehousId" Type="Int32" />
+          <Property Name="PackegeId" Type="Int32" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Packeges" Relationship="DB_Shop_bud_materModel.FK__Warehouse__Packe__3B75D760" FromRole="WarehouseItem" ToRole="Packeges" />
+          <NavigationProperty Name="Warehouses" Relationship="DB_Shop_bud_materModel.FK__Warehouse__Wareh__3A81B327" FromRole="WarehouseItem" ToRole="Warehouses" />
+        </EntityType>
+        <EntityType Name="Warehouses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="WarehouseItem" Relationship="DB_Shop_bud_materModel.FK__Warehouse__Wareh__3A81B327" FromRole="Warehouses" ToRole="WarehouseItem" />
+        </EntityType>
+        <Association Name="FK__Categorys__Paren__15502E78">
+          <End Role="Categorys" Type="DB_Shop_bud_materModel.Categorys" Multiplicity="0..1" />
+          <End Role="Categorys1" Type="DB_Shop_bud_materModel.Categorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categorys1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Catego__1B0907CE">
+          <End Role="Categorys" Type="DB_Shop_bud_materModel.Categorys" Multiplicity="0..1" />
+          <End Role="Products" Type="DB_Shop_bud_materModel.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customers__TypeI__1273C1CD">
+          <End Role="CustomersType" Type="DB_Shop_bud_materModel.CustomersType" Multiplicity="0..1" />
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Custu__30F848ED">
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Customers" Multiplicity="0..1" />
+          <End Role="InputOrders" Type="DB_Shop_bud_materModel.InputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrders">
+              <PropertyRef Name="CustumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Custu__29572725">
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Customers" Multiplicity="0..1" />
+          <End Role="OutputOrders" Type="DB_Shop_bud_materModel.OutputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrders">
+              <PropertyRef Name="CustumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Input__34C8D9D1">
+          <End Role="InputOrders" Type="DB_Shop_bud_materModel.InputOrders" Multiplicity="0..1" />
+          <End Role="InputOrderItem" Type="DB_Shop_bud_materModel.InputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InputOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrderItem">
+              <PropertyRef Name="InputOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Packe__35BCFE0A">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Packeges" Multiplicity="0..1" />
+          <End Role="InputOrderItem" Type="DB_Shop_bud_materModel.InputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrderItem">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InputOrde__Statu__31EC6D26">
+          <End Role="Status" Type="DB_Shop_bud_materModel.Status" Multiplicity="0..1" />
+          <End Role="InputOrders" Type="DB_Shop_bud_materModel.InputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InputOrders">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Packeges__Measur__21B6055D">
+          <End Role="Measures" Type="DB_Shop_bud_materModel.Measures" Multiplicity="0..1" />
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Packeges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Measures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Packeges">
+              <PropertyRef Name="MeasureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Packeges__Volume__20C1E124">
+          <End Role="Measures" Type="DB_Shop_bud_materModel.Measures" Multiplicity="0..1" />
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Packeges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Measures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Packeges">
+              <PropertyRef Name="VolumeMeasureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Outpu__2D27B809">
+          <End Role="OutputOrders" Type="DB_Shop_bud_materModel.OutputOrders" Multiplicity="0..1" />
+          <End Role="OutputOrderItem" Type="DB_Shop_bud_materModel.OutputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OutputOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrderItem">
+              <PropertyRef Name="OutputOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Packe__2E1BDC42">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Packeges" Multiplicity="0..1" />
+          <End Role="OutputOrderItem" Type="DB_Shop_bud_materModel.OutputOrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrderItem">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutputOrd__Statu__2A4B4B5E">
+          <End Role="Status" Type="DB_Shop_bud_materModel.Status" Multiplicity="0..1" />
+          <End Role="OutputOrders" Type="DB_Shop_bud_materModel.OutputOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutputOrders">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Packeges__Produc__1FCDBCEB">
+          <End Role="Products" Type="DB_Shop_bud_materModel.Products" Multiplicity="0..1" />
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Packeges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Packeges">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prices__PackegeI__24927208">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Packeges" Multiplicity="0..1" />
+          <End Role="Prices" Type="DB_Shop_bud_materModel.Prices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Prices">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Warehouse__Packe__3B75D760">
+          <End Role="Packeges" Type="DB_Shop_bud_materModel.Packeges" Multiplicity="0..1" />
+          <End Role="WarehouseItem" Type="DB_Shop_bud_materModel.WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packeges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="PackegeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Produc__1A14E395">
+          <End Role="Producers" Type="DB_Shop_bud_materModel.Producers" Multiplicity="0..1" />
+          <End Role="Products" Type="DB_Shop_bud_materModel.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProducerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Warehouse__Wareh__3A81B327">
+          <End Role="Warehouses" Type="DB_Shop_bud_materModel.Warehouses" Multiplicity="0..1" />
+          <End Role="WarehouseItem" Type="DB_Shop_bud_materModel.WarehouseItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WarehouseItem">
+              <PropertyRef Name="WarehousId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_Shop_bud_materModelStoreContainer" CdmEntityContainer="DB_Shop_bud_materEntities">
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Categorys">
+              <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomersType">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.CustomersType">
+              <MappingFragment StoreEntitySet="CustomersType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InputOrderItem">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.InputOrderItem">
+              <MappingFragment StoreEntitySet="InputOrderItem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InputOrderId" ColumnName="InputOrderId" />
+                <ScalarProperty Name="PackegeId" ColumnName="PackegeId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InputOrders">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.InputOrders">
+              <MappingFragment StoreEntitySet="InputOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustumerId" ColumnName="CustumerId" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Measures">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Measures">
+              <MappingFragment StoreEntitySet="Measures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SmallName" ColumnName="SmallName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutputOrderItem">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.OutputOrderItem">
+              <MappingFragment StoreEntitySet="OutputOrderItem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OutputOrderId" ColumnName="OutputOrderId" />
+                <ScalarProperty Name="PackegeId" ColumnName="PackegeId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutputOrders">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.OutputOrders">
+              <MappingFragment StoreEntitySet="OutputOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustumerId" ColumnName="CustumerId" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Packeges">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Packeges">
+              <MappingFragment StoreEntitySet="Packeges">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="VolumeMeasureID" ColumnName="VolumeMeasureID" />
+                <ScalarProperty Name="MeasureID" ColumnName="MeasureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Prices">
+              <MappingFragment StoreEntitySet="Prices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PackegeId" ColumnName="PackegeId" />
+                <ScalarProperty Name="PriceTime" ColumnName="PriceTime" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producers">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Producers">
+              <MappingFragment StoreEntitySet="Producers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProducerId" ColumnName="ProducerId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WarehouseItem">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.WarehouseItem">
+              <MappingFragment StoreEntitySet="WarehouseItem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WarehousId" ColumnName="WarehousId" />
+                <ScalarProperty Name="PackegeId" ColumnName="PackegeId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouses">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Warehouses">
+              <MappingFragment StoreEntitySet="Warehouses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

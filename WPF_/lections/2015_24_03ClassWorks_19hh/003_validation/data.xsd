@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="4" minOccurs="1" name="Student">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" maxOccurs="1" minOccurs="1" type="xs:string" />
+              <xs:element name="Gender" maxOccurs="1" minOccurs="1"  type="xs:string" />
+              <xs:element name="TotalMarks" maxOccurs="1" minOccurs="1"  type="xs:unsignedShort" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

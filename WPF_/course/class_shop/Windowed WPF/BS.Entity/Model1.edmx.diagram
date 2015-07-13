@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d2787320e6e4dd38199a071348c2473" Name="Diagram1">
+        <EntityTypeShape EntityType="BS_3VModel.Categories" Width="1.5" PointX="1.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.Customers" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.InputOrderItems" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.InputOrders" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.Measures" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.OutputOrderItems" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.OutputOrders" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.Packages" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.Prices" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.Producers" Width="1.5" PointX="1.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.Products" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.Statuses" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.WareHouseItems" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BS_3VModel.WareHouses" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="BS_3VModel.FK__Categorie__Paren__108B795B" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__Products__Catego__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__InputOrde__Custo__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__OutputOrd__Custo__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__InputOrde__Input__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__InputOrde__Packa__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__InputOrde__Statu__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__Packages__Measur__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__Packages__Volume__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__OutputOrd__Outpu__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__OutputOrd__Packa__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__OutputOrd__Statu__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__Packages__Produc__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__Prices__PackageI__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__WareHouse__Packa__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__Products__Produc__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="BS_3VModel.FK__WareHouse__WareH__38996AB5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

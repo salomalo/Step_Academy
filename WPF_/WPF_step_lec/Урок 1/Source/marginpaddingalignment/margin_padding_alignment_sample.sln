@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "margin_padding_alignment_sample", "margin_padding_alignment_sample.csproj", "{1DC3C386-2FA4-4D53-ACC3-768A4C3866BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DC3C386-2FA4-4D53-ACC3-768A4C3866BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC3C386-2FA4-4D53-ACC3-768A4C3866BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

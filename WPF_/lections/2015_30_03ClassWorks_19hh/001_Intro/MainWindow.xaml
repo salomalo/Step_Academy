@@ -1,0 +1,24 @@
+﻿<Window x:Class="_001_Intro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="200" Width="300">
+    
+    <StackPanel>
+        
+        <Slider Name="sldSource" Minimum="5" Maximum="100" Margin="10" />
+        <TextBox Name="tbxFontSize" Text="{Binding ElementName=sldSource, Path=Value, UpdateSourceTrigger=PropertyChanged}" Margin="10" />
+
+        <!--<TextBlock Name="tblTarget" Text="Hello World" FontSize="{Binding ElementName=sldSource, Path=Value}" />-->
+        <TextBlock Name="tblTarget" Text="Hello World" FontSize="{Binding ElementName=tbxFontSize, Path=Text}" Margin="10" />
+        
+        <!--<TextBox Margin="5" Name="tbxSource">Hello Data Binding</TextBox>
+        <TextBlock Name="tblTarget" Margin="5" Text="{Binding ElementName=tbxSource, Path=Text}" />
+
+        <TextBlock Margin="5" Name="tblTarget2">
+            <TextBlock.Text>
+                <Binding ElementName="tbxSource" Path="Text" />
+            </TextBlock.Text>
+        </TextBlock>-->  
+    </StackPanel>
+    
+</Window>

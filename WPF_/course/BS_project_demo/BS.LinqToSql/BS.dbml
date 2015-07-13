@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="test" Class="BSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=test;Integrated Security=True" SettingsObjectName="BS.LinqToSql.Properties.Settings" SettingsPropertyName="testConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Association Name="Category_Category" Member="Categories" ThisKey="Id" OtherKey="ParentId" Type="Category" />
+      <Association Name="Category_Product" Member="Products" ThisKey="Id" OtherKey="CategoryId" Type="Product" />
+      <Association Name="Category_Category" Member="Category1" ThisKey="ParentId" OtherKey="Id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="ProducerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Package" Member="Packages" ThisKey="Id" OtherKey="ProductId" Type="Package" />
+      <Association Name="Category_Product" Member="Category" ThisKey="CategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
+      <Association Name="Producer_Product" Member="Producer" ThisKey="ProducerId" OtherKey="Id" Type="Producer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Measure" Member="Measures">
+    <Type Name="Measure">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="SmallName" Type="System.String" DbType="NVarChar(16) NOT NULL" CanBeNull="false" />
+      <Association Name="Measure_Package" Member="Packages" ThisKey="Id" OtherKey="MeasureId" Type="Package" />
+      <Association Name="Measure_Package1" Member="Packages1" ThisKey="Id" OtherKey="VolumeMeasureId" Type="Package" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Package" Member="Packages">
+    <Type Name="Package">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Volume" Type="System.Decimal" DbType="Decimal(18,4) NOT NULL" CanBeNull="false" />
+      <Column Name="VolumeMeasureId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Package_Price" Member="Prices" ThisKey="Id" OtherKey="PackageId" Type="Price" />
+      <Association Name="Product_Package" Member="Product" ThisKey="ProductId" OtherKey="Id" Type="Product" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Measure_Package" Member="Measure" ThisKey="MeasureId" OtherKey="Id" Type="Measure" IsForeignKey="true" />
+      <Association Name="Measure_Package1" Member="Measure1" ThisKey="VolumeMeasureId" OtherKey="Id" Type="Measure" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Price" Member="Prices">
+    <Type Name="Price">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PackageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PriceTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Decimal(18,4) NOT NULL" CanBeNull="false" />
+      <Association Name="Package_Price" Member="Package" ThisKey="PackageId" OtherKey="Id" Type="Package" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producer" Member="Producers">
+    <Type Name="Producer">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Association Name="Producer_Product" Member="Products" ThisKey="Id" OtherKey="ProducerId" Type="Product" />
+    </Type>
+  </Table>
+</Database>
