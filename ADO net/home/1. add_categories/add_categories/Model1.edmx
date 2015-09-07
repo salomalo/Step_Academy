@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_Shop_bud_materModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DB_Shop_bud_materModelStoreContainer">
+          <EntitySet Name="Categorys" EntityType="DB_Shop_bud_materModel.Store.Categorys" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Categorys__Paren__09DE7BCC" Association="DB_Shop_bud_materModel.Store.FK__Categorys__Paren__09DE7BCC">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Categorys1" EntitySet="Categorys" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="ParentId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Categorys__Paren__09DE7BCC">
+          <End Role="Categorys" Type="DB_Shop_bud_materModel.Store.Categorys" Multiplicity="0..1" />
+          <End Role="Categorys1" Type="DB_Shop_bud_materModel.Store.Categorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categorys1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_Shop_bud_materModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_Shop_bud_materEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorys" EntityType="DB_Shop_bud_materModel.Categorys" />
+          <AssociationSet Name="FK__Categorys__Paren__09DE7BCC" Association="DB_Shop_bud_materModel.FK__Categorys__Paren__09DE7BCC">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Categorys1" EntitySet="Categorys" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <NavigationProperty Name="Categorys1" Relationship="DB_Shop_bud_materModel.FK__Categorys__Paren__09DE7BCC" FromRole="Categorys" ToRole="Categorys1" />
+          <NavigationProperty Name="Categorys2" Relationship="DB_Shop_bud_materModel.FK__Categorys__Paren__09DE7BCC" FromRole="Categorys1" ToRole="Categorys" />
+        </EntityType>
+        <Association Name="FK__Categorys__Paren__09DE7BCC">
+          <End Role="Categorys" Type="DB_Shop_bud_materModel.Categorys" Multiplicity="0..1" />
+          <End Role="Categorys1" Type="DB_Shop_bud_materModel.Categorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categorys1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_Shop_bud_materModelStoreContainer" CdmEntityContainer="DB_Shop_bud_materEntities">
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Categorys">
+              <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

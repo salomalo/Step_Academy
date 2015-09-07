@@ -1,0 +1,19 @@
+﻿<Window x:Class="WPF_UI.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="300">
+    <Grid>
+        <!-- Вариант 1 -->
+        <Image  Name="image1" Stretch="Fill"  Source="t.jpg" Height="105" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" />
+        <!-- Вариант 2 -->
+        <Image  Name="image2" Stretch="Fill"  Source="t.jpg" HorizontalAlignment="Left" Width="95" Height="71" VerticalAlignment="Bottom" />
+        <!-- Вариант 3 -->
+        <Image Name="image3" Width="92" HorizontalAlignment="Right" Margin="0,0,29,0">
+            <Image.Source>
+                <BitmapImage DecodePixelWidth="200"  
+          UriSource="t.jpg" />
+            </Image.Source>
+        </Image>
+        <Button Height="23" Margin="106,0,97,0" Name="button1" VerticalAlignment="Bottom" Click="button1_Click">Button</Button>
+    </Grid>
+</Window>

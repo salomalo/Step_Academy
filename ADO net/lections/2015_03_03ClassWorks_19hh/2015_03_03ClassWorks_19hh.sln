@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001_SchemaFirst_ModelFirstDemo", "001_SchemaFirst_ModelFirstDemo\001_SchemaFirst_ModelFirstDemo.csproj", "{F5D9C0B2-56C1-47F7-A163-A76619B1D498}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "002_CodeFirstApproachDemo", "002_CodeFirstApproachDemo\002_CodeFirstApproachDemo.csproj", "{4B364B7E-270D-4FFE-B8FD-D01423EF09D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5D9C0B2-56C1-47F7-A163-A76619B1D498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D9C0B2-56C1-47F7-A163-A76619B1D498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D9C0B2-56C1-47F7-A163-A76619B1D498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D9C0B2-56C1-47F7-A163-A76619B1D498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B364B7E-270D-4FFE-B8FD-D01423EF09D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B364B7E-270D-4FFE-B8FD-D01423EF09D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B364B7E-270D-4FFE-B8FD-D01423EF09D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B364B7E-270D-4FFE-B8FD-D01423EF09D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

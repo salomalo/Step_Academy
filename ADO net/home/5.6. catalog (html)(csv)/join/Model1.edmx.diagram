@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84a7aaddbb4d481b9b8152f3c219b636" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Categorys" Width="1.5" PointX="1.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Customers" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.CustomersType" Width="1.5" PointX="1.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.InputOrderItem" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.InputOrders" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Measures" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.OutputOrderItem" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.OutputOrders" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Packeges" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Prices" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Producers" Width="1.5" PointX="1.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Products" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Status" Width="1.5" PointX="0.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.WarehouseItem" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Shop_bud_materModel.Warehouses" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Categorys__Paren__09DE7BCC" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Products__Catego__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Customers__TypeI__0519C6AF" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__InputOrde__Custu__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__OutputOrd__Custu__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__InputOrde__Input__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__InputOrde__Packe__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__InputOrde__Statu__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Packeges__Measur__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Packeges__Volume__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__OutputOrd__Outpu__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__OutputOrd__Packe__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__OutputOrd__Statu__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Packeges__Produc__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Prices__PackegeI__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Warehouse__Packe__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Products__Produc__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Shop_bud_materModel.FK__Warehouse__Wareh__45F365D3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

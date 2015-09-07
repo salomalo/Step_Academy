@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001_ManyToMany_databaseFirst", "001_ManyToMany_databaseFirst\001_ManyToMany_databaseFirst.csproj", "{B2CC71FF-3507-4DF6-B4CC-67BA1ED08E4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "002_ManyToMany_CodeFirst", "002_ManyToMany_CodeFirst\002_ManyToMany_CodeFirst.csproj", "{7C2F9544-F6E1-4F1A-B63B-B4AE43FF7FC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "003_manyToMany_withBridge_databaseFirst", "003_manyToMany_withBridge_databaseFirst\003_manyToMany_withBridge_databaseFirst.csproj", "{9C1406D9-A932-4AAC-BD49-D9246E85B905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "004_manyToMany_withBridge_codeFirst", "004_manyToMany_withBridge_codeFirst\004_manyToMany_withBridge_codeFirst.csproj", "{EAABF7A8-5D6A-4043-809F-0D50A7BDE4EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "005_intro", "005_intro\005_intro.csproj", "{5565915B-15AF-41A7-ADB3-8BD4FCB2580F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "006_Writing_LINQ_query_cs", "006_Writing_LINQ_query_cs\006_Writing_LINQ_query_cs.csproj", "{FDF9D6D1-BEB7-46FF-B68F-2193AD4FDCFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "007_Extesion_methods", "007_Extesion_methods\007_Extesion_methods.csproj", "{78858690-02F0-47AA-818A-0D791E289398}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2CC71FF-3507-4DF6-B4CC-67BA1ED08E4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2CC71FF-3507-4DF6-B4CC-67BA1ED08E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2CC71FF-3507-4DF6-B4CC-67BA1ED08E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2CC71FF-3507-4DF6-B4CC-67BA1ED08E4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2F9544-F6E1-4F1A-B63B-B4AE43FF7FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2F9544-F6E1-4F1A-B63B-B4AE43FF7FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2F9544-F6E1-4F1A-B63B-B4AE43FF7FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2F9544-F6E1-4F1A-B63B-B4AE43FF7FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1406D9-A932-4AAC-BD49-D9246E85B905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1406D9-A932-4AAC-BD49-D9246E85B905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1406D9-A932-4AAC-BD49-D9246E85B905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1406D9-A932-4AAC-BD49-D9246E85B905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAABF7A8-5D6A-4043-809F-0D50A7BDE4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAABF7A8-5D6A-4043-809F-0D50A7BDE4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAABF7A8-5D6A-4043-809F-0D50A7BDE4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAABF7A8-5D6A-4043-809F-0D50A7BDE4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5565915B-15AF-41A7-ADB3-8BD4FCB2580F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5565915B-15AF-41A7-ADB3-8BD4FCB2580F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5565915B-15AF-41A7-ADB3-8BD4FCB2580F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5565915B-15AF-41A7-ADB3-8BD4FCB2580F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF9D6D1-BEB7-46FF-B68F-2193AD4FDCFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF9D6D1-BEB7-46FF-B68F-2193AD4FDCFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF9D6D1-BEB7-46FF-B68F-2193AD4FDCFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF9D6D1-BEB7-46FF-B68F-2193AD4FDCFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78858690-02F0-47AA-818A-0D791E289398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78858690-02F0-47AA-818A-0D791E289398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78858690-02F0-47AA-818A-0D791E289398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78858690-02F0-47AA-818A-0D791E289398}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="../common/layout.xsl" ?>
+
+<lesson title="Програмування" next="index.xml" prev="index.xml">
+<h2>Програмування</h2>
+<ul>
+  <li><a href="../Cpp/index.xml">Частина 0. Курс C++</a></li>
+	<li><a href="../OOP/index.xml">Частина 1. Курс ООП</a></li>
+  <li><a href="../Win32API/index.xml">Частина 2. Win32API</a></li>
+  <li><a href="../HTML/index.xml">Частина 3. Курс XHTML/CSS</a></li>
+  <li><a href="../JavaScript/index.xml">Частина 4. Курс JavaScript</a></li>
+  <li><a href="../XML/index.xml">Частина 5. Курс XML</a></li>
+<li><a href="../CSharp/index.xml">Частина 6. Курс C#</a></li>
+<li><a href="../WinForms/index.xml">Частина 7. Курс Windows Forms</a></li>
+<li><a href="../GdiPlus/index.xml">Частина 8. Курс GDI+</a></li>
+<li><a href="../WPF/index.xml">Частина 9. Курс WPF</a></li>
+<li><a href="../Oracle/index.xml">Частина 10. Курс Oracle</a></li>
+<li><a href="../ADO.NET/index.xml">Частина 11. Курс ADO.NET</a></li>
+</ul>
+</lesson>

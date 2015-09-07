@@ -1,0 +1,4 @@
+Сторінка: http://www.ex.ua/79544632
+
+Файли:	2014-07-15_01_stringstream_vector_list.tvs
+		2014-07-15_02_deque_HomeWork.tvs

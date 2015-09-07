@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cписок визначень</title>
+		<style type="text/css">
+			* {
+				font-family: Arial;
+			}
+			
+			dt {
+				color: blue;
+				font: italic 25pt Arial;
+			}
+			
+			span{
+				font-weight:bold;
+			}
+			
+			#FirstSpan{
+				color: orange;
+			}
+			
+			.RedSpan{
+				color:red;
+			}
+			
+			.GreenSpan{
+				/*color:green;*/
+				color:brown;
+			}
+			
+			dd.GreenSpan {
+				text-decoration: overline;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1 class="GreenSpan">Cписок <span>визначень</span></h1>
+		<p>Перейти до <a href="http://google.com.ua/">Google</a><p>
+		<p>Перейти до <a href="http://google.com.ua/" target="_blank" title="Виринаюча підказка">Google</a> (в новому вікні)<p>
+		<dl>
+			<dt>HTML</dt>
+			<dd> 
+				Мова розмітки <span id="FirstSpan">гіпертекстових</span> документів) —стандартна мова розмітки веб-сторінок в Інтернеті. 
+				Більшість веб-сторінок <span class="GreenSpan">створюються</span> за <span class="RedSpan">допомогою</span> мови HTML (або XHTML). 
+				Документ HTML <span class="RedSpan">оброблюється</span> браузером та <span class="GreenSpan">відтворюється</span> на екрані у <span class="GreenSpan">звичному</span> для людини вигляді.
+			</dd>
+			<dt>WinAPI</dt>
+			<dd class="GreenSpan"> 
+				Ця глибока <span class="RedSpan">наука</span> виносить мозги
+			</dd>
+			
+		</dl>
+	</body>
+</html>

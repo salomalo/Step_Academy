@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="JavaScript та WSH" next="index.xml" prev="index.xml">
+<h2>Частина 4. JavaScript та WSH</h2>
+<ul>
+  <li><a href="section11C.xml">11С. Домашні завдання</a></li>
+  <li><a href="section17HC.xml">17 та 18HС. Домашні завдання</a></li>
+  <li><a href="section19C.xml">19С. Домашні завдання</a></li>
+</ul>
+</lesson>

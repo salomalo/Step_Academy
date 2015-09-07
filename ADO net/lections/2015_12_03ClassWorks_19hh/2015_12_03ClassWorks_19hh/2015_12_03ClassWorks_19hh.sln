@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001_AggregateFunction", "001_AggregateFunction\001_AggregateFunction.csproj", "{935E8E4E-D9A3-4081-9D68-804A39994F1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "002 - Restriction operator", "002 - Restriction operator\002 - Restriction operator.csproj", "{68B35EDD-F05B-4929-A1DD-FC1E8326BDE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "003_Project Operators", "003_Project Operators\003_Project Operators.csproj", "{05462458-5899-459A-8B72-0E162458B078}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "004_SelectMany", "004_SelectMany\004_SelectMany.csproj", "{45CB240D-CAE4-4A63-9C49-44C7B340B002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "005_OrderingOperators", "005_OrderingOperators\005_OrderingOperators.csproj", "{793E81D8-2E6B-459B-8D0B-73DC6592D172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "006_Partitioning Operators", "006_Partitioning Operators\006_Partitioning Operators.csproj", "{7D91E0FA-B318-4E7F-8507-2F7A6956613A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{935E8E4E-D9A3-4081-9D68-804A39994F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935E8E4E-D9A3-4081-9D68-804A39994F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935E8E4E-D9A3-4081-9D68-804A39994F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935E8E4E-D9A3-4081-9D68-804A39994F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B35EDD-F05B-4929-A1DD-FC1E8326BDE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B35EDD-F05B-4929-A1DD-FC1E8326BDE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B35EDD-F05B-4929-A1DD-FC1E8326BDE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B35EDD-F05B-4929-A1DD-FC1E8326BDE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05462458-5899-459A-8B72-0E162458B078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05462458-5899-459A-8B72-0E162458B078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05462458-5899-459A-8B72-0E162458B078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05462458-5899-459A-8B72-0E162458B078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CB240D-CAE4-4A63-9C49-44C7B340B002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CB240D-CAE4-4A63-9C49-44C7B340B002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CB240D-CAE4-4A63-9C49-44C7B340B002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CB240D-CAE4-4A63-9C49-44C7B340B002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793E81D8-2E6B-459B-8D0B-73DC6592D172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793E81D8-2E6B-459B-8D0B-73DC6592D172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793E81D8-2E6B-459B-8D0B-73DC6592D172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793E81D8-2E6B-459B-8D0B-73DC6592D172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D91E0FA-B318-4E7F-8507-2F7A6956613A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D91E0FA-B318-4E7F-8507-2F7A6956613A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D91E0FA-B318-4E7F-8507-2F7A6956613A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D91E0FA-B318-4E7F-8507-2F7A6956613A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

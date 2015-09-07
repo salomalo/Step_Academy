@@ -1,0 +1,113 @@
+public void DumpTableToFile(SqlConnection connection, string tableName, string destinationFile)
+    {
+        using (var command = new SqlCommand("select * from " + tableName, connection))
+        using (var reader = command.ExecuteReader())
+        using (var outFile = File.CreateText(destinationFile))
+        {
+            string[] columnNames = GetColumnNames(reader).ToArray();
+            int numFields = columnNames.Length;
+            outFile.WriteLine(string.Join(",", columnNames));
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string[] columnValues = 
+                        Enumerable.Range(0, numFields)
+                                  .Select(i => reader.GetValue(i).ToString())
+                                  .Select(field => string.Concat("\"", field.Replace("\"", "\"\""), "\""))
+                                  .ToArray();
+                    outFile.WriteLine(string.Join(",", columnValues));
+                }
+            }
+        }
+    }
+    private IEnumerable<string> GetColumnNames(IDataReader reader)
+    {
+        foreach (DataRow row in reader.GetSchemaTable().Rows)
+        {
+            yield return (string)row["ColumnName"];
+        }
+    }
+	
+	
+	/////////////////////
+	
+	
+	
+	 class Program
+    {
+        static void Main(string[] args)
+        {
+            var connectionString = @"data source=bla bla bla";
+            var selectQuery = "select * from my-table;";
+            
+            var table = ReadTable(connectionString, selectQuery);
+            WriteToFile(table, @"C:\temp\outputfile.csv", false, ",");
+ 
+            Console.WriteLine("Press any key to quit...");
+            Console.ReadKey();
+        }
+ 
+        public static DataTable ReadTable(string connectionString, string selectQuery)
+        {
+            var returnValue = new DataTable();
+ 
+            var conn = new SqlConnection(connectionString);
+ 
+            try
+            {
+                conn.Open();
+                var command = new SqlCommand(selectQuery, conn);
+ 
+                using (var adapter = new SqlDataAdapter(command))
+                {
+                    adapter.Fill(returnValue);
+                }
+ 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+ 
+            return returnValue;
+        }
+ 
+        public static void WriteToFile(DataTable dataSource, string fileOutputPath, bool firstRowIsColumnHeader = false, string seperator = ";")
+        {
+            var sw = new StreamWriter(fileOutputPath, false);
+ 
+            int icolcount = dataSource.Columns.Count;
+ 
+            if (!firstRowIsColumnHeader)
+            {
+                for (int i = 0; i < icolcount; i++)
+                {
+                    sw.Write(dataSource.Columns[i]);
+                    if (i < icolcount - 1)
+                        sw.Write(seperator);
+                }
+ 
+                sw.Write(sw.NewLine);
+            }
+ 
+            foreach (DataRow drow in dataSource.Rows)
+            {
+                for (int i = 0; i < icolcount; i++)
+                {
+                    if (!Convert.IsDBNull(drow[i]))
+                        sw.Write(drow[i].ToString());
+                    if (i < icolcount - 1)
+                        sw.Write(seperator);
+                }
+                sw.Write(sw.NewLine);
+            }
+            sw.Close();
+        }
+    }

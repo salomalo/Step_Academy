@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_Shop_bud_materModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DB_Shop_bud_materModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="DB_Shop_bud_materModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomersType" EntityType="DB_Shop_bud_materModel.Store.CustomersType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Customers__TypeI__0519C6AF" Association="DB_Shop_bud_materModel.Store.FK__Customers__TypeI__0519C6AF">
+            <End Role="CustomersType" EntitySet="CustomersType" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="TypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="CustomersType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="512" />
+        </EntityType>
+        <Association Name="FK__Customers__TypeI__0519C6AF">
+          <End Role="CustomersType" Type="DB_Shop_bud_materModel.Store.CustomersType" Multiplicity="0..1" />
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Store.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_Shop_bud_materModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_Shop_bud_materEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="DB_Shop_bud_materModel.Customers" />
+          <EntitySet Name="CustomersType" EntityType="DB_Shop_bud_materModel.CustomersType" />
+          <AssociationSet Name="FK__Customers__TypeI__0519C6AF" Association="DB_Shop_bud_materModel.FK__Customers__TypeI__0519C6AF">
+            <End Role="CustomersType" EntitySet="CustomersType" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="TypeId" Type="Int32" />
+          <NavigationProperty Name="CustomersType" Relationship="DB_Shop_bud_materModel.FK__Customers__TypeI__0519C6AF" FromRole="Customers" ToRole="CustomersType" />
+        </EntityType>
+        <EntityType Name="CustomersType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Customers" Relationship="DB_Shop_bud_materModel.FK__Customers__TypeI__0519C6AF" FromRole="CustomersType" ToRole="Customers" />
+        </EntityType>
+        <Association Name="FK__Customers__TypeI__0519C6AF">
+          <End Role="CustomersType" Type="DB_Shop_bud_materModel.CustomersType" Multiplicity="0..1" />
+          <End Role="Customers" Type="DB_Shop_bud_materModel.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_Shop_bud_materModelStoreContainer" CdmEntityContainer="DB_Shop_bud_materEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomersType">
+            <EntityTypeMapping TypeName="DB_Shop_bud_materModel.CustomersType">
+              <MappingFragment StoreEntitySet="CustomersType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

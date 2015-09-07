@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Button_CreateWindowEx", "Button_CreateWindowEx\Button_CreateWindowEx.vcproj", "{1AFE3F0F-0BE9-4F7B-9FA9-12DFAC59C243}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AFE3F0F-0BE9-4F7B-9FA9-12DFAC59C243}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1AFE3F0F-0BE9-4F7B-9FA9-12DFAC59C243}.Debug|Win32.Build.0 = Debug|Win32
+		{1AFE3F0F-0BE9-4F7B-9FA9-12DFAC59C243}.Release|Win32.ActiveCfg = Release|Win32
+		{1AFE3F0F-0BE9-4F7B-9FA9-12DFAC59C243}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

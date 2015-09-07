@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<NewDataSet>
+  <student>
+    <id>1</id>
+     <fio>Иванов Иван Иванович</fio>
+    <age>21</age>
+    <id_gruppa>1</id_gruppa>
+  </student>
+  <student>
+    <id>2</id>
+    <fio>Куров Евгений Вадимович</fio>
+    <age>31</age>
+    <id_gruppa>1</id_gruppa>
+  </student>
+<student>
+    <id>3</id>
+    <fio>Сидоров Петр Иванович</fio>
+    <age>25</age>
+    <id_gruppa>1</id_gruppa>
+</student>
+<student>
+    <id>4</id>
+    <fio>Кривая Юлия Петровна</fio>
+    <age>18</age>
+    <id_gruppa>2</id_gruppa>
+  </student>
+<student>
+    <id>5</id>
+    <fio>Светлая Наталья Ивановна</fio>
+    <age>22</age>
+    <id_gruppa>2</id_gruppa>
+  </student>
+ <gruppa>
+   <id>1</id>
+   <name>СТВ-18-1</name>
+ </gruppa>
+ <gruppa>
+   <id>2</id>
+   <name>СТУ-18-1</name>
+ </gruppa>
+ <gruppa>
+   <id>3</id>
+   <name>СТД-18-1</name>
+ </gruppa>
+</NewDataSet>

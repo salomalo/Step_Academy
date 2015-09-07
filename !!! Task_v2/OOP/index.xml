@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="ООП" next="section11HC.xml" prev="index.xml">
+<h2>Частина 1. ООП</h2>
+<ul>
+	<li><a href="section17HC.xml">17HС. Домашні завдання</a></li>
+	<li><a href="section18HC.xml">18HС. Домашні завдання</a></li>
+	<li><a href="section19C.xml">19С. Домашні завдання</a></li>
+	<li><a href="section20C.xml">20С. Домашні завдання</a></li>
+	<li><a href="additionalTask.xml">Додаткові задачі</a></li>
+	<li><a href="courseworks.xml">Курсові роботи</a></li>
+</ul>
+</lesson>

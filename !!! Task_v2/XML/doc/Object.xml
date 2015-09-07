@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Item name="Object" namespace="System" type="class">
+	<Description>
+		Supports all classes in the .NET Framework class hierarchy 
+		and provides low-level services to derived classes. 
+		This is the ultimate base <c>class</c> of all classes in the .NET Framework; 
+		it is the root of the type hierarchy.	
+	</Description>
+	<Members>
+		<Constructors>
+			<Constructor access="public">
+				<Declaration>
+					<Syntax language="C#"><![CDATA[
+							public Object () 
+						]]></Syntax>
+					<Syntax language="C++"><![CDATA[					
+							public:
+								Object () 
+						]]></Syntax>
+					<Syntax language="J#"><![CDATA[
+							public Object ()
+						]]></Syntax>
+				</Declaration>
+				<Description>
+					Initializes a new instance of the <c>Object</c> class. 
+				</Description>
+				<Remarks>
+					This constructor is called by 
+					constructors in derived classes, 
+					but it can also be used to directly 
+					create an instance of the <c>Object</c> class.
+				</Remarks>
+			</Constructor>
+		</Constructors>
+		<Methods>
+			<Method name="Equals" access="public" returns="bool">
+				<Declaration>
+					<Syntax language="C#"><![CDATA[
+							public virtual bool Equals (
+								Object obj
+							)
+						]]></Syntax>
+					<Syntax language="C++"><![CDATA[
+							public:
+							virtual bool Equals (
+								Object^ obj
+							)
+						]]></Syntax>
+					<Syntax language="J#"><![CDATA[
+							public boolean Equals (
+								Object obj
+							)
+						]]></Syntax>
+				</Declaration>
+				<Description>
+					Determines whether the specified 
+					<c>Object</c> is equal to the current <c>Object</c>. 
+				</Description>
+				<Parameters>
+					<Parameter type="Object" name="obj">
+						The <c>Object</c> to compare with the current <c>Object</c>. 
+					</Parameter>
+				</Parameters>
+				<ReturnValue>
+					<keyword>true</keyword> if the specified 
+					<c>Object</c> is equal to the current 
+					<c>Object</c>; otherwise, <keyword>false</keyword>. 
+				</ReturnValue>
+				<Remarks>
+					<Para>
+						The default implementation of Equals 
+						supports reference equality only, 
+						but derived classes can override 
+						this method to support value equality.
+					</Para>
+					<Para>
+						For reference types, equality is defined 
+						as object equality; that is, whether 
+						the references refer to the same object. 
+						For value types, equality is defined 
+						as bitwise equality. The ValueType 
+						class supports value types.
+					</Para>
+					<Para>
+						Notes to Implementers This method can 
+						be overridden by a derived class. 
+						For example, many of the base data 
+						types return true if both objects represent 
+						the same value; otherwise, false. 
+						This method only compares primitives and objects. 
+						It must be overridden to compare more complex 
+						structures, such as arrays of objects. The 
+						following statements must be true for all 
+						implementations of the Equals method. In the 
+						list, x, y, and z represent object references 
+						that are not a null reference 
+						(Nothing in Visual Basic). 
+					</Para>					
+					<Para>
+						x.Equals(x) returns true, except in cases that 
+						involve floating-point types. See IEC 60559:1989, 
+						Binary Floating-point Arithmetic for 
+						Microprocessor Systems.
+					</Para>
+					<Para>
+						x.Equals(y) returns the same value as y.Equals(x).
+					</Para>
+					<Para>
+						x.Equals(y) returns true if both x and y are NaN.
+					</Para>
+					<Para>
+						(x.Equals(y) &amp;&amp; y.Equals(z)) returns true 
+						if and only if x.Equals(z) returns true.
+					</Para>
+					<Para>
+						Successive calls to x.Equals(y) return the same 
+						value as long as the objects referenced 
+						by x and y are not modified.
+					</Para>
+					<Para>
+						x.Equals(a null reference (Nothing in 
+						Visual Basic)) returns false.
+					</Para>
+					<Para>
+						See GetHashCode for additional required behaviors 
+						pertaining to the Equals method. Implementations 
+						of Equals must not throw exceptions. For some kinds 
+						of objects, it is desirable to have Equals test 
+						for value equality instead of referential equality. 
+						Such implementations of Equals return true if the 
+						two objects have the same "value", even if they are 
+						not the same instance. The type's implementer decides 
+						what constitutes an object's "value", but it is 
+						typically some or all the data stored in the instance 
+						variables of the object. For example, the value of a 
+						String is based on the characters of the string; the 
+						Equals method of the String class returns true for 
+						any two string instances that contain exactly the same 
+						characters in the same order. Types that implement 
+						IComparable must override Equals. Types that override 
+						Equals must also override GetHashCode; otherwise, 
+						Hashtable might not work correctly. If your programming 
+						language supports operator overloading and if you choose 
+						to overload the equality operator for a given type, that 
+						type must override the Equals method. Such implementations 
+						of the Equals method must return the same results as the 
+						equality operator. Following this guideline will help ensure 
+						that class library code using Equals (such as ArrayList and 
+						Hashtable) behaves in a manner that is consistent with the 
+						way the equality operator is used by application code. The 
+						following guidelines are for implementing a value type: 
+					</Para>
+					<List>
+						<ListItem>
+							Consider overriding Equals to gain increased performance 
+							over that provided by the default implementation of 
+							Equals on ValueType.
+						</ListItem>
+						<ListItem>
+							If you override Equals and the language supports operator 
+							overloading, you must overload the equality operator 
+							for your value type.
+						</ListItem>
+					</List>
+					
+						The following guidelines are for implementing a reference type: 
+					<List>						
+						<ListItem>
+							Consider overriding Equals on a reference type if the semantics 
+							of the type are based on the fact that the type represents some value(s).
+						</ListItem>
+						<ListItem>
+							Most reference types must not overload the equality 
+							operator, even if they override Equals. However, 
+							if you are implementing a reference type that is 
+							intended to have value semantics, such as a complex 
+							number type, you must override the equality operator.
+						</ListItem>
+					</List>
+				</Remarks>
+				<Examples>
+					<Example language="C#">
+						<![CDATA[
+							using System;
+							
+							public class Sample {
+								void Method() {
+								Object Obj1 = new Object();
+								Object Obj2 = new Object();
+								Console.WriteLine(Obj1.Equals(Obj2)); //===> false
+								Obj2 = Obj1;
+								Console.WriteLine(Obj1.Equals(Obj2)); //===> true
+								}
+							}
+						]]>
+					</Example>
+					<Example language="C++">
+						<![CDATA[
+							#using <System.DLL>
+
+							using namespace System;
+							ref class Sample
+							{
+							private:
+							   void Method()
+							   {
+								  Object^ Obj1 = gcnew Object;
+								  Object^ Obj2 = gcnew Object;
+								  Console::WriteLine( Obj1->Equals( Obj2 ) ); //===> false
+								  Obj2 = Obj1;
+								  Console::WriteLine( Obj1->Equals( Obj2 ) ); //===> true
+							   }
+							
+							};
+						]]>
+					</Example>
+					<Example language="J#">
+						<![CDATA[
+							import System.*;
+							
+							public class Sample
+							{
+								void Method()
+								{
+									Object obj1 = new Object();
+									Object obj2 = new Object();
+									Console.WriteLine(obj1.Equals(obj2)); //===> false
+									obj2 = obj1;
+									Console.WriteLine(obj1.Equals(obj2)); //===> true
+								} //Method
+							} //Sample
+						]]>
+					</Example>
+				</Examples>
+			</Method>
+			<Method name="ToString" access="public" returns="string">
+				<Declaration>
+					<Syntax language="C#"><![CDATA[
+						public virtual string ToString ()
+						]]>
+					</Syntax>
+					<Syntax language="C++"><![CDATA[
+						public:
+						virtual String^ ToString ()
+
+						]]>
+					</Syntax>
+					<Syntax language="J#"><![CDATA[
+						public String ToString ()
+
+						]]>
+					</Syntax>
+				</Declaration>			
+				<ReturnValue>
+					A <c>String</c> that represents the current <c>Object</c>. 
+				</ReturnValue>
+				<Remarks>
+					<Para>
+						This method returns a human-readable string 
+						that is culture-sensitive. For example, for an instance 
+						of the Double class whose value is zero, the implementation 
+						of Double.ToString might return "0.00" or "0,00" 
+						depending on the current UI culture.
+					</Para>
+					<Para>
+						The default implementation returns the fully qualified 
+						name of the type of the Object.
+					</Para>
+					<Para>
+						Notes to Implementers This method can be overridden in 
+						a derived class to return values that are meaningful for 
+						that type. For example, the base data types, such as Int32, 
+						implement ToString so that it returns the string form of the 
+						value that the object represents. Derived classes that require 
+						more control over the formatting of strings than ToString provides 
+						must implement IFormattable, whose ToString method uses the 
+						current thread's CurrentCulture property. 
+					</Para>
+				</Remarks>
+				<Examples>
+					<Example language="C#">
+						<![CDATA[
+							using System;
+
+							public class Sample
+							{
+								void Method() {
+							
+									// Prints out: "System.Object"
+									Object o = new Object();
+									Console.WriteLine (o.ToString());
+							
+								}
+							}
+						]]>
+					</Example>
+					<Example language="C++">
+						<![CDATA[
+							#using <System.DLL>
+
+							using namespace System;
+							ref class Sample
+							{
+							private:
+							   void Method()
+							   {
+								  
+								  // Prints out: "System.Object"
+								  Object^ o = gcnew Object;
+								  Console::WriteLine( o->ToString() );
+							   }
+							
+							};
+					]]>
+					</Example>
+					<Example language="J#">
+						<![CDATA[
+							import System.*;
+							
+							public class Sample
+							{
+								void Method()
+								{
+									// Prints out: "System.Object"
+									Object o = new Object();
+									Console.WriteLine(o.ToString());
+								} //Method 
+							} //Sample
+						]]>
+					</Example>
+				</Examples>
+			</Method>
+		</Methods>
+	</Members>
+</Item>

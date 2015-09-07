@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Win32API та MFC" next="section7.xml" prev="index.xml">
+<h2>Частина 2. Win32API</h2>
+<ul>
+  <li><a href="section17HC.xml">17HС. Домашні завдання</a></li>
+  <li><a href="section18HC.xml">18HС та НС (7 тижнів). Домашні завдання</a></li>
+  <li><a href="section19C.xml">19С. Домашні завдання</a></li>
+  <li><a href="section21HC.xml">21HС та НС (5 тижнів). Домашні завдання</a></li>
+</ul>
+</lesson>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classes>
+
+	<class name="">										
+		<parent name="" access_type="" />
+		<variables_list>
+			<variable type="" name="" access_type="" />
+			<variable type="" name="" access_type="" />
+			<variable type="" name="" access_type="" />
+		</variables_list>
+		<function_list>
+			<function type="" name="" access_type="">
+				<variables_list>
+					<variable type="" name="" />
+					<variable type="" name="" />
+				</variables_list>
+				<code>
+					<!-- function code -->
+				</code>
+			</function> 
+			<function type="" name="" access_type="">
+				<variables_list>
+					<variable type="" name="" />
+					<variable type="" name="" />
+				</variables_list>
+				<code>
+					<!-- function code -->
+				</code>
+			</function> 
+		</function_list>
+	</class>
+		
+</classes>

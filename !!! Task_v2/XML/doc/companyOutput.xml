@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?magazine version="1.1" parser="SOAP"?>
+<magazine>
+	<!-- опис продуктів -->
+	<products>
+		<product>
+			<fullname>Молоко звичайне</fullname>
+			<category>
+				<name>Молочні вироби</name>
+			</category>
+			<producer>
+				<name>Наш молочник</name>
+			</producer>
+			<quantity measurement="шт.">120</quantity>
+			<price unit="грн.">5,20</price>
+		</product>
+		<product>
+			<fullname>Цукерки "Радість програміста"</fullname>
+			<category>
+				<name>Кондитерські вироби</name>
+			</category>
+			<producer>
+				<name>Світоч</name>
+			</producer>
+			<quantity measurement="кг">7</quantity>
+			<price unit="грн.">1,50</price>
+		</product>
+	</products>
+</magazine>

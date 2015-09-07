@@ -1,0 +1,57 @@
+#include <iostream>
+#include <ctime>
+
+#include <set>		// щоби мати set i multiset
+
+using namespace std;
+
+
+template <typename TYPE>
+void Show( const TYPE & oContainer , const char * name )
+{
+	cout <<name <<" : ";
+
+	TYPE::const_iterator itCur = oContainer.cbegin();	// константний ітератор не дає можливості змінити елемент контейнера, на котрий вказує (самозахист)
+	TYPE::const_iterator itEnd = oContainer.cend();	//  
+	while( itCur != itEnd)
+	{
+		cout <<*itCur <<' ';
+		++itCur;
+	}
+	cout <<endl;
+}
+
+
+
+void main()
+{
+	srand( time(0) );
+
+
+	set<int> oSet;
+	multiset<int> oMSet;
+
+	int iVal;
+	for( int i = 0 ; i < 22 ; i++ )
+	{
+		iVal = rand() % 23 - 11;
+		cout <<endl <<"adding " <<iVal <<" : " <<endl;
+
+		oSet.insert( iVal );
+		Show( oSet ,  " oSet" );
+
+		oMSet.insert( iVal );
+		Show( oMSet , "oMSet" );
+
+	}
+	cout <<"\n\n\n";
+
+	set<int>		 oSet2( oMSet.crbegin() , oMSet.crend() );	//	створюємо новий set на основі існуючого multiset, причому у зворотньому порядку
+	multiset<int>	oMSet2( oMSet.crbegin() , oMSet.crend() );	//	створюємо новий set на основі існуючого multiset, причому у зворотньому порядку
+	Show( oSet2 , "oSet2" );
+	Show( oMSet2 , "oMSet2" );
+
+
+	cout <<"\n\n\n";
+}
+

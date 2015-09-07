@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="test" EntityNamespace="demo" ContextNamespace="demo" Class="testDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Departments" Member="Departments">
+    <Type Name="Departments">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Association Name="FK__Employees__Depar__1273C1CD" Member="Employees" ThisKey="Id" OtherKey="DepartmentId" Type="Employees" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employees">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FK__Employees__Depar__1273C1CD" Member="Departments" ThisKey="DepartmentId" OtherKey="Id" Type="Departments" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

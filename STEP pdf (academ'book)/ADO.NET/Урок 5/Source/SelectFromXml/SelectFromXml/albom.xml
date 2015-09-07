@@ -1,0 +1,36 @@
+<?xml version = "1.0"?>
+<library>
+ <disk>
+  <name>Albom1</name>
+  <siner>Beledi</siner>
+  <year>2006</year>
+  <studia> 
+       <namef>Artek</namef>
+       <address>Kiev</address>
+       <telefon>7450789</telefon>    
+  </studia>
+ </disk>
+
+ <disk>
+  <name>Albom3</name>
+  <siner>Barabani</siner>
+  <year>2005</year>
+  <studia> 
+       <namef>Artek</namef>
+       <address>Kiev</address>
+       <telefon>7450789</telefon>    
+  </studia>
+ </disk>
+
+<disk>
+  <name>Albom5</name>
+  <siner>Beledi</siner>
+  <year>2007</year>
+  <studia> 
+       <namef>Artek</namef>
+       <address>Kiev</address>
+       <telefon>7450789</telefon>    
+  </studia>
+ </disk>
+
+</library>

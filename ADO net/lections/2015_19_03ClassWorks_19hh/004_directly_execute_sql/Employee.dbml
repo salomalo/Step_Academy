@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="test" Class="EmployeeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=test;Integrated Security=True" SettingsObjectName="_004_directly_execute_sql.Properties.Settings" SettingsPropertyName="testConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="AnuualSalary" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HourlyPay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HoursWorked" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discriminator" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="test" Class="EmployeeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=test;Integrated Security=True" SettingsObjectName="_005_SP_CRUD_ca.Properties.Settings" SettingsPropertyName="testConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Departments" Member="Departments">
+    <Type Name="Department">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Association Name="Department_Employee" Member="Employees" ThisKey="Id" OtherKey="DepartmentId" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Department_Employee" Member="Department" ThisKey="DepartmentId" OtherKey="Id" Type="Department" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="gender" Member="Gender" />
+      <Argument Parameter="salary" Member="Salary" />
+      <Argument Parameter="departmentId" Member="DepartmentId" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="gender" Member="Gender" />
+      <Argument Parameter="salary" Member="Salary" />
+      <Argument Parameter="departmentId" Member="DepartmentId" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId3">
+      <Argument Parameter="id" Member="Id" />
+    </DeleteFunction>
+  </Table>
+  <Function Id="FunctionId3" Name="dbo.DeleteEmployee" Method="DeleteEmployee">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.InsertEmployee" Method="InsertEmployee">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(64)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="NVarChar(64)" />
+    <Parameter Name="Salary" Parameter="salary" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DepartmentId" Parameter="departmentId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.UpdateEmployee" Method="UpdateEmployee">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(64)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="NVarChar(64)" />
+    <Parameter Name="Salary" Parameter="salary" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DepartmentId" Parameter="departmentId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

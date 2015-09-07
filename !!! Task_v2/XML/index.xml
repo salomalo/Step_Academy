@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="XML" next="index.xml" prev="index.xml">
+<h2>Частина 7. XML</h2>
+<ul>
+	<li><a href="section17HC.xml">17HC. Домашні завдання</a></li>
+	<li><a href="section18HC.xml">18HC. Домашні завдання</a></li>
+	<li><a href="section19C.xml">19C. Домашні завдання</a></li>
+</ul>
+</lesson>

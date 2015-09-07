@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Data>
+  <Department Id="1">
+    <Name>IT</Name>
+    <Location>Rivne</Location>
+  </Department>
+  <Department Id="2">
+    <Name>HR</Name>
+    <Location>Kyiv</Location>
+  </Department>
+  <Employee Id="1">
+    <Name>mike</Name>
+    <Gender>male</Gender>
+    <DepartmentId>1</DepartmentId>
+  </Employee>
+  <Employee Id="2">
+    <Name>todd</Name>
+    <Gender>male</Gender>
+    <DepartmentId>1</DepartmentId>
+  </Employee>
+  <Employee Id="3">
+    <Name>Mari</Name>
+    <Gender>female</Gender>
+    <DepartmentId>2</DepartmentId>
+  </Employee>
+  <Department Id="3">
+    <Name>Payroll</Name>
+    <Location>Lviv</Location>
+  </Department>
+  <Employee Id="4">
+    <Name>steve</Name>
+    <Gender>male</Gender>
+    <DepartmentId>2</DepartmentId>
+  </Employee>
+  <Employee Id="5">
+    <Name>Bob</Name>
+    <Gender>male</Gender>
+    <DepartmentId>3</DepartmentId>
+  </Employee>
+</Data>
+
+

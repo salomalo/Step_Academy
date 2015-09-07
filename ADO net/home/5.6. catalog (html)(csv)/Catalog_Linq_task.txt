@@ -1,0 +1,20 @@
+I.
+BS => get data:
+1. Ado.net
+2. Entity FW
+3. LINQ to SQL
+
+= Packages, Products, Producers, Categories, Measures, Prices
+
+
+II. (Outer Left Join) lambda, sql-like
+Сформувати каталог всіх товарів. У каталозі повинні бути присутні поля:
+
+a. Номер пакування.
+b. Назва товару.
+c. Категорія/підкатегорія товару.
+d. Назва виробника.
+e. Об’єм пакування.
+f. Одиниця вимірювання пакування.
+g. Одиниця вимірювання товару.
+h. Вартість

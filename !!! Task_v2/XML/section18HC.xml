@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="JavaScript" next="index.xml" prev="section17HC.xml" summ="1">
+
+<h2>18НС. ДЗ по курсу XML</h2>
+<h3>Модуль 1. Введення</h3>
+<h5>Завдання 1 (Практикум на парі)</h5>
+<p>
+Написати XML документ для збереження даних про облікові записи користувачів. Про кожнен обліковий запис в документі зберігаються дані про:
+<ul><li>Імя користувача</li>
+<li>Логін</li>
+<li>Пароль</li>
+<li>Дата створення облікового запису</li>
+</ul>
+</p>
+<h5>Завдання 2</h5>
+<p>Див.урок 1 та 2</p>
+
+ <!-- <h3>Модуль 7. DOM в XML</h3>
+<h5>Завдання 1</h5>
+  <p>По <a href="#" onclick="window.open('doc/class_definition.xml'); return false;">шаблону XML документа</a>, який описує звичайний клас С/С++, написати свій власний клас. Написаний документ засобами DOM необхідно трансформувати в звичайний файл реалізації (.cpp) з звичним кодом.</p>
+<h5>Завдання 2</h5>
+  <p>Написати до XML документа <a href="#" onclick="window.open('doc/Object.xml'); return false;">Object.xml</a> XSD документ та XSLT документ з правилами трансформації його в HTML. Вихідна сторінка повинна мати вигляд сторінки MSDN, яку можна переглянути за адресою: <a href="http://msdn.microsoft.com/ru-ru/library/e5kfa45b.aspx">Object - клас</a>.</p>
+<p>Або нижче:<br/><img src="images/object_1.gif" width="70%" /><br /><img src="images/object_2.gif" width="70%"  /></p> -->
+</lesson>
