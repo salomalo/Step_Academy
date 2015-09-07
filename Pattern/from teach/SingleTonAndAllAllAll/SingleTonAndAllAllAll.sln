@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleTonAndAllAllAll", "SingleTonAndAllAllAll\SingleTonAndAllAllAll.csproj", "{46B49ACC-E315-4763-AEDB-7FDB9E49CAF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleThreadSafeSn", "SimpleThreadSafeSn\SimpleThreadSafeSn.csproj", "{CA5DF403-5AC1-4678-AD36-C0E3574130C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeThreadSingleTonButNotLazy", "SafeThreadSingleTonButNotLazy\SafeThreadSingleTonButNotLazy.csproj", "{209C7E2E-DBB3-4DBB-A65C-47B7B175FC34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeThreadAndLazy", "SafeThreadAndLazy\SafeThreadAndLazy.csproj", "{D6E58213-7832-4791-9338-F63DCBF2E3C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46B49ACC-E315-4763-AEDB-7FDB9E49CAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B49ACC-E315-4763-AEDB-7FDB9E49CAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B49ACC-E315-4763-AEDB-7FDB9E49CAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B49ACC-E315-4763-AEDB-7FDB9E49CAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5DF403-5AC1-4678-AD36-C0E3574130C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5DF403-5AC1-4678-AD36-C0E3574130C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5DF403-5AC1-4678-AD36-C0E3574130C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5DF403-5AC1-4678-AD36-C0E3574130C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{209C7E2E-DBB3-4DBB-A65C-47B7B175FC34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209C7E2E-DBB3-4DBB-A65C-47B7B175FC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209C7E2E-DBB3-4DBB-A65C-47B7B175FC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209C7E2E-DBB3-4DBB-A65C-47B7B175FC34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6E58213-7832-4791-9338-F63DCBF2E3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6E58213-7832-4791-9338-F63DCBF2E3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6E58213-7832-4791-9338-F63DCBF2E3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6E58213-7832-4791-9338-F63DCBF2E3C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

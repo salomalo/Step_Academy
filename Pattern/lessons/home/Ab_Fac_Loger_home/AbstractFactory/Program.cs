@@ -78,10 +78,7 @@ namespace AbstractLogFactory
                 writer.Close();
             }
         }
-
     }//MyTxtLog
-
-
 
     public class MyXMLLog : IXmlLog
     {
@@ -98,34 +95,19 @@ namespace AbstractLogFactory
         public int Id { set; get; }
         public void SaveLog()
         {
-            Id++;
-           
+            Id++;          
             XmlTextWriter writer = new XmlTextWriter(FilePath, Encoding.UTF8);
             writer.WriteStartDocument();
             writer.WriteStartElement("Messages");
-
-
-            /////////////////
-            // Начинаем записывать значение parameter
             writer.WriteStartElement("Message");
-
-            // Записываем атрибут
             writer.WriteAttributeString("Id", Id.ToString());
-
-            // Записываем еще 2 значения в текущее значение
             writer.WriteElementString("Text",Data );
             writer.WriteElementString("Date", DateTime.Today.ToString());
-
-            // Закрываем наше значение parameter
             writer.WriteEndElement();
-            
-            /////////////////
-
-            writer.WriteEndElement(); // Закрываем значение parameters
-            writer.WriteEndDocument(); // Закрываем элемент
+            writer.WriteEndElement();
+            writer.WriteEndDocument();
             writer.Flush();
             writer.Close();
-
         }
     }
     // http://aione.ru/kak-zapisyivat-dannyie-v-xml_iz_csharp/
@@ -174,7 +156,7 @@ namespace AbstractLogFactory
         {
             IAbstaractLoger abLoger = new MyConcreteLoger();
             abLoger.CreateTxtLog().SaveLog();
-            abLoger.CreateDbLog().SaveLog();
+          //  abLoger.CreateDbLog().SaveLog();
             abLoger.CreateXmlLog().SaveLog();
 
         }

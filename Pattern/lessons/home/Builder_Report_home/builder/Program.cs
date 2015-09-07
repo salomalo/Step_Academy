@@ -15,7 +15,6 @@ namespace builder
         public int Min { set; get; }
         public int Max { set; get; }
         public int Mid { set; get; }
-
         public Report()
         {
             MaxArr = new int[0];
@@ -24,7 +23,6 @@ namespace builder
             Max = 0;
             Mid = 0;
         }
-
         public Report(int[] _MaxArr, string _Name, int _Min, int _Max, int _Mid)
         {
             MaxArr = new int[0];
@@ -52,8 +50,6 @@ namespace builder
     {
         public IReportBuilder ReportBuilder { set; get; }
 
-
-
         public void CreateReport(string name, int[] arr)
         {
             ReportBuilder.ReaciveMarks(arr);
@@ -66,35 +62,26 @@ namespace builder
         }
     } // ReportDirector
 
-
-
-
-
     public class MyTxtReportBuilder : IReportBuilder
     {
         Report report = new Report();
         public string path { set; get; }
-
         public MyTxtReportBuilder()
         {
             path = "d:\\REPORT.txt";
         }
-
         public void ReaciveMarks(int[] arr)
         {
             report.MaxArr = arr;
         }
-
         public void FindMinMax()
         {
             report.Min = report.MaxArr.Min();
         }
-
         public void FindMaxMax()
         {
             report.Max = report.MaxArr.Max();
         }
-
         public void CountMidMax()
         {
             int tmp = 0;
@@ -104,12 +91,10 @@ namespace builder
             }
             report.Mid = tmp / report.MaxArr.Length;
         }
-
         public void SetStudName(string name)
         {
             report.Name = name;
         }
-
         public void CreateTxtReport()
         {
             StreamWriter writer = null;
@@ -126,13 +111,13 @@ namespace builder
             }
             finally
             {
-                writer.Close();            
+                writer.Close();
             }
         }
 
         public void CreateHtmlReport()
         {
-          //  throw new NotImplementedException();
+            //write steps one by one how to create
         }
 
         public void OpenReport()
@@ -184,22 +169,6 @@ namespace builder
 
         public void CreateTxtReport()
         {
-            //StreamWriter writer = null;
-            //try
-            //{
-            //    FileStream file = new FileStream(path, FileMode.Append);
-            //    writer = new StreamWriter(file);
-            //    writer.Write("Name:{0}\n MinMax: {1}\n MaxMax: {2}\n MidMax: {3}\n", report.Name, report.Min, report.Max, report.Mid);
-            //    writer.Write(Environment.NewLine);
-            //}
-            //catch (Exception c)
-            //{
-            //    Console.WriteLine(c.Message);
-            //}
-            //finally
-            //{
-            //    writer.Close();
-            //}
         }
 
         public void CreateHtmlReport()
@@ -207,6 +176,40 @@ namespace builder
             StreamWriter writer = null;
             try
             {
+                //StringBuilder strBuil = new StringBuilder();
+                //strBuil.Append("<!DOCTYPE HTML PUBLIC/>");
+                //strBuil.Append("<html>");
+                //strBuil.Append("<head>");
+                //strBuil.Append("<title>");
+                //strBuil.Append("Reports");
+                //strBuil.Append("</title>");
+                //strBuil.Append("</head>");
+                //strBuil.Append("<body>");
+
+                //strBuil.Append("<p>");
+                //strBuil.Append("report.Name");
+                //strBuil.Append("</p>");
+
+                //strBuil.Append("<p>");
+                //strBuil.Append("report.Min: ");
+                //strBuil.Append(report.Min);
+                //strBuil.Append("</p>");
+
+                //strBuil.Append("<p>");
+                //strBuil.Append("report.Max: ");
+                //strBuil.Append(report.Max);
+                //strBuil.Append("</p>");
+
+                //strBuil.Append("<p>");
+                //strBuil.Append("report.Mid: ");
+                //strBuil.Append(report.Mid);
+                //strBuil.Append("</p>");
+
+
+                //strBuil.Append("</body>");
+                //strBuil.Append("</html>");
+
+
                 FileStream file = new FileStream(path, FileMode.Append);
                 writer = new StreamWriter(file);
                 writer.Write("Name:{0} \n MinMax: {1} \n MaxMax: {2} \n MidMax: {3} \n", report.Name, report.Min, report.Max, report.Mid);
@@ -228,7 +231,7 @@ namespace builder
 
         }
     } // MyHTMLReportBuilder
-    //
+
     class Program
     {
         static void Main(string[] args)
@@ -236,7 +239,7 @@ namespace builder
             Console.WriteLine("Enter student name:");
             string name = Console.ReadLine();
             Console.WriteLine("Enter count of max: ");
-            int count ;
+            int count;
             Int32.TryParse(Console.ReadLine(), out count);
             Console.WriteLine(count.ToString());
 
@@ -245,27 +248,29 @@ namespace builder
             int[] arr = new int[count];
 
             for (int i = 0; i < arr.Length; i++)
-                {
-                    arr[i] = Int32.Parse(Console.ReadLine());
-                }
-      
+            {
+                arr[i] = Int32.Parse(Console.ReadLine());
+            }
 
             ReportDirector director = new ReportDirector();
-           
-            //IReportBuilder repbuild = new MyTxtReportBuilder();
-            //director.ReportBuilder = repbuild;
-            //director.CreateReport(name, arr);
-            //repbuild.OpenReport();
 
+            Console.WriteLine("press T -to create .txt report\npress H -to create .html report");
 
-            IReportBuilder htmlrepbuild = new MyHTMLReportBuilder();
-            director.ReportBuilder = htmlrepbuild;
-            director.CreateReport(name, arr);
-            htmlrepbuild.OpenReport();
+            string con = Console.ReadKey().Key.ToString();
+            if (con == "T")
+            {
+                IReportBuilder repbuild = new MyTxtReportBuilder();
+                director.ReportBuilder = repbuild;
+                director.CreateReport(name, arr);
+                repbuild.OpenReport();
+            }
+            if (con == "H")
+            {
+                IReportBuilder htmlrepbuild = new MyHTMLReportBuilder();
+                director.ReportBuilder = htmlrepbuild;
+                director.CreateReport(name, arr);
+                htmlrepbuild.OpenReport();
+            }
         }
     }
-
-
-
-
 }
