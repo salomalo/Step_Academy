@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Function Expression</title>
+	</head>
+	<body>
+		<h1>Function Expression</h1>
+		<script>
+			alert( funcExpr ) ;
+			alert( a ) ;
+			
+			var a = 55;
+			var funcExpr = function() {
+				alert( "Hello " );		// доступ до глобальної змінної, перекритої локальною
+			}
+			
+			alert( a ) ;
+			alert( funcExpr ) ;
+			
+			funcExpr();
+			
+			
+		</script>
+		
+	</body>
+</html>

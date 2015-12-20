@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/css" href="css/receipt.css" ?>
+<!--<!DOCTYPE book SYSTEM "E:\XML\home\02_recipe\02_recipe.dtd" >-->
+
+<book
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="02_recipe.xsd"
+  >
+	<receipt title="Cake" veg="yes" low_kalor="yes" freez="yes" diabet="no" Country="usa" Town="denwer"  >
+		<title>Cake</title>
+		<ingredients>
+			<title_ingredient value="3" measurement="grams">cacao - 3</title_ingredient>
+			<title_ingredient value="100" measurement="euro">money - 100</title_ingredient>
+		</ingredients>
+		<how_to_do level="1" time="5 min">
+			<step>1. take moneny</step>
+			<step>2. go to magazine</step>
+			<step>3. buy cake</step>
+		</how_to_do>
+		<quantity value="10"> quantity 10</quantity>
+	</receipt>
+	
+	<receipt title="Candy" veg="no" low_kalor="yes" freez="yes" diabet="no" Country="neverland" Town="town" Street="hjkhj" >
+		<title>Candy</title>
+		<ingredients>
+			<title_ingredient value="3">candy - 3 </title_ingredient>
+			<title_ingredient value="10">candy - 10</title_ingredient>
+		</ingredients>
+		<how_to_do level="3" time="10 min">
+			<step>1. take moneny</step>
+			<step>2. go to friend</step>
+			<step>3. buy candy</step>
+		</how_to_do>
+		<quantity value="7"> quantity 7</quantity>
+	</receipt>
+	
+	<receipt title="Cookies" veg="no" low_kalor="yes" freez="yes" diabet="no" Country="ryhrd" Town="jftuj" Street="hjkhj">
+		<title>Cookies</title>
+		<ingredients>
+			<title_ingredient value="5">chocolate - 5</title_ingredient>
+			<title_ingredient value="15">more chocolate - 15</title_ingredient>
+		</ingredients>
+		<how_to_do level="3" time="10 min">
+			<step>1. take moneny</step>
+			<step>2. go to supermarket</step>
+			<step>3. buy Cookies</step>
+			<step>4. eat Cookies with someone special</step>
+		</how_to_do>
+		<quantity value="7"> quantity 7</quantity>	
+	</receipt>
+	
+	<receipt title="Nutella" veg="no" low_kalor="yes" freez="yes" diabet="no" Country="ryhrd" Town="jftuj" Street="hjkhj" >
+		<title>Nutella</title>
+		<ingredients>
+			<title_ingredient value="3">cacao - 3</title_ingredient>
+			<title_ingredient value="100">money - 100</title_ingredient>
+		</ingredients>
+		<how_to_do level="3" time="10 min">
+			<step>1. take many moneny</step>
+			<step>2. go to forest</step>
+			<step>3. finde nutella's tree</step>
+			<step>4. ask it about nutella</step>
+		</how_to_do>
+		<quantity value="7"> quantity 7</quantity>
+	</receipt>
+	
+	<receipt title="orange juice" veg="no" low_kalor="yes" freez="yes" diabet="no" Country="ryhrd" Town="jftuj" Street="hjkhj" >
+		<title>Orange juice</title>
+		<ingredients>
+			<title_ingredient value="4">orange - 4 </title_ingredient>
+			<title_ingredient value="5">more orange -5</title_ingredient>
+		</ingredients>
+		<how_to_do level="3" time="10 min">
+			<step>1. take moneny</step>
+			<step>2. go to shop</step>
+			<step>3. buy orange </step>
+			<step>4. make juice from  orange</step>
+		</how_to_do>
+		<quantity value="7"> quantity 7</quantity>	
+	</receipt>
+	
+	<receipt id="foto" title="Crispy chocolate cookies" veg="no" low_kalor="yes" freez="yes" diabet="no" Country="ryhrd" Town="jftuj" Street="hjkhj" >
+		<title>Crispy chocolate cookies</title>
+		<ingredients>
+			<title_ingredient value="8">cookies - 8</title_ingredient>
+			<title_ingredient value="6">chocolate - 6</title_ingredient>
+		</ingredients>
+		<how_to_do level="3" time="10 min">
+			<step>1. take moneny</step>
+			<step>2. go to friend</step>
+			<step>3. ask him to buy you Crispy chocolate cookies</step>
+			<step>4. eat Crispy chocolate cookies</step>
+		</how_to_do>
+		<quantity value="7"> quantity 7</quantity>	
+	</receipt>
+	
+	<Author>&author;</Author>
+	
+</book>

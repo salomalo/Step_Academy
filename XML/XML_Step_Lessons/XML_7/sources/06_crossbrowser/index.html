@@ -1,0 +1,138 @@
+<html>
+<head>
+	<title>XPath samples</title>
+	<script type="text/javascript">
+	<!--
+	var xmlHttp = 0;
+	function createXMLHttpRequest() 
+    {
+		//створюємо об'єкт XmlHttpRequest
+		try {	//для IE
+			xmlHttp = new ActiveXObject("MSXML2.XMLHTTP");
+		} catch (e) {
+			try { //для IE 7
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) { //для Firefox, Opera, Safari, Chrome тощо
+				xmlHttp = new XMLHttpRequest();
+			}
+		}
+		//або так
+		//if(window.XMLHttpRequest)
+        //    xmlHttp = new XMLHttpRequest();
+        //else if(window.ActiveXObject)
+        //    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); 
+				
+		//перевіряємо чи об'єкт створився
+		if (!xmlHttp) {
+		  alert('Помилка при створенні XMLHTTP');
+		  return false;
+		}
+		return xmlHttp;
+	}
+	 
+	function handleSearchXPath() 
+    {
+		//після того як дані завантажені: readyState = 4
+		//і статус завантаження "OK": status = 200
+        if(xmlHttp.readyState == 4 && xmlHttp.status == 200)  
+		{
+            document.getElementById("para").innerHTML = "Complete.<br />";
+			doc = xmlHttp.responseXML;
+			var user = doc.documentElement.getElementsByTagName("user");
+			var para = document.getElementById("para");
+			var textUser = "";
+			
+			para.innerHTML += "В XML документі " + user.length + " користувачів<br />";
+			for(var i=0; i<user.length; i++)
+			{
+				//перевірку обовязково спочатку робити на ІЕ, оскільки з версії ІЕ8 підтримує XMLHttpRequest
+				if(window.ActiveXObject)		//для IE
+					textUser += i + ": " + user[i].childNodes.item(0).text + "<br />";
+				else if(window.XMLHttpRequest)	//для Firefox, Opera, Safari, Chrome тощо
+					textUser += i + ": " + user[i].getElementsByTagName("name")[0].textContent + "<br />";		
+			}
+			para.innerHTML += textUser;
+			
+			//-----------------------------------------------------------------
+			//виводимо ідентифікатор другого користувача та логіни всіх студентів
+			if(window.ActiveXObject)
+			{
+				var result = doc.selectSingleNode("/users/user[1]/@id");
+				para.innerHTML += "<br /><b>users/user[1]/@id</b>: " + result.value + "<br />";
+				
+				result = doc.selectNodes("/users/user[role='student']/login");
+				for(var i=0; i<result.length; i++) 
+					para.innerHTML += "<br /><b>login</b>: " + result[i].text;
+					
+			}else if(window.XMLHttpRequest)
+			{
+				var result = doc.evaluate("/users/user[1]/@id", doc, null, XPathResult.ANY_TYPE, null);
+				var obj = result.iterateNext();
+				para.innerHTML += "<br /><b>users/user[1]/@id</b>: " + obj.textContent + "<br />";
+				
+				result = doc.evaluate("/users/user[role='student']/login", doc, null, XPathResult.ANY_TYPE, null);
+				obj = result.iterateNext();
+				while(obj){
+					para.innerHTML += "<br /><b>login</b>: " + obj.textContent;
+					obj = result.iterateNext();
+				}
+			}
+	    }else
+			document.getElementById("para").innerText = "Не вдалось отримати дані " + xmlHttp.status;
+    }
+
+	function SearchXPath() 
+	{
+		//завантажуємо XML документ
+		var filename = prompt("Введіть назву XML документа: ", "users.xml");
+		
+		createXMLHttpRequest();
+		xmlHttp.onreadystatechange = handleSearchXPath;	//вказуємо функцію-обробник відповіді
+       	xmlHttp.open("get", filename, true /*асинхронний чи синхронний*/);
+       	xmlHttp.send(null);
+	}
+
+	//---------------------------------------------
+	function loadXML(filename) 
+	{ 
+		var xmlHttp = createXMLHttpRequest();
+		xmlHttp.open("get", filename, false);
+		xmlHttp.send(null);
+		
+		return xmlHttp.responseXML;
+	}
+	
+	function Transform() 
+	{ 
+                //створюємо посилання на XML-документ та таблицю стилів
+		var filename = prompt("Введіть шлях до XML-документа: ", "users.xml");
+		var xmlContent = loadXML(filename);
+		filename = prompt("Введіть шлях до XSLT-документа: ", "users.xslt");
+		var xslContent = loadXML(filename);
+		
+		//трансформуємо XML-документ згідно завантаженої таблиці стилів
+		var result = "";
+		if (window.ActiveXObject) { //для IE
+			result = xmlContent.transformNode(xslContent);        
+		} else if (window.XSLTProcessor) { //для Mozilla, Firefox, Opera, Safari тощо
+			var xsltProcessor = new XSLTProcessor();
+			xsltProcessor.importStylesheet(xslContent);
+			
+			var resultDocument = xsltProcessor.transformToDocument(xmlContent);
+			var xmls = new XMLSerializer();   
+			result = xmls.serializeToString(resultDocument);
+		}
+		var para = document.getElementById("para");
+		para.innerHTML += "XML документ успішно конвертований<br />";
+		para.innerHTML += result;
+	}
+	
+	//-->
+	</script>
+</head>
+<body>
+	<button onclick="SearchXPath();">XPath demo</button><br />
+	<button onclick="Transform();">Transformation</button><br />
+	<p id="para"></p>
+</body>
+</html>

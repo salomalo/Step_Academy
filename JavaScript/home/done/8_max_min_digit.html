@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Масиви</title>
+		<script>
+		
+			function MinMaxMethod(){
+
+				var min=arr[0];
+				var idxmin=0;
+				var max=arr[0];
+				var idxmax=0;
+				
+				for(var i=0; i<arr.length ; i++)
+					{
+						if(arr[i]==arr[i-1]){
+							//min = 0;
+							idxmin=0;
+							//max = 0;
+							idxmax=0;
+						}						
+						else{
+								if (min>arr[i]){ 
+								min = arr[i];
+								idxmin=i;
+								}
+								
+								if (max<arr[i]){ 
+								max = arr[i];
+								idxmax=i;
+								}	
+						}
+					
+					}
+				
+				arr.min=min;
+				arr.max=max
+				arr.idxmin=idxmin;
+				arr.idxmax=idxmax;
+
+				return this;	
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<h1>Масив -- наші Методи</h1>
+		
+		<script>
+
+			//var arr = new Array(5,5,5,5,5);
+			var arr = new Array(55,1,25,385,874,13,864,5);	
+		
+		
+			arr.MinMax=MinMaxMethod;
+			var arr=arr.MinMax();
+			
+			document.write( "RES"+"<br>"
+								+"min - "+arr.min +"<br>"
+								+ " idxmin - "+arr.idxmin+"<br>"+"<br>"
+								+ "max - "+arr.max +"<br>"
+								+ " idxmax - "+arr.idxmax+"<br>"
+							)
+				
+
+		</script>
+		
+		
+	</body>
+</html>

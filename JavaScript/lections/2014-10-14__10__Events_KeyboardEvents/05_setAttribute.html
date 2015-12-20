@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<META charset="utf-8">
+		<TITLE>Призначення обробників подій з використанням setAttribute</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>Призначення обробників подій з використанням setAttribute<H1>
+		<P>
+			<INPUT type="button" id="btn1" value="Ця кнопка працюватиме" />
+			<INPUT type="button" id="btn2" value="Ця кнопка НЕ працюватиме" />
+			<INPUT type="button" id="btn3" value="І ця кнопка НЕ працюватиме" />
+			<INPUT type="button" id="btn4" value="A ця -- працюватиме" />
+		</P>
+		<P>
+			<INPUT type="button" value="Подивитись властивості кнопок"		onclick="showClickHandlers()"/>
+		</P>
+
+
+		<SCRIPT>
+
+			var btn = document.getElementById( "btn1" );
+			btn.setAttribute( "onclick", "alert( this );handleClick();" );
+			btn.title = "На подію 'onclick' повішено функцію, тіло котрої складається з тексту,\nпереданого другим параметром setAttribute()";
+
+			btn = document.getElementById( "btn2" );
+			btn.setAttribute( "onclick", handleClick() );
+			btn.title = "На подію 'onclick' повішено функцію, котра викликає результат виконання ф-ї handleClick";
+
+			btn = document.getElementById( "btn3" );
+			btn.setAttribute( "onclick", getClickHandler() );
+			btn.title = "На подію 'onclick' повішено функцію, \n"
+						+"тіло котрої складається з результата виконання ф-ї getClickHandler - \n"
+						+"функції handleClick, котра не викликається ";
+
+			btn = document.getElementById( "btn4" );
+			btn.setAttribute( "onclick", "getClickHandler()()" );
+			btn.title = "На подію 'onclick' повішено функцію, \n"
+						+"тіло котрої складається з виклику getClickHandler \n"
+						+"а потім виклику поверненого нею результату - функції handleClick";
+
+			
+			function getClickHandler() {
+				alert(	"getClickHandler()" );
+				return handleClick;
+			}
+		
+			function handleClick() {
+				alert(	"handleClick()" );
+			}
+			
+			
+			function showClickHandlers() {
+				var buttons = document.getElementsByTagName( "input" );
+				for( var i = 0 ; i < buttons.length ; i++ ) {
+					alert(	"Кнопка «"+ buttons[i].value +"»\n" 
+							+"onclick == "+ buttons[i].onclick
+						);
+				}
+			}
+			
+		</SCRIPT>
+	</BODY>
+</HTML>

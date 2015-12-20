@@ -1,0 +1,16 @@
+table, td, th {
+	border: 3px solid black;
+	border-collapse: collapse;
+	/*border-spacing: 0;*/
+	width:30px;
+}
+
+
+.right{
+text-align:right;
+}
+
+
+.left{
+text-align:left;
+}

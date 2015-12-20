@@ -1,0 +1,55 @@
+﻿@using ToDo.Entities
+
+@{
+    Layout = null;
+    List<TaskEntity> list = ViewBag.Tasks;
+    string error = ViewBag.Error;
+    string taskTitle = ViewBag.TaskTitle;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Styles/Styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="allBody">
+        <form method="post">
+            <div class="form">
+                <input type="text" name="txtTask" placeholder="Enter new task..." value="@taskTitle" style="float:left; width:78%" />
+                <input type="submit" name="btnNew" value="New Task" style="width:20%" />
+            </div>
+        </form>
+        @if(@error != null)
+        {
+            <div class="error"><p>@error</p></div>
+        }
+        <div class="table">
+            <table border="1">
+                @*<caption style="font-size:12px; font-weight:bold">List Tasks</caption>*@
+                <tr>
+                    <th id="num">№</th>
+                    <th>Task</th>
+                    <th id="yesno">y/n</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+                @foreach (var task in list)
+                {
+                    <tr> 
+                        <td class="td">@task.Id</td>
+                        <td>@task.Title</td>
+                        <td class="td"><input type="checkbox" checked=@task.IsDone /></td>
+                        <td><form method="post"><input type="button" name="btnDel" value="X" /> </form></td>
+                        <td><form method="post"><a href="/index/task/edit">edit</a> </form></td>
+                        @*<td><form method="post"><input type="button" name="btnEdit" value="edit" /> </form></td>*@
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

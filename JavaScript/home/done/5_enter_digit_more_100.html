@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>input_check</title>
+	</head>
+	<body>
+		<h1>input_check</h1>
+		<script>
+					
+			var sRes = prompt( "Enter digit >100 ", "" );		
+			var num = parseInt(sRes);
+			
+			if(num>100)
+			{
+			alert(  
+	 			" you enter  " + num + "which is > 100"
+				); 
+			}	
+			else
+			{
+
+					while(num<100||num==100)
+						{
+								var sRes = prompt( "Enter digit >100 ", "" );		
+								var num = parseInt(sRes);
+							
+								if(num>100)
+								{
+										alert(  
+										" you enter  " + num + "which is > 100"
+										); 
+								}
+							<!-- 		else{var sRes = prompt( "Enter digit >100 ", "" );			} -->
+						}
+				
+			}
+					
+			
+
+			
+		</script>
+	</body>
+</html>

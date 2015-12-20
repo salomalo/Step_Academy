@@ -1,0 +1,136 @@
+@media all{
+		header {
+			margin-top:10px;
+			height: 80px;
+			background: linear-gradient( to bottom, #F0FFFF, #C1CDCD );
+			position: relative;
+		}
+		#Logo {
+			font-size:40pt;
+			font-style:bold;
+			margin-left:125px;
+			margin-top:25px;
+			text-align:center;
+			float: left;
+			font-family:Brisa;
+		}
+		@font-face {
+		  font-family: Brisa;
+		  src: url(../Brisa.ttf) /* TTF file for CSS3 browsers */
+		 }
+		 
+		.blue{
+			color: #27b7b7;
+		}
+		#HeadMenu {
+			display: inline-block;
+			width: 100%;
+			
+			position: absolute;
+			top:10px;
+			left: 0; 
+
+			 padding-left: 170px;   
+			 /* box-sizing: border-box; */
+			 text-align: center;  
+		}
+		#HeadMenu > LI {
+			display: inline-block;	/* стають в рядочок */
+			width: 10%;
+			position: relative;
+		}
+		#HeadMenu > LI > A{
+		padding:5px;
+			display: block;
+			width: 100%;
+			color: black;
+			/* border-left: 3px solid white; */
+			text-decoration: none;
+			font-weight: bold;
+			box-sizing:	border-box;
+		}
+		#HeadMenu > LI > A:hover{
+			background-color: #ffffff;
+		}
+		#HeadMenu > LI:first-child > A {
+			border-left: none;
+		}
+
+		.PopUp {
+		z-index:1;
+			background-color: #ebebeb;
+		‎	list-style-type: none; 
+			position: absolute;
+			width: 100%;
+			display: none;
+		}
+		.PopUp A {
+			display: block;
+			width: 100%;
+			
+			color: black;
+			padding: 5px; 
+			padding-left:0px;
+			
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.PopUp>li{
+			list-style-type: none; 
+		}
+
+		a:hover +.PopUp
+		, a:focus +.PopUp
+		, .PopUp:hover {
+			display: block;
+		}
+
+		.PopUp A:hover {
+			width: 100%;
+			background-color: #ffffff;
+			display: block;
+		}
+
+}
+
+@media screen and (max-width: 999px) and (min-width: 400px){			
+		#Logo {
+			font-size:30pt;
+			font-style:bold;
+			margin-left:75px;
+			margin-top:25px;
+			text-align:center;
+			float: left;
+			font-family:Brisa;
+		}
+		#HeadMenu {
+			display: inline-block;
+			width: 100%;	
+			position: absolute;
+			top:10px;
+			left: 0; 
+			text-align: left;   
+		}
+}
+
+@media screen and (max-width: 600px){			
+			#Logo {
+				font-size:20pt;
+				font-style:bold;
+				margin-left:50px;
+				margin-top:25px;
+				text-align:center;
+				float: left;
+				font-family:Brisa;
+			}
+			#HeadMenu {
+				display: inline-block;
+				width: 100%;
+				position: absolute;
+				top:10px;
+				left: 0; 
+				/*  padding-left: 170px;  */  
+				 /* box-sizing: border-box; */
+				 text-align: left; 
+			}		
+}

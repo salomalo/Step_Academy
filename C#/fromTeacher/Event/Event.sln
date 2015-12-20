@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event", "Event\Event.csproj", "{BB5309D7-3826-4AE4-8140-04F54FFB93FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House", "House\House.csproj", "{D7043071-1D7B-459D-B4F8-D4B22F4C46CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB5309D7-3826-4AE4-8140-04F54FFB93FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB5309D7-3826-4AE4-8140-04F54FFB93FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB5309D7-3826-4AE4-8140-04F54FFB93FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB5309D7-3826-4AE4-8140-04F54FFB93FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7043071-1D7B-459D-B4F8-D4B22F4C46CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7043071-1D7B-459D-B4F8-D4B22F4C46CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7043071-1D7B-459D-B4F8-D4B22F4C46CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7043071-1D7B-459D-B4F8-D4B22F4C46CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

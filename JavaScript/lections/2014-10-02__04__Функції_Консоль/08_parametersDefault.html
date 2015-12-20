@@ -1,0 +1,46 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Передача параметрів функціям</title>
+        <meta charset="utf-8" >
+        <script type="text/javascript">
+            
+            function sendMail( adrFrom, adrTo, sSubj, sText ) {
+				var isSend = true;
+			
+                adrFrom  ||    ( console.error( "sendMail: Не передано adrFrom" ) , isSend = false );
+                adrTo    ||    ( console.error( "sendMail: Не передано adrTo" )   , isSend = false );
+				
+				// значення по замовчуванню, якщо не вказано
+                sSubj    ||    ( console.info( "sendMail: Не передано sSubj" )   , sSubj = "( Без теми )" );				// значення "по замовчуванню"
+                sText    ||    ( console.info( "sendMail: Не передано sText" )   , sText = "( Без тексту листа )" );		// значення "по замовчуванню"
+				
+                var msg = "";
+                msg += "From: «"+ adrFrom    +"»\n";
+                msg += "  To: «"+ adrTo        +"»\n";
+                msg += "Subj: «"+ sSubj        +"»\n";
+                msg += "Text: «"+ sText        +"»\n";
+				
+				if( isSend ){
+					alert( "Надсилається повідомлення:\n"+ msg +"\n" );
+				}
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1>Передача параметрів функціям</h1>
+        <script>
+            var adrFrom_gl    = "Василь <vasyl@vasyl.ua>"
+            var adrTo_gl    = "Петро <petro@petro.ua>"
+            var sSubj_gl    = "Про взаємовигідну співпрацю"
+            var sText_gl    = "Петро, всі кажуть\"Він мені не потрібен\", а ти - купи слона!"
+            sendMail( adrFrom_gl, adrTo_gl, sSubj_gl, sText_gl );
+            sendMail();
+            console.log( " -------- " );
+            sendMail( 0, "", sSubj_gl, sText_gl );
+            sendMail( "recepient@server.com", "sender@website.org" );
+            sendMail( "recepient@server.com", "sender@website.org", "Включи кондиціонер" );
+        </script>
+    </body>
+</html>

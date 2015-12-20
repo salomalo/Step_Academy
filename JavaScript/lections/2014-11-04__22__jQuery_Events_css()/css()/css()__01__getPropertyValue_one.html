@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>css demo</title>
+		<style>
+			.left {
+				width: 60px;
+				height: 60px;
+				margin: 5px;
+				display: inline-block;
+			}
+		</style>
+		<script src="jquery.js"></script>
+		
+		<script>
+			function  show(event) {
+				var color = $( event.target ).css( "background-color" );
+				var str = "Клікнуто на div кольору <span style='font-weight:bold; color:" + color + ";'>" + color + "</span>.";
+				//$( "#result" )[0].innerHTML = ( str );
+				$( "#result" ).html( str );
+			}
+		</script>
+		
+	</head>
+	<body>
+		<h1><a href="http://api.jquery.com/css/#css1" target="_blank" >jQuery:<code>.css()</code></a></h1>
+		<h3>Одержання значення однієї властивості</h3>
+		<div>
+			<div class="left" style="background-color:blue;" 			onclick="show( event );" ></div>
+			<div class="left" style="background-color:rgba(15,99,30,0.5);" 	onclick="show( event );" ></div>
+			<div class="left" style="background-color:#123456;"			onclick="show( event );" ></div>
+			<div class="left" style="background-color:#f11;"			onclick="show( event );" ></div>
+		</div>
+		<p id="result">Клікни квадрат !</p>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Взаємодія з користувачем</title>
+	</head>
+	<body>
+		<h1>Взаємодія з користувачем</h1>
+		<script>
+	/*		var sResult = prompt( "Введи ім'я!", "текст по замовчуванню" );
+			//alert( "Привіт, " + sResult );
+			
+			var sMsg = "Привіт, " + sResult +"\n";
+			sMsg += "Успіхів у навчанні !";
+			alert( sMsg );
+			
+			alert(	"sMsg = «" + sMsg +"»\n"
+					+"typeof( sMsg ) = " + typeof( sMsg )
+			);
+	*/		
+			var num = 11;
+			var num1 = 99.3;
+	/*		alert(	"num = «" + num +"»\n"
+					+"typeof( num ) = " + typeof( num )
+			);
+			alert( "num + num1 = " + (num + num1) );	// приводиться до string
+	*/
+			var sRes = prompt( "Введіть число", "" );
+			var num2 = +sRes;	// перетворюємо в number, якщо вдасться. Інакше -- NaN -- Not a Number
+			var num3 = parseInt(sRes);	// перетворюємо в number, якщо вдасться. Інакше -- NaN -- Not a Number
+			var num4 = parseFloat(sRes);	// перетворюємо в number, якщо вдасться. Інакше -- NaN -- Not a Number
+			alert(	+"sRes = " + sRes +"\n"
+					+"num2 = «" + num2 +"»\n"
+					+"typeof( num2 ) = " + typeof( num2 ) +"\n\n"
+					+"num3 = «" + num3 +"»\n"
+					+"typeof( num3 ) = " + typeof( num3 ) +"\n\n"
+					+"num4 = «" + num4 +"»\n"
+					+"typeof( num4 ) = " + typeof( num4 ) +"\n\n"
+			);
+			
+			var bRes = confirm( "To be, or not to be ?" );
+			alert(	"bRes = «" + bRes +"»\n"
+					+"typeof( bRes ) = " + typeof( bRes )
+			);
+			
+			var bVar = true;
+			alert(	"bVar = «" + bVar +"»\n"
+					+"typeof( bVar ) = " + typeof( bVar )
+			);
+			
+		</script>
+	</body>
+</html>

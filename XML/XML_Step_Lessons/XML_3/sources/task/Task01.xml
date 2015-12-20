@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task submitDate="10.07.2006" submiter="John Smith" priority="high" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Task.xsd">
+	<Receivers>
+		<User name="Antony Smith"/>
+		<User name="William Blacke"/>
+		<User name="Gordon Freeman"/>
+	</Receivers>
+	<Description>
+		Research healing posibilities of russian vodka
+	</Description>
+	<Reports>
+		<Report userName="Antony Smith" date="11.07.2006">
+			Research started...
+		</Report>
+		<Report userName="William Blacke" date="12.07.2006">
+			Gathering theoretical information about research subject
+		</Report>
+		<Report userName="Gordon Freeman" date="13.07.2006">
+			Signed as a volunteer for testing
+		</Report>
+		<Report userName="Gordon Freeman" date="13.07.2006">
+			First day. Little head aiche.
+		</Report>
+		<Report userName="Gordon Freeman" date="13.07.2006">
+			Second day. Can't remember anything about yesterday.
+		</Report>
+		<Report userName="Gordon Freeman" date="13.07.2006">
+			Second day. Found plasma gun. Moved to level 4. 
+			Killed evil monsters in the office.
+		</Report>
+		<Report userName="John Smith">
+			Closing project due lack of funds.
+		</Report>
+	</Reports>
+	<Results overallStatus="failed">
+		<Document file="results.xls"/>
+		<Report userName="Antony Smith" date="15.07.2006">
+			Not enough materials to test with.
+		</Report>
+		<Document file="report.doc"/>
+		<Document file="alcohol_measure.cpp"/>
+	</Results>
+</Task>

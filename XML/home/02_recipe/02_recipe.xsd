@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:element name="book">
+    <xs:annotation>
+      <xs:documentation>annotation for receipt book</xs:documentation>
+    </xs:annotation>
+    
+    
+    <xs:complexType>
+      <xs:sequence>
+
+	      <xs:element name="receipt">
+          
+          <xs:annotation>
+            <xs:documentation>annotation for receipt</xs:documentation>
+          </xs:annotation>
+          
+		      <xs:simpleType>
+			      <xs:restriction base="xs:string">
+				      
+			      </xs:restriction>
+		      </xs:simpleType>
+	      </xs:element>
+
+        </xs:sequence>
+      </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

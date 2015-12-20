@@ -1,0 +1,32 @@
+SetConsoleCursorPosition(h, c);(аналог для gotoxy(xpos, ypos[i]);)
+
+#include <cstring>
+#include <iostream>
+#include <windows.h>
+ 
+#define WIDTH 80                         // Макрос ширины
+#define HEIGHT 22                        // Макрос высоты
+ 
+int main(){
+    char str[] = "Hello, world!";    // Создал переменную  символьного типа и положил в нее фразу! 
+    HANDLE hCon;                     // Задал имя заголовка который будет использовать в дальнейшем
+    COORD cPos;                       // Задал координаты X и Y. Тип Short - целочисленный знаковый тип
+    
+    hCon = GetStdHandle(STD_OUTPUT_HANDLE); //    Кто точно знает как обозвать что тут происходит
+                                                                       //    пусть напишет.
+ 
+    cPos.Y = HEIGHT / 2;                        // Задает координаты для Y
+    cPos.X = ( WIDTH - strlen(str) ) / 2;    // Задает координаты для X
+    SetConsoleCursorPosition(hCon, cPos); // SetConsoleCursorPosition Установить курсор на позицию  
+                                                             // заголовка hCon в координаты cPos
+ 
+    std::cout << str << std::endl;             // std - Стандартная библиотека языка С++ 
+        // Тут не обязательно писать std::cout ... Можно так же благополучно написать  перед функцией 
+        // int main() using namespace std (использовать стандартное пространство имен std).
+        // и тогда можно использовать такой вывод: cout << str << endl;
+                                                           
+ 
+    std::cin.get();        // Нужно исключительно для того, чтобы программа не закрывалась, пока enter не нажмёшь 
+ 
+    return 0;                // Возвращает значение 0 тем самым благополучно закрывая программу!  
+}

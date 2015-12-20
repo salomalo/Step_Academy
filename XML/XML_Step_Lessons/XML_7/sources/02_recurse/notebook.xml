@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notebook>
+	<person id="P1">
+		<fullname firstname="Vasja" surname="Pupkin"/>
+		<phone>22-22-22</phone>
+		<city type="смт">Zhmerinka</city>
+	</person>
+	<person id="P2">
+		<fullname firstname="Dasha" surname="Ivanova"/>
+		<phone>333-33-33</phone>
+		<city type="м">Kyev</city>
+	</person>
+</notebook>

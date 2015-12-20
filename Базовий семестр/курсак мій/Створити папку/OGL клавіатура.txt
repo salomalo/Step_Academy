@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <GL/glut.h>
+
+/********* [] ************/
+void display();
+void keyboard(unsigned char key, int x, int y);
+void keyboardup(unsigned char key, int x, int y);
+void specialkeydown(int key, int x, int y);
+
+
+/************ [ OpenGL ] *****************/
+void GLUT_CALL_FUNC()
+{
+        glutDisplayFunc(display); //
+        glutKeyboardFunc(keyboard);
+        glutKeyboardUpFunc(keyboardup);
+        glutSpecialFunc(specialkeydown);
+}
+
+
+void MY_INIT()
+{
+        glClearColor(1.0, 1.0, 1.0,1.0);
+        glutIgnoreKeyRepeat(GL_TRUE); //
+}
+
+
+/************** [  ] ****************/
+void display()
+{
+
+        glClear(GL_COLOR_BUFFER_BIT); //
+
+
+        glFlush();  //
+
+}
+
+
+void keyboard(unsigned char key, int x, int y)
+{
+      printf("(%d,%d)? %c key press\n",x,y,key);
+}
+
+void keyboardup(unsigned char key, int x, int y)
+{
+      printf("(%d,%d)? %c adfadfadsf\n",x,y,key);
+}
+
+void specialkeydown(int key, int x, int y)
+{
+        switch(key)
+        {
+        case GLUT_KEY_UP:
+                puts("key up");
+                break;
+
+        case GLUT_KEY_DOWN:
+                puts("key down");
+                break;
+
+        case GLUT_KEY_RIGHT:
+                puts(">KEY_RIGHT");
+                break;
+
+        case GLUT_KEY_LEFT:
+                puts("<KEY_Left?");
+                break;
+        }
+
+}
+
+
+/****************  ********************/
+int main(int argc,char *argv[])
+{
+
+        glutInit(&argc,argv);
+        glutCreateWindow("Hello OpenGL");
+
+        GLUT_CALL_FUNC(); //
+
+        MY_INIT();  //
+        
+        glutMainLoop();
+
+        return 0;
+
+}

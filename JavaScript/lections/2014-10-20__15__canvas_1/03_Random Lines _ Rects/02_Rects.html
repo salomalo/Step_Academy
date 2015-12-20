@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Прямокутники</title>
+		<style>
+			body{
+				background-color: cyan;
+			}
+			
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+		
+		<script>
+			function draw(){
+				var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
+				
+				ctx.beginPath();
+					ctx.lineWidth = 1;
+					ctx.fillStyle = "red";
+					ctx.moveTo( 10,10 );
+					
+					// не змінює активну (поточну) точку
+					ctx.fillRect(	 50		// X
+									,50		// Y
+									,150	// ширина
+									,250 	// висота
+									);	
+					
+				//ctx.lineTo( 300,300 );
+				//ctx.stroke();
+					alert("clearRect");
+					ctx.clearRect(	 150	// X
+									,150		// Y
+									,50	// ширина
+									,50 	// висота
+									);	
+					
+					ctx.strokeRect(	 80		// X
+									,80		// Y
+									,150	// ширина
+									,150 	// висота
+									);	
+					
+					ctx.rect(	 	80		// X
+									,80		// Y
+									,150	// ширина
+									,150 	// висота
+									);	
+					
+					ctx.lineTo( 300,300 );
+				ctx.stroke();
+
+			}
+		</script>
+		
+	</head>
+	<body onload="draw()" >
+		<h1>Малювання прямокутників</h1>
+		<canvas width="333" height="333"></canvas>
+	</body>
+</html>

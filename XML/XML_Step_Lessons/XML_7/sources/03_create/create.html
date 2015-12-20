@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Test DOM XML</title>
+	<script type="text/javascript">
+	<!--
+	function CreateXML() 
+    {
+		var doc = new ActiveXObject("MSXML2.DOMDocument.6.0");
+		doc.async = false;
+		doc.validateOnParse = false;
+		doc.resolveExternals = false;
+
+		//завантажуємо XML документ
+		//doc.load("empty.xml");
+		doc.loadXML("<?xml version='1.0'?><empty></empty>");
+
+		var tag = doc.createElement("helloTag");    //створюємо елемент з іменем helloTag
+		tag.setAttribute("test", "failed");         //створюємо йому атрибут test = failed
+
+		var text = doc.createTextNode("Hello World!!!"); //створюємо текстову ноду
+		tag.appendChild(text);  //встановлюємо текстову ноду в елемент helloTag
+
+		var comment = doc.createComment("COPYRIGHT BY ME"); //створюємо коментар
+		tag.insertBefore(comment, text); //вставляємо коментар перед текстовою нодою
+
+		//створюємо та встановлюємо інструкцію по обробці в елемент helloTag
+		var pi = doc.createProcessingInstruction("mysuperinstruction", " prop='value' ");
+		tag.appendChild(pi);
+
+		doc.documentElement.appendChild(tag);   //додаємо на сторінку кореневий елемент helloTag
+
+		//записуємо створений xml документ з іменем nonempty.xml
+		doc.save("noempty.xml");
+	}
+	//-->
+	</script>
+</head>
+<body>
+    <button onclick="CreateXML();">Create new XML</button>
+</body>
+</html>

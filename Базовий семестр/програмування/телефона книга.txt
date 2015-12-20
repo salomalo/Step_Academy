@@ -1,0 +1,206 @@
+struct adr
+{
+	char* City;
+	char* Street;
+	int HousNumber;
+	int FlatNumber;
+} Adres;
+
+struct fnum
+{
+	char* Name;
+	char* Surname;
+	char* MiddleName;
+} FullNume;
+
+struct abonent
+{
+	int TelephoneNumber;
+	fnum FullNume;
+	adr Adres;
+};
+
+void Print( const abonent  &Arhiv, int i)
+{
+	i++;
+	cout<<i<<endl;
+	printf("Name:  %s  %s %s", Arhiv.FullNume.Surname, Arhiv.FullNume.Name, Arhiv.FullNume.MiddleName);
+	printf("\n Number: %d ", Arhiv.TelephoneNumber);
+	//printf("\n Address: %s %s  %d %d", Arhiv.Adres.City, Arhiv.Adres.Street, Arhiv.Adres.HousNumber, Arhiv.Adres.FlatNumber);
+	cout<<endl<<endl;
+}
+
+void Fill(abonent & Arhiv)
+{
+	Arhiv.FullNume.Surname=new char[50];
+	Arhiv.FullNume.Name=new char[50];
+	Arhiv.FullNume.MiddleName=new char[50];
+	Arhiv.Adres.City=new char[50];
+	Arhiv.Adres.Street=new char[50];
+	cout<<"Enter Surname: ";
+	cin>>Arhiv.FullNume.Surname;
+	cout<<"Enter Name: ";
+	cin>>Arhiv.FullNume.Name;
+	cout<<"Enter MiddleName: ";
+	cin>>Arhiv.FullNume.MiddleName;
+	cout<<"Enter Number: ";
+	cin>>Arhiv.TelephoneNumber;
+	//cout<<"Enter City: ";
+	//cin>>Arhiv.Adres.City;
+	//cout<<"Enter Street: ";
+	//cin>>Arhiv.Adres.Street;
+	//cout<<"Enter HousNumber: ";
+	//cin>>Arhiv.Adres.HousNumber;
+	//cout<<"Enter FlatNumber: ";
+	//cin>>Arhiv.Adres.FlatNumber;
+}
+
+void Copy(abonent &tmp, abonent &Arhiv)
+{
+	tmp.FullNume.Surname=new char[50];
+	tmp.FullNume.Name=new char[50];
+	tmp.FullNume.MiddleName=new char[50];
+	tmp.Adres.City=new char[50];
+	tmp.Adres.Street=new char[50];
+	for(int i=0;i<strlen(Arhiv.FullNume.Surname);i++)
+	strcpy(tmp.FullNume.Surname,Arhiv.FullNume.Surname);
+	for(int i=0;i<strlen(Arhiv.FullNume.Name);i++)
+	strcpy(tmp.FullNume.Name,Arhiv.FullNume.Name);
+	for(int i=0;i<strlen(Arhiv.FullNume.MiddleName);i++)
+	strcpy(tmp.FullNume.MiddleName,Arhiv.FullNume.MiddleName);
+	for(int i=0;i<strlen(Arhiv.Adres.City);i++)
+	strcpy(tmp.Adres.City,Arhiv.Adres.City);
+	for(int i=0;i<strlen(Arhiv.Adres.Street);i++)
+	strcpy(tmp.Adres.Street,Arhiv.Adres.Street);
+	tmp.Adres.HousNumber=Arhiv.Adres.HousNumber;
+	tmp.Adres.FlatNumber=Arhiv.Adres.FlatNumber;
+	tmp.TelephoneNumber=Arhiv.TelephoneNumber;
+}
+
+void Add(abonent *& Arhiv, int &size)
+{
+	size++;
+	abonent*tmp=new abonent[size];
+	for(int i=0; i<size-1; i++)
+	{
+		Copy(tmp[i],Arhiv[i]);
+	}
+	Fill(tmp[size-1]);
+	delete[]Arhiv;
+	Arhiv=tmp;
+}
+
+void find(abonent *& Arhiv, int size)
+{
+	int key;
+	cout<<"Enter TelNumber:"<<endl;
+	cin>>key;
+	bool chek;
+	for(int i=0; i<size; i++)
+	{
+		if(Arhiv[i].TelephoneNumber==key)
+		{
+			chek=true;
+			printf("Name: %s %s %s", Arhiv[i].FullNume.Surname, Arhiv[i].FullNume.Name, Arhiv[i].FullNume.MiddleName);
+		}
+	}
+	if(chek!=true)
+		cout<<"UNKNOWN ABONENT"<<endl;
+	cout<<endl;
+}
+
+void Delete(abonent *& Arhiv,int &size)
+{
+	int delabonent;
+	cout<<"which abonent to delete:"<<endl;
+	cin>>delabonent;
+	size--;
+	abonent*tmp=new abonent[size];
+	for(int i=0; i<delabonent-1; i++)
+		tmp[i]=Arhiv[i];
+	for(int i=delabonent-1;i<size;i++)
+		tmp[i]=Arhiv[i+1];
+	delete[]Arhiv;
+	Arhiv=tmp;
+}
+
+void Edit(abonent *& Arhiv,int &size)
+{
+	int edit;
+	cout<<"About who you want to Edit information:"<<endl;
+	cin>>edit;
+	edit--;
+	for(int i=0; i<size; i++)
+	{
+		if(i==edit)
+		{
+			cout<<"Enter Surname: ";
+			cin>>Arhiv[edit].FullNume.Surname;
+			cout<<"Enter Name: ";
+			cin>>Arhiv[edit].FullNume.Name;
+			cout<<"Enter MiddleName: ";
+			cin>>Arhiv[edit].FullNume.MiddleName;
+			cout<<"Enter Number: ";
+			cin>>Arhiv[edit].TelephoneNumber;
+			//cout<<"Enter City: ";
+			//cin>>Arhiv[edit].Adres.City;
+			//cout<<"Enter Street: ";
+			//cin>>Arhiv[edit].Adres.Street;
+			//cout<<"Enter HousNumber: ";
+			//cin>>Arhiv[edit].Adres.HousNumber;
+			//cout<<"Enter FlatNumber: ";
+			//cin>>Arhiv[edit].Adres.FlatNumber;
+		}
+	}
+}
+
+void main()
+{
+	system("mode con cols=100 lines=80");
+	int size=1,choise=0;
+	abonent*Arhiv=new abonent[size];
+	do
+	{
+		cout<<" To create  arhiv     - 0:"<<endl;
+		cout<<" To add new abonement - 1:"<<endl;
+		cout<<" To finde abonent     - 2:"<<endl;
+		cout<<" To print             - 3:"<<endl;
+		cout<<" To delete            - 4:"<<endl;
+		cout<<" To edit information  - 5:"<<endl;
+		cin>>choise;
+		switch(choise)
+		{
+		case 0:
+			for(int i=0; i<size; i++)
+			{
+				Fill(Arhiv[i]);
+			}
+			break;
+		case 1:
+			Add(Arhiv,size);
+			break;
+		case 2:
+			find(Arhiv,size);
+			break;
+		case 3:
+			for(int i=0; i<size; i++)
+			{
+				Print(Arhiv[i],i);
+			}
+			break;
+		case 4:
+			Delete(Arhiv,size);
+			break;
+		case 5:
+			Edit(Arhiv,size);
+			break;
+		default:
+			cout<<"Wrong action"<<endl;
+			break;
+		}
+			cout<<endl<<"Press esc to exit...\n";
+			cout<<"Press eny key to continue...\n"<<endl;;
+	}
+	while(getch()!=27);
+	cout<<endl;
+}

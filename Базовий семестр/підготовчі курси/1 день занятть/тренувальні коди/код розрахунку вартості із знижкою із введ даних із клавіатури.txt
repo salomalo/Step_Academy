@@ -1,0 +1,10 @@
+float discount = 0.05;
+	float cost = 10.50;
+	cout<<"wat's the cost?\n";
+	cin>>cost;
+	int count = 5;
+	cout<<"how much?\n";
+	cin>>count;
+	float price;
+	price=count*cost-count*cost*discount;
+	cout<<"pleae pay;"<<price<<endl;

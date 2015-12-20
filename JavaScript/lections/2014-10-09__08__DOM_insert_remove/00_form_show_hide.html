@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>&lt;input type="checkbox" ... &gt;</title>
+		
+		<script>
+			function processInput() {
+				if( ! arguments.length ) return;
+				
+				var msg="";
+				for( var i = 0; i < arguments.length ; i++ ){
+					var echeckbox = document.getElementsByName( arguments[i] );
+					if ( echeckbox ) {
+						msg += "Знайдено групу checkbox'ів з name=\""+ arguments[i] +"\"\n у кількості "+ echeckbox.length +"шт :\n"
+						for( var j=0; j< echeckbox.length ; j++ ){
+							msg += "    value='"+echeckbox[j].value +"'"+ (echeckbox[j].checked ? "     обрано    '"+ echeckbox[j].parentNode.innerText : "") +"'";
+							//+ eSelect.children[ eSelect.selectedIndex ].innerText +"'\n\n";
+							msg += "\n";
+						}
+						msg += "\n";
+					}else{
+					
+						msg += "input з ID '"+ arguments[i] +"' не знайдено'\n";
+					}
+				}
+				alert( msg );
+				
+				
+			}
+		</script>
+		
+		<style>
+			fieldset{
+				display: inline-block;
+				vertical-align: top;
+			}
+			
+			label{
+				display: block;
+			}
+			
+			form {
+				background : gray;
+				width: 444px;
+				border: 1px solid black;
+				/*padding: 5px 10px 10px 10px;*/
+				box-sizing: border-box;
+				overflow:hidden;
+				transition: height 1s ease 0s;
+			}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<h1>&lt;input type="checkbox" ... &gt;</h1>
+		<p>
+			<input type="button" value="Форма Name !" onclick="hideShowForm( 'myForm' );" > 
+			<input type="button" value="Форма ID !" onclick="hideShowFormID( 'myFormID' );" > 
+		</p>
+		<p>
+			<button onclick="hideShowForm( 'myForm' );" >Форма Name !</button>
+			<button onclick="hideShowFormID( 'myFormID' );" >Форма ID  !</button>
+		</p>
+		
+		
+		<form name="myForm" id="myFormID" >
+			<fieldset >
+				<legend> Варіанти </legend>
+				<label><input type="checkbox" name="check1" value="option1" checked	>Перший варіант</label>
+				<label><input type="checkbox" name="check1" value="option2"			>Другий варіант</label>
+				<label><input type="checkbox" name="check1" value="option3"			>Третій варіант</label>
+				<label><input type="checkbox" name="check1" value="option4"			>Четвертий варіант</label>
+			</fieldset>
+			<fieldset>
+				<legend> Можливості </legend>
+				<label><input type="checkbox" name="check2" value="chance1"			>Перша можливість</label>
+				<label><input type="checkbox" name="check2" value="chance2"			>Друга можливість</label>
+				<label><input type="checkbox" name="check2" value="chance3" checked	>Третя можливість</label>
+				<label><input type="checkbox" name="check2" value="chance4"			>Четверта можливість</label>
+				<label><input type="checkbox" name="check2" value="chance5"			>П'ята можливість</label>
+			</fieldset>
+			
+			<p>
+				<input type="button" value="Обробити !" onclick="processInput( 'check1','check2' );" > <br>
+			</p>
+	
+			<!-- <button> без type всередині форми сприймається як type="submit"  -->
+			<fieldset>	
+				<button type="button" onclick="hideShowForm( 'myForm' );" >Форма Name type="button" !</button>
+				<button 			  onclick="hideShowForm( 'myForm' );" >Форма Name без type !</button>
+				<button type="button" onclick="hideShowFormID( 'myFormID' );" >Форма ID type="button" !</button>
+				<button				  onclick="hideShowFormID( 'myFormID', 'display' );" >Форма ID без type  !</button>
+			</fieldset>
+			
+		</form>
+
+		<p>
+			Якийсь вміст сторінки після форми
+		</p>
+
+
+		<script>
+		
+		
+			function hideShowForm( nameForm ){
+				
+				var eForm = document.getElementsByName( nameForm )[0];
+				if( !eForm ) return;
+				
+				if( eForm.style.display.length === 0 || eForm.style.display === "block" )
+					eForm.style.display="none";
+				else
+					eForm.style.display="block";
+						
+			}
+		
+		
+			function hideShowFormID( idForm ){
+				var eForm = document.getElementById( idForm );
+				if( !eForm ) return;
+				
+				if( eForm.style.display.length === 0 || eForm.style.display === "block" )
+					eForm.style.display="none";
+				else
+					eForm.style.display="block";
+				
+			}
+			
+		</script>
+		
+	</body>
+</html>

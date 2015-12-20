@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?myxml version="2.0"?>
+<MyXML>
+	<MyXMLMsgsRq onError="stopOnError">
+		<VendorAddRq requestID="0">
+			<VendorAdd>
+				<FullName>Castuciano, James</FullName>
+				<CompanyName>Castuciano, James</CompanyName>
+				<Salutation>Mr</Salutation>
+				<FirstName>James</FirstName>
+				<LastName>Castuciano</LastName>
+				<VendorAddress>
+					<Addr>12 Van Horne Cres</Addr>
+					<City>Toronto</City>
+				</VendorAddress>
+				<Phone>316-1116</Phone>
+				<Fax>316-1116</Fax>
+				<Contact>James Castuciano</Contact>
+				<TermsRef>
+					<FullName>Net 30</FullName>
+				</TermsRef>
+			</VendorAdd>
+		</VendorAddRq>
+		<VendorAddRq requestID="0">
+			<VendorAdd>
+				<FullName>Chai, Stephen</FullName>
+				<CompanyName>Stephen Chai</CompanyName>
+				<Salutation>Mr</Salutation>
+				<FirstName>Stephen</FirstName>
+				<LastName>Chai</LastName>
+				<VendorAddress>
+					<Addr>1333 Hornby Street</Addr>
+					<City>Middlefield</City>
+				</VendorAddress>
+				<Phone>555-1313</Phone>
+				<Fax>555-1222</Fax>
+				<Contact>Stephen Chai</Contact>
+				<TermsRef>
+					<FullName>Net 30</FullName>
+				</TermsRef>
+			</VendorAdd>
+		</VendorAddRq>
+		<CustomerAddRq requestID="1">
+			<CustomerAdd>
+				<FullName>Pupkin, Ivan</FullName>
+				<Salutation>Mr</Salutation>
+				<FirstName>Ivan</FirstName>
+				<LastName>Pupkin</LastName>
+				<CustomerAddress>
+					<Addr>Chreschatyk, 12</Addr>
+					<City>Kiev</City>
+				</CustomerAddress>
+				<Phone>22-22-222</Phone>
+			</CustomerAdd>
+		</CustomerAddRq>
+	</MyXMLMsgsRq>
+</MyXML>

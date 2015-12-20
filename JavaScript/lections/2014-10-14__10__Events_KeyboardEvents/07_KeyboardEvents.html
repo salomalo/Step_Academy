@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Події клавіатури</title>
+		<style>
+			table, td, th {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			
+			th {
+				border: 2px solid black;
+			}
+		</style>
+		
+	</head>
+	<body onkeypress="processKeys(event);" onkeydown="processKeys(event);" onkeyup="processKeys(event);" >
+		<h1>Події клавіатури</h1>
+		<table>
+			<tr>
+				<th>Подія</th>
+				<th>.keyCode</th>
+				<th>.which</th>
+				<th>.charCode</th>
+				<th>.ctrlKey</th>
+				<th>.altKey</th>
+				<th>.shiftKey</th>
+			</tr>
+		</table>
+	</body>
+	
+	<script>
+		
+		function processKeys( event ) {
+			var eTable = document.getElementsByTagName("table")[0];
+			var eTR = document.createElement("tr");
+			if( event.type === "keyup" )
+				eTR.style.borderBottom = "2px solid black";
+
+			var eTD = document.createElement("td");
+			eTD.innerText = event.type;
+			eTR.appendChild( eTD );
+			
+			eTD = document.createElement("td");
+			eTD.innerHTML = event.keyCode +"  ( '&#"+ String( event.keyCode ) +";' )";
+			eTR.appendChild( eTD );
+			
+			eTD = document.createElement("td");
+			eTD.innerHTML = event.which +"  ( '&#"+ String( event.which ) +";' )";
+			eTR.appendChild( eTD );
+			
+			eTD = document.createElement("td");
+			eTD.innerHTML = event.charCode +"  ( '&#"+ String( event.charCode ) +";' )";
+			eTR.appendChild( eTD );
+			
+			eTD = document.createElement("td");
+			eTD.innerText = event.ctrlKey;
+			eTR.appendChild( eTD );
+			
+			eTD = document.createElement("td");
+			eTD.innerText = event.altKey;
+			eTR.appendChild( eTD );
+			
+			eTD = document.createElement("td");
+			eTD.innerText = event.shiftKey;
+			eTR.appendChild( eTD );
+			
+			
+			eTable.appendChild( eTR );
+			
+		}// function processKeys()
+		
+	</script>
+	
+</html>

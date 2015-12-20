@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>resize</title>
+	</head>
+	<body onresize="onResize( event );" >
+		<h1>resize</h1>
+		<div id="idSize" style="text-align:center" >
+			розмір body
+		</div>
+	</body>
+	
+	<script>
+		
+		function onResize( event ){
+			var msg = "";
+
+/*			var srcElement = event.srcElement;
+			for( var key in srcElement )
+				msg += "event.srcElement." + key +" = "+ srcElement[key] +" ( "+ typeof( srcElement[key] ) +")<br>";
+*/
+		
+/*			for( var key in event )
+				msg += "event." + key +" = "+ event[key] +" ( "+ typeof( event[key] ) +")<br>";
+*/		
+
+			msg += event.srcElement.innerWidth +" x "+ event.srcElement.innerHeight;
+
+			document.getElementById( "idSize" ).innerHTML = msg;
+		
+		}
+		
+	</script>
+	
+</html>

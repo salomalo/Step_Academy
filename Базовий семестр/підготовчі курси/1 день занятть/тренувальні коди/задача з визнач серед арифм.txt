@@ -1,0 +1,8 @@
+int alpha;
+	cout<<"enter alpha";
+	cin>>alpha;
+	int beta;
+	beta=alpha*5;
+	int gamma;
+	gamma=(alpha+beta)/2;
+	cout<<gamma<<endl;

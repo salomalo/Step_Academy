@@ -1,0 +1,152 @@
+LINK : fatal error LNK1123: failure during conversion to COFF: 
+file invalid or corrupt
+Поискал в интернете, нашел устранение проблемы: 
+Project->
+Propeties->
+Configuration properties->
+Linker->
+General->
+Enable Incremental Linking: NO. (по умолчанию там стоит YES). 
+
+
+
+#include<iostream>
+#include <conio.h>
+#include<ctime>
+#include<cstring>
+using namespace std;
+
+
+char* Porivn(char **&ptr,int countW)//порівнює два слова і повертає те яке за алфавітом йде перше
+{
+	char *tmp;
+	for(int i=0; i<countW; i++)
+	{
+		for(int j=0; j<254; j++)
+		{
+			if(ptr[i]>ptr[i+1])
+			{
+				tmp=ptr[i+1];
+				ptr[i+1]=ptr[i];
+				ptr[i]=tmp;
+			}
+			else
+			{
+				if(ptr[i]==ptr[i+1])
+				{
+					if(ptr[i][j+1]>ptr[i+1][j+1])
+					{
+						tmp=ptr[i+1];
+						ptr[i+1]=ptr[i];
+						ptr[i]=tmp;
+					}
+				}
+
+			}
+		}
+	}
+
+	
+	//for(int i=0; i<countW; i++)
+	//{
+	//	for(int j=i; j<strlen(ptr[i]); j++)
+	//	{
+	//		if(ptr[i]>ptr[j]) 
+	//		{
+	//			char *tmp=ptr[i]; 
+	//			ptr[i]=ptr[j];
+	//			ptr[j]=tmp;
+	//		}
+	//	}
+	//}
+
+	cout<<endl<<"SORT PTR"<<endl;
+	for(int i=0; i<countW; i++)//виведення масива масивів
+	cout<<' '<<ptr[i];
+
+	return *ptr;
+}
+
+
+char**CreatArry(char**&ptr, char*Word, int&countW)
+{
+	countW++;
+	char**tmp=new char*[countW];
+	for(int i=0; i<countW-1; i++)
+	{
+		tmp[i]=new char[strlen(ptr[i])+1];
+		strcpy(tmp[i],ptr[i]);
+	}
+	tmp[countW-1]=new char[strlen(Word)+1];
+	strcpy(tmp[countW-1],Word);
+
+	for(int i=0;i<countW-1;i++)
+		delete[]ptr[i];
+	delete ptr;
+
+	ptr=tmp;
+
+	return ptr;
+}
+
+char** WordInAlphabet(char*str)
+{
+	char res[255];
+	strcpy(res,str);
+
+	int countW=0;
+
+	char**ptr=new char*[countW];//створення масива масивів
+	for(int i=0; i<countW; i++)
+		ptr[i]=new char[255];
+
+	char *Word=new char[255];
+	Word=strtok(res,".,!? \0");
+	while(Word)
+	{
+		int count=0;
+		for (int i=0; i<strlen(Word); i++)
+		{
+			if ( (Word[i]<='9' && Word[i]>='0')||(Word[i]>=' '&& Word[i]<='/')||(Word[i]>=':'&& Word[i]<='@')||(Word[i]>='['&& Word[i]<='`')||(Word[i]>='{'&& Word[i]<='~'))
+			{
+				count++;
+			}
+		}
+		if(!count)
+		{
+			CreatArry(ptr,Word,countW);
+		}
+		Word=strtok(NULL,".,!? ");
+	}
+
+	cout<<"PTR  v alfavit"<<endl;
+	for(int i=0; i<countW; i++)//виведення масива масивів
+		cout<<' '<<ptr[i];
+	cout<<endl;
+
+	Porivn(ptr,countW);
+
+	//cout<<endl<<"SORT PTR"<<endl;
+	//for(int i=0; i<countW; i++)//виведення масива масивів
+	//cout<<' '<<ptr[i];
+
+	cout<<endl;
+	return ptr;
+}
+
+
+void main()
+{
+	char str[255];
+	//char str1[255]/*="abAra cad3abra la 06lo l888e6 lo3lo jjj ru"*/;
+	//char str2[255];
+	cout<<"Put your string:"<<endl;
+	gets(str);
+	//gets(str1);
+	//gets(str2);
+
+	WordInAlphabet(str);
+}
+
+
+

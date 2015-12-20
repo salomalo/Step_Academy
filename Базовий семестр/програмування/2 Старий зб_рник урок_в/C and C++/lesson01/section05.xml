@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Урок №1" next="section06.xml" prev="section04.xml" summ="1">
+<h2>Типы данных</h2>
+
+<p>
+После того, как Вы прочли предыдущие разделы урока, Вам уже ничего не стоит написать программу, которая выводит что-либо на экран.<br/>
+<example>
+// Заголовок
+
+#include &lt;iostream&gt;
+
+// определение пространства имен, в котором есть cout&lt;&lt;
+
+using namespace std;
+
+// Главная функция
+
+void main()
+
+{
+	// вывод фразы "Поздравляем с хорошим началом!!! :)"
+	// фраза выводится через три табуляции,
+	// затем добавляются две пустых строки
+
+	cout&lt;&lt;"\t\t\tCongratulation with good beginning!!! :)\n\n";
+}
+</example>
+Вот собственно и всё, что Вы умеете(пока).
+</p>
+
+<p>
+Человек никогда не должен останавливаться на достигнутом. Собственно, Вас обязательно должно заинтересовать не только то, как выводить данные на экран, но и как оперировать этими данными. Например, производить какие-либо вычисления. Безруких жонглеров не бывает, и, пока часть шаров находится в воздухе, оставшуюся часть циркач держит в руках. Что бы что-либо хранить (в частности данные) необходимо иметь хранилище. Для нашей программы таким хранилищем будет оперативная память. Прежде чем что-то где-то разместить, необходимо подобрать подходящую упаковку. Скажем, Вы вряд ли станете наливать молоко в спичечный коробок. В программировании, перед тем, как разместить информацию в оперативной памяти, Вы обязательно должны определить характер этой информации. Итак, <strong>Типы данных</strong>.
+</p>
+<p><strong>Тип данных</strong> - понятие, определяющее максимальный размер (в байтах) и тип информации, которая будет использоваться программой.</p>
+
+<p>Программирование отчасти отражает объекты внешнего мира, изрядно их упрощая. В начале изучения мы столкнемся с вещами, с которыми по сути Вы сталкивались много раз. Давайте условно разделим все типы данных  на следующие группы:
+	
+<ol>
+  <li>Числовые.</li>
+  <li>Символьные.</li>
+  <li>Логические.</li>
+</ol>
+Далее мы рассмотрим ряд ключевых слов, используемых в языке С для обозначения типов данных.
+</p>
+
+<h3>Числовые типы.</h3>
+<p>
+Числа, как известно, бывают целые и вещественные. Вещественные числа мы будем называть <strong><u>числа с плавающей точкой</u></strong>. Особо отметим, что запятая, отделяющая целую часть от дробной, меняется на точку. Например 7,8 в С
+записывается 7.8
+</p>
+
+<p>
+Переменные, в которых мы будем хранить значения вещественных чисел, будут
+объявляться типа <strong><font face="Courier New">float</font></strong>
+или <strong><font face="Courier New">double</font></strong>. В чем
+разница между этими типами? Тип <strong><font
+face="Courier New">float</font></strong> описывает числа с
+плавающей точкой одинарной точности, а  <font
+face="Courier New"><strong>double</strong></font> — двойной. 
+Поясним, что в математике точность определяется количеством цифр, которые представляют число. Двойной точностью называют метод представления чисел с удвоенным, по сравнению с обычным, количеством цифр. 
+
+Вот характеристики типов для чисел с плавающей
+точкой:</p>
+
+
+<table align="center" border="1" cellspacing="0" frame="box" rules="groups" style="margin-bottom: 10;">
+ <thead> <tr>
+    <th ><strong>Пояснение<span lang="EN-US"
+    style="mso-ansi-language:EN-US"></span></strong></th>
+    <th ><strong>Тип</strong></th>
+    <th ><strong>Размер
+    в 
+    байтах</strong></th>    
+  </tr>
+</thead>
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 400; padding-left: 10; padding-bottom: 5;" />
+<tbody>
+  <tr>
+    <td ><em><span lang="EN-US" style="mso-ansi-language:EN-US">описывает
+    вещественные 
+    числа одинарной точности</span></em></td>
+    <td ><font face="Courier New"><span lang="EN-US"
+    style="mso-ansi-language:EN-US">float</span></font></td>
+    <td ><center>4</center></td>    
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td ><em><span lang="EN-US" style="mso-ansi-language:EN-US">описывает
+    вещественные 
+    числа двойной точности</span></em></td>
+    <td ><font face="Courier New"><span lang="EN-US"
+    style="mso-ansi-language:EN-US">double</span></font></td>
+    <td ><center>8</center></td>    
+  </tr>
+</tbody>
+</table>
+
+<p> Кроме вещественных в С предусмотренно три типа объявляющих
+целочисленные данные. В таблице приведены
+основные характеристики этих типов:</p>
+
+<table align="center" border="1" cellspacing="0" frame="box" rules="groups" style="margin-bottom: 10;">
+  <thead><tr>
+    <th><strong>Пояснение<span lang="EN-US"
+    style="mso-ansi-language:EN-US"></span></strong></th>
+    <th><strong>Тип</strong></th>
+    <th ><strong>Размер
+    в 
+    байтах</strong></th>
+    <th ><strong>Диапазон </strong>
+    <strong>значений</strong></th>
+    </tr>  </thead>
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 400; padding-left: 10; padding-bottom: 5;" />
+<tbody>
+  <tr>
+    <td ><em><span lang="EN-US" style="mso-ansi-language:EN-US">описывает
+    
+    целые числа</span></em></td>
+    <td><font face="Courier New"><span
+    lang="EN-US" style="mso-ansi-language:EN-US">int</span></font></td>
+    <td  align="center">4</td>
+    <td >от -2147483648 до  2147483647</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td ><em><span lang="EN-US" style="mso-ansi-language:EN-US">описывает
+    
+    короткие
+    целые числа</span></em></td>
+    <td ><font face="Courier New"><span lang="EN-US"
+    style="mso-ansi-language:EN-US">short</span></font></td>
+    <td  align="center">2</td>
+    <td >от -32768 до 32767</td>
+    </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td ><em><span lang="EN-US" style="mso-ansi-language:EN-US">описывает
+    
+    длинные 
+    целые числа</span></em></td>
+    <td ><font face="Courier New"><span lang="EN-US"
+    style="mso-ansi-language:EN-US">long</span></font></td>
+    <td  align="center">4</td>
+    <td >от -2147483648 до  2147483647</td>
+  </tr>
+</tbody>
+</table>
+
+
+<h3>Символьный тип.</h3>
+<p>Тип предназначен для хранения только одного символа. Сразу же предупредим - типа для
+хранения строк в С не существует.</p>
+
+<table align="center" border="1" cellspacing="0" frame="box" rules="groups" style="margin-bottom: 10;">
+  <thead><tr>
+    <th><strong>Пояснение<span lang="EN-US"
+    style="mso-ansi-language:EN-US"></span></strong></th>
+    <th ><strong>Тип</strong></th>
+    <th ><strong>Размер
+    в 
+    байтах</strong></th>
+ </tr>
+</thead>
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 400; padding-left: 10; padding-bottom: 5;" />
+<tbody>
+  <tr>
+    <td ><span lang="EN-US" style="mso-ansi-language:EN-US"><em>описывает
+    символы</em></span></td>
+    <td><span lang="EN-US"
+    style="mso-ansi-language:EN-US"><font face="Courier New">char</font></span></td>
+    <td  align="center">1</td>
+  </tr>
+</tbody>
+</table>
+
+<h3>Логический тип.</h3>
+<p>Тип предназначен для хранения логических
+данных. Подробнее мы познакомимся с ним позже. 
+Логические данные могу принимать одно из двух
+значений: <strong>истина</strong> (<strong>true</strong>) либо <strong>ложь</strong> (<strong>false</strong>).</p>
+
+
+<table align="center" border="1" cellspacing="0" frame="box" rules="groups" style="margin-bottom: 10;">
+  <thead><tr>
+    <th ><em><span lang="EN-US" style="mso-ansi-language:EN-US"></span></em><strong>Пояснение<span
+    lang="EN-US" style="mso-ansi-language:EN-US"></span></strong></th>
+    <th ><font face="Courier New"><span lang="EN-US"
+    style="mso-ansi-language:EN-US"></span></font><strong>Тип</strong><font
+    face="Courier New"><span lang="EN-US" style="mso-ansi-language:EN-US"></span></font></th>
+    <th ><strong>Размер
+    в 
+    байтах</strong></th>
+    <th ><strong>Значения</strong></th>
+     </tr>
+</thead>
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 400; padding-left: 10; padding-bottom: 5;" />
+<tbody>
+  <tr>
+    <td ><em><span lang="EN-US" style="mso-ansi-language:EN-US">описывает
+    логические
+    значения</span></em></td>
+    <td ><font face="Courier New"><span lang="EN-US"
+    style="mso-ansi-language:EN-US">bool</span></font></td>
+    <td align="center">1</td>
+    <td >true false</td>
+     </tr>
+</tbody>
+</table>
+<tip start="Примечание"> Если необходимо исключить из диапазона типа данных отрицательные значения, перед названием типа следует указать ключевое слово unsigned. Например, unsigned int. Такой тип будет включать в себя только положительные значения от 0 до 4294967294. 
+</tip>
+<p>
+Итак, мы выяснили, какие бывают типы данных и какие ключевые слова языка С используются для их обозначения. В заключении, следует отметить, что язык  С является регистрозависимым (т. е. ЗАГЛАВНЫЕ и строчные буквы в нем это не одно и тоже). Обратите внимания на то, что все выше описанные типы данных записаны строчными буквами. Следите за этим, т. к. int - это тип данных, а INT - ошибка. 
+</p>
+<p>
+В следующей теме мы рассмотрим применение типов данных на практике.
+</p>
+
+</lesson>

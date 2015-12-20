@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Text, TextArea & Button</title>
+		
+		<script>
+			function processInput() {
+				if( ! arguments.length ) return;
+				
+				var msg="";
+				for( var i = 0; i < arguments.length ; i++ ){
+					var eInput = document.getElementById( arguments[i] );
+					if ( eInput ) {
+						msg += "input з ID '"+ arguments[i] +"' містить: \n'"+ eInput.value +"'\n\n";
+						eInput.value = "";
+					}else{
+						msg += "input з ID '"+ arguments[i] +"' не знайдено\n\n";
+					}
+				}
+				
+				alert( msg );
+				
+			}
+		</script>
+		
+	</head>
+	<body>
+		<h1>Text, TextArea & Button</h1>
+		<p>
+			<input type="text" 		id="idText" 	value="idText_default" > <br>
+			<textarea 				id="idTextArea"	>textarea_default</textarea><br>
+			<input id="knopka" type="button" value="Обробити !" onclick="processInput( 'idText', 'idTextArea', 'неідомий', 'knopka' );" > <br>
+		</p>
+	</body>
+</html>

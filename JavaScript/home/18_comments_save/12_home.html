@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Comment's add</title>	
+		<script>
+		
+			function hideShowForm( nameForm ){
+				var eForm = document.getElementsByName( nameForm )[0];
+				if( !eForm ) return;		
+				if( eForm.style.display.length === 0 || eForm.style.display === "block" ){
+					eForm.style.display="none" ;
+					document.getElementById("f").innerHTML="&#9658 Коментарів";
+					}
+				else {
+					eForm.style.display="block" ;	
+					document.getElementById("f").innerHTML="&#9660 Коментарів";						
+				}
+			}
+
+			function Submit(){
+				var inputs = document.getElementsByName("check");
+					for (var i = 0; i < inputs.length; i++) {		
+						if (inputs[i].checked){
+										var eParent = document.body.children[ 3 ].children[0];				
+										var eAddBefore = eParent.children[ 0 ];
+										var eNew = document.createElement("p");
+										eNew.innerHTML = document.myForm.name.value + " : <br>"+document.myForm.comment.value; 		
+										eParent.insertBefore( eNew, eAddBefore );
+								break;	
+							}else{
+										var eParent = document.body.children[ 3 ].children[0];				
+										var eAddAfter = eParent.lastChild;
+										var eNew = document.createElement("p");	
+										eNew.innerHTML = document.myForm.name.value + " : <br>"+document.myForm.comment.value; 
+										eParent.insertBefore( eNew, eAddAfter.nextSibling );
+									break;
+								}	
+					}
+			}
+			
+		    function countChar() {
+				var count = document.getElementById("txtArr").value.length;
+				// document.getElementById("here").innerHTML = count;
+						if(count>=5){
+							document.getElementById("here").innerHTML = 10 - count;
+							}
+							else{
+							document.getElementById("here").innerHTML="";					
+							}			
+			}
+			
+		</script>
+		<style>
+			fieldset{
+				margin-top:35px;
+				display: inline-block;
+				vertical-align: top;
+				text-align:center;
+			}
+			
+			img{
+				float:left;
+				margin-right:10px;
+				margin-top:10px; 
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/foto.jpg" alt="foto">		
+			
+		<button type="button" onclick="hideShowForm( 'myForm' );" id="f"> &#9660 Коментарів </button>	
+		
+		<br>		
+			<form name="myForm">
+			<div></div>
+							<label>Ім'я<br><input type="text" name="name"></label><br>
+							<label>Ваш коментар<br><textarea rows="10" cols="50" name="comment"  id="txtArr"  oninput="countChar()" ></textarea></label><br>
+				
+				<p id="here"></p>
+				
+				<fieldset> 
+					<legend> Місце виводу коментаря </legend>
+					
+							<label><input type="radio" name="check" value="begin" checked>На початок 					
+								<!-- 	<button type="button" value="insertBefore" onclick="addToBegin()"> Опублікувати</button>  -->
+									</label>
+									
+							<label><input type="radio" name="check" value="end">В кінець  
+									<!-- <button type="button" value="insertAfter" onclick="addToEnd()"> Опублікувати</button>  -->
+										</label>
+									<br>
+							<button type="button" value="insertAfter" onclick="Submit()" > Опублікувати</button>
+												
+				</fieldset>
+				
+					
+			
+			</form>
+	</body>
+</html>

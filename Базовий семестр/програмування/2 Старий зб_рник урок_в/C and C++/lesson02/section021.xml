@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Урок №2" next="section03.xml" prev="section02.xml" summ="0">	
+ <h2>Применение арифметических операций.</h2> 
+<h3>Пример №1. Игра.</h3>
+<p></p>
+<example>
+// примитивная игра для малышей
+#include &lt;iostream&gt;
+using namespace std;
+void main()
+{
+	int buddies; // количество пиратов до битвы
+	int afterBattle; //количество пиратов после битвы
+	
+	// Вы пират. Сколько человек в вашей команде, если не считать вас?
+	cout&lt;&lt;"You the pirate. How many the person in your command, without you?\n\n";
+	cin&gt;&gt;buddies;
+	
+	//Внезапно на вас нападает 10 мушкетеров
+	cout&lt;&lt;"Suddenly you are attacked by 10 musketeers \n\n";
+	
+	//10 мушкетеров и 10 пиратов погибают в схватке.
+	cout&lt;&lt;"10 musketeers and 10 pirates perish in fight.\n\n";
+	
+	//подсчет оставшихся в живых
+	afterBattle=1+buddies-10;
+
+	// Осталось лишь ... пиратов
+	cout&lt;&lt;"Remains only "&lt;&lt;afterBattle&lt;&lt;" pirates\n\n";
+
+	//Состояние убитых насчитывает 107 золотых монет
+	cout&lt;&lt;"The condition killed totals 107 gold coins \n\n";
+
+	 //Это по ...  монет на каждого
+	cout&lt;&lt;"It on "&lt;&lt;(107/afterBattle)&lt;&lt;"coins on everyone";
+
+	//Пираты устраивают большую драку из-за оставшихся
+	cout&lt;&lt;"Pirates arrange greater fight because of remained\n\n";
+	//... монет
+	cout&lt;&lt;(107%afterBattle)&lt;&lt;"coins \n\n";
+}
+</example>
+<p>В данном примере используется правило деления целого на целое - при таком делении дробная часть, даже, если должна быть - обрезается. Более подробно об этом будет рассказано в разделе урока - "Преобразование типов". В выражении (107/afterBattle) - мы узнаем сколько монет получит  каждый пират, если разделить их поровну. Кроме того, оператор деления по модулю, помогает нам выяснить, сколько останется монет, которые невозможно разделить, то есть мы получим остаток от деления 107 на количество выживших пиратов. Вот и все особенности примера.</p>
+
+<h3>Пример №2. Окружность.</h3>
+<example>
+// программа для выяснения параметров окружности
+#include &lt;iostream&gt;
+using namespace std;
+void main()
+{
+	const float PI=3.141592;//обозначение константы - числа пи
+
+	//объявление переменных для хранения параметров
+	float radius, circumference, area;
+	
+	// приглашение ввести радиус
+	cout&lt;&lt;"Wellcome to programm of work with rounds\n\n";
+	cout&lt;&lt;"Put the radius from rounds\n\n";
+	cin&gt;&gt;radius;
+	cout&lt;&lt;"\n\n";
+
+	area=PI*radius*radius; // подсчет площади круга
+	circumference=PI*(radius*2); // подсчет длины окружности
+
+	// вывод результатов
+	cout&lt;&lt;"Square of round: "&lt;&lt;area&lt;&lt;"\n\n";
+	cout&lt;&lt;"length of round: "&lt;&lt;circumference&lt;&lt;"\n\n";
+	cout&lt;&lt;"THANKS!!!  BYE!!!\n\n";
+}
+</example>
+<p>В данном примере было продемонстированно использование арифметических операторов в программах, производящих математические вычисления.</p>
+<p>Мы убедились, что знание арифметических операторов дает возможность решать простые задачи. Однако, мало уметь использовать операторы, необходимо понимать каков будет результат их использования. Об этом и пойдет речь в следующем разделе.</p>
+</lesson>

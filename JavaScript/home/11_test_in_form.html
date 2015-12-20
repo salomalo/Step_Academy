@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>teSt</title>	
+		<script>
+				function Test(){
+					var Questions=[];
+					var curent;
+					var res;
+					var name;
+					var nameRes;
+						this.AddQuestion =	function (ques,ans) {
+								Questions.push({Qestion:ques, Answer:ans});						
+							}
+						
+						this.getLength = function(){
+								return (Questions.length);
+							}
+							
+						this.Start = function(na){
+								curent=0;
+								res=0;
+								name=na;
+								return curent;
+							}	
+							
+						this.GetQuestion = function () {	
+								return( Questions[curent].Qestion);
+							}
+							
+						this.CheckAnswer  = function (anser){
+								if (anser==Questions[curent].Answer){
+									res++;
+									}	
+								curent++;
+							}	
+							
+						this.Result = function(){	
+								nameRes=name + " " + res;
+								return nameRes;
+							}
+						
+						this.getCurrent = function(){
+								if(Questions.length>0)////////////////////////////////
+									return curent;			//////////////////				
+								if(curent!=undefined)
+									return Questions.length;
+								if(curent==Questions.length)
+									return Questions.length;
+						}
+				}	
+		</script>
+			<style>
+				<!-- #myForm{
+					display:none;
+				} -->
+			</style>
+	</head>
+	<body>
+		<h1>teSt</h1>
+		
+		<script>
+				var myTest = new Test;
+
+					function AddShow(nameForm){
+								var eForm = document.getElementsByName( nameForm )[0];
+								if( !eForm ) return;		
+								if( eForm.style.display.length === 0 || eForm.style.display === "block" ){
+									eForm.style.display="none" ;
+									}
+								else {
+									eForm.style.display="block" ;	
+								}
+						}
+					
+				function Add(){
+					var ques = document.getElementById("qwes").value;
+					var ans = document.getElementById("answ").value;
+					myTest.AddQuestion(ques,ans);
+					document.getElementById("qwes").value="";
+					document.getElementById("answ").value="";
+				}
+
+					function St(){
+							var name = document.getElementById("name").value;
+							myTest.Start(name);
+										<!-- document.getElementById("test").innerHTML = myTest.GetQuestion(); -->
+							document.getElementById("vuvid_put").value = myTest.GetQuestion();
+					}
+				
+				
+				function Next(){
+						for(var i=0; i<myTest.getLength(); i++)	{
+							document.getElementById("vuvid_put").value = myTest.GetQuestion();
+							myTest.CheckAnswer(document.getElementById("vidp_cor").value);
+						}
+				}
+				
+					function Res(){
+						document.getElementById("res2").innerHTML = "Resultat for " + myTest.Result();	
+					}
+		</script>
+		
+			<!-- <button type="button" onclick="AddShow('myForm');"> add </button><br> -->
+				<!-- <form name="myForm" id="myForm">  -->
+						<label>запитання: <input type="text" name="qwe" id="qwes"> </label><br>
+						<label>відповідь: <input type="text" name="ans" id="answ"> </label><br> 
+						<button type="button" onclick="Add()" id="add"> add </button><br>
+				<!-- </form>  -->
+			<br><br>
+			
+					<label>Імя <input type="text" name="name" id="name"></label><br>			
+				<button type="button" onclick="St()" id="st"> start </button><br>
+			<br><br>	
+
+				<label>Питання для вас <input type="text" id="vuvid_put"  readonly="readonly" /></label><br> 
+				<label>Ваша відповідь: <input type="text" id="vidp_cor"/></label><br>
+						
+						<!-- <p id="test"></p> -->
+				<br><br>
+			
+				<button type="button" onclick="Next()" > Next </button><br>	
+						
+				<br><br>					
+			
+			<button type="button" onclick="Res()" id="add"> Res </button><br>
+		 	<div id="res2">Resultat</div>
+	</body>
+</html>

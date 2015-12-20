@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Function Expression</title>
+	</head>
+	<body>
+		<h1>Приклад використання Function Expression</h1>
+		<script>
+
+			var factor = function( n ) {
+				if ( n == 1) 
+					return 1;
+					
+				return n * factor( n-1 );
+			}
+			
+			alert( factor(5) );
+			
+			
+		</script>
+		
+	</body>
+</html>

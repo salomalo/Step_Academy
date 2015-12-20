@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<ukropLib xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ukropLib.xsd" >
+
+	<book yearWritten="1968" yearPublished="2003">
+		<title>Московство</title>
+		<author>
+			<firstName>Павло</firstName>
+			<lastName>Штепа</lastName>
+		</author>
+		<publisher>
+			<name>Видавнича фірма "Відродження"</name>
+			<locality type="місто">Дрогобич</locality>
+		</publisher>
+		<seller>
+			<name>Книжкова Криївка</name>
+			<locality type="місто">Львів</locality>
+			<url>http://knyzhkova-kryivka.com.ua/index2.php?page=shop.product_details&amp;product_id=99&amp;flypage=flypage.tpl&amp;pop=1&amp;option=com_virtuemart&amp;Itemid=2</url>
+			<price  currency="UAH" >75.00</price>
+		</seller>
+		<download>
+			<pdf>http://www.ex.ua/7858588</pdf>
+			<fb2>http://book.e-reading-lib.org/book.php?book=1006946</fb2>
+		</download>
+	</book>
+
+
+	<book yearWritten="1959" yearPublished="2010">
+		<title>Українець і москвин</title>
+		<author>
+			<firstName>Павло</firstName>
+			<lastName>Штепа</lastName>
+		</author>
+		<publisher>
+			<name>Видавнича фірма "Відродження"</name>
+			<locality type="місто">Дрогобич</locality>
+		</publisher>
+		<download>
+			<djvu>http://www.ex.ua/6712870</djvu>
+			<fb2>http://chtyvo.org.ua/authors/Shtepa_Pavlo/Ukrainets_i_Moskvyn_dvi_protylezhnosti/</fb2>
+			<pdf>http://chtyvo.org.ua/authors/Shtepa_Pavlo/Ukrainets_i_Moskvyn_dvi_protylezhnosti/</pdf>
+		</download>
+	</book>
+
+
+	<book yearPublished="2009" >
+		<title>Країна Моксель, або Московія</title>
+		<author>
+			<firstName>Володимир</firstName>
+			<lastName>Білінський</lastName>
+		</author>
+		<publisher>
+			<name>Видавництво імені Олени Теліги</name>
+			<locality type="місто">Київ</locality>
+		</publisher>
+		<seller>
+			<name>hotline.ua</name>
+			<locality type="місто">Київ</locality>
+			<url>http://hotline.ua/knigi-istoriya-arheologiya-etnografiya/krana-moksel-abo-moskovya-tom-1-389222/ceni/</url>
+			<price currency="UAH">95.00</price>
+		</seller>
+		<seller>
+			<name>Наш формат</name>
+			<locality type="місто">Київ</locality>
+			<price currency="UAH">87.00</price>
+		</seller>
+		<download>
+			<pdf>http://www.ex.ua/1886194</pdf>
+			<audio>http://toloka.hurtom.com/viewtopic.php?t=51864</audio>
+		</download>
+	</book>
+
+
+	<book yearPublished="2007" lang="ru">
+		<title>Страна Моксель или открытие Великороссии</title>
+		<author>
+			<firstName>Владимир</firstName>
+			<lastName>Белинский</lastName>
+		</author>
+		<publisher>
+			<name>Видавництво імені Олени Теліги</name>
+			<locality type="місто">Київ</locality>
+		</publisher>
+		<download>
+			<fb2>http://book.e-reading-lib.org/book.php?book=150030</fb2>
+			<chm>http://rutracker.org/forum/viewtopic.php?t=1729911</chm>
+			<audio>http://www.ex.ua/6792807</audio>
+		</download>
+	</book>
+
+
+	<book lang="ru" yearWritten="1943">
+		<title>Просто христианство</title>
+		<author>
+			<firstName>Клайв</firstName>
+			<midName>Стейплз</midName>
+			<lastName>Льюис</lastName>
+		</author>
+		<download>
+			<audio>http://www.ex.ua/6614712</audio>
+		</download>
+	</book>
+
+	<book yearWritten="1932" >
+		<title>Волинь</title>
+		<author>
+			<firstName>Улас</firstName>
+			<lastName>Самчук</lastName>
+		</author>
+		<download>
+			<djvu>http://diasporiana.org.ua/proza/1678-samchuk-u-volin-roman-u-troh-chastinah-ch-1-kudi-teche-ta-richka/</djvu>
+			<audio>http://toloka.hurtom.com/viewtopic.php?t=9346</audio>
+			<fb2>http://javalibre.com.ua/java-book/book/873</fb2>
+		</download>
+	</book>
+
+
+	<book yearWritten="1933" yearPublished="2006" >
+		<title>Марія</title>
+		<author>
+			<firstName>Улас</firstName>
+			<lastName>Самчук</lastName>
+		</author>
+		<publisher>
+			<name>Наш формат</name>
+			<locality type="місто">Київ</locality>
+			<url>hashformat.ua</url>
+		</publisher>
+		<download>
+			<audio>http://toloka.hurtom.com/viewtopic.php?t=5082</audio>
+			<fb2>http://www.bookfb2.ru/?p=340340</fb2>
+		</download>
+	</book>
+
+
+	<book>
+		<title>Кобзар</title>
+		<author>
+			<firstName>Тарас</firstName>
+			<lastName>Шевченко</lastName>
+		</author>
+		<publisher>
+			<name>Клуб сімейного дозвілля</name>
+			<locality type="місто" >Харків</locality>
+			<url>http://www.bookclub.ua/ukr/catalog/books/ukrclassic/product.html?id=20668</url>
+		</publisher>
+		<seller>
+			<name>Клуб сімейного дозвілля</name>
+			<locality type="місто" >Харків</locality>
+			<url>http://www.bookclub.ua/ukr/catalog/books/ukrclassic/product.html?id=20668</url>
+			<price currency="UAH">55.40</price>
+		</seller>
+		<download>
+			<fb2>http://javalibre.com.ua/java-book/book/2917116</fb2>
+			<audio>http://toloka.hurtom.com/viewtopic.php?t=4213</audio>
+		</download>
+	</book>
+
+
+	<book yearWritten="1962" >
+		<title>Біблія (переклад)</title>
+		<author>
+			<firstName>Іван</firstName>
+			<lastName>Огієнко</lastName>
+		</author>
+		<download>
+			<djvu>toloka.hurtom.com/viewtopic.php?t=37610</djvu>
+		</download>
+	</book>
+
+
+	<book>
+		<title>Біблія (переклад)</title>
+		<author>
+			<firstName>Іван</firstName>
+			<lastName>Хоменко</lastName>
+		</author>
+		<download>
+			<audio>http://www.ex.ua/6101327</audio>
+			<fb2>http://www.ex.ua/6101327</fb2>
+		</download>
+	</book>
+
+
+	<book yearPublished="2009">
+		<title>Залишенець. Чорний ворон</title>
+		<author>
+			<firstName>Василь</firstName>
+			<lastName>Шкляр</lastName>
+		</author>
+		<publisher>
+			<name>Клуб сімейного дозвілля</name>
+			<locality type="місто" >Харків</locality>
+			<url>http://www.bookclub.ua/ukr/catalog/books/pop/product.html?id=30774</url>
+		</publisher>
+		<seller>
+			<name>Клуб сімейного дозвілля</name>
+			<locality type="місто" >Харків</locality>
+			<url>http://www.bookclub.ua/ukr/catalog/books/pop/product.html?id=30774</url>
+			<price currency="UAH">44.30</price>
+		</seller>
+		<download>
+			<fb2>http://toloka.hurtom.com/viewtopic.php?t=17689</fb2>
+			<djvu>http://toloka.hurtom.com/viewtopic.php?t=17689</djvu>
+			<audio>http://toloka.hurtom.com/viewtopic.php?t=27115</audio>
+		</download>
+	</book>
+
+	<book yearWritten="1937" yearPublished="2010">
+		<title>Холодний Яр</title>
+		<author>
+			<firstName>Юрій</firstName>
+			<lastName>Горліс-Горський</lastName>
+		</author>
+		<download>
+			<audio>http://www.ex.ua/3644148</audio>
+			<pdf>http://www.ex.ua/1111739</pdf>
+		</download>
+	</book>
+	
+</ukropLib>

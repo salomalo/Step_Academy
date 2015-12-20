@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>canvas</title>
+		<style>
+			body{
+				background-color: cyan;
+			}
+			
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+		
+		<script>
+			function draw(){
+				var eCanvas = document.getElementsByTagName("canvas")[0];
+				var ctx = eCanvas.getContext("2d");
+				
+				// методи і властивості контексту -- https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+				
+				ctx.beginPath();	// починаємо контур
+					ctx.moveTo( 0,0 );		// ставимо початкову точку
+					ctx.lineTo( 222,222);	// лінія від останньої точки до вказаної
+					ctx.lineTo( 0,111);	// лінія від останньої точки до вказаної
+				ctx.stroke();		// промальовуємо контур
+				
+					alert( "dsfgdfg");
+					ctx.strokeStyle = "red";
+					ctx.lineTo( 11,330);
+				ctx.stroke();		// Якщо не почали новий контур, то з новими параметрами промальовується УСЕ від останнього .beginPath()
+				
+				alert( "dsfgdfg");
+				ctx.beginPath();	// починаємо контур
+					ctx.strokeStyle = "blue";
+					ctx.moveTo( 11,330);	
+					ctx.lineTo( 330, 11 );	// без moveTo() контекст не знає звідки починати малювати і ця лінія не промальовується	
+					ctx.lineTo( 330, 330 );
+					ctx.closePath();		// проводить лінію від активної точки до першої точки контуру.
+					
+					ctx.fillStyle = "rgba(50,220,45,0.8)";
+					ctx.fillStyle = "rgb(50,220,45)";
+					ctx.fillStyle = "green";
+					
+					var ptGrEnd 	= { x: 200, y: 100};	// точка завершення градієнта
+					var ptGrStart	= { x: 300, y: 300};	// точка початку градієнта
+					
+					var gradient = ctx.createLinearGradient( ptGrStart.x, ptGrStart.y, ptGrEnd.x, ptGrEnd.y );
+					gradient.addColorStop( 0, "yellow");
+					gradient.addColorStop( 0.8, "blue");
+					gradient.addColorStop( 1, "green");
+					gradient.addColorStop( 0.5, "rgba(255,0,0,0.1)");
+					gradient.addColorStop( 0.6, "rgba(255,0,0,0.1)");
+					ctx.fillStyle = gradient;
+					
+					
+					ctx.fill();				// заливає контур
+				ctx.stroke();		// промальовуємо контур
+				
+				// лінія градієнта
+				ctx.beginPath();	// починаємо контур (лінія градієнта)
+					ctx.moveTo( ptGrStart.x, ptGrStart.y );
+					ctx.lineTo( ptGrEnd.x, ptGrEnd.y );
+					ctx.strokeStyle = "maroon";
+					ctx.lineWidth = 2;
+				ctx.stroke();		// промальовуємо контур
+				
+			}
+		</script>
+		
+	</head>
+	<body onload="draw()" >
+		<h1>canvas</h1>
+		<canvas width="333" height="333"></canvas>
+	</body>
+</html>

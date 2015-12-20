@@ -1,0 +1,62 @@
+void FromFile(book *& BOOKS,int &size)
+{
+	rewind(stdin);
+    FILE*fp;
+	fp=fopen("test.txt","r");
+	if((fp=fopen("test.txt","r"))==NULL)//read
+	{
+		printf("ERROR\n");
+		exit(1);
+	}
+	int tmpsize;
+    fscanf(fp,"%d",&tmpsize);
+    size=tmpsize;
+    delete[]BOOKS;
+    BOOKS=new book[size];
+    
+		for(int i=0; i<size; i++)
+		{
+			BOOKS[i].AUTHOR.Surname=new char[50];
+			BOOKS[i].AUTHOR.Name=new char[50];
+			BOOKS[i].PUBLICATION.Title=new char[50];
+			BOOKS[i].PUBLICATION.Genre=new char[50];
+			BOOKS[i].PUBLICATION.Type=new char[50];
+			fscanf(fp,"%s %s %s %s %s %d %d", BOOKS[i].AUTHOR.Surname, BOOKS[i].AUTHOR.Name, BOOKS[i].PUBLICATION.Title, BOOKS[i].PUBLICATION.Genre, BOOKS[i].PUBLICATION.Type, &BOOKS[i].PUBLICATION.year, &BOOKS[i].INFO);
+		}
+
+	fclose(fp);
+}
+
+
+void Save(book *& BOOKS, int size)
+{
+	FILE*fp;
+	fp=fopen("test.txt","a+");
+	if((fp=fopen("test.txt","a+"))==NULL)//äîïèñóº ³íôó â ê³íåöü ôàéëó
+	{
+		printf("ERROR\n");
+		exit(1);
+	}
+	fprintf(fp,"%d\n",size);
+	for(int i=0; i<size; i++)
+	{
+		fprintf(fp,"%s %s %s %s %s %d %d\n",BOOKS[i].AUTHOR.Surname,BOOKS[i].AUTHOR.Name,BOOKS[i].PUBLICATION.Title,BOOKS[i].PUBLICATION.Genre,BOOKS[i].PUBLICATION.Type,BOOKS[i].PUBLICATION.year,BOOKS[i].INFO);
+	}
+	fclose(fp);
+
+
+	//FILE*fp1;
+	//fp=fopen("title.txt","a+");
+	//if((fp1=fopen("title.txt","a+"))==NULL)//äîïèñóº ³íôó â ê³íåöü ôàéëó
+	//{
+	//	printf("ERROR\n");
+	//	exit(1);
+	//}
+
+	//for(int i=0; i<size; i++)
+	//{
+	//	fprintf(fp1,"%s\n",BOOKS[i].PUBLICATION.Title);
+	//}
+	//fclose(fp1);
+
+}

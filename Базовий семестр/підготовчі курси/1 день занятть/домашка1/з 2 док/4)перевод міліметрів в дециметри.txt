@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+	double kil_milimetriv;
+	const int kil_milimetriv_v_1_decymetry=100;
+	cout<<"kil_milimetriv";
+	cin>>kil_milimetriv;
+	double milimetri_perevedeni_v_decymetry;
+	milimetri_perevedeni_v_decymetry=kil_milimetriv/kil_milimetriv_v_1_decymetry;
+	cout<<milimetri_perevedeni_v_decymetry<<endl;
+
+
+}

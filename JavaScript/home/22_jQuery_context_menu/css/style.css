@@ -1,0 +1,16 @@
+.context-menu {
+	text-align:center;
+	padding-left:0px;
+	list-style-type: none;
+	position: fixed;
+	display: block;
+	margin:0px;
+	background-color: #D8BFD8;     
+	border: 1px solid #333;
+	width:100px;
+}  
+
+.context-menu li:hover { 
+	cursor: pointer;
+	background-color: #EEE9E9; 
+}

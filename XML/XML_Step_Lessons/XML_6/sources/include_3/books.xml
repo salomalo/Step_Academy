@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+   <book>
+      <title>Lover Birds</title>
+      <author>Cynthia Randall</author>
+      <price>151,20</price>
+   </book>
+   <book>
+      <title>The Sundered Grail</title>
+      <author>Eva Corets</author>
+      <price>254,20</price>
+   </book>
+   <book>
+      <title>Splish Splash</title>
+      <author>Paula Thurman</author>
+      <price>450,89</price>
+   </book>
+</books>

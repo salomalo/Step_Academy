@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Test DOM XML</title>
+	<script type="text/javascript">
+	<!-- 
+		//створюЇмо екземпл€р парсера MSXML
+		var doc = new ActiveXObject("MSXML2.DOMDocument.6.0");
+		//var doc = CreateObject("Microsoft.XMLDOM");
+
+		doc.async = false;
+		doc.validateOnParse = false;
+		doc.resolveExternals = false;
+	//-->
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+	<!-- 
+		function main(){
+			//завантажуЇмо XML документ дл€ обробки
+			if(!doc.load("notebook.xml")) 
+			{
+				alert("Error loading file!");
+				document.write("Error Code: " + doc.parseError.errorCode + "<br />");
+				document.write("Error Reason: " + doc.parseError.reason + "<br />");
+				document.write("Error Line: " + doc.parseError.line + "<br />");
+				return false;
+			}
+			//виводимо текстовий вм≥ст завантаженого XML документа
+			document.write("<b>DOMDocument (text)</b>: " + doc.text + "<br /><br />");
+			//доступаЇмось до елемента <person> та виводимо його текстовий вм≥ст
+			document.write("<b>person</b>: " + doc.getElementsByTagName("person").item(1).text  + "<br />");
+			
+			var node = doc.getElementsByTagName("person").item(1);
+			document.write("<b>node name</b>    : " + node.nodeName  + "<br />");
+			document.write("<b>attribute id</b> : " + node.getAttribute("id"));
+			
+			return true;
+		}
+		
+		main();
+	//-->
+	</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="book">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+
+        <xs:element name="receipt">
+          <xs:complexType>
+            <xs:sequence>
+
+              <xs:element name="title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="ingredients">
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+
+                    <xs:element name="title_ingredient">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+
+                            <xs:attribute name="value" type="xs:int" use="required"/>
+                            <xs:attribute name="measurement" type="xs:string" use="optional"/>
+
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+
+
+
+                  </xs:sequence>
+                  <!--ingredients-->
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="how_to_do">
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+
+                    <xs:element name="step">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+
+                  </xs:sequence>
+                  <!--how_to_do-->
+                  <xs:attribute name="level" type="xs:int" use="required"/>
+                  <xs:attribute name="time" type="xs:string" use="required"/>
+
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="quantity">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="value" type="xs:string" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+
+
+            </xs:sequence>
+            <!--receipt-->
+            <xs:attribute name="id" type="xs:string" use="optional"/>
+            <xs:attribute name="title" type="xs:string" use="required"/>
+            <xs:attribute name="veg" type="xs:string" use="required"/>
+            <xs:attribute name="low_kalor" type="xs:string" use="required"/>
+            <xs:attribute name="freez" type="xs:string" use="required"/>
+            <xs:attribute name="diabet" type="xs:string" use="required"/>
+            <xs:attribute name="Country" type="xs:string" use="required"/>
+            <xs:attribute name="Town" type="xs:string" use="required"/>
+            <xs:attribute name="Street" type="xs:string" use="optional"/>
+
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+      <!--book-->
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

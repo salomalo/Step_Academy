@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>input_check</title>
+	</head>
+	<body>
+		<h1>input_check</h1>
+		<script>	
+		
+			var sRes = prompt( "something ", "" );		
+			var num = parseInt(sRes);	
+			
+			if(num==sRes)
+				{
+				alert(  " a digit "); 
+				var msg = num > 0 ?" digit > 0" :( num < 0 ?" num < 0  " : " digit = 0"  ) ; 
+				alert( "you enter digit "+ num + "\n" + msg   + "\n" );
+				}
+			else
+				{			
+				alert( " a string  " + "\n" + "length is " + sRes.length);
+				}
+				
+		</script>
+	</body>
+</html>

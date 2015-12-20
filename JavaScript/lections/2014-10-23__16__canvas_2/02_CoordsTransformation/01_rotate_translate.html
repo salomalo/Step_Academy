@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>rotate</title>
+		<script src="js/00_common.js" ></script>
+		<script>
+			
+			var ctx;	// зберігаємо контекст канваса
+			
+			
+			function drawLine() {	// завжди малює лінію від точки (0,0) до точки (150,0)
+				ctx.beginPath();
+					ctx.moveTo( -30, 0 );
+					ctx.lineTo( 150, 0 );
+					ctx.strokeStyle = getRandomColor();
+				ctx.stroke();
+			}
+			
+			function rotate() {
+				ctx.rotate( 10 * Math.PI / 180 );	// повертає систему координат на 10 градусів ( відносно початку координат )
+			}
+			
+			function init(){	// запускається на onload
+				ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+				//ctx.translate( 150, 150 );			// ставить початок системи координат у точку ( 150,150 )
+			}
+			
+			
+		</script>
+		
+		
+	</head>
+	<body onload="init();" >
+		<h1>rotate</h1>
+		<p align="center">
+			<canvas width="333" height="333" style="border: 1px solid black; "></canvas><br>
+			<input type="button" value="draw line" onclick="drawLine()" ><br>
+			<input type="button" value="rotate" onclick="rotate()" ><br>
+			<input type="button" value="translate(50,50)" onclick="ctx.translate(50,50);" ><br>
+		</p>
+		
+	</body>
+</html>

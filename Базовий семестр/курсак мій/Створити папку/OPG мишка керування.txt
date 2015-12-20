@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <GL/glut.h>
+
+/********* [прототипы функций] ************/
+void display();
+void mouse(int button, int state, int x, int y);
+void MouseMotion(int x , int y);
+
+
+/****  ****/
+int ButtonStatus = 0; //
+
+
+/************ [ OpenGL ] *****************/
+void GLUT_CALL_FUNC()
+{
+        glutDisplayFunc(display); //
+        glutMouseFunc(mouse); //
+        glutMotionFunc(MouseMotion); //
+}
+
+void MY_INIT()
+{
+        glClearColor(1.0, 1.0, 1.0,1.0);//
+}
+
+/************** [  ] ****************/
+void display()
+{
+        glClear(GL_COLOR_BUFFER_BIT); //
+        glFlush();  //
+}
+
+
+void mouse(int button, int state, int x, int y) //
+{
+        if(button==GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+        {
+                printf("(%d, %d)LEFT button\n",x,y);
+                ButtonStatus = 1;
+        }else if(button == GLUT_LEFT_BUTTON && state == GLUT_UP)
+        {
+                ButtonStatus = 0;
+        }
+}
+
+
+void MouseMotion(int x , int y)
+{       
+        if(ButtonStatus == 1)
+        {
+                printf("DrugMotion ! (%d ,%d)\n" , x , y); 
+        }
+}
+
+
+/**************** main ********************/
+int main(int argc,char *argv[])
+{
+
+        glutInit(&argc,argv);
+        glutCreateWindow("Hello OpenGL");
+
+        GLUT_CALL_FUNC(); //
+
+        MY_INIT();  //
+        
+        glutMainLoop();
+
+        return 0;
+
+}

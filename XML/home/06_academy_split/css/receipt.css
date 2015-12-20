@@ -1,0 +1,36 @@
+book {
+	text-align:center;
+	display: block;
+	background-color: #E0EEEE;
+}
+
+receipt {
+	display:inline-block;
+	background-color: #C1CDCD;
+	border: 1px solid black;
+	margin: 20px;
+	padding:5px;
+	width:30%;
+}
+
+step,title{
+	display: block;
+}
+ 
+ title_ingredient{
+	display:inline-block;
+ }
+ 
+title{
+	font-size:15pt;
+	font-family:Aria;
+	font-style:italic; 
+	margin:10px;
+}
+
+ #foto{
+	color:white;
+	background: url("../img.jpg") no-repeat;
+	background-size:100%;
+} 
+

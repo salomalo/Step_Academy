@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document [
+	<!ELEMENT document (#PCDATA)>
+      <!-- за допомогою атрибута type буде визначатись формат даних, які будуть міститись в документі-->
+	<!ATTLIST document 
+			type	NOTATION (txt|html)	#REQUIRED>
+	<!NOTATION txt  	SYSTEM "notepad.exe"> <!-- для текстових документів - блокнот-->
+	<!NOTATION html  SYSTEM "iexplore.exe"> <!-- для Web-сторінок–Internet Explorer-->
+]>
+<document type="html">
+	<![CDATA[
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+		<html>
+		<head>
+			<title>Test Page</title>
+			<meta http-equiv="content-type" content="text-html; charset=windows-1251" />
+		</head>
+		<body>
+			<h1>Hello</h1>
+		</body>
+		</html>
+	]]>
+</document>

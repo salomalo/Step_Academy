@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>JSON.stringify()</title>
+	</head>
+	<body>
+		<h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" >
+				JSON.stringify():
+			</a>
+			<br><span style="font-weight:normal;"> вказання <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_native_JSON#The_replacer_parameter" target="_blank" >масивом</a> переліку полів для перетворення</span>
+		</h1>
+		<p></p>
+		<p></p>
+		<p></p>
+
+		<script>
+			var obj = { name:"Vasya", surname:"Pupkin", age:18, registered: new Date() };
+			obj.method = function(){ alert("KU!"); };
+			
+			var aReplacer = [ "name", "surname" ];
+			var aReplacer = [ "name", "surname", "age" ];
+			var aReplacer = [ "name", "surname", "age", "registered" ];
+			var aReplacer = [ "name", "surname", "age", "registered", "method" ];
+		/**/	
+			var json = JSON.stringify( obj, aReplacer );
+			
+			var html = "Початковий об'єкт:";
+			for( var key in obj ){
+				html += "<br> &nbsp; &nbsp; &nbsp; "+key +" = "+ obj[key] +" &nbsp; &nbsp; &nbsp;(" + typeof( obj[key] ) +")";
+			}
+			document.getElementsByTagName("p")[0].innerHTML = html;
+			document.getElementsByTagName("p")[1].innerHTML = "масив-replacer:<br> &nbsp; &nbsp; &nbsp; "+ aReplacer;
+			document.getElementsByTagName("p")[2].innerHTML = "JSON-представлення:<br> &nbsp; &nbsp; &nbsp; "+ json;
+		</script>
+
+	</body>
+</html>

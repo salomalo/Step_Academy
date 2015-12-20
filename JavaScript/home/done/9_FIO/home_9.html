@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>check</title>
+		<link rel="stylesheet" href="css/style.css" >
+	</head>
+	<body>
+		<h1>check</h1>
+		<script>
+			function check(sRes,r) 
+			{
+				var arr = sRes.split(" ");
+				
+				for (var i=0, len=arr.length; i<len; i++) {
+						var	surname=arr[0];	
+						var	name=arr[1];
+						var	middlename=arr[2];	
+					}
+
+				if(arr.length > 3){
+						alert("more than 3 words...");
+
+							window.sRes=false;
+					}
+			
+				for(var i=0; i<surname.length; i++){	
+					if(surname[0]=="-" || sRes[surname.length-1]=="-" ){
+							alert("surname can contain - only in the middle of the string");
+							
+							window.sRes=false;
+						}
+				}
+					
+				for(var i=0; i<name.length; i++){	
+					if(name[i]=="-" ){
+							alert("name can't contain - ");
+	
+							window.sRes=false;
+						}
+				}
+				
+				for(var i=0; i<middlename.length; i++){	
+					if(middlename[i]=="-" ){
+							alert("middlename can't contain - ");
+
+							window.sRes=false;
+						}
+				}
+				
+						sRes.surname=surname;	
+						sRes.name=name;
+						sRes.middlename=middlename;	
+						
+						if(r==window.sRes){
+								document.write	("<table>"
+								+"<tr>"
+								+"<th class=\"right\">"+"Surname"+"</th>"
+								+"<td class=\"left\">"+surname+"</td>"    //   why works only surname? but not sRes.surname
+								+"</tr>"
+								
+								+"<tr>"
+								+"<th class=\"right\">"+"Name"+"</th>"
+								+"<td class=\"left\">"+name+"</td>"    //   why works only surname? but not sRes.surname
+								+"</tr>"
+								
+								+"<tr>"
+								+"<th class=\"right\">"+"Middlename"+"</th>"
+								+"<td class=\"left\">"+middlename+"</td>"    //   why works only surname? but not sRes.surname
+								+"</tr>"
+								+"</table>"
+								)					
+						}		
+						
+			}
+			
+
+				do{
+					var sRes=prompt("enter Surname Name Middlename: ","");		
+					var r=sRes;
+					check(sRes,r);	
+					alert("sRes "+sRes);
+					}while(sRes!=r);
+			
+			
+			
+		//alert("isTrue "+isTrue);
+		
+	
+
+				
+			
+		</script>
+		
+
+		
+		
+		
+		
+	</body>
+</html>

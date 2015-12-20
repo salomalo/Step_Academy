@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>JSON.stringify()</title>
+	</head>
+	<body>
+		<h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" >
+				JSON.stringify():
+			</a>
+			<br><span style="font-weight:normal;"> вказання <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_native_JSON#The_replacer_parameter" target="_blank" >функції</a> для перетворення</span>
+			<br>
+			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" >
+				JSON.parse():
+			</a>
+		</h1>
+		<p></p>
+		<p></p>
+		<p></p>
+
+		<script>
+		
+			var cntr;		// лічильник викликів функції replacer -- виключно з демонстраційною метою
+			var cntRev = 0;	// лічильник викликів функції reviewer -- виключно з демонстраційною метою
+
+
+		
+			var obj = { item:"apple", price:{ number:15.8, currency:"$" }, quantity: 5, card:"4111111111111118", date: new Date() };
+			obj.method = function(a,b,c){ alert("KU!"); };
+			
+			var json = JSON.stringify( obj, replacer );
+			//var json = JSON.stringify( obj, null, 2 );
+			
+			var html = "Початковий об'єкт:";
+			for( var key in obj ){
+				html += "<br> &nbsp; &nbsp; &nbsp; "+key +" = "+ obj[key] +" &nbsp; &nbsp; &nbsp;(" + typeof( obj[key] ) +")";
+			}
+			document.getElementsByTagName("p")[0].innerHTML = html;
+			document.getElementsByTagName("p")[1].innerHTML = "JSON-представлення:<br> &nbsp; &nbsp; &nbsp; "+ json;
+			
+			console.log("  ");
+			console.log("  ");
+			console.log("  ");
+			
+			var oNew = JSON.parse( json, reviewer );
+			var html = "Відновлений об'єкт:"
+			for( var key in oNew ){
+				html += "<br> &nbsp; &nbsp; &nbsp; "+key +" = "+ oNew[key] +" &nbsp; &nbsp; &nbsp;(" + typeof( oNew[key] ) +")";
+			}
+			document.getElementsByTagName("p")[2].innerHTML = html;
+			
+			
+			
+			function replacer( key, value ){
+			
+				// у перший виклик key пустий
+				if( !key ){
+					cntr = 0;
+					console.clear();
+					//return;	// якщо повертаємо undefined (тобто нічого) -- припиняється стрінгіфікація
+				}
+				
+				// виводимо у консоль інфу про виклик replacer'а
+				var msg = "виклик replacer "+ cntr +" :\n";
+				msg += "    key = '"+ key +"' ("+ typeof(key) +")\n"
+				msg += "    value = '"+ value +"' ("+ typeof(value) +")\n"
+				msg += "    this = { ";
+				for( var k in this ){
+					msg += k +" = "+ this[k] +";  ";
+				}
+				msg +=" }";
+				console.log(msg);
+				cntr++;
+				
+				// replacer обов'язково повинен повернути ЩОСЬ крім undefined
+				
+				if( typeof(value) === "function" ){
+					return value.toString();		// повртаємо рядкове представлення функції -- щоби вона потрпила у JSON
+				}
+					
+				// шифруємо номер карти
+				if( key === "card" ){
+					var result = "";
+					for( var i = 0 ; i < value.length ; i++ ){
+						result += String.fromCharCode( value.charCodeAt(i) ^ 234 );
+					}
+					return result;
+				}
+				
+				return value;
+				
+			}//function replacer
+			
+			
+			
+			
+			
+			function reviewer( key, value ){
+			
+				// виводимо у консоль інфу про виклик reviewer'а
+				var msg = "виклик reviewer "+ cntRev +" :\n";
+				msg += "    key = '"+ key +"' ("+ typeof(key) +")\n"
+				msg += "    value = '"+ value +"' ("+ typeof(value) +")\n"
+				console.log( msg );
+				
+				cntRev++;
+				
+				switch( key ){
+				
+					case "date":
+						value = new Date( value );
+						break;
+						
+					case "method":
+						var idxArgStart  = value.indexOf( "(" ) +1;
+						var idxArgEnd  = value.indexOf( ")" );
+						var args = idxArgEnd - idxArgStart > 0 ? value.substring( idxArgStart, idxArgEnd ) : "" ;
+						
+						var idxBodyStart = value.indexOf( "{" ) +1;
+						var idxBodyEnd   = value.length - 1;
+						var body = value.substring( idxBodyStart, idxBodyEnd );
+						
+						value = new Function( args, body );
+						break;
+						
+					// розшифруємо номер карти
+					case "card":
+						var result = "";
+						for( var i = 0 ; i < value.length ; i++ ){
+							result += String.fromCharCode( value.charCodeAt(i) ^ 234 );
+						}
+						return result;
+					
+					
+					default :
+						break;
+						
+				}// switch( key )
+				
+
+				return value;
+			
+			}// function reviewer( key, value )
+			
+			
+		</script>
+
+	</body>
+</html>

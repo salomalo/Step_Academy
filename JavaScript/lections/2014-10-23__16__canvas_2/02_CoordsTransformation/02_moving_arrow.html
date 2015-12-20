@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/canvas.css">
+		<title>drawImage() у CANVAS -- бекап і відновлення</title>
+		<script src="js/00_common.js"></script>
+		<script src="js/01_drawImage()_CanvasToCanvas.js"></script>
+		
+		<script>
+			
+			var ctxArrow;
+			var angle = 0;		//поточний кут повороту стрілки
+			
+			
+			function drawArrow() {
+				backupCanvasByIdx( 1, 0, 1 );			// відновлення вигляду канваса з резервної копії
+				ctxArrow.save();						// зберігає стан контексту ( всі властивості, в т.ч. і система координат)
+					ctxArrow.translate( 150, 150 );		// зсуває почато координат у точку ( 150, 150 ) -- вона відтепер буде (0,0)
+					angle += 10 * Math.PI / 180;		// новий кут повороту (збільшує на 10 градусів)
+					ctxArrow.rotate( angle );			// повертає систему координат відносно точки (0,0) на кут angle
+					
+					ctxArrow.beginPath();				// малюємо стрілку
+						ctxArrow.moveTo( -30, 0 );
+						ctxArrow.lineTo( 150, 0 );
+						ctxArrow.strokeStyle = "green";
+						ctxArrow.lineWidth = 5;
+					ctxArrow.stroke();
+					
+				ctxArrow.restore();						// відновлює стан контексту ( всі властивості, в т.ч. і система координат)
+			}
+			
+			function initArrow(){
+				ctxArrow = document.getElementsByTagName("canvas")[0].getContext("2d");
+				//ctxArrow.translate( 150, 150 );
+			}
+			
+			
+		</script>
+				
+		
+		
+	</head>
+	<body onload="init(); initArrow();" >
+		<h1>
+			<a href="http://www.w3schools.com/tags/canvas_drawimage.asp">drawImage()</a>
+			у CANVAS -- бекап і відновлення
+		</h1>
+		<p>
+			<span>
+				</br></br>
+				<input type="button" value="Лінію !" 	onclick="drawRandomLine()">
+				<input type="button" value="fillRect !" onclick="drawRandomFilledRect()">
+				<input type="button" value="Очистити 1" onclick="clearCanvas(0)">
+				<input type="button" value="Очистити 2" onclick="clearCanvas(1)">
+				«source-over»
+				<input type="button" value="BackUp all" onclick="backupCanvasByIdx( 0, 1 )">
+				<input type="button" value="Restore all" onclick="backupCanvasByIdx( 1, 0 )">
+				«copy»
+				<input type="button" value="BackUp all" onclick="backupCanvasByIdx( 0, 1, 1 )">
+				<input type="button" value="Restore all" onclick="backupCanvasByIdx( 1, 0, 1 )">
+				<br>
+				<input type="button" value="Стрілка" onclick="drawArrow()">
+				
+			</span>
+			
+			<span>
+				CANVAS-source</br>
+				<canvas width="300" height="300" ></canvas>
+			</span>
+			
+			<span>
+				CANVAS для backup</br>
+				<canvas width="300" height="300" ></canvas>
+			</span>
+		</p>
+	</body>
+</html>

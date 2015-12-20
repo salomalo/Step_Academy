@@ -1,0 +1,30 @@
+
+<!ENTITY % fullName "((name, surname) | ( surname, name) )" >
+
+
+<!ELEMENT group ( student+ , teacher, external) >
+<!ELEMENT student (  %fullName;, vik?, starosta? ) >
+<!ELEMENT name (#PCDATA) >
+<!ELEMENT surname (#PCDATA) >
+<!ELEMENT vik (#PCDATA) >
+<!ELEMENT starosta EMPTY >
+<!ELEMENT external ANY >
+<!ELEMENT teacher (%fullName;, rang) >
+<!ELEMENT rang ANY >
+
+<!ATTLIST group
+	groupname CDATA #REQUIRED
+>
+
+<!ATTLIST student
+	id 			ID 									#REQUIRED
+	status		( looser | successful | middle )	"middle"
+>
+
+<!ENTITY mr     "пан " >
+<!ENTITY mrs    "пані " >
+<!ENTITY mr_    "Шановний &mr;" >
+
+<!ENTITY import SYSTEM "F:\\Share\\yarusol\\19\\2014-10-11__02__dtd\\01_group_with_dtd\\myDoc.txt" >
+
+

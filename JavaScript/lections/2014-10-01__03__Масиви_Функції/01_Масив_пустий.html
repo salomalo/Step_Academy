@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Масиви</title>
+	</head>
+	<body>
+		<h1>Масиви</h1>
+		
+		<script>
+			// створюємо пустий масив
+			//var arr = [];	
+			var arr = new Array;	
+			
+			// наповнюємо масив
+			arr[0] = "qwerty";
+			arr[1] = 12325;
+			arr[2] = { name:"asdf", price:123.33};
+			arr[8] = "Восьмий";
+			//arr[5] = "п'ятий";
+			
+			//alert( arr );
+			var msg = "масив містить:\n";
+			for( var i = 0 ; i < arr.length ; i++ ){
+//			for( var i in arr ){
+				msg += "arr[" + i +"]="+ arr[i] +"\n";
+			}
+			alert( msg );
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

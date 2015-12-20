@@ -1,0 +1,666 @@
+#include <conio.h>
+#include <stdio.h>
+#include<iomanip>
+#include <cstring>
+#include <iostream>
+#include <windows.h>
+using namespace std;
+using namespace System;
+#define MaxNo_Menu 7
+
+void gotoxy(int xpos, int ypos)
+{
+    COORD scrn;
+    HANDLE hOuput = GetStdHandle(STD_OUTPUT_HANDLE);
+    scrn.X = xpos; 
+    scrn.Y = ypos;
+    SetConsoleCursorPosition(hOuput,scrn);
+}
+
+struct author
+{
+    char* Name;
+    char* Surname;
+};
+
+struct publication
+{
+    char* Type;
+    char* Title;
+    char* Genre;
+    int year;
+};
+
+struct source
+{
+    author AUTHOR;
+    publication PUBLICATION;
+    char INFO;
+};
+
+void Counter(source *& tmp, int n)
+{
+    int count=0;
+    for(int i=0; i<n; i++)
+    {
+        count++;
+    }
+    cout<<"Total: "<<count<<endl;
+}
+
+void Fill(source & BOOKS)
+{
+    BOOKS.AUTHOR.Name=new char[50];
+    BOOKS.AUTHOR.Surname=new char[50];
+    BOOKS.PUBLICATION.Type=new char[50];
+    BOOKS.PUBLICATION.Title=new char[50];
+    BOOKS.PUBLICATION.Genre=new char[50];
+    cout<<"Author name - ";
+    cin>>BOOKS.AUTHOR.Name;
+    cout<<"Author Surname - ";
+    cin>>BOOKS.AUTHOR.Surname;
+    cout<<"Book title - ";
+    cin>>BOOKS.PUBLICATION.Title;
+    cout<<"Book genre - ";
+    cin>>BOOKS.PUBLICATION.Genre;
+    cout<<"Type - ";
+    cin>>BOOKS.PUBLICATION.Type;
+    cout<<"Year - ";
+    cin>>BOOKS.PUBLICATION.year;
+    cout<<"Is book hear?Press + or - ";
+    cin>>BOOKS.INFO;
+}
+
+
+void Print(source & BOOKS,int i)
+{
+    i++;
+    cout<<"           "<<left<<char(186)<<setw(3)<<i<<char(179)<<setw(10)<<BOOKS.AUTHOR.Surname<<char(255)<<setw(10)<<BOOKS.AUTHOR.Name<<char(179)<<setw(11)<<BOOKS.PUBLICATION.Title<<char(179)<<setw(15)<<BOOKS.PUBLICATION.Genre<<char(179)<<setw(10)<<BOOKS.PUBLICATION.Type<<char(179)<<setw(5)<<BOOKS.PUBLICATION.year<<char(179)<<setw(5)<<BOOKS.INFO<<char(186)<<endl;
+}
+
+
+void Frame(source *& BOOKS,int size)
+{
+	do
+	{
+	cout<<endl;
+    cout<<"           "<<right<<char(201)<<setw(4)<<setfill(char(205))<<char(209)<<setw(22)<<setfill(char(205))<<char(209)<<setw(12)<<setfill(char(205))<<char(209)<<setw(16)<<setfill(char(205))<<char(209)<<setw(11)<<setfill(char(205))<<char(209)<<setw(6)<<setfill(char(205))<<char(209)<<setw(6)<<setfill(char(205))<<char(187)<<setfill(char(' '))<<endl;
+    cout<<"           "<<left<<char(186)<<setw(3)<<char(252)<<char(179)<<setw(21)<<"Author name"<<char(179)<<setw(11)<<"Book title"<<char(179)<<setw(15)<<"Genre of book"<<char(179)<<setw(10)<<"Type"<<char(179)<<setw(5)<<"Year"  <<char(179)<<setw(5)<<"Is"   <<char(186)<<endl;
+    for(int i=0; i<size; i++)
+    {
+        cout<<"           "<<right<<char(199)<<setw(4)<<setfill(char(196))<<char(197)<<setw(22)<<setfill(char(196))<<char(197)<<setw(12)<<setfill(char(196))<<char(197)<<setw(16)<<setfill(char(196))<<char(197)<<setw(11)<<setfill(char(196))<<char(197)<<setw(6)<<setfill(char(196))<<char(197)<<setw(6)<<setfill(char(196))<<char(182)<<setfill(char(' '))<<endl;
+        Print(BOOKS[i],i);
+    }
+    cout<<"           "<<right<<char(200)<<setw(4)<<setfill(char(205))<<char(207)<<setw(22)<<setfill(char(205))<<char(207)<<setw(12)<<setfill(char(205))<<char(207)<<setw(16)<<setfill(char(205))<<char(207)<<setw(11)<<setfill(char(205))<<char(207)<<setw(6)<<setfill(char(205))<<char(207)<<setw(6)<<setfill(char(205))<<char(188)<<setfill(char(' '))<<endl;
+	}
+	while(getch()!=27);
+
+}
+
+
+void Copy(source &tmp, source & BOOKS)
+{
+    tmp.AUTHOR.Name=new char[50];
+    tmp.AUTHOR.Surname=new char[50];
+    tmp.PUBLICATION.Genre=new char[50];
+    tmp.PUBLICATION.Title=new char[50];
+    tmp.PUBLICATION.Type=new char[50];
+    strcpy(tmp.AUTHOR.Name, BOOKS.AUTHOR.Name);
+    strcpy(tmp.AUTHOR.Surname, BOOKS.AUTHOR.Surname);
+    strcpy(tmp.PUBLICATION.Genre, BOOKS.PUBLICATION.Genre);
+    strcpy(tmp.PUBLICATION.Title, BOOKS.PUBLICATION.Title);
+    strcpy(tmp.PUBLICATION.Type, BOOKS.PUBLICATION.Type);
+    tmp.PUBLICATION.year=BOOKS.PUBLICATION.year;
+    tmp.INFO=BOOKS.INFO;
+}
+
+
+void Add(source *& BOOKS,int & size)
+{
+    system("cls");
+    size++;
+    source*tmp=new source[size];
+    for(int i=0; i<size-1; i++)
+    {
+        Copy(tmp[i],BOOKS[i]);
+    }
+    Fill(tmp[size-1]);
+    delete[]BOOKS;
+    BOOKS=tmp;
+    system("cls");
+}
+
+
+void Delete(source *& BOOKS,int &size)
+{
+    do
+    {
+        system("cls");
+        cout<<endl<<"**********************Delete Menu*********************"<<endl;
+        cout<<"by number..........1"<<endl;
+        cout<<"paper by year......2"<<endl;
+
+        int choice;
+        cin>>choice;
+        source*tmp=new source[size];
+        switch(choice)
+        {
+        case 1:
+            /*system("cls");*/
+            int delbook;
+            cout<<"which book to delete:"<<endl;
+            cin>>delbook;
+            size--;
+            for(int i=0; i<delbook-1; i++)
+                tmp[i]=BOOKS[i];
+            for(int i=delbook-1; i<size; i++)
+                tmp[i]=BOOKS[i+1];
+            delete[]BOOKS;
+            BOOKS=tmp;
+            Frame(BOOKS,size);
+            break;
+        case 2: 
+            int delyear;
+            cout<<"paper from what year to delet"<<endl;
+           cin>>delyear;
+            for(int i=0; i<size; i++)
+            {
+               if(strcmp(BOOKS[i].PUBLICATION.Type,"paper")==0 && BOOKS[i].PUBLICATION.year==delyear)
+               {
+                    size--;
+                    for(int j=0; j<i; j++)
+                       tmp[j]=BOOKS[j];
+                    for(int j=i; j<size; j++)
+                        tmp[j]=BOOKS[j+1];
+                    delete[]BOOKS;
+                   BOOKS=tmp;
+                }
+            }
+            break;
+        }
+    }
+    while(getch()!=27);
+}
+
+void CreatArry(source *&tmp, source BOOKS, int &n)
+{
+    n++;
+    source*tmp1=new source[n];
+    for(int i=0; i<n-1; i++)
+    {
+        Copy(tmp1[i],tmp[i]);
+    }
+    Copy(tmp1[n-1],BOOKS);
+    delete[]tmp;
+    tmp=tmp1;
+}
+
+
+void Find(source *& BOOKS, int size)
+{
+    do
+    {
+       system("cls");
+        cout<<endl<<"**********************Finde Menu*********************"<<endl;
+        cout<<"all book by  title....................1"<<endl;
+        cout<<"all author's book ....................2"<<endl;
+        cout<<"current book by author and title......3"<<endl;
+        cout<<"all book by  genre....................4"<<endl;
+        cout<<"all magazine by title.................5"<<endl;
+        cout<<"all magazine by title and year........6"<<endl;
+
+        int choice,n=0;
+        cin>>choice;
+        source*tmp=new source[n];
+        char key[20],keytitle[20];
+        bool chek;
+        switch(choice)
+        {
+        case 1:
+            system("cls");
+            cout<<"Enter Title of book: ";
+           cin>>key;
+            for(int i=0; i<size; i++)
+            {
+                if(strcmp(BOOKS[i].PUBLICATION.Title,key)==0)
+               {
+                    chek=true;
+                   CreatArry(tmp,BOOKS[i],n);
+                }
+            }
+            if(chek!=true)
+                cout<<"UNKNOWN BOOK"<<endl;
+            system("cls");
+            Frame(tmp,n);
+            Counter(tmp,n);
+            cout<<endl;
+            break;
+        case 2: 
+            system("cls");
+            cout<<"Enter Author's Surname of book: ";
+            cin>>key;
+            for(int i=0; i<size; i++)
+            {
+               if(strcmp(BOOKS[i].AUTHOR.Surname,key)==0)
+                {
+                    chek=true;
+                    CreatArry(tmp,BOOKS[i],n);
+                }
+            }
+            if(chek!=true)
+                cout<<"UNKNOWN BOOK"<<endl;
+            system("cls");
+            Frame(tmp,n);
+            Counter(tmp,n);
+            cout<<endl;
+            break;
+        case 3:
+            system("cls");
+            char keysurname[20];
+            cout<<"Enter Author's Surname: ";
+            cin>>keysurname;
+            cout<<"Enter book title: ";
+           cin>>keytitle;
+           for(int i=0; i<size; i++)
+            {
+                if(strcmp(BOOKS[i].PUBLICATION.Type,"book")==0 && strcmp(BOOKS[i].AUTHOR.Surname,keysurname)==0 && strcmp(BOOKS[i].PUBLICATION.Title,keytitle)==0)
+                {
+                    chek=true;
+                    CreatArry(tmp,BOOKS[i],n);
+                }
+            }
+            if(chek!=true)
+                cout<<"UNKNOWN BOOK"<<endl;
+            system("cls");    
+            Frame(tmp,n);
+            Counter(tmp,n);
+            cout<<endl;
+            break;
+
+        case 4:
+            system("cls");
+            cout<<"Enter Genre of book: ";
+            cin>>key;
+            for(int i=0; i<size; i++)
+            {
+               if(strcmp(BOOKS[i].PUBLICATION.Genre,key)==0)
+               {
+                    chek=true;
+                  CreatArry(tmp,BOOKS[i],n);
+                }
+            }
+            if(chek!=true)
+               cout<<"UNKNOWN BOOK"<<endl;
+            system("cls");
+            Frame(tmp,n);
+            Counter(tmp,n);
+           cout<<endl;
+           break;
+        case 5:
+            system("cls");
+            cout<<"Enter magazine title: ";
+            cin>>keytitle;
+            for(int i=0; i<size; i++)
+            {
+                if(strcmp(BOOKS[i].PUBLICATION.Type,"magazine")==0 && strcmp(BOOKS[i].PUBLICATION.Title,keytitle)==0)
+                {
+                   chek=true;
+                    CreatArry(tmp,BOOKS[i],n);
+                }
+            }
+            if(chek!=true)
+                cout<<"UNKNOWN BOOK"<<endl;
+            system("cls");    
+            Frame(tmp,n);
+            Counter(tmp,n);
+            cout<<endl;
+           break;
+        case 6:
+            system("cls");
+            cout<<"Enter magazine title: ";
+            cin>>keytitle;
+            int key;
+            cout<<"Enter year: ";
+            cin>>key;
+            for(int i=0; i<size; i++)
+            {
+                if(strcmp(BOOKS[i].PUBLICATION.Type,"magazine")==0 && strcmp(BOOKS[i].PUBLICATION.Title,keytitle)==0 && BOOKS[i].PUBLICATION.year==key)
+               {
+                    chek=true;
+                    CreatArry(tmp,BOOKS[i],n);
+                }
+            }
+            if(chek!=true)
+                cout<<"UNKNOWN BOOK"<<endl;
+            system("cls");    
+            Frame(tmp,n);
+           Counter(tmp,n);
+            cout<<endl;
+            break;
+        }
+      
+    }
+
+    while(getch()!=27);
+}
+
+
+
+
+void Sort(source *& BOOKS, int size)
+{
+    do
+    {
+        cout<<endl<<"**********************Sort Menu*********************"<<endl;
+        cout<<"For sort by Type......1"<<endl;
+        cout<<"For sort by Title.....2"<<endl;
+       
+        int choice=getch();
+        cin>>choice;
+        source *tmp=new source[size];
+        switch(choice)
+        {
+        case 1:
+            for(int i=0; i<size; i++)
+            {
+                for(int j=i+1; j<size; j++)
+                {
+                    if(strcmp(BOOKS[i].PUBLICATION.Type,BOOKS[j].PUBLICATION.Type)>0)
+                    {            
+                        Copy(tmp[i],BOOKS[i]);
+                        Copy(BOOKS[i],BOOKS[j]);
+                        Copy(BOOKS[j],tmp[i]);
+                    }
+                }
+            }
+            Frame(BOOKS,size);
+            break;
+        case 2:
+            for(int i=0;i<size;i++)
+            {
+                for(int j=i+1;j<size;j++)
+               {
+                    if(strcmp(BOOKS[i].PUBLICATION.Title,BOOKS[j].PUBLICATION.Title)>0)
+                    {            
+                       Copy(tmp[i],BOOKS[i]);
+                        Copy(BOOKS[i],BOOKS[j]);
+                        Copy(BOOKS[j],tmp[i]);
+                    }
+                }
+            }
+            Frame(BOOKS,size);
+            break;
+        case 3:
+            break;
+        default:
+           cout<<"Wrong action"<<endl;
+        }
+        cout<<" to continue Press eny key...\n"<<endl;
+    }
+    while(getch()!=27);
+}
+
+
+void debtors(source *& BOOKS, int size)
+{
+   do
+   {
+    int n=0;
+    source *tmp=new source[size];
+    bool chek;
+    cout<<"debtors of what Author's: ";
+    char key[20];
+    cin>>key;
+    for(int i=0; i<size; i++)
+    {
+        if(strcmp(BOOKS[i].PUBLICATION.Type,"book")==0 && strcmp(BOOKS[i].AUTHOR.Surname,key)==0 && BOOKS[i].INFO=='-')
+        {
+            chek=true;
+            CreatArry(tmp,BOOKS[i],n);
+        }
+    }
+    if(chek!=true)
+        cout<<"UNKNOWN BOOK"<<endl;
+    system("cls");
+    Frame(tmp,n);
+    Counter(tmp,n);
+    cout<<endl;
+   }
+   while(getch()!=27);
+}
+
+
+
+void CursorVisible()// функція для видимості курсора (using namespace System;)
+{
+    //bool saveCursorVisibile;
+    //int saveCursorSize;
+    Console::CursorVisible = true; // Initialize the cursor to visible.
+    //saveCursorVisibile = Console::CursorVisible;
+    //saveCursorSize = Console::CursorSize;
+    Console::CursorSize = 100; // розмір курсора може бути в межах 1-100
+}
+
+
+
+
+void FromFile(source *& BOOKS,int &size)
+{
+	rewind(stdin);
+    FILE*fp;
+	fp=fopen("test.txt","r");
+	if((fp=fopen("test.txt","r"))==NULL)//read
+	{
+		printf("ERROR\n");
+		exit(1);
+	}
+	int tmpsize;
+    fscanf(fp,"%d",&tmpsize);
+    size=tmpsize;
+    delete[]BOOKS;
+    BOOKS=new source[size];
+    
+		for(int i=0; i<size; i++)
+		{
+			BOOKS[i].AUTHOR.Surname=new char[50];
+			BOOKS[i].AUTHOR.Name=new char[50];
+			BOOKS[i].PUBLICATION.Title=new char[50];
+			BOOKS[i].PUBLICATION.Genre=new char[50];
+			BOOKS[i].PUBLICATION.Type=new char[50];
+			fscanf(fp,"%s %s %s %s %s %d %d", BOOKS[i].AUTHOR.Surname, BOOKS[i].AUTHOR.Name, BOOKS[i].PUBLICATION.Title, BOOKS[i].PUBLICATION.Genre, BOOKS[i].PUBLICATION.Type, &BOOKS[i].PUBLICATION.year, &BOOKS[i].INFO);
+		}
+
+	fclose(fp);
+}
+
+
+void Save(source *& BOOKS, int size)
+{
+	FILE*fp;
+	fp=fopen("test.txt","a+");
+	if((fp=fopen("test.txt","a+"))==NULL)//дописує інфу в кінець файлу
+	{
+		printf("ERROR\n");
+		exit(1);
+	}
+	fprintf(fp,"%d\n",size);
+	for(int i=0; i<size; i++)
+	{
+		fprintf(fp,"%s %s %s %s %s %d %d\n",BOOKS[i].AUTHOR.Surname,BOOKS[i].AUTHOR.Name,BOOKS[i].PUBLICATION.Title,BOOKS[i].PUBLICATION.Genre,BOOKS[i].PUBLICATION.Type,BOOKS[i].PUBLICATION.year,BOOKS[i].INFO);
+	}
+	fclose(fp);
+
+
+	//FILE*fp1;
+	//fp=fopen("title.txt","a+");
+	//if((fp1=fopen("title.txt","a+"))==NULL)//дописує інфу в кінець файлу
+	//{
+	//	printf("ERROR\n");
+	//	exit(1);
+	//}
+
+	//for(int i=0; i<size; i++)
+	//{
+	//	fprintf(fp1,"%s\n",BOOKS[i].PUBLICATION.Title);
+	//}
+	//fclose(fp1);
+
+}
+
+
+int main()
+{
+    system("cls");
+    Console::Title = "Library";//зміна заголовку    
+    CursorVisible();
+    system("mode con cols=150 lines=80");
+    int size=0;
+    source*BOOKS=new source[size];
+	HANDLE hndl=GetStdHandle(STD_OUTPUT_HANDLE);
+    char *menu_list[MaxNo_Menu] = {"ADD","PRINT","DELETE","FIND","SORT","DEBTORS","exit"};
+    int i, xpos = 10, ypos[MaxNo_Menu] = {3,6,9,12,15,18,21};
+
+
+    for (i=0; i<MaxNo_Menu; ++i)// Меню
+    {
+        gotoxy(xpos, ypos[i]);
+        SetConsoleTextAttribute(hndl,FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);    //початковий вигляд букв вони білі на чорному фоні
+        cprintf("%s",menu_list[i]);
+    }
+
+
+    i=0;// змінна для вибору по меню
+
+    while(1)
+    {
+        gotoxy(xpos, ypos[i]);
+        SetConsoleTextAttribute(hndl, BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE |  BACKGROUND_INTENSITY);//підсвічує білим вибране меню
+        cprintf("%s",menu_list[i] );
+        
+		switch(getch()) /* 72-в верх, 75-в право, 77-в ліво, 80-в низ */
+        {
+        case 72: // в верх
+            if(i>0) 
+            {
+                gotoxy(xpos,ypos[i] );
+                SetConsoleTextAttribute(hndl,FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);//не активні елементи стають знову білими
+                cprintf("%s", menu_list[i] );
+                --i;
+
+            }
+            break;
+       case 80: //в низ
+            if(i< MaxNo_Menu-1 )
+            {
+               gotoxy(xpos,ypos[i] );
+              SetConsoleTextAttribute(hndl,FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);//не активні елементи стають знову білими
+              cprintf("%s", menu_list[i] );
+                ++i;
+            }
+            break;
+        case 13: 
+            if(i==0) 
+            {  
+                system("cls");
+                gotoxy (10,1); 
+                printf("you choose ADD   ");
+                Add(BOOKS,size);
+            }
+            if(i==1) 
+            { 
+                system("cls");
+                gotoxy (10,1); 
+                printf("you choose PRINT  "); 
+                Frame(BOOKS,size);
+			   	 system("cls");
+            }
+            if(i==2)
+            { 
+                system("cls");
+                gotoxy (10,1); 
+                printf("you choose DELETE"); 
+                Delete(BOOKS,size);
+				system("cls");
+            }
+            if(i==3) 
+            {  
+                system("cls");
+                gotoxy (10,1);  
+                printf("you choose FIND  "); 
+                Find(BOOKS,size);
+				system("cls");
+           }
+            if(i==4) 
+            {  
+                system("cls");
+                gotoxy (10,1);  
+                printf("you choose SORT  ");
+                Sort(BOOKS,size);
+				system("cls");
+            }
+            if(i==5)
+            {
+                system("cls");
+                gotoxy (10,1);  
+                printf("you choose DEBTORS  ");
+                debtors(BOOKS,size);
+				system("cls");
+            }
+            if(i==6)
+            {
+            break;           
+            }
+            break;
+        }
+	}
+
+
+
+
+ //   do
+ //   {
+ //       system("cls");
+ //       cout<<endl<<"**********************MAIN MENU*********************"<<endl;
+ //       cout<<"                    Choose an action:"<<endl<<endl;
+ //       cout<<"For Add a book....1"<<"   "<<"For delete.......3"<<endl;
+ //       cout<<"For Print.........2"<<"   "<<"For Finde........4"<<endl;
+ //       cout<<"For Sort..........5"<<"   "<<"to see debtors....6"<<endl;
+ //       cout<<"EXIT...........esc"<<endl;
+ //       int choice;
+ //       cin>>choice;
+
+ //       switch(choice)
+ //       {
+ //       case 1:
+ //           system("cls");
+ //           Add(BOOKS,size);
+ //           break;
+ //       case 2: 
+ //           system("cls");
+ //           Frame(BOOKS,size);
+ //           break;
+ //       case 3:
+ //           system("cls");
+ //           Delete(BOOKS,size);
+ //           break;
+ //       case 4:
+ //           system("cls");
+ //           Find(BOOKS,size);
+ //           break;
+ //       case 5:
+ //           system("cls");
+ //           Sort(BOOKS,size);
+ //           break;
+ //       case 6:
+ //           system("cls");
+ //           debtors(BOOKS,size);
+ //           break;
+ //       }
+ //       cout<<endl<<"Press esc to exit from program...";
+ //       cout<<endl<<"Press eny key to continue...\n"<<endl;
+ //   }
+ //   while(getch()!=27);
+
+	//Save(BOOKS,size);
+
+}

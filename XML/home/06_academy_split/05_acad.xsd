@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="academia">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <!--academia-->
+
+        <xs:element name="group" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <!--group-->
+
+              <xs:element name="student">
+                <xs:complexType>
+                  <xs:sequence maxOccurs="unbounded">
+                    <!--student-->
+
+                    <xs:element name="name">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="name" type="xs:string" use="required"/>
+                            <xs:attribute name="surname" type="xs:string" use="required"/>
+                            <xs:attribute name="middlename" type="xs:string" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <!--name-->
+                    <!--help-->
+
+                    <xs:element name ="address">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!--address-->
+
+                          <xs:element name="country">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+
+                          <xs:element name="street">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+
+                          <xs:element name="house">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:integer">
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+
+                          <xs:element name="telephone">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:pattern value="\(0\d\d\) \d\d\d-\d\d-\d\d" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+
+                          <xs:element name="email">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:pattern value="[0-9a-z_]+@[0-9a-z_^.]+.[a-z]{2,3}" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+
+                          <xs:element name="scolarship">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:int">
+                                <xs:maxInclusive value="500">
+                                </xs:maxInclusive>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+
+                          <!--address-->
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+
+                    <!--student-->
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <!--group-->
+            </xs:sequence>
+
+            <xs:attribute name="name" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[0-9]+(С|НС)[0-9]+-[0-9][a-я]{2,3}"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+
+            <xs:attribute name="specialization" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="administration|programming|design"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="subjects_list">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <!--subjects_list-->
+
+              <xs:element name="subject">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="kurs_plan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <!--subjects_list-->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+
+        <xs:element name="teachers_list">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <!--teachers_list-->
+
+              <xs:element name="teacher">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!--teacher-->
+
+                    <xs:element name="name">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="name" type="xs:string" use="required"/>
+                            <xs:attribute name="surname" type="xs:string" use="required"/>
+                            <xs:attribute name="middlename" type="xs:string" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+
+                    <!--list-->
+                    <xs:element name="his_subjects">
+                      <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded">
+                          <xs:element name="subjects">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+
+
+                    <xs:element name="count_group">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="10"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+
+                    <!--teacher-->
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <!--teachers_list-->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!--academia-->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

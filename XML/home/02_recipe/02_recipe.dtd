@@ -1,0 +1,38 @@
+<!ENTITY % Address "Country CDATA #REQUIRED Town CDATA #REQUIRED Street CDATA #IMPLIED" >
+<!ENTITY author "Author" >
+	
+<!ELEMENT book (receipt+, Author )>
+
+<!ELEMENT receipt ( title ,ingredients, how_to_do, quantity) >
+<!ELEMENT title (#PCDATA) >
+<!ELEMENT ingredients (title_ingredient+) >
+<!ELEMENT title_ingredient (#PCDATA) >
+<!ELEMENT how_to_do (step+)>
+<!ELEMENT step (#PCDATA) >
+<!ELEMENT quantity (#PCDATA) >
+<!ELEMENT text ANY >
+<!ELEMENT Author ANY >
+
+<!ATTLIST title_ingredient
+	value			CDATA #REQUIRED
+	measurement		CDATA #IMPLIED
+>
+
+<!ATTLIST receipt
+	id				CDATA #IMPLIED
+	title			CDATA #REQUIRED
+	veg				CDATA #REQUIRED
+	low_kalor		CDATA #REQUIRED
+	freez			CDATA #REQUIRED
+	diabet			CDATA #REQUIRED
+	%Address;
+>
+
+<!ATTLIST how_to_do
+	level	CDATA #REQUIRED
+	time	CDATA #REQUIRED
+>
+
+<!ATTLIST quantity
+	value	CDATA #REQUIRED
+>

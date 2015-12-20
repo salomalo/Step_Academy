@@ -1,0 +1,359 @@
+1) чи входить число в проміжок (90.....131)
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+	int a;
+	cout <<"Enter a:";
+	cin>>a;
+	if (a>90 && a<131)
+	   {
+	   cout <<"a vhodit v promigok"<<endl;
+	   }
+	else
+	   {
+	   cout<<"a ne vhodit v promigok"<<endl;
+	   }
+
+}
+
+
+
+
+2) конвертор одиниць
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+	int choise;
+	float d;
+	float r;
+	float e;
+	float k;
+	
+cout<<"...///Convertor for hryvnyas\\\..."<<endl;
+cout<<"\nChose what you want to do:"<<endl
+<<"\n1-if you want convert d>h"<<endl
+<<"\n2-if you want convert r>h"<<endl
+<<"\n3-if you want convert e>h"<<endl<<endl;
+	
+cin>>choise;
+	switch (choise)
+	{
+	case 1:
+	   cout<<"\nenter how many dollars you have:";
+	   cin>>d;
+	   cout<<"enter kours for exchange";
+	   cin>>k;
+	   cout<<"You can recive:  "<<d*k<<endl;
+	   break;
+	
+	case 2:
+	  cout<<"enter how many roubles:";
+	  cin>>r;
+	  cout<<"enter kours for exchange";
+	  cin>>k;
+	  cout<<"You can recive:   "<<r*k<<endl;
+	  break;
+	  
+	case 3:
+	  cout<<"enter how many euro";
+	  cin>>e;
+	  cout<<"enter kours for exchange";
+	  cin>>k;
+	  cout<<"You can recive:   "<<e*k<<endl;
+	  break;
+
+	default:
+	  cout<<"You choise no 1, no 2 or 3"<<endl;
+}
+}
+
+
+3) чи належить число проміжку і чи кратне 3 чи 7
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+	int a;
+	cout <<"Enter a:";
+	cin>>a;
+	if (a>90 && a<131)
+	   {
+	   cout <<"a vhodit v promigik"<<endl;
+	   if(a%3==0)
+	      {
+	       cout<<"chislo kratne 3"<<endl;
+	       }
+	   else
+	      {
+	       cout<<"chislo NE kratne 3"<<endl;
+	       }
+	   if (a%7==0)
+	   {
+	    cout<<"chislo kratne 7"<<endl;
+	   }
+	    else
+	      {
+	       cout<<"chislo NE kratne 7"<<endl;
+	       }
+	}
+	else
+		{
+			cout<<"chislo NE vhodit v promigik"<<endl;
+	}
+	}
+
+
+3а)
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+	int a;
+	cout <<"Enter a:";
+	cin>>a;
+	if (a>90 && a<131)
+	   {
+	   cout <<"a vhodit v promigik"<<endl;
+	   if((a%3==0)||(a%7==0))
+	      {
+	       cout<<"chislo kratne 3 abo 7"<<endl;
+	       }
+	   else
+	      {
+	       cout<<"chislo NE kratne abo 3 abo 7"<<endl;
+	       }
+	    }
+	else
+            {
+	     cout<<"chislo NE vhodit v promigik"<<endl;
+	    }
+
+}
+
+
+4) вирахування знижки
+
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+	float v;
+	float d;
+	cout<<"enter vartist:"<<endl;
+	cin>>v;	
+	
+	if (v>100&&v<200)
+	   {
+		   cout<<"your discaunt is:";
+		   cout<<v*0.03<<endl;
+		   cout<<"so you must pay:";
+		   cout<<v-(v*0.03)<<endl;
+	}	
+	
+	if (v>200)
+	     {
+	              cout<<"your discaunt is:";
+				  cout<<v*0.05<<endl;
+				  cout<<"so you must pay:";
+	              cout<<v-(v*0.05)<<endl;
+	}
+	else
+	{
+		cout<<"bes znygki"<<endl;
+	}
+
+}
+
+
+
+
+
+5)Дні тижня
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+int d;
+cout<<"Enter your day:"<<endl;
+cin>>d;
+
+switch (d)
+{
+case 1:
+	cout<<"Today is monday"<<endl;
+	break;
+case 2:
+	cout<<"Today is tuesday"<<endl;
+	break;
+case 3:
+	cout<<"Today is wednesday"<<endl;
+	break;
+case 4:
+	cout<<"Today is thursday"<<endl;
+	break;
+case 5:
+	cout<<"Today is friday"<<endl;
+	break;
+case 6:
+	cout<<"Today is saturday"<<endl;
+	break;
+case 7:
+	cout<<"Today is sunday"<<endl;
+	break;
+default:
+	cout<<"There are no such kind of day!!!"<<endl;
+
+}
+
+}
+
+
+6) вибери планету
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+	int p;
+	cout<<"Choose a planet by clicking on its serial number:"<<endl
+		<<"1.Mercury"<<endl
+		<<"2.Venus"<<endl
+		<<"3.Earth"<<endl
+		<<"4.Mars"<<endl
+		<<"5.Jupiter"<<endl
+		<<"6.Saturn"<<endl
+		<<"7.Uranus"<<endl
+		<<"8.Neptune"<<endl
+		<<"9.Pluto"<<endl;
+	cin>>p;
+	
+	switch(p)
+	{
+	case 1:
+		cout<<"Your planet is Mercury"<<endl
+			<<"This is the smallest and closest to the Sun of the eight planets in the Solar System"<<endl;
+		break;
+
+	case 2:
+		cout<<"Your planet is Venus"<<endl
+			<<"This planet is named after the Roman goddess of love and beauty"<<endl
+			<<"After the Moon, it is the brightest natural object in the night sky"<<endl;
+		break;
+		
+	case 3:
+		cout<<"Your planet is Earth"<<endl
+			<<"Oh this is our planet and i think you must know a lot of things about it..."<<endl;
+		break;
+		
+	case 4:
+		cout<<"Your planet is Mars"<<endl
+			<<"the second smallest planet in the Solar System"<<endl
+			<<"Named after the Roman god of war"<<endl
+			<<"it is often described as the\"Red Planet\""<<endl;
+		break;
+		
+	case 5:
+		cout<<"Your planet is Jupiter"<<endl
+			<<"The planet was known by astronomers of ancient times"<<endl
+			<<"The Romans named the planet after the Roman god Jupiter"<<endl
+			<<"This is the largest planet in the Solar System"<<endl;
+		break;
+		
+	case 6:
+		cout<<"Your planet is Saturn"<<endl
+			<<"Tis is the second largest planet in the Solar System, after Jupiter"<<endl
+			<<"Named after the Roman god of agriculture, Saturn, its astronomical symbol (?) represents the god's sickle"<<endl;
+		break;
+		
+	case 7:
+		cout<<"Your planet is Uranus"<<endl
+			<<"Discovered by William Herschel in March 13, 1781"<<endl;
+		break;
+		
+	case 8:
+		cout<<"Your planet is Neptune"<<endl
+			<<"Discovered by Urbain Le Verrier and Johann Galle in 23 September 1846"<<endl;
+		break;
+		
+	case 9:
+		cout<<"Your planet is Pluto"<<endl
+			<<"Discovered by Clyde W. Tombaugh"<<endl
+			<<"in February 18, 1930"<<endl;
+		break;
+
+
+	default:
+		cout<<"For now this program know nothing about others planet, sory............."<<endl;
+	}
+
+
+}
+
+
+7) калькулятор
+
+# include < iostream>
+using namespace std;
+void main ()
+{
+	int choise;
+	float a;
+	float b;
+	float res;
+
+	cout<<"...:::Welcome to the cool calculator:::..."<<endl;
+	
+	cout<<"\n      ...Enter your digit:...   "<<endl;
+	cin>>a>>b;
+	
+	cout<<"        Chose what you want to do with this digit:"<<endl<<endl
+	<<"1.+"<<endl
+	<<"2.-"<<endl
+	<<"3.*"<<endl
+	<<"4./"<<endl;
+	cin>>choise;
+
+	
+
+	switch (choise)
+{
+case 1:
+	cout<<"You want to + them, so"<<endl
+		<<"Your res is:   "<<a+b<<endl;
+	break;
+
+case 2:
+	cout<<"You want to - them, so"<<endl
+		<<"Your res is:   "<<a-b<<endl;
+	break;
+
+case 3:
+	cout<<"You want to * them, so"<<endl
+		<<"Your res is:   "<<a*b<<endl;
+	break;
+
+case 4:
+	if(a==0||b==0)
+	{
+	cout<<"\nERROR (you cann't divided on 0)"<<endl;
+	}
+	else 
+	{
+		cout<<"You want to / them, so"<<endl<<"Your res is:   "<<a/b<<endl;
+	}
+	break;
+
+default:
+	cout<<"wrong action"<<endl;
+}
+
+}
+

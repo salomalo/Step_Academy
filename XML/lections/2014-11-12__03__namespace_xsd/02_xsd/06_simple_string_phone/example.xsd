@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--всередині описуємо структуру документа-->
+	
+	
+	<xs:element name="example">
+		
+		<!-- тип елемента <example> номер телефона  -->
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="\(0\d\d\) \d\d\d-\d\d-\d\d" />	<!--регулярний вираз задає вміст елемента-->
+			</xs:restriction>
+		</xs:simpleType>
+		
+	</xs:element>
+</xs:schema>

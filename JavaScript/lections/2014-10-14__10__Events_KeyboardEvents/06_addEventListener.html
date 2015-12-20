@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<META charset="utf-8">
+		<TITLE>Декілька обробників події</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>Декілька обробників події</H1>
+		<P>
+			<INPUT type="button" id="btn1" value="Кнопка 1 (атрибут)"			onclick="handleClick( this.value, event )"/>
+			<INPUT type="button" id="btn2" value="Кнопка 2 (властивість)" />
+			<INPUT type="button" id="btn3" value="Кнопка 3 (setAttribute)" />
+			<INPUT type="button" id="btn4" value="Кнопка 4 (без обробника)" />
+		</P>
+		<P>
+			Обробник <b><code>handleClick2()</code></b>
+			<INPUT type="button" value="Додати обробник"	onclick="addClickHandler( handleClick2 )"/>
+			<INPUT type="button" value="Прибрати обробник"	onclick="removeClickHandler( handleClick2 )"/>
+		</P>
+		<P>
+			Обробник <b><code>handleClick3()</code></b>
+			<INPUT type="button" value="Додати обробник"	onclick="addClickHandler( handleClick3 )"/>
+			<INPUT type="button" value="Прибрати обробник"	onclick="removeClickHandler( handleClick3 )"/>
+		</P>
+		<P>
+			Обробник <b><code>handleClick4()</code></b>
+			<INPUT type="button" value="Додати обробник"	onclick="addClickHandler( handleClick4 )"/>
+			<INPUT type="button" value="Прибрати обробник"	onclick="removeClickHandler( handleClick4 )"/>
+		</P>
+		<P>
+			<INPUT type="button" value="Подивитись властивості кнопок"		onclick="showClickHandlers()"/>
+		</P>
+
+
+		<SCRIPT>
+
+			var btn = document.getElementById( "btn2" );
+			btn.onclick = handleClick;
+
+			btn = document.getElementById( "btn3" );
+			btn.setAttribute( "onclick", "handleClick( this.value, event ) " );
+
+			function handleClick() {
+				var msg = 	"handleClick() для кнопки \n" 
+							+"arguments.length == "+ arguments.length +"\n";
+				for( var i=0; i < arguments.length ; i++ ) {
+					msg += "	arguments["+ i +"] == "+ arguments[i] +"\n";
+				}
+				msg += "з this='"+ this +"'\n"
+				msg += "з this.value='"+ this.value +"'\n"
+				
+				alert( msg );
+			}
+			
+			
+			function showClickHandlers() {
+				var buttons = document.getElementsByTagName( "input" );
+				for( var i = 0 ; i < buttons.length ; i++ ) {
+					if( !( 	buttons[i].id 
+							&& confirm(	"Кнопка «"+ buttons[i].value +"»\n" 
+										+"onclick == "+ buttons[i].onclick
+										)
+						 )
+					) break;
+				}
+			}
+			
+			
+			function addClickHandler( handler ) {
+				var buttons = document.getElementsByTagName( "input" );
+				for( var i = 0 ; buttons[i].id && i < buttons.length ; i++ ) {
+					buttons[i].addEventListener( "click", handler, false );
+					alert(	"Для кнопки '"+ buttons[i].value +"'\n" 
+							+"додано обробник:\n"
+							+ handler
+						);
+				}
+			}
+			
+			
+			function removeClickHandler( handler ) {
+				var buttons = document.getElementsByTagName( "input" );
+				for( var i = 0 ; buttons[i].id && i < buttons.length ; i++ ) {
+					buttons[i].removeEventListener( "click", handler, false );
+					alert(	"Для кнопки '"+ buttons[i].value +"'\n" 
+							+"видалено обробник:\n"
+							+ handler
+						);
+				}
+			}
+			
+			function handleClick2() {
+				alert( "Доданий обробник" );
+			}
+			
+			function handleClick3() {
+				alert( "Added handler" );
+			}
+			
+			function handleClick4() {
+				alert( "Hinzugefugt Handler" );
+			}
+			
+			
+			
+		</SCRIPT>
+	</BODY>
+</HTML>

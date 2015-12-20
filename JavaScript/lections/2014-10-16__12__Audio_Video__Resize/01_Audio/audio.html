@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Аудіо і JS</title>
+		<style>
+			p span[onclick] {
+				cursor: pointer;
+				color: #777;
+				text-shadow: 0 0 4px #555;
+			}
+			
+			p span[onclick]:hover {
+				text-shadow: 2px 4px 4px #555;
+				position:relative;
+				bottom: 2px;
+				color: black;
+			}
+			
+			p span[onclick]:focus {
+				text-shadow: 2px 4px 4px #555;
+				position:relative;
+				bottom: 2px;
+				color: blue;
+			}
+			
+		</style>
+		
+		</head>
+	<body>
+		<!-- <audio autoplay loop controls> -->
+		<!--<audio onended="alert('Музика закінчилась!');" controls > -->
+		<audio onended="playNext(event);" onerror="playFirst(event);" controls autoplay >
+			<source src="Track01.mp3" >
+			<source src="ding.wav" >
+		</audio>
+<!-- 		<audio autoplay>
+			<source src="Track04.mp3" >
+		</audio>
+-->		<p>
+			Властивість src=«<span id="srcProperty"></span>»<br/>
+			Атрибут src=«<span id="srcAttribute"></span>»
+		</p>
+		<p></p>
+		<p>
+			<input type="button" value="Пауза"		onclick="audio.pause();" /> 
+			<input type="button" value="Стоп"		onclick="audio.pause(); audio.currentTime=0;" /> 
+			<input type="button" value="Грати"		onclick="audio.play();" /> 
+			<input type="button" value="Перейти"	onclick="goTo();" /> 
+			<span id="curTime"></span>
+		</p>
+		<p>
+			<input type="button" value="Тихіше"		onclick="changheVolume( -5 );" /> 
+			<input type="button" value="Гучніше"	onclick="changheVolume( +5 );" /> 
+			<input type="button" value="100%"		onclick="audio.volume = 1 ;" /> 
+			<input type="button" value="Мовчи !"	onclick="audio.muted = ! audio.muted;" /> 
+			Поточна гучність: <span id="volume"></span>
+		</p>
+		<p>
+			<input type="button" value="Повільніше" onclick="changheSpeed( -5 );" /> 
+			<input type="button" value="Швидше"		onclick="changheSpeed( +5 );" /> 
+			<input type="button" value="Норма"		onclick="audio.playbackRate = audio.defaultPlaybackRate;" /> 
+			Поточна швидкість: <span id="speed"></span>
+			
+		</p>
+		
+<!--		<p> 
+			<span onclick=" audio.src= 'Track01.mp3' " >Track01.mp3</span><br/>
+			<span onclick=" audio.src= 'Track02.mp3' " >Track02.mp3</span><br/>
+			<span onclick=" audio.src= 'Track03.mp3' " >Track03.mp3</span><br/>
+			<span onclick=" audio.src= 'Track04.mp3' " >Track04.mp3</span><br/>
+		</p>
+-->		
+		<p> 
+			<span onclick="setSrcAudio( event )" tabindex="1" >Track01.mp3</span><br/>
+			<span onclick="setSrcAudio( event )" tabindex="1" >Track02.mp3</span><br/>
+			<span onclick="setSrcAudio( event )" tabindex="1" >Track03.mp3</span><br/>
+			<span onclick="setSrcAudio( event )" tabindex="1" >Track04.mp3</span><br/>
+		</p>
+		
+		<script>
+			var audio = document.getElementsByTagName( "audio" )[0];
+			
+			function setSrcAudio( event ){
+				audio.src = event.target.innerText;
+				audio.play();
+			}
+			
+			
+			function goTo() {
+				var newTime = parseFloat( prompt( "Новий час\n( тривалість "+ audio.duration +" секунд )", ""+ audio.currentTime ) );
+				if( isNaN( newTime ) ) return;
+				audio.currentTime = newTime;
+			}
+			
+			function changheVolume( diffVolumePercent ) {
+				var dif = diffVolumePercent * audio.volume / 100;
+				audio.volume += dif;
+			}
+			
+			function changheSpeed( diffSpeedPercent ) {
+				var dif = Math.round( diffSpeedPercent * audio.playbackRate ) / 100;
+				audio.playbackRate  += dif;
+			}
+			
+			
+			function update() {
+				document.getElementById( "curTime" ).innerHTML = ( Math.round( audio.currentTime * 100 ) / 100 ) +" ( "+ audio.duration +" )";
+				document.getElementById( "speed" ).innerHTML = Math.round( audio.playbackRate  * 100 ) / 100;
+				document.getElementById( "volume" ).innerHTML = Math.round( audio.volume  * 100 ) / 100;
+				document.getElementById( "srcProperty" ).innerHTML = audio.src ;
+				document.getElementById( "srcAttribute" ).innerHTML = audio.getAttribute("src");
+			}
+			
+			function playNext(event) {
+				var filename = event.target.src;
+				var numFile = filename.substr( -6, 2 );
+				numFile++;
+				filename = "Track0"+ numFile +".mp3";
+				event.target.src = filename;
+				event.target.play();
+			}
+			
+			function playFirst(event) {
+				event.target.src="Track01.mp3";
+			}
+			
+			
+			setInterval( update, 100 );
+			
+		</script>
+	
+	</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--всередині описуємо структуру документа-->
+	
+	<!--<xs:element name="example" type="xs:int">-->
+	<xs:element name="example" type="xs:integer">
+
+		</xs:element>
+</xs:schema>

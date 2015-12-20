@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<meta charset="utf-8" >
+		<title>jQuery :: точки входу</title>
+		
+		<script>
+			//var $ = "my value";
+		</script>
+		
+		<!-- jQuery -->
+
+			<!-- jQuery нестиснена на "зовнішніх" серверах -->
+			<!-- <script src="http://code.jquery.com/jquery-latest.js"></script>  							<!-- найсвіжіший реліз версії 1 -->
+			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js" ></script>		<!-- конкретний номер релізу -->
+			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" ></script>			<!-- найсвіжіший реліз версії 1 -->
+			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js" ></script>			<!-- найсвіжіший реліз версії 1 -->
+			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js" ></script>		<!-- конкретний номер релізу версії 2 -->
+			
+			<!-- jQuery на "нашому" хостингу -->
+			<!-- <script src="js/jquery.js" ></script> -->
+			
+		<!-- /jQuery -->
+		
+		<link rel="stylesheet" href="css/01_test_$_jQuery.css" >
+		<script src="js/01_test_$_jQuery.js" ></script>
+		
+	</head>
+	
+	<body onload="check_jQuery()" >
+		<p id="idMessage" ></p>
+		<h1>jQuery :: точки входу</h1>
+		<table>
+			<col>
+			<col>
+			<col>
+			<tr>
+				<td>
+					<button onclick="showFunc( '$' );" > 1. Показати $ </button>
+				</td>
+				<td>
+					<button onclick="showFunc( 'jQuery' );" > 2. Показати jQuery </button>
+				</td>
+				<td>
+					<input type="text" id="idFuncName" value="my_jQuery_Name" >
+					<button onclick="showCustomFunc();" > 3. Зробити <span id="idFuncNameOut" >свою<span> </button><br>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>
+

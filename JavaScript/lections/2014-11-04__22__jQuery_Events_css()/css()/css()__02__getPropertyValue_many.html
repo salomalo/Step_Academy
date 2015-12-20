@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>css demo</title>
+		<style>
+			.left {
+				width: 60px;
+				height: 60px;
+				margin: 5px;
+				display: inline-block;
+			}
+			 #box1 {
+				width: 50px;
+				color: yellow;
+				height: 40px;
+				background-color: blue;
+			}
+			#box2 {
+				width: 80px;
+				color: rgb(255, 255, 255);
+				height: 80px;
+				background-color: rgb(15, 99, 30);
+			}
+			#box3 {
+				width: 40px;
+				color: #fcc;
+				height: 30px;
+				background-color: #123456;
+			}
+			#box4 {
+				width: 70px;
+				background-color: #f11;
+			}
+		</style>
+		<script src="jquery.js"></script>
+		
+		<script>
+			function  show(event) {
+			
+				var oProps = $( event.target ).css( [ "width", "height", "color", "background-color" ] );	
+
+				
+				var str = "Клікнуто на div з властивостями:<br>";
+				$.each( oProps, function( propName, propValue ) {							// http://api.jquery.com/jQuery.each/	-- each() як метод jQuery
+					str += "&nbsp; &nbsp; &nbsp; "+propName + ": " + propValue +"<br>";
+				});
+			
+			
+			/*	var str = "Клікнуто на div з властивостями:<br>";
+				for( var prop in oProps) {
+					str += "&nbsp; &nbsp; &nbsp; "+prop + ": " + oProps[prop] +"<br>";
+				};
+			*/
+				//$( "#result" )[0].innerHTML = ( str );
+				$( "#result" )		// шукає ел-т з id = "result"
+					.html( str );	// еквівалентно el.innetHTML = str -- записує у вміст цього елемента рядок зі змінної str
+
+			}// function  show(event)
+			
+			
+			function eachElement() {
+				var divs = $("div");
+				divs.each( function( idx, elem ){	// http://api.jquery.com/each/		-- each() як метод колекції
+					console.log( "idx = "+ idx +"    bgColor="+ getComputedStyle( elem ).backgroundColor +"\n" );
+				});
+			}//function eachElement()
+			
+		</script>
+		
+	</head>
+	<body>
+		<h1><a href="http://api.jquery.com/css/#css1" target="_blank" >jQuery:<code>.css()</code></a></h1>
+		<h3>Одержання значення декількох властивостей</h3>
+		<p>
+			<input type="button" value=".each() колекції" onclick="eachElement()" >
+		</p>
+		<div>
+			<div class="left" id="box1" style="background-color:blue;" 				onclick="show( event );" ></div>
+			<div class="left" id="box2" style="background-color:rgb(15,99,30);" 	onclick="show( event );" ></div>
+			<div class="left" id="box3" style="background-color:#123456;"			onclick="show( event );" ></div>
+			<div class="left" id="box4" style="background-color:#f11;"				onclick="show( event );" ></div>
+		</div>
+		<p id="result">Клікни прямокутник !</p>
+	</body>
+</html>

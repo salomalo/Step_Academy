@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<MyXML>
+  <MyXMLMsgsRs>
+    <VendorQueryRs requestID="0" statusCode="0" statusSeverity="Info" statusMessage="Status OK">
+      <VendorRet>
+        <ItemID>680000-1046215164</ItemID>
+        <TimeCreated>2003-02-26T01:19:24+02:00</TimeCreated>
+        <FullName>Castuciano, James</FullName>
+        <CompanyName>Castuciano, James</CompanyName>
+        <Salutation>Mr</Salutation>
+        <FirstName>James</FirstName>
+        <LastName>Castuciano</LastName>
+        <VendorAddress>
+          <Addr>12 Van Horne Cres</Addr>
+          <City>Toronto</City>
+        </VendorAddress>
+        <Phone>316-1116</Phone>
+        <Fax>316-1116</Fax>
+        <Contact>James Castuciano</Contact>
+        <TermsRef>
+          <ItemID>20000-1046201791</ItemID>
+          <FullName>Net 30</FullName>
+        </TermsRef>
+        <Balance>10,00</Balance>
+      </VendorRet>
+ 
+      <VendorRet>
+        <ItemID>6E0000-1046215165</ItemID>
+        <TimeCreated>2003-02-26T01:19:25+02:00</TimeCreated>
+        <FullName>Chai, Stephen</FullName>
+        <CompanyName>Stephen Chai</CompanyName>
+        <Salutation>Mr</Salutation>
+        <FirstName>Stephen</FirstName>
+        <LastName>Chai</LastName>
+        <VendorAddress>
+          <Addr>1333 Hornby Street</Addr>
+          <City>Middlefield</City>
+        </VendorAddress>
+        <Phone>555-1313</Phone>
+        <Fax>555-1222</Fax>
+        <Contact>Stephen Chai</Contact>
+        <TermsRef>
+          <ItemID>20000-1046201791</ItemID>
+          <FullName>Net 30</FullName>
+        </TermsRef>
+        <Balance>250,00</Balance>
+      </VendorRet>
+     </VendorQueryRs>
+    <CustomerQueryRs requestID="1" statusCode="0" statusSeverity="Info" statusMessage="Status OK">
+      <CustomerRet>
+        <ItemID>110000-3246215164</ItemID>
+        <TimeCreated>2004-02-26T01:19:24+02:00</TimeCreated>
+        <FullName>Pupkin, Ivan</FullName>
+        <Salutation>Mr</Salutation>
+        <FirstName>Ivan</FirstName>
+        <LastName>Pupkin</LastName>
+        <CustomerAddress>
+          <Addr>Chreschatyk, 12</Addr>
+          <City>Kiev</City>
+        </CustomerAddress>
+        <Phone>22-22-222</Phone>
+      </CustomerRet>
+     </CustomerQueryRs>
+  </MyXMLMsgsRs>
+</MyXML>
+

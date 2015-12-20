@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+int a;
+a=2;
+int b;
+b=5;
+int c;
+c=3;
+int suma_abc;
+suma_abc=a+b+c;
+cout<<suma_abc<<endl;
+int mnog_abc;
+mnog_abc=a*b*c;
+cout<<mnog_abc<<endl;
+}

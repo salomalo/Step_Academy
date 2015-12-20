@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>teSt</title>	
+		<script>
+		
+				function Test(){
+					var Questions=[];
+					var curent;
+					var res;
+					var name;
+					var nameRes;
+					
+						this.AddQuestion =	function (ques,ans) {
+								Questions.push({Qestion:ques, Answer:ans});						
+							}
+						
+						this.getLength = function(){
+								return (Questions.length);
+							}
+							
+						this.Start = function(na){
+								curent=0;
+								res=0;
+								name=na;
+								return curent;
+							}	
+							
+						this.GetQuestion = function () {	
+								return( Questions[curent].Qestion);
+							}
+							
+						this.CheckAnswer  = function (anser){
+								if (anser==Questions[curent].Answer){
+									res++;
+									}	
+								curent++;
+							}	
+							
+
+						
+						this.Result = function(){	
+								nameRes=name + " " + res;
+								return nameRes;
+							}
+						
+						
+						this.getCurrent = function(){
+								if(Questions.length>0)////////////////////////////////
+									return curent;			//////////////////				
+								if(curent!=undefined)
+									return Questions.length;
+								if(curent==Questions.length)
+									return Questions.length;
+						}
+				}
+				
+		</script>
+	</head>
+	<body>
+		<h1>teSt</h1>
+		
+		<script>
+				var myTest = new Test;	
+				
+				alert("myTest.Result()    before test    " + myTest.Result() + "\n" +
+					"myTest.getCurrent()   before test    " + myTest.getCurrent()+ "\n"
+				
+				);
+				
+				while(true){
+					var choise = prompt( "1. add qustion " + "\n"
+							+"2. remove qustion "+ "\n"
+							+"3. start test "+ "\n"
+							)
+					
+					switch(choise){
+						case "1":
+							var ques = prompt("Enter your question : ", " ");
+							a=confirm("You ask \" "+ques+" \" " + "\n " + " chose anser \"OK\" or \" NO \" ");
+							myTest.AddQuestion(ques,a);
+						break;
+						
+						case "2":
+							break;
+						
+						case "3":
+							var name = prompt( "ener your name : " );	
+							myTest.Start(name);
+							for(var i=0; i<myTest.getLength(); i++)	{
+								ans=confirm(myTest.GetQuestion());
+								myTest.CheckAnswer(ans);
+							}
+							alert(myTest.Result());
+							break;
+								
+					}
+				}	
+				
+				
+				
+		</script>
+		
+	</body>
+</html>

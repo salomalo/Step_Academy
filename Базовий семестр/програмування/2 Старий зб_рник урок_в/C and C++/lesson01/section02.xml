@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Урок №1" next="section021.xml" prev="section01.xml" summ="0">	  
+
+<h2>Инсталляция Visual C++ 6.0</h2>
+
+<p>
+Итак, для изучения С можно  установить Microsoft Visual C++ версии 6.0.  Это самая младшая версия из тех, что мы вам предложим. Для установки - вставьте компакт-диск в CD-привод, запустите проводник, найдите на диске файл Setup.exe и запустите его. 
+</p>
+<center><img src="images\a0.png" width="552" height="419"></img></center>
+<br/>
+<p>
+Если Вы удачно справились с запуском инсталляции, то перед Вами должно появиться диалоговое окно, преведенное ниже на рисунке. В данном диалоговом окне выбираем пункт <b>Workstation Tools and Components</b> и нажимаем кнопку <b>Next</b>.
+<br/>
+</p>
+<br/>
+<center><img src="images\a1.png" width="564" height="453"></img></center>
+<br/>
+<p>
+Перед Вами появиться окно, в котором будут убедительно просить чуть-чуть подождать пока подготавливается установка Microsoft Visual Studio 6.0 . </p>
+<br/>
+<center><img src="images\a2.png" width="507" height="252"></img></center>
+<br/>
+<p>
+Так, выясним откуда появилось словосочетание Microsoft Visual Studio 6.0, если мы хотим установить Microsoft Visual С++ 6.0 . Все очень просто. Microsoft Visual С++ 6.0  входит в группу программных продуктов объединенных одним именем Microsoft Visual Studio 6.0. 
+</p>
+
+<p>
+Далее следуйте подсказкам программы установки. На вопрос: "Какой тип инсталляции Вы хотите произвести?" выберите вариант Custom. В появившемся диалоговом окне установите "галочки" напротив следующих пунктов: Microsoft Visual C++ 6.0, ActiveX, Data Access, Enterprise Tools, Tools. 
+В конечном итоге, окно выбора будет выглядеть примерно следующим образом:
+</p>
+<br/>
+<center><img src="images\a3.png" width="545" height="443"></img></center>
+<br/>
+<p>
+Нажимаете кнопку <i>Continue</i> и ожидайте завершения процесса инсталляции.
+</p>
+
+</lesson>

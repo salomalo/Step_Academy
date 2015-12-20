@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>JSON.stringify()</title>
+	</head>
+	<body>
+		<h1><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" >
+				JSON.stringify():
+			</a>
+			<br><span style="font-weight:normal;"> вказання <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_native_JSON#The_replacer_parameter" target="_blank" >функції</a> для перетворення</span>
+		</h1>
+		<p></p>
+		<p></p>
+		<p></p>
+
+		<script>
+			//var obj = { name:"Vasya", surname:"Pupkin", age:18, registered: new Date(), card:"4111111111111118" };
+			//var obj = { name:"Vasya", surname:"Pupkin", age:18, registered: new Date(), card:"4111111111111118", car:{ producer:"ZAZ", model:"Lanos", year:2013, go:function(){alert('Tu-tu!');} } };
+			var obj = { name:"Vasya", surname:"Pupkin", age:18, registered: new Date(), card:"4111111111111118", car:{ producer:"ZAZ", model:"Lanos", year:2013 } };
+			obj.method = function(){ alert('KU!'); };
+			obj.car.go = function(){alert('Tu-tu!');}
+			
+			var json = JSON.stringify( obj, replacer );
+			//var json = JSON.stringify( obj, null, 2 );
+			
+			var html = "Початковий об'єкт:";
+			for( var key in obj ){
+				html += "<br> &nbsp; &nbsp; &nbsp; "+key +" = "+ obj[key] +" &nbsp; &nbsp; &nbsp;(" + typeof( obj[key] ) +")";
+			}
+			document.getElementsByTagName("p")[0].innerHTML = html;
+			document.getElementsByTagName("p")[1].innerHTML = "JSON-представлення:<br> &nbsp; &nbsp; &nbsp; "+ json;
+			
+			var cntr;	// лічильник викликів функції -- виключно з демонстраційною метою
+			
+			
+			function replacer( key, value ){
+			
+				// у перший виклик key пустий
+				if( !key ){
+					cntr = 0;
+					console.clear();
+					//return;	// якщо повертаємо undefined (тобто нічого) -- припиняється стрінгіфікація
+				}
+				
+				// виводимо у консоль інфу про виклик replacer'а
+				console.log("виклик "+ cntr +" :\n     key = '"+ key +"' ("+ typeof(key) +")\n     value = '"+ value +"' ("+ typeof(value) +")");
+				cntr++;
+				
+				// replacer обов'язково повинен повернути ЩОСЬ крім undefined
+				
+				if( typeof(value) === "function" ){
+					//return "Тут має бути функція";		// повртаємо рядкове представлення функції -- щоби вона потрпила у JSON
+					return value.toString();			// повртаємо рядкове представлення функції -- щоби вона потрпила у JSON
+				}
+				
+				// шифруємо номер карти
+				if( key === "card" ){
+					var result = "";
+					for( var i = 0 ; i < value.length ; i++ ){
+						result += String.fromCharCode( value.charCodeAt(i) ^ 234 );
+					}
+					return result;
+				}
+				
+				
+				return value;	// для усіх крім function
+				
+				
+			}//function replacer
+			
+		</script>
+
+	</body>
+</html>

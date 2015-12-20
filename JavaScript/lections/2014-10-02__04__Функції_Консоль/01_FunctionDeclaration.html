@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Function Declaration</title>
+	</head>
+	<body>
+		<h1>Function Declaration</h1>
+		<script>
+		
+			function MyFunction() {
+				var a = 55;
+				alert( "Hello " + a  );
+				alert( "Hello " + b  );				// глобальна змінна видима
+				alert( "Hello " + window.a  );		// доступ до глобальної змінної, перекритої локальною
+			}
+			
+			var a =66;
+			var b =99;
+			
+			alert( a ) ;
+			
+			MyFunction();
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+  <user id="U-01">
+    <name>Том Джонс</name>
+    <login>tom</login>
+    <password>Zder12</password>
+    <role>user</role>
+  </user>
+  <user id="U-02">
+    <name>Іван Сусанін</name>
+    <login>suslik</login>
+    <password>qwerty</password>
+    <role>admin</role>
+  </user>
+  <user id="U-03">
+    <name>Том Робінс</name>
+    <login>robin</login>
+    <password>123</password>
+    <role>user</role>
+  </user>
+  <user id="U-04">
+    <name>Лілія Попович</name>
+    <login>golderian</login>
+    <password>sdr1po</password>
+    <role>student</role>
+  </user>
+  <user id="U-05">
+    <name>Юлія Ковальова</name>
+    <login>julia</login>
+    <password>Opte</password>
+    <role>admin</role>
+  </user>
+  <user id="U-06">
+    <name>Віктор Ліванов</name>
+    <login>lyova</login>
+    <password>lmjy4asd</password>
+    <role>student</role>
+  </user>
+</users>

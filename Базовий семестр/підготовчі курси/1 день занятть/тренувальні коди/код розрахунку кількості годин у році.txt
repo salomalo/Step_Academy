@@ -1,0 +1,5 @@
+const int days_2000=366;
+	const int hour_in_a_day=24;
+	int hours_in_a_year_2000;
+	hours_in_a_year_2000 = days_2000*hour_in_a_day;
+	cout<<"in_2000\n"<<hours_in_a_year_2000<<endl;

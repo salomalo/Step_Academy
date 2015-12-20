@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Вступ до JavaScript :: switch</title>
+    </head>
+    <body>
+        <h1>switch</h1>
+        <script>
+            var arg = prompt("Введіть щось\n")
+		
+		while(!false)
+		{           
+		   switch(arg) {
+            
+                case "0":
+                    alert( "Нуль" );
+                    
+                case "1":
+                    alert( "Один" );
+                    break
+
+                case "2":
+                    alert("Два");
+                    break;
+
+                case 3:
+                    alert("Чому цей alert() ніколи не виконається ?");
+
+                case "4":
+                case "5":
+                case "6":
+                case "7":
+                    alert( "Від чотирьох до семи" );
+                    break;
+                    
+                case null: 
+                    alert("Даремно Ви відмовилися.\nДалі було би цікавше...\n\n");
+                    break;
+                    
+                case undefined: 
+                    alert("O!\n undefined !!!\n");
+                    break;
+
+                default:
+					alert("Ви ввели щось неадекватне: " + arg)
+                    break;
+            }
+		}
+        </script>
+    </body>
+</html>

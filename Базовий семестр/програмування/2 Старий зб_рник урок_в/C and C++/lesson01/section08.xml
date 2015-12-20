@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Урок №1" next="hometask.xml" prev="section07.xml" summ="1">
+<h2>Литералы</h2>
+
+<p><b>Литералы</b> (literals) — это фиксированные значения,
+ которые программа не в состоянии изменять. Для каждого типа языка С
+существуют литералы, включая символьный и
+булевский типы, целые числа и числа с плавающей точкой.
+Как это не парадоксально, типа данных  для
+хранения строк в С не существует, а строковые литералы существуют. </p>
+
+<h3>Некоторые примеры</h3>
+
+<table  align="center" border="1" cellspacing="0" frame="box" rules="groups" style="margin-bottom: 10;">
+<colgroup style="width: 300; padding-left: 10;" />
+<colgroup style="width: 400; padding-left: 10; padding-bottom: 5;" />
+<tbody>
+  <tr>
+    <td width="11%" align="center">5</td>
+    <td width="89%">целочисленный литерал-int</td>
+  </tr>  
+</tbody>
+<tbody>
+  <tr>
+    <td width="11%" align="center">5l </td>
+    <td width="89%">l  или L означает long</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td width="11%" align="center">true</td>
+    <td width="89%">логический литерал-bool</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td width="11%" align="center">5.0</td>
+    <td width="89%">литерал с плавающей точкой,
+    понимается как double</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td width="11%" align="center">5.0f</td>
+    <td width="89%">f или F— с плавающей точкой,
+    понимается как float</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td width="11%" align="center">0.3е-2</td>
+    <td width="89%">литерал с плавающей точкой double, e или E
+    отделяют экспоненциальную часть</td>
+  </tr>  
+</tbody>
+<tbody>
+  <tr>
+    <td width="11%" align="center">'d'</td>
+    <td width="89%">символьный литерал</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td width="11%" align="center">&quot;Visual&quot;</td>
+    <td width="89%">строковый литерал – это набор произвольных
+символов, заключенный в кавычки. Компилятор
+воспринимает его именно как набор символов и
+никак обрабатывать его не собирается, даже если в
+кавычках окажутся какие-то ключевые слова и
+операции.</td>
+  </tr>
+</tbody>
+</table>
+<H3>Примеры кода, содержащего литералы.</H3>
+<example>
+//"abrakadabra" - строковый литерал '\n' - символьный литерал
+cout&lt;&lt;"abrakadabra"&lt;&lt;'\n'; 
+
+int a = 2; // 2 - литерал типа int
+
+</example>
+<p>
+На этом изложение материала первого урока можно считать завершенным. Настоятельно рекомендуем Вам выполнить домашнее задание, описанное в следующем разделе. Желаем удачи!</p>
+
+</lesson>

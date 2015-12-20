@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Clock</title>
+		
+		<style>
+			body{
+			padding-left:200px;
+			}
+		
+			OL, UL {
+				overflow: hidden;
+			}
+			
+			li{
+			
+			list-style-type: none; 
+			}
+			
+			table, td, th {
+			border: 3px solid black;
+			border-collapse: collapse;
+			}
+			
+			td{
+			height:25px;
+			width:35px;
+			}
+			
+			#hei{
+			height:0px;
+			}
+			
+			#clock{
+			padding-left:50px;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<script>
+		function handleClick(event) {
+			if( event.target.tagName == "LI" && event.target.children[0] ){
+				if( event.target.children[0].tagName == "UL" || event.target.children[0].tagName == "OL" ){
+					var iListHeight =  parseInt( getComputedStyle( event.target.children[0] ).height );
+					if( iListHeight == 0 ){
+						event.target.children[0].style.height = "auto";
+						document.getElementById("hei").style.height = "auto";
+					} 
+					else {
+						event.target.children[0].style.height = "0";
+					}
+				}
+			}
+
+				var eParent = event.target.parentElement;
+					while( eParent && eParent.tagName != "LI"){
+						eParent=eParent.parentElement;
+						}
+				
+				var nameProperty = eParent.getAttribute("data-style");
+				var valProperty = event.target.getAttribute("data-value");
+
+				if(valProperty =="-"){
+					valProperty = parseInt(document.getElementById("test").innerText);
+					var r= parseInt(valProperty);
+					valProperty=r;
+					valProperty--;
+					document.body.style[nameProperty] = valProperty+"pt";
+					document.getElementById("test").innerText=valProperty
+				}else 
+					{ if(valProperty =="+"){
+									valProperty = parseInt(document.getElementById("test").innerText);
+									var r= parseInt(valProperty);
+									valProperty=r;
+									valProperty++;
+									document.body.style[nameProperty] = valProperty+"pt";
+									document.getElementById("test").innerText=valProperty
+					}else{
+							document.body.style[nameProperty] = valProperty;
+							}
+		
+					}
+		}
+		
+	</script>
+	
+	<body onclick="handleClick(event);" >
+		<ol>
+			<li>Clock style
+				<ol id="hei">
+					<li  data-style="fontSize">Font size
+						<ul style="display:inline"  >
+							<li style="display:inline" data-value="-"> - </li>
+							<li style="display:inline"  id="test">12</li>
+							<li style="display:inline"  data-style="fontSize" data-value="+"> + </li>
+						</ul>
+					</li>
+	
+					<li data-style="color"> Font color
+						<ul >
+							<li data-value="yellow" style="color:yellow">yellow </li>
+							<li data-value="black" style="color:black">black</li>
+							<li data-value="blue" style="color:blue">blue</li>
+							<li data-value="green" style="color:green">green</li>
+						</ul>
+					</li>
+
+					<li data-style="backgroundColor">Backgroung color
+						<ul>
+							<table>
+								<tr>
+									<td data-value="#E0EEE0" style="background-color:#E0EEE0"></td>
+									<td data-value="#EEE5DE" style="background-color:#EEE5DE"></td>
+									<td data-value="#20B2AA" style="background-color:#20B2AA"></td>
+									<td data-value="#66CDAA" style="background-color:#66CDAA"></td>
+									<td data-value="#5F9EA0" style="background-color:#5F9EA0"></td>
+									<td data-value="#F0F8FF" style="background-color:#F0F8FF"></td>
+								</tr>
+								<tr>
+									<td data-value="#87CEEB" style="background-color:#87CEEB"></td>
+									<td data-value="#4876FF" style="background-color:#4876FF"></td>
+									<td data-value="#5CACEE" style="background-color:#5CACEE"></td>
+									<td data-value="#CAE1FF" style="background-color:#CAE1FF"></td>
+									<td data-value="#B4CDCD" style="background-color:#B4CDCD"></td>
+									<td data-value="#008B8B" style="background-color:#008B8B"></td>
+								</tr>
+							</table>
+						</ul>
+					</li>
+
+					<li data-style="fontFamily">Font family
+						<ul>
+							<li data-value="fantasy">fantasy</li>
+							<li data-value="comic sans ms">comic sans ms</li>
+							<li data-value="century gothic">century gothic</li>
+						</ul>
+					</li>
+				</ol>
+			</li>
+		</ol>	
+		
+		<output id="clock"></output>
+			<script>
+				var date = Date();
+				eOut1 = document.getElementById("clock");
+				setInterval( update, 100 );
+				
+				function update() {
+					date = new Date();
+					msg = "";
+					
+					var hour = date.getHours();
+					hour = (hour < 10 ? "0" : "") + hour;
+					
+					var min = date.getMinutes();
+					min = (min < 10 ? "0" : "") + min;
+					
+					var sec = date.getSeconds();
+					sec = (sec < 10 ? "0" : "") + sec;
+					
+					msg += hour +":"+ min +":"+ sec +"<br>";
+					eOut1.innerHTML = msg;
+				}
+			</script>
+	</body>
+</html>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<myNS:group groupmyNS:name="23C19-5пр" xmlns:myNS="http://rivne.itstep.org/23s19-5pr/groupNS" >
+
+	<myNS:student id='_1' status="looser" >
+		<myNS:name>Іван</myNS:name>
+		<myNS:surname>Петренко</myNS:surname>
+		<myNS:vik>18</myNS:vik>
+		<myNS:starosta />
+	</myNS:student>
+
+	<myNS:student id='_2' >	<!-- для цього  status="middle" по замовчуванню -->
+		<myNS:surname>Іваненко</myNS:surname>	
+		<myNS:name>Петро</myNS:name>
+		<myNS:vik>18</myNS:vik>
+	</myNS:student>
+
+	<myNS:student id='_3' status="middle" >
+		<myNS:name>Вас&lt;&gt;иль</myNS:name>
+		<myNS:surname>Стеценко</myNS:surname>
+		<myNS:vik>18</myNS:vik>
+	</myNS:student>
+
+	<myNS:student id='_q' status="successful" >
+		<myNS:name>Валентина</myNS:name>
+		<myNS:surname>Павленко</myNS:surname>
+	</myNS:student>
+
+  <myNS:teacher>
+    <myNS:name>Петро</myNS:name>
+    <myNS:surname>Павленко</myNS:surname>
+    <myNS:rang>docent</myNS:rang>
+  </myNS:teacher>
+  
+
+</myNS:group>

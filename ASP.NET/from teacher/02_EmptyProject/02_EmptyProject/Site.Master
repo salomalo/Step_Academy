@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="_02_EmptyProject.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="~/Content/Main.css" />
+    <asp:ContentPlaceHolder ID="Styles" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="Scripts" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <div id="content">
+        <div class="header"></div>
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="Body" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+        <div class="footer"></div>
+    </div>
+</body>
+</html>

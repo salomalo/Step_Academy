@@ -1,0 +1,46 @@
+﻿@using ToDo.Entities
+
+@{
+    ViewBag.Title = "Edit";
+    List<TaskEntity> list = ViewBag.Tasks;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link href="~/Styles/Styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+    <div>Edit</div>
+        <div class="table">
+            <div class="table">
+                <table border="1">
+                    @*<caption style="font-size:12px; font-weight:bold">List Tasks</caption>*@
+                    <tr>
+                        <th id="num">№</th>
+                        <th>Task</th>
+                        <th id="yesno">y/n</th>
+                    </tr>
+                    @foreach (var task in list)
+                    {                        
+                        <tr>
+                            <td class="td">@task.Id</td>
+                            <td>@task.Title</td>
+                            <td class="td"><input type="checkbox" checked=@task.IsDone /></td>
+                            <td><form method="post"><input type="submit" name="btnDel" value="X" /></form></td>
+                        </tr>                       
+                    }
+                </table>
+            </div>
+
+        </div>
+</body>
+
+
+</html>

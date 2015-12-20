@@ -1,0 +1,68 @@
+//#include<iostream>
+//#include<iomanip>
+//#include<conio.h>
+//#include<cstring>
+//using namespace std;
+//using namespace System;
+//
+//////#define UP_ARROW 72
+//////#define LEFT_ARROW 75
+//////#define DOWN_ARROW 80
+//////#define RIGHT_ARROW 77
+////
+////using namespace std;
+////
+////int main()
+////{       
+/////*
+////	char f=getch();*/
+////	//	UP_ARROW 72
+////	//#define LEFT_ARROW 75
+////	//#define DOWN_ARROW 80
+////	//#define RIGHT_ARROW 77
+////	int KeyStroke=getch();
+////	cout << "Press Escape to quit." << endl;
+////	
+////	if(KeyStroke==22472)
+////		cout << "UP ARROW" << endl;
+////	//
+////	//if(KeyStroke==22480)
+////	//cout << "DOWN ARROW" << endl;
+////	//
+////
+////	//if(KeyStroke==22475)
+////	//	cout << "LEFT_ARROW" << endl;
+////
+////	//if(KeyStroke==22477)
+////	//	cout << "RIGHT_ARROW" << endl;
+////	
+////
+////
+////	
+////	//do
+////	//{       KeyStroke = getch();
+////	//if (KeyStroke == 224)
+////	//{       KeyStroke = getch(); // Even though there are 2 getch() it reads one keystroke
+////	//switch (KeyStroke)
+////	//{
+////	//case UP_ARROW:
+////	//	cout << "UP ARROW" << endl;
+////	//	break;
+////	//case DOWN_ARROW:
+////	//	cout << "DOWN ARROW" << endl;
+////	//	break;
+////	//case LEFT_ARROW:
+////	//	cout << "LEFT_ARROW" << endl;
+////	//	break;
+////	//case RIGHT_ARROW:
+////	//	cout << "RIGHT_ARROW" << endl;
+////	//	break;
+////	//default:
+////	//	cout << "Some other key." << endl;
+////	//}
+////	//}
+////	//else cout << KeyStroke << endl;
+////
+////	//}while (KeyStroke != 27); // 27 = Escape key
+////}
+//

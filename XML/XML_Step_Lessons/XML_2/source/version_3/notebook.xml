@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE notebook SYSTEM "notebook.dtd">
+<notebook>
+	<person>
+		<fullname first="Vasja" surname="Pupkin"/>
+		<phone>22-22-22</phone>
+		<city type="смт">Zmerinka</city>
+	</person>
+	<person>
+		<fullname first="Dasha" surname="Ivanova"/>
+		<phone>333-33-33</phone>
+		<city>Kyev</city>
+		<text>&author;</text>
+		<text>&copyright;</text>
+		<text>5 &lt; 2</text>
+		<text>Рекламне оголошення: &adv;</text>
+	</person>
+</notebook>

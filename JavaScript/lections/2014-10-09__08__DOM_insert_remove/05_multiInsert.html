@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Багаторівневий список</title>
+	</head>
+	<body>
+		<h1>multiInsert</h1>
+<!--		<ol type="A">	<!- - Ordered List -->
+<!--		<ol type="I" reversed start="3">	<!-- Ordered List -->
+		<ol style="list-style-type:decimal" reversed start="3">	<!-- Ordered List -->
+			<li>Перший елемент</li>		<!-- List Item -->
+			<li>Другий елемент</li>		<!-- List Item -->
+			<li style="list-style-type:square">Третій елемент</li>		<!-- List Item -->
+			<li>Четвертий елемент</li>	<!-- List Item -->
+			<li>П'ятий елемент
+				<ul>
+					<li>перший підпункт</li>
+					<li>другий підпункт</li>
+					<li>третій підпункт
+						<ol type="i">
+							<li>перший підпідпункт</li>
+							<li>другий підпідпункт</li>
+							<li>третій підпідпункт</li>
+							<li>другий підпідпункт</li>
+							<li>третій підпідпункт</li>
+							<li>другий підпідпункт</li>
+							<li>третій підпідпункт</li>
+						</ol>
+					</li>
+					<li>четвертий підпункт</li>
+				</ul>
+			</li>
+			<li>Шостий елемент</li>		<!-- List Item -->
+			<li>Сьомий елемент</li>		<!-- List Item -->
+		</ol>
+		
+		<p>
+			<input type="button" value="insertBefore" onclick="demo();" >
+			<input type="number" value="3" id="idInsertBefore" oninput="alert('Ку!')" ><br>
+			<label>Рядків: <input type="number" value="3" id="idRows" ></label><br>
+			<label>Колонок: <input type="number" value="3" id="idCols" ></label><br>
+		</p>
+		
+	</body>
+	
+	<script>
+		function demo() {
+			var eParent = document.body.children[1].children[4].firstElementChild.lastElementChild.previousElementSibling.firstElementChild;
+			var idxChild = parseInt( document.getElementById( "idInsertBefore" ).value );
+			var nRows = parseInt( document.getElementById( "idRows" ).value );
+			var nCols = parseInt( document.getElementById( "idCols" ).value );
+			if( isNaN(idxChild ) || !nRows || !nCols ) return; 
+			
+			var ePeredYakymVsavyty = eParent.children[ idxChild ];
+			
+			var eTable = document.createElement("table");
+			eTable.style.border = "1px solid black";
+			eTable.style.borderCollapse = "collapse";
+			for( var iRow = 0 ; iRow < nRows ; iRow++ ){
+				var eRow = document.createElement("tr");
+				for( var iCol = 0 ; iCol < nCols ; iCol++ ){
+					var eTD = document.createElement("td");
+					eTD.style.border = "1px solid black";
+					eTD.innerText = iCol +" в "+ iRow;
+					
+					eRow.appendChild( eTD );
+				}
+				eTable.appendChild( eRow );
+			}
+			
+			
+			eParent.insertBefore( eTable, ePeredYakymVsavyty );
+			
+		}
+	</script>
+	
+</html>
+

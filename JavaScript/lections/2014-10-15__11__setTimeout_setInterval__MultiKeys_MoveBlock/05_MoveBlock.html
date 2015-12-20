@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Рух блока</title>
+		<style>
+			#Moveable {
+				width: 100px;
+				height: 100px;
+				background-color: green;
+				
+				position: absolute;
+				top: 200px;
+				left: 200px;
+				
+				border-radius: 50%;
+				
+				transition: all 0.3s linear 0s;
+			}
+		</style>
+		
+	</head>
+	<body onkeydown="HandleKey(event)" >
+		<h1>Рух блока</h1>
+		<div id="Moveable" >
+		</div>
+		
+	</body>
+	
+	<script>
+	
+		function HandleKey(event){
+		
+			var KEYCODE = { UP: 38, DOWN: 40, LEFT: 37, RIGHT:39 }; 	// event.keyCode`и клавіш курсора
+			var STEP = { X: 50, Y:50 };
+			
+			var eBlock = document.getElementById( "Moveable" );		// одержуємо елемент, котрий рухаємо
+			var y = eBlock.offsetTop;									// його координата y відносно батьківського елемента
+			var x = eBlock.offsetLeft;									// його координата x відносно батьківського елемента
+			var yNew, xNew;
+			
+			
+			// обчислюємо нові координати рухомого блока, відповідно до натисненої клавіші
+			switch( event.keyCode ){
+
+				case KEYCODE.UP :
+					yNew = y - STEP.Y;
+					break;
+
+				case KEYCODE.DOWN :
+					var yNew = y + STEP.Y;
+					break;
+
+				case KEYCODE.LEFT :
+					xNew = x - STEP.X;
+					break;
+
+				case KEYCODE.RIGHT :
+					xNew = x + STEP.X;
+					break;
+					
+			}// switch( event.type )
+			
+			
+			// змінюємо позицію блока
+			eBlock.style.top  = yNew +"px";
+			eBlock.style.left = xNew +"px";
+			
+			
+		}
+	
+	</script>
+	
+</html>

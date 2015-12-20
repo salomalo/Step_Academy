@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Function Expression</title>
+	</head>
+	<body>
+		<h1>Приклад використання Function Expression</h1>
+		<script>
+			var variant = +prompt( "What?", "" ) ;
+			
+			
+			if( variant % 2 ) {
+				
+				var funcExpr = function() {		// анонімна ф-я, кладеться у змінну funcExpr
+					alert( "Hello " );
+				}
+				
+			} else {
+				
+				var funcExpr = function() {		// анонімна ф-я, кладеться у змінну funcExpr
+					alert( "Bye! " );
+				}
+			
+			}
+			
+			
+			funcExpr();
+			
+			
+		</script>
+		
+	</body>
+</html>

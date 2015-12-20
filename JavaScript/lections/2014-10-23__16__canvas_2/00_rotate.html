@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>rotate</title>
+		<script src="01_Canvas&Img/js/00_common.js" ></script>
+		<script>
+			
+			var ctx;
+			
+			
+			function drawLine() {
+				ctx.beginPath();
+				ctx.moveTo( 0, 0 );
+				ctx.lineTo( 150, 0 );
+				ctx.strokeStyle = getRandomColor();
+				ctx.stroke();
+			}
+			
+			function rotate() {
+				ctx.rotate( 10 * Math.PI / 180 );
+			}
+			
+			function init(){
+				ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+				ctx.translate( 150, 150 );
+			}
+			
+			
+		</script>
+		
+		
+	</head>
+	<body onload="init();" >
+		<h1>rotate</h1>
+		
+		<canvas width="333" height="333" style="border: 1px solid black"></canvas><br>
+		<input type="button" value="draw line" onclick="drawLine()" ><br>
+		<input type="button" value="rotate" onclick="rotate()" ><br>
+		
+		
+	</body>
+</html>

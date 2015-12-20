@@ -1,0 +1,10 @@
+﻿#content .header 
+{
+    height: 200px;
+    background-color: #cec5c5;
+}
+#content .footer 
+{
+    height: 150px;
+    background-color: #b5aaaa;
+}

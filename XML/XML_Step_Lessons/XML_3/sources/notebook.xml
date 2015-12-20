@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<ntbk:notebook xmlns:ntbk="http://www.note.com/nt" xmlns:phone="http://www.phone.com.ua/ns" >
+	<ntbk:person>
+		<ntbk:name ntbk:first="Vasja" ntbk:surname="Pupkin"/>
+		<ntbk:phone>22-22-22</ntbk:phone>
+		<phone:city phone:type="смт">Zmerinka</phone:city>
+	</ntbk:person>
+	<ntbk:person>
+		<ntbk:name ntbk:first="Dasha" ntbk:surname="Ivanova"/>
+		<ntbk:phone>333-33-33</ntbk:phone>
+		<phone:city>Kyev</phone:city>
+	</ntbk:person>
+</ntbk:notebook>

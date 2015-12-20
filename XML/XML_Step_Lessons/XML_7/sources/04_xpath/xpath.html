@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>XPath samples</title>
+	<script type="text/javascript">
+	<!--
+	function Search() 
+    {
+		var doc = new ActiveXObject("MSXML2.DOMDocument.6.0");
+		doc.async = false;
+		doc.validateOnParse = false;
+		doc.resolveExternals = false;
+
+		//завантажуємо XML документ
+		var filename = prompt("Введіть назву XML документа: ", "D:\\doc\\modul\\XML\\XML_7\\sources\\05_xpath\\users.xml");
+		doc.load(filename);
+
+		//виводимо ідентифікатор другого користувача
+		var attr = doc.selectSingleNode("/users/user[1]/@id");
+		var para = document.getElementById("para");
+		para.innerHTML = "<b>id</b>: " + attr.value + "<br />";
+		
+		//відбираємо всіх адміністраторів 
+		//та виводимо їх імена і логіни
+		var nodes = doc.selectNodes("/users/user[role = 'admin']");
+		para.innerHTML += "<br />Адміністраторів " + nodes.length + " чол.<br />";
+		
+		for(var i=0; i<nodes.length; ++i) {
+			var user = nodes.item(i);
+			para.innerHTML += "id: " + user.getAttribute("id") + "<br />";
+			para.innerHTML += "name: " + user.childNodes[0].text + "<br />"; //можна так
+			para.innerHTML += "login: " + user.selectSingleNode("login").text + "<br />"; //а можна і так
+			para.innerHTML += "<br />";
+		}
+	}
+	//-->
+	</script>
+</head>
+<body>
+    <button onclick="Search();">Search</button>
+	<p id="para"></p>
+</body>
+</html>

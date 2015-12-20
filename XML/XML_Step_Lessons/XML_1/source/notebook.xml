@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1251" standalone = "yes"?>
+<notebook>
+  <person>
+    <name>Vasja</name>
+    <surname>Pupkin</surname>
+    <phone>22-23-22</phone>
+  </person>
+
+  <person>
+    <name>Olga</name>
+    <surname>Pupkina</surname>
+    <phone>33-33-33</phone>
+  </person>
+</notebook>

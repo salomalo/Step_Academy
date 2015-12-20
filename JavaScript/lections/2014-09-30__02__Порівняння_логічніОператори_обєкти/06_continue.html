@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Вступ до JavaScript :: continue з міткою</title>
+    </head>
+    <body>
+        <h1>continue з міткою</h1>
+        <script>
+            coordLoop:         // <<=== оце мітка.
+            while( true ){
+                for( var x = 0 ; x < 44 ; x += 10 ) {
+                    for( var y = 0 ; y < 33 ; y += 11 ) {
+                        if( confirm( "Точка А( "+ x +", "+ y +" )\n\nСпочатку ?\n\n" ) ) {
+                            //continue;
+                            continue coordLoop;
+                        }
+                        alert( "Схвалено точку А( "+ x +", "+ y +" )\n" );
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>XPath samples</title>
+	<script type="text/javascript">
+	<!--
+	function Search() 
+    {
+		var doc = new ActiveXObject("MSXML2.DOMDocument.6.0");
+		doc.async = false;
+		doc.validateOnParse = false;
+		doc.resolveExternals = false;
+
+		//завантажуємо XML документ
+		var filename = prompt("Введіть назву XML документа: ", "users.xml");
+		doc.load(filename);  
+
+		//виводимо ідентифікатор другого користувача
+		var attr = doc.selectSingleNode("/users/user[1]/@id");
+		var para = document.getElementById("para");
+		para.innerHTML = "<b>id</b>: " + attr.value + "<br />";
+		
+		//відбираємо всіх адміністраторів 
+		//та виводимо їх імена і логіни
+		var nodes = doc.selectNodes("/users/user[role = 'admin']");
+		para.innerHTML += "<br />Адміністраторів " + nodes.length + " чол.<br />";
+		
+		for(var i=0; i<nodes.length; ++i) {
+			var user = nodes.item(i);
+			para.innerHTML += "id: " + user.getAttribute("id") + "<br />";
+			para.innerHTML += "name: " + user.childNodes[0].text + "<br />"; //можна так
+			para.innerHTML += "login: " + user.selectSingleNode("login").text + "<br />"; //а можна і так
+			para.innerHTML += "<br />";
+		}
+	}
+	//-----------------------------------
+	function createDom(fileName) {
+	    var doc = new ActiveXObject("MSXML2.DOMDocument.6.0");
+	    doc.async = false;
+	    doc.validateOnParse = false;
+	    doc.resolveExternals = false;
+
+	    if (fileName != null)
+	        doc.load(fileName);
+	    return doc;
+	}
+
+	function Transform() {
+	    //створюємо посилання на XML-документ та таблицю стилів
+		var filename = prompt("Введіть шлях до XML-документа: ", "users.xml");
+		var doc = createDom(filename);
+		filename = prompt("Введіть шлях до XSLT-документа: ", "users.xslt");
+		var xsl = createDom(filename);
+
+		//трансформуємо XML-документ згідно завантаженої таблиці стилів
+		var result = doc.transformNode(xsl); 
+
+		//створюємо об'єкт FSO для роботи з файловою системою
+		var fso = new ActiveXObject("Scripting.FileSystemObject");
+		//створюємо файл або отримуємо посилання на існуючий
+		var file = fso.createTextFile("D:\\result.html", true); 
+		//var file = fso.openTextFile("D:\\result.html", 2, true); 
+		file.write(result);  //записуємо результат трансформації
+		file.close();        //закриваємо файл
+
+		var para = document.getElementById("para");
+		para.innerText = "XML документ успішно конвертований";
+	}
+	//-->
+	</script>
+</head>
+<body>
+    <button onclick="Search();">Search</button><br />
+	<button onclick="Transform();">Transformation</button><br />
+	<p id="para"></p>
+</body>
+</html>

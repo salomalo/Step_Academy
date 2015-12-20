@@ -1,0 +1,24 @@
+BODY  {
+	text-align: center;
+	font: 12pt Arial;
+}
+
+CANVAS {
+	border: 1px dotted black;
+}
+
+
+INPUT {
+	vertical-align: top;
+	display: block;
+}
+
+
+TABLE, TH, TD {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+TD {
+	padding: 0 5px;
+}

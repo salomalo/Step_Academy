@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+	double a_hryvnyas;
+	a_hryvnyas=10;
+	double c_course_for_dollars;
+	c_course_for_dollars=8.136;
+	cout<<"Enter please, haw meny a_hryvnyas you have:";
+	cin>>a_hryvnyas;
+	cout<<"Enter please, a c_course_for_dollars:";
+	cin>>c_course_for_dollars;
+	double res_hryvnyas_in_dolars=a_hryvnyas/c_course_for_dollars;
+	cout<<res_hryvnyas_in_dolars<<endl;
+	
+	double c_course_for_euro;
+	c_course_for_euro=10.648;
+	cout<<"Enter please, a c_course_for_euro:";
+	cin>>c_course_for_euro;
+	double res_hryvnyas_in_euro=a_hryvnyas/c_course_for_euro;
+	cout<<res_hryvnyas_in_euro<<endl;
+
+	double b_course_for_rub;
+	b_course_for_rub=0.239;
+	cout<<"Enter please, a b_course_for_rub:";
+	cin>>b_course_for_rub;
+	double res_hryvnyas_in_rub=a_hryvnyas/b_course_for_rub;
+	cout<<res_hryvnyas_in_rub<<endl;

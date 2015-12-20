@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Об'єкт Date()</title>
+	</head>
+	<body>
+		<h1>Об'єкт <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date()</a></h1>
+		
+		<output id="id1">
+		</output>
+		
+	</body>
+	
+	<script>
+		var date = Date();
+		eOut1 = document.getElementById("id1");
+		
+		setInterval( update, 100 );
+		
+		function update() {
+			date = new Date();
+			msg = "";
+			msg += "Date.now() = "+ Date.now() +"<br><br>";
+			msg += "date.valueOf() = "+ date.valueOf() +"<br>";
+			msg += "date.toString() = "+ date.toString() +"<br>";
+			msg += "<br>";
+			
+			var day = date.getDate();
+			day = (day < 10 ? "0" : "") + day;
+			
+			var mon = date.getMonth() + 1;
+			mon = (mon < 10 ? "0" : "") + mon;
+			
+			var year = date.getYear() + 1900;
+			
+			var hour = date.getHours();
+			hour = (hour < 10 ? "0" : "") + hour;
+			
+			var min = date.getMinutes();
+			min = (min < 10 ? "0" : "") + min;
+			
+			var sec = date.getSeconds();
+			sec = (sec < 10 ? "0" : "") + sec;
+			
+			msg +=  day +"."+ mon +"."+ year +"\n"+ hour +":"+ min +":"+ sec +"<br>";
+
+			eOut1.innerHTML = msg;
+		}
+		
+	</script>
+	
+</html>

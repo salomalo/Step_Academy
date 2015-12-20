@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notebook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="notebook.xsd">
+	<person>
+		<name>Olga</name>
+		<age value="12" />
+		<phone color="#ff0000">8(097)22-22-22</phone>
+		<city type="смт">Zmerynka</city>
+	</person>
+	<person>
+		<name>Vovan</name>
+		<age value="45" />
+		<phone color="#ffff00">8(097)111-22-22</phone>
+		<city type="місто">Rivne</city>
+	</person>
+</notebook>

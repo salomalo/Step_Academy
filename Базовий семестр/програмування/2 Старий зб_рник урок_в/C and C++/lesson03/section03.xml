@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Урок №3" next="section04.xml" prev="section02.xml" summ="0">
+<h2>Конструкция do while.</h2>
+<h3>Общий синтаксис  и принцип работы do while:</h3>
+<example>do
+{
+	действие;
+}
+while(условие);
+</example>
+<p>Цикл do while похож на цикл while. Разница состоит в том, что в while проверка условия производится сразу же при входе в цикл, и, лишь затем, если условие истинно - выполняется действие. В do while в любом случае сначала выполняется действие и только потом идет проверка условия. Если условие истинно, выполнение действия продолжается, а если нет, то выполнение передается следующему за while оператору. Другими словами, в отличие от while внутри do while действие хотя бы один раз выполняется. Давайте рассмотрим это на схеме:</p>
+<center><img src="images\3.jpg" ></img></center>
+
+<h3>Применение do while на практике.</h3>
+<p>Предположим, нам необходимо написать программу, в которой пользователю предоставляется право выбора какого-то действия несколько раз подряд. Реализуем данную задачу сначала с помощью while, а затем с помощью do while.</p>
+<example>#include &lt;iostream&gt;
+using namespace std;
+void main()
+{
+	int answer,A,B,RES;
+	
+	// запрос на выбор операции
+	cout&lt;&lt;"\nSelect operation:\n";
+	cout&lt;&lt;"\n 1 - if you want to see SUM.\n";
+	cout&lt;&lt;"\n 2 - if you want to see DIFFERENCE.\n";
+	cout&lt;&lt;"\n 3 - if you want to exit.\n";
+	cin&gt;&gt;answer;
+
+	while(answer!=3){ // проверка условия
+		switch(answer){
+	   	case  1:    // если пользователь выбрал сложение
+			cout&lt;&lt;"Enter first digit:\n";
+			cin&gt;&gt;A;
+			cout&lt;&lt;"Enter second digit:\n";
+			cin&gt;&gt;B;		
+			RES=A+B;
+			cout&lt;&lt;"\nAnswer: "&lt;&lt;RES&lt;&lt;"\n";
+			break; // остановка switch
+	   	case  2:     // если пользователь выбрал вычитание
+			cout&lt;&lt;"Enter first digit:\n";
+			cin&gt;&gt;A;
+			cout&lt;&lt;"Enter second digit:\n";
+			cin&gt;&gt;B;
+			RES=A-B;
+			cout&lt;&lt;"\nAnswer: "&lt;&lt;RES&lt;&lt;"\n";
+			break; // остановка switch 
+		case  3: // если пользователь выбрал выход
+			cout&lt;&lt;"\nEXIT!!!\n";
+			break;
+	  	default:    // если выбранное действие некорректено
+			cout&lt;&lt;"\nError!!! This operator isn't correct\n";			
+	  	}
+
+		// запрос на выбор операции
+	  	cout&lt;&lt;"\nSelect operation:\n";
+	  	cout&lt;&lt;"\n 1 - if you want to see SUM.\n";
+	  	cout&lt;&lt;"\n 2 - if you want to see DIFFERENCE.\n";
+	  	cout&lt;&lt;"\n 3 - if you want to exit.\n";
+          	cin&gt;&gt;answer;           
+        } 
+	cout&lt;&lt;"\nBye....\n";
+
+}
+</example>
+<p>В данном примере пользователю предлагается выбрать действие. Затем, после ввода, программа проверяет: если это действие - выход из программы - программа завершается, если нет, то производится вход в цикл, анализ действия и выполнение математической операции. Затем программа, снова спросит у пользователя, что он хочет сделать.</p>
+<p> Данный код является неоптимальным решением. Как видите фрагмент</p>
+<example>
+// запрос на выбор операции
+	cout&lt;&lt;"\nSelect operation:\n";
+	cout&lt;&lt;"\n 1 - if you want to see SUM.\n";
+	cout&lt;&lt;"\n 2 - if you want to see DIFFERENCE.\n";
+	cout&lt;&lt;"\n 3 - if you want to exit.\n";
+	cin&gt;&gt;answer;
+
+</example>
+<p>повторяется несколько раз. В этом случае следует использовать do while. Данная конструкция приведет код к надлежащему виду.</p>
+<example>#include &lt;iostream&gt;
+using namespace std;
+void main()
+{
+	int answer,A,B,RES;
+	
+	do{ // вход в цикл
+
+		// запрос на выбор операции
+	  	cout&lt;&lt;"\nSelect operation:\n";
+	  	cout&lt;&lt;"\n 1 - if you want to see SUM.\n";
+	  	cout&lt;&lt;"\n 2 - if you want to see DIFFERENCE.\n";
+	  	cout&lt;&lt;"\n 3 - if you want to exit.\n";
+          	cin&gt;&gt;answer;   
+        
+		// анализ действия
+		switch(answer){
+	   	case  1:    // если пользователь выбрал сложение
+			cout&lt;&lt;"Enter first digit:\n";
+			cin&gt;&gt;A;
+			cout&lt;&lt;"Enter second digit:\n";
+			cin&gt;&gt;B;		
+			RES=A+B;
+			cout&lt;&lt;"\nAnswer: "&lt;&lt;RES&lt;&lt;"\n";
+			break; // остановка switch
+	   	case  2:     // если пользователь выбрал вычитание
+			cout&lt;&lt;"Enter first digit:\n";
+			cin&gt;&gt;A;
+			cout&lt;&lt;"Enter second digit:\n";
+			cin&gt;&gt;B;
+			RES=A-B;
+			cout&lt;&lt;"\nAnswer: "&lt;&lt;RES&lt;&lt;"\n";
+			break; // остановка switch 
+		case  3: // если пользователь выбрал выход
+			cout&lt;&lt;"\nEXIT!!!\n";
+			break;
+	  	default:    // если выбранное действие некорректено
+			cout&lt;&lt;"\nError!!! This operator isn't correct\n";			
+	  	}
+		
+        } while(answer!=3);
+	cout&lt;&lt;"\nBye....\n";
+
+}
+</example>
+<p>Исходя из вышесказанного, вы должны понимать, что обе описанные в сегодняшнем уроке конструкции полезны. Вам необходимо лишь научиться выбирать ту или иную, в зависимости от задачи.</p>
+<p>Теперь, когда с циклами мы немного знакомы, вы можете перейти к следующему разделу данного урока. Мы приготовили для вас несколько примеров по сегодняшней теме.</p>
+</lesson>

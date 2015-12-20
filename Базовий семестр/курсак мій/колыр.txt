@@ -1,0 +1,6 @@
+void textcolor(int color)
+{
+    HANDLE hndl=GetStdHandle(STD_OUTPUT_HANDLE);
+ 
+    SetConsoleTextAttribute(hndl,color|FOREGROUND_INTENSITY);
+}

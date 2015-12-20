@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ukropLib">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="book" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="title" >
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="1" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element> <!--name="title"-->
+							<xs:element name="author" type="fullName" />
+							<xs:element name="publisher" type="entity" minOccurs="0" />
+							<!--<xs:element name="seller" type="entity" minOccurs="0" />-->
+							<xs:element name="seller" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="entity">
+											<xs:sequence>
+												<xs:element name="price">
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="money">
+																<xs:attribute name="currency" use="required">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="UAH" />
+																			<xs:enumeration value="USD" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:attribute>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+
+												</xs:element>
+											</xs:sequence>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="download">
+								<xs:complexType>
+									<xs:all>
+										<xs:element name="pdf" type="xs:anyURI" minOccurs="0"/>
+										<xs:element name="fb2" type="xs:anyURI" minOccurs="0"/>
+										<xs:element name="djvu" type="xs:anyURI" minOccurs="0"/>
+										<xs:element name="audio" type="xs:anyURI" minOccurs="0"/>
+										<xs:element name="chm" type="xs:anyURI" minOccurs="0"/>
+									</xs:all>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="yearWritten" type="xs:gYear" use="optional"/>
+						<xs:attribute name="yearPublished" type="xs:gYear" use="optional"/>
+						<xs:attribute name="lang" use="optional" default="uk">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="uk" />
+									<xs:enumeration value="ru" />
+									<xs:enumeration value="en" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element> <!--name="book"-->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	
+	
+	<xs:complexType name="fullName">
+		<xs:sequence>
+			<xs:element name="firstName" type="humanName"/>
+			<xs:element name="midName" type="humanName" minOccurs="0" maxOccurs="1" />
+			<xs:element name="lastName" type="humanName"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:simpleType name="humanName">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[А-ЯЄЇІ][а-яєїі]{2,}(-[А-ЯЄЇІ][а-яєїі]{2,})?" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="entity">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="locality" >
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="місто" />
+										<xs:enumeration value="cело" />
+										<xs:enumeration value="селище" />
+										<xs:enumeration value="урочище" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="url" type="xs:anyURI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="money">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+
+</xs:schema>

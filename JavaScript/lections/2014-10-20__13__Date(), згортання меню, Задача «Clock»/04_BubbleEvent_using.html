@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Using bubble</title>
+		
+		<style>
+			table, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			
+			td {
+				cursor: pointer;
+			}
+			
+		</style>
+		
+		
+		<script>
+			function changeColor(event) {
+				document.body.style.backgroundColor = event.target.innerText;
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<h1>Using bubble</h1>
+		
+		<!-- <table onclick="changeColor(event);" > -->
+		<table onclick="document.body.style.backgroundColor = event.target.innerText;" >
+			<tr>
+				<td>red</td>
+				<td>green</td>
+				<td>blue</td>
+			</tr>
+			<tr>
+				<td>cyan</td>
+				<td>magenta</td>
+				<td>yellow</td>
+			</tr>
+			<tr>
+				<td>gray</td>
+				<td>maroon</td>
+				<td>silver</td>
+			</tr>
+		</table>
+		
+		
+	</body>
+</html>

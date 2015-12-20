@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Масиви</title>
+		<script>
+		
+			// функція, викликана "через крапочку" 
+			// приймає this'ом об'єкт, від якого викликана
+		
+			function showArrMethod(  ) {
+				if( ! Array.isArray( this ) ){
+					alert( "Метод каже: Це не масив!" );
+					return "Це не масив!";
+				}
+				
+				var msg = "Метод каже: масив+ містить:\n";
+				for( var i = 0 ; i < this.length ; i++ ){
+					msg += "this[" + i +"]="+ this[i] +"\n";
+				}
+				alert( msg );
+			}
+			
+			function showArrForInMethod() {
+				if( ! Array.isArray( this ) ){
+					alert( "Метод каже: Це не масив!" );
+					return "Це не масив!";
+				}
+				
+				var msg = "Метод showArrForIn каже: масив+ містить:\n";
+				for( var i in this ){
+					msg += "this[" + i +"]="+ this[i] +"\n";
+				}
+				alert( msg );
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Масив -- наші Методи</h1>
+		
+		<script>
+			// створюємо пустий масив
+			//var arr = [55,1,25,385,874,"654",13,864,"654",5];	
+			var arr = new Array(55,1,25,385,874,13,864,5);	
+	
+			
+			
+			//var.unshift(235);
+			//arr.unshift(430);
+			//arr.unshift(452);
+	
+			// додаємо методи до arr -- і тільки до НЬОГО
+/*			arr.showArr = showArrMethod;
+			arr.showArrForIn = showArrForInMethod;
+*/			
+			Array.prototype.showArr = showArrMethod;
+			Array.prototype.showArrForIn = showArrForInMethod;
+			
+			
+			
+			// викликаємо методи
+			arr.showArr();
+			arr.showArrForIn();
+			
+			var arr2 = [ 12,22,33,55 ];
+			arr2.showArr();
+			
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

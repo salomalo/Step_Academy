@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Шаблон</title>
+	</head>
+	<body>
+		<h1>Шаблон</h1>
+		
+		<input type="button" value="setTimeout для doIt без аргументів" onclick=" idTimeout = setTimeout( doIt, 1000 ) " >
+		<input type="button" value="setTimeout  для doIt з аргументами" onclick=" idTimeout = setTimeout( doIt, 1000, 'gthibq',' second', 5 ) " >
+		<br>
+		<input type="button" value="setTimeout для doItPeriodic без аргументів" onclick=" idTimeout = setTimeout( doItPeriodic, 1000 ) " >
+		<input type="button" value="setTimeout  для doItPeriodic з аргументами" onclick=" idTimeout = setTimeout( doItPeriodic, 1000, 'gthibq',' second', 5 ) " >
+		<br>
+		<input type="button" value="clearTimeout" onclick=" clearTimeout( idTimeout ) " >
+		
+	</body>
+	
+	<script>
+	
+		var idTimeout;	// сюди ловимо ID таймера
+	
+		function doIt() {
+			var eP = document.createElement("p");
+			var msg = "Виконано!";
+			if( arguments.length )
+				msg += "<br>з аргументами:<br>"
+			for( var i = 0 ; i < arguments.length ; i++ ){
+				msg += arguments[i] +"  ";
+			}
+			eP.innerHTML = msg;
+			document.body.appendChild( eP );
+		}
+	
+		function doItPeriodic() {
+			var eP = document.createElement("p");
+			var msg = "Виконано!";
+			if( arguments.length )
+				msg += "<br>з аргументами:<br>"
+			for( var i = 0 ; i < arguments.length ; i++ ){
+				msg += arguments[i] +"  ";
+			}
+			eP.innerHTML = msg;
+			document.body.appendChild( eP );
+			
+			idTimeout = setTimeout( doItPeriodic, 1000 );		// знову задаємо відстрочений виклик doItPeriodic -- щоби повторювалась
+		}
+	</script>
+	
+	
+	
+</html>

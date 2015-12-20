@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/css" href="css/receipt.css" ?>
+
+<academia
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="05_acad.xsd"
+  >
+    <group name="12С8-1пр" specialization="administration">
+        <student>
+          <name name="petro" surname="ivanov" middlename="ternovuy"> ternovuy petro ivanov
+          </name>
+          <address>
+            <country>Ukraine</country>
+            <street>This street</street>
+            <house>31</house>
+            <telephone>(087) 536-78-79</telephone>
+            <email>dgdg@sdf.ee</email>
+            <scolarship>500</scolarship>
+          </address>
+        </student>
+    </group>
+
+  <group name="1С8-1пр" specialization="programming">
+    <student>
+      <name name="petro" surname="ivanov" middlename="ternovuy">
+        ternovuy petro ivanov
+      </name>
+      <address>
+        <country>Ukraine</country>
+        <street>This street</street>
+        <house>31</house>
+        <telephone>(087) 536-78-79</telephone>
+        <email>dgdg@sdf.ee</email>
+        <scolarship>500</scolarship>
+      </address>
+    </student>
+  </group>
+  
+	  <subjects_list>
+       <subject>admin</subject>
+       <kurs_plan>plan for kurs</kurs_plan>
+    </subjects_list>
+
+  <teachers_list>
+    
+    <teacher>
+      <name name="petro" surname="ivanov" middlename="ternovuy">jjjj jjj  jjj </name>
+      <his_subjects>
+        <subjects>admin</subjects>
+        <subjects>web_admin</subjects>
+      </his_subjects>
+      <count_group>3</count_group>
+    </teacher>
+    
+    <teacher>
+      <name name="petro" surname="ivanov" middlename="ternovuy">jjjj jjj  jjj </name>
+      <his_subjects>
+        <subjects>admin</subjects>
+        <subjects>web_admin</subjects>
+      </his_subjects>
+      <count_group>3</count_group>
+    </teacher>
+    
+  </teachers_list>
+  
+</academia>

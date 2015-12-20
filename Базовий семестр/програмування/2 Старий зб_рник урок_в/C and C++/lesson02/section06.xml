@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Урок №2" next="section07.xml" prev="section051.xml" summ="1">
+<h2>Практический пример на создание примитивного текстового квеста.</h2>	  
+<h3>Постановка задачи</h3>
+<p>Вы конечно знакомы с таким жанром игр,  как квест.  Герой такой игры должен выполнять различные задания, отвечать на вопросы, принимать решения, от которых зависит результат игры. Мы с вами пропробуем сейчас создать так называемый текстовый квест (квест без графики). Наша задача предлагать герою варианты действий, и в зависимости от его выбора строить ситуацию.</p>
+<h3>Код релизации.</h3>
+<example>
+#include &lt;iostream&gt;
+using namespace std;
+void main()
+{
+	// Добро пожаловать. Три испытания чести. Злой маг похитил
+	//принцессу и ее судьба в твоих руках. Он предлагает тебе
+	//пройти 3 испытания чести в его лабиринте.
+	cout&lt;&lt;"Welcome. Three tests of honour. The malicious magician has stolen\n\n";
+	cout&lt;&lt;"\nprincess and its destiny in your hands. It suggests you\n";
+	cout&lt;&lt;"\nto pass 3 tests of honour in its labyrinth.\n";
+
+	
+	bool goldTaken, diamondsTaken, killByDragon;
+	//Ты входишь в первую комнату, здесь очень много золота.
+	cout&lt;&lt;"You enter into the first room, here it is a lot of gold.\n\n";
+
+	//Возьмешь ли ты его? 
+	cout&lt;&lt;"Whether you will take it?(1-yes, 0-no)\n\n";
+	cin&gt;&gt;goldTaken;
+	if(goldTaken) // если возьмешь
+	{
+		//Золото остается тебе, но ты провалил испытание. ИГРА ОКОНЧЕНА!!!
+		cout&lt;&lt;"Gold remains to you, but you have ruined test. GAME is over!!!\n\n";
+	}
+	else // если нет
+	{
+		//Поздравляю, ты прошел первое испытание чести!
+		cout&lt;&lt;"I congratulate, you have passed the first test abuse!\n\n";
+
+		//Ты переходишь в следующую комнату. Она полна бриллиантов
+		cout&lt;&lt;"You pass in a following room. It is full of brilliants \n\n";
+
+		//Возьмешь ли ты бриллианты?
+		cout&lt;&lt;"Whether you will take brilliants? (1-yes,0-no)\n\n";
+		cin&gt;&gt;diamondsTaken;
+		if(diamondsTaken)// если возьмешь
+		{
+			//Бриллианты остаются тебе, но ты провалил второе испытание
+			cout&lt;&lt;"Brilliants remain to you, but you have ruined the second test\n\n";
+
+			//ИГРА ОКОНЧЕНА!!!
+			cout&lt;&lt;"GAME is over!!!\n\n";
+		}
+		else //если нет
+		{
+			//Поздравляю, ты прошел второе испытание чести!!!
+			cout&lt;&lt;"I congratulate, you have passed the second test abuse!!!\n\n";
+
+			//Ты входишь в третью комнату.
+			cout&lt;&lt;"You enter into the third room. \n\n";
+
+			//На крестьянина напал дракон! Двигаться дальше
+			cout&lt;&lt;"The person was attacked by a dragon! To move further \n\n";
+
+			//не обращая на них внимания
+			cout&lt;&lt;"Not paying to them of attention (1-yes,0-no)?\n\n";
+			cin&gt;&gt;killByDragon;
+			if(killByDragon)//если возьмешь
+			{
+				//Ты пытаешься проскользнуть мимо, но дракон
+				cout&lt;&lt;"You try to pass past, but a dragon \n\n";
+
+				//замечает твое присутствие.
+				cout&lt;&lt;"notices your presence\n\n";
+
+				//Oн превращает тебя в пепел. Ты мертв!!!
+				cout&lt;&lt;"It transforms you into ashes. You are dead!!!\n\n";
+
+				//ИГРА ОКОНЧЕНА!!!
+				cout&lt;&lt;"GAME is over!!!\n\n";
+
+			}
+			else//если нет
+			{
+				//Поздравляю, ты с честью прошел все испытания!!!
+				cout&lt;&lt;"I congratulate, you with honour have was tested all!!! \n\n";
+
+				//Принцесса достается тебе!!!
+				cout&lt;&lt;"Princess gets to you!!!\n\n";
+			}
+		}
+	}
+	
+}
+</example>
+<p>Несмотря на примитивность примера, вы можете убедиться в том, что уже сейчас, имея минимальные знания мы можем написать программу, способную развлечь среднестатистического малыша. Это происходит потому, что у нас в руках есть мощное средство - условные операторы.</p>
+</lesson>

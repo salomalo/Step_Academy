@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>canvas</title>
+		<style>
+			canvas{
+				border: 1px solid black;
+			}
+		</style>
+		
+		<script>
+			function draw() {
+				var eCanvas = document.getElementsByTagName("canvas")[0];
+				var ctx = eCanvas.getContext("2d");
+				
+				ctx.beginPath();
+				ctx.moveTo( 200,123);
+				ctx.lineTo( 200,200 );
+				ctx.stroke();
+			}
+		</script>
+		
+	</head>
+	<body onload="draw()" >
+		<h1>canvas</h1>
+		<canvas width="333" height="333" ></canvas>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>css demo</title>
+		<style>
+			.left {
+				width: 60px;
+				height: 60px;
+				margin: 5px;
+				display: inline-block;
+				border: 1px solid black;
+			}
+			body{ background-color: #ddd }
+		</style>
+		<script src="jquery.js"></script>
+		
+		<script>
+		
+			function  increase(event) {
+				$( event.target ).css( {"width": "+=10", height : "+=10"} );
+			}
+		
+			function  decrease(event) {
+				$( event.target ).css( {"width": "-=10", height : "-=10"} );
+				
+				event.preventDefault();		// скасувати дефолтний обробник події
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<h1><a href="http://api.jquery.com/css/#css2" target="_blank" >jQuery:<code>.css()</code></a></h1>
+		<h3>Зміна значення декількох властивостей</h3>
+		<div>
+			<div class="left" 	onclick="increase( event );" oncontextmenu ="decrease( event );" ></div>
+			<div class="left"	onclick="increase( event );" oncontextmenu ="decrease( event );" ></div>
+			<div class="left" 	onclick="increase( event );" oncontextmenu ="decrease( event );" ></div>
+			<div class="left"	onclick="increase( event );" oncontextmenu ="decrease( event );" ></div>
+		</div>
+		<p id="result">Клікни квадрат !</p>
+	</body>
+</html>

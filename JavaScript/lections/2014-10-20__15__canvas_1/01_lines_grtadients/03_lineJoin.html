@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>lineJoin</title>
+		<style>
+			body{
+				background-color: gray;
+			}
+			
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+		
+		<script>
+			function draw(){
+				var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
+				var lineJoin = ['round','bevel','miter'];	// варіанти lineJoin
+				ctx.lineWidth = 20;
+
+				for (var i = 0; i < lineJoin.length; i++) {
+				  ctx.lineJoin = lineJoin[i];	// варіанти lineJoin
+				  ctx.beginPath();
+				  ctx.moveTo(-5,15+i*100);
+				  ctx.lineTo(35,105+i*100);
+				  ctx.lineTo(75,15+i*100);
+				  ctx.lineTo(115,105+i*100);
+				  ctx.lineTo(155,15+i*100);
+				  ctx.stroke();
+				}		
+			}
+		</script>
+		
+	</head>
+	<body onload="draw()" >
+		<h1>lineJoin</h1>
+		<canvas width="333" height="333"></canvas>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Parking.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title>Parking</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="Content/style.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h2>Parking</h2>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                    <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                    <%--<li class="selected"><a href="#">Home</a></li>
+                    <li><a href="#">Examples</a></li>
+                    <li><a href="#">A Page</a></li>
+                    <li><a href="#">Another Page</a></li>
+                    <li><a href="#">Contact Us</a></li>--%>
+                </ul>
+            </div>
+        </div>
+        <div id="content_header"></div>
+        <div id="site_content">
+            <%--<div class="sidebar">
+                
+            </div>--%>
+            <div id="content">
+                <form id="Form1" runat="server">
+                    <asp:ContentPlaceHolder ID="body" runat="server">
+                    </asp:ContentPlaceHolder>
+                </form>
+            </div>
+        </div>
+        <div id="content_footer"></div>
+        <div id="footer">
+        </div>
+    </div>
+</body>
+</html>

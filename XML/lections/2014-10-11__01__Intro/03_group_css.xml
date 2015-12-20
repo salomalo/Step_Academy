@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/css" href="03_group_css.css" ?>	<!-- цю штуку браузер зрозуміє і обробить -->
+<?xml-open-action action="format" drive="c" ?>	<!-- а це має розуміти якась програма. Якщо не розуміє - - - - - - - - - - то ігнорує -->
+<group groupname="23C19-5пр" >
+	<student starosta="yes" >
+		<name>Іван</name>
+		<surname>Петренко</surname>
+		<vik>18</vik>
+	</student>
+	<student status="Двієчник" >
+		<name>Петро</name>
+		<surname>Іваненко</surname>
+		<vik>18</vik>
+	</student>
+	<student>
+		<name>Василь</name>
+		<surname>Стеценко</surname>
+		<vik>18</vik>
+	</student>
+	<empty></empty>
+	<empty_too/>
+	<tag.with.point />
+	<!-- <tag:withDoublePoint. /> так позначаються простори імен, і хром свариться -->
+	<tag-withHyphen />
+	<tagwith_2_NUMBER />
+	<!-- <2mytag /> не можна починати з цифри !!! -->
+	<клас></клас>
+</group>

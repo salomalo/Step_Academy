@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/canvas.css">
+		<title>drawImage() у CANVAS -- бекап і відновлення</title>
+		<script src="js/00_common.js"></script>
+		<script src="js/01_drawImage()_CanvasToCanvas.js"></script>
+	</head>
+	<body onload="init();" >
+		<h1>
+			<a href="http://www.w3schools.com/tags/canvas_drawimage.asp">drawImage()</a>
+			у CANVAS -- бекап і відновлення
+		</h1>
+		<p>
+			<span>
+				</br></br>
+				<input type="button" value="Лінію !" 	onclick="drawRandomLine()">
+				<input type="button" value="fillRect !" onclick="drawRandomFilledRect()">
+				<input type="button" value="Очистити 1" onclick="clearCanvas(0)">
+				<input type="button" value="Очистити 2" onclick="clearCanvas(1)">
+				«source-over»
+				<input type="button" value="BackUp all" onclick="backupCanvasByIdx( 0, 1 )">
+				<input type="button" value="Restore all" onclick="backupCanvasByIdx( 1, 0 )">
+				«copy»
+				<input type="button" value="BackUp all" onclick="backupCanvasByIdx( 0, 1, 1 )">
+				<input type="button" value="Restore all" onclick="backupCanvasByIdx( 1, 0, 1 )">
+			</span>
+			
+			<span>
+				CANVAS-source</br>
+				<canvas width="300" height="300" ></canvas>
+			</span>
+			
+			<span>
+				CANVAS для backup</br>
+				<canvas width="300" height="300" ></canvas>
+			</span>
+		</p>
+	</body>
+</html>

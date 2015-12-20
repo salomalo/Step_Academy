@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Масиви</title>
+	</head>
+	<body>
+		<h1>Масиви - unshift, shift</h1>
+		
+		<script>
+			// створюємо пустий масив
+			//var arr = [55,1,25,385,874,"654",13,864,"654",5];	
+			var arr = new Array(55,1,25,385,874,"654",13,864,"654",5);	
+	
+			arr[13] = "eleven";
+			
+			var msg = "масив містить:\n";
+			for( var i = 0 ; i < arr.length ; i++ ){
+//			for( var i in arr ){
+				msg += "arr[" + i +"]="+ arr[i] +"\n";
+			}
+			alert( msg );
+			
+			
+			arr.unshift("------");
+			arr.unshift(235);
+			arr.unshift(430);
+			arr.unshift("45");
+			arr.unshift(452);
+	
+			var msg = "масив+ містить:\n";
+			for( var i = 0 ; i < arr.length ; i++ ){
+//			for( var i in arr ){
+				msg += "arr[" + i +"]="+ arr[i] +"\n";
+			}
+			alert( msg );
+			
+			document.write("<p>До вилучення довжина масиву: "+ arr.length +"</p>")
+			document.write("<h3>Вилучено pop'ом:</h3><p>")
+			for( var i = 123 ; i < 129 ; i++ ){
+				document.write( arr.shift() + "<br>" );
+			}
+			document.write( "</p>" )
+			document.write("<p>Після вилучення довжина масиву: "+ arr.length +"</p>")
+			
+		</script>
+		
+		
+	</body>
+</html>

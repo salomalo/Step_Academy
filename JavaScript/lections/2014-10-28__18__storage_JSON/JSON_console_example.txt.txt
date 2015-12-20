@@ -1,0 +1,50 @@
+obj = { name:"Vasya", surname:"Pupkin" }
+Object {name: "Vasya", surname: "Pupkin"}
+
+localStorage.client = obj
+Object {name: "Vasya", surname: "Pupkin"}
+
+localStorage.client
+"[object Object]"
+
+obj.toString = function(){ return "name="+ this.name +";surname="+this.surname; }
+function (){ return "name="+ this.name +";surname="+this.surname; }
+
+localStorage.client = obj
+Object {name: "Vasya", surname: "Pupkin", toString: function}
+
+localStorage.client
+"name=Vasya;surname=Pupkin"
+
+JSON.stringify( obj )
+"{"name":"Vasya","surname":"Pupkin"}"
+
+obj1 = { name:"Valya", surname:"Papkina" }
+Object {name: "Valya", surname: "Papkina"}
+
+obj2 = { name:"Vanya", surname:"Gapkin" }
+Object {name: "Vanya", surname: "Gapkin"}
+
+arr = [ obj, obj1, obj2 ]
+[Objectname: "Vasya"surname: "Pupkin"toString: function (){ return "name="+ this.name +";surname="+this.surname; }__proto__: Object, Objectname: "Valya"surname: "Papkina"__proto__: Object, Objectname: "Vanya"surname: "Gapkin"__proto__: Object]
+
+JSON.stringify( arr )
+"[{"name":"Vasya","surname":"Pupkin"},{"name":"Valya","surname":"Papkina"},{"name":"Vanya","surname":"Gapkin"}]"
+
+json = JSON.stringify( arr )
+"[{"name":"Vasya","surname":"Pupkin"},{"name":"Valya","surname":"Papkina"},{"name":"Vanya","surname":"Gapkin"}]"
+
+json
+"[{"name":"Vasya","surname":"Pupkin"},{"name":"Valya","surname":"Papkina"},{"name":"Vanya","surname":"Gapkin"}]"
+
+localStorage.client = json
+"[{"name":"Vasya","surname":"Pupkin"},{"name":"Valya","surname":"Papkina"},{"name":"Vanya","surname":"Gapkin"}]"
+
+newArr = JSON.parse( localStorage.client )
+[Objectname: "Vasya"surname: "Pupkin"__proto__: Object, Objectname: "Valya"surname: "Papkina"__proto__: Object, Objectname: "Vanya"surname: "Gapkin"__proto__: Object]
+
+newObj = newArr[0]
+Object {name: "Vasya", surname: "Pupkin"}
+
+newObj
+Object {name: "Vasya", surname: "Pupkin"}

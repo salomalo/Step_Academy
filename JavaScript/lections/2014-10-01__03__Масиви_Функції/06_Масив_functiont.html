@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Масиви</title>
+		<script>
+			function showArr( array ) {
+				if( ! Array.isArray( array ) ){
+					alert( "Функція каже: Це не масив!" );
+					return "Це не масив!";
+				}
+				
+				var msg = "Функція каже: масив+ містить:\n";
+				for( var i = 0 ; i < array.length ; i++ ){
+					msg += "array[" + i +"]="+ array[i] +"\n";
+				}
+				alert( msg );
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Функції -- початок </h1>
+		
+		<script>
+			// створюємо пустий масив
+			//var arr = [55,1,25,385,874,"654",13,864,"654",5];	
+			var arr = new Array(55,1,25,385,874,13,864,5);	
+	
+			
+			
+			arr.unshift(235);
+			arr.unshift(430);
+			arr.unshift(452);
+	
+			showArr( arr );
+			
+			
+			//////////// впорядкування масиву ///////////
+			arr.sort();
+			showArr( arr );
+			
+/*	краще пооголошувати ф-ї десь окремо	
+			function showArr( array ) {
+				if( ! Array.isArray( array ) ){
+					alert( "Це не масив!" );
+					return;
+				}
+				
+				var msg = "Функція каже: масив+ містить:\n";
+				for( var i = 0 ; i < array.length ; i++ ){
+					msg += "array[" + i +"]="+ array[i] +"\n";
+				}
+				alert( msg );
+			}
+*/			
+			alert( showArr );	// не викликали ф-ю, а вивели її, як змінну
+			alert( "Результат виконання ф-ї: \n" + showArr( arr[3] ) );	// викликали ф-ю, і вивели значення, яке вона поверне
+			
+		</script>
+		
+		
+	</body>
+</html>

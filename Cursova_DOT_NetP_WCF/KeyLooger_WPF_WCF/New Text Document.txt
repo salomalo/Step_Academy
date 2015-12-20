@@ -1,0 +1,9 @@
+procedure WMQUERYENDSESSION(var Msg: TMessage);message WM_QUERYENDSESSION;   
+ procedure WMENDSESSION(var Msg: TMessage);message WM_ENDSESSION;  
+
+
+
+
+
+
+http://scrutator.me/post/2011/09/04/get-current-url.aspx

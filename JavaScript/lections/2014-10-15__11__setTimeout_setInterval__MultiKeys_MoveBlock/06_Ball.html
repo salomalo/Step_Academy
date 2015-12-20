@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Літаючий м'ячик</title>
+		
+		<style>
+			#Ball{
+				width: 20px;
+				height: 20px;
+				border-radius:50%;
+				background: gray;
+				
+				position: absolute;
+				top: 200px;
+				left: 200px;
+				
+				transition: all 0.4s linear 0s;
+			}
+
+			
+			#Field {
+			
+				position: relative;
+			/*	right: -80px;
+				top: 180px;
+			*/
+				
+				width: 600px;
+				height: 400px;
+				
+				margin: auto;
+				
+				border: 1px solid black;
+			}
+			
+			table {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			
+			td, th {
+				border: 1px solid black;
+				text-align: center;
+			}
+			
+			
+		</style>
+		
+		<script>
+			
+			function start(){
+				var eBall = document.getElementById("Ball");
+				
+				// створюємо "власні" властивості, як і для будь-якого об'єкта JS
+				
+				// швидкість руху по X i по Y
+				eBall.xStep = Math.round( Math.random() * 50 + 20 );
+				eBall.yStep = Math.round( Math.random() * 50 + 20 );
+				
+				eBall.xStep *= ( Math.round( Math.random() * 10 ) % 2 ) ? 1 : -1;
+				eBall.yStep *= ( Math.round( Math.random() * 10 ) % 2 ) ? 1 : -1;
+				
+				setInterval( moveBall , 400 );
+			}
+			
+			function moveBall(){
+				var eBall = document.getElementById("Ball");
+				
+				//////////////  визначаємо координати м'ячика і розміри поля //////////////
+
+		/*		
+				// через getComputedStyle
+				var curStyleOfBall	= getComputedStyle( eBall );
+				var xBall_cur		= parseInt( curStyleOfBall.left );
+				var yBall_cur		= parseInt( curStyleOfBall.top );
+				var cxBall_width	= parseInt( curStyleOfBall.width );
+				var cyBall_height	= parseInt( curStyleOfBall.height );
+				
+				var curStyleOfParent = getComputedStyle( eBall.parentElement );
+				var xFieldLeft		= parseInt( curStyleOfParent.left );
+				var xFieldRight		= xFieldLeft + parseInt( curStyleOfParent.width );
+				var yFieldTop		= parseInt( curStyleOfParent.top );
+				var yFieldBttm		= yFieldTop + eBall.parentElement.offsetHeight;
+		*/	
+
+				
+				// через offset'и
+				var xBall_cur		= eBall.offsetLeft;
+				var yBall_cur		= eBall.offsetTop;
+				var cxBall_width	= eBall.offsetWidth;
+				var cyBall_height	= eBall.offsetHeight;
+				
+				var eField = eBall.parentElement;
+				var xFieldLeft		= 0;//eBall.parentElement.offsetLeft;
+				var xFieldRight	= xFieldLeft + eField.offsetWidth;
+				var yFieldTop		= 0;//eBall.parentElement.offsetTop;
+				var yFieldBttm	= yFieldTop + eField.offsetHeight;
+				
+				
+				/////////////// нові координати м'ячика   /////////////
+				var xBall_new = xBall_cur + eBall.xStep;
+				var yBall_new = yBall_cur + eBall.yStep;
+				
+
+
+				// прибираю колір комірок таблиці (робиться жовтим, коли м'ячик вдаряється об стінки)
+					document.getElementById( "xBall" ).style.backgroundColor = "";
+					document.getElementById( "yBall" ).style.backgroundColor = "";
+					document.getElementById( "xFieldLeft" ).style.backgroundColor = "";
+					document.getElementById( "xFieldRight" ).style.backgroundColor = "";
+					document.getElementById( "yFieldTop" ).style.backgroundColor = "";
+					document.getElementById( "yFieldBttm" ).style.backgroundColor = "";
+
+				
+				///////////// чи не вилетів за межі поля ? //////////////////
+				
+				if( xBall_new <= xFieldLeft ){	// вдаряється об ліву межу поля
+					xBall_new = xFieldLeft;			// ставимо м'ячик на ліву межу
+					eBall.xStep *= -1;				// міняємо напрямок руху по Х
+					
+					// виділяються жовтим комірки таблиці
+					document.getElementById( "xBall" ).style.backgroundColor = "yellow";
+					document.getElementById( "xFieldLeft" ).style.backgroundColor = "yellow";
+				}
+				
+				if( ( xBall_new + cxBall_width ) >= xFieldRight ){	// вдаряється об праву межу	поля		( xBall_new + cxBall_width -- дає координату Х правої межі м'ячика )
+					xBall_new = xFieldRight - cxBall_width;			// ставимо м'ячик на праву межу
+					eBall.xStep *= -1;								// міняємо напрямок руху по Х
+
+					document.getElementById( "xBall" ).style.backgroundColor = "yellow";
+					document.getElementById( "xFieldRight" ).style.backgroundColor = "yellow";
+				}
+					
+				
+				if( yBall_new <= yFieldTop ){	// вдаряється об верхню межу поля
+					yBall_new = yFieldTop;			// ставимо м'ячик на верхню межу
+					eBall.yStep *= -1;				// міняємо напрямок руху по Y
+					
+					document.getElementById( "yBall" ).style.backgroundColor = "yellow";
+					document.getElementById( "yFieldTop" ).style.backgroundColor = "yellow";
+				}
+				
+				if( ( yBall_new + cxBall_width ) >= yFieldBttm ){	// вдаряється об нижню межу поля		( xBall_new + cxBall_width -- дає координату Y нижньої межі м'ячика )
+					yBall_new = yFieldBttm - cyBall_height;			// ставимо м'ячик на нижню межу
+					eBall.yStep *= -1;								// міняємо напрямок руху по Y
+					
+					document.getElementById( "yBall" ).style.backgroundColor = "yellow";
+					document.getElementById( "yFieldBttm" ).style.backgroundColor = "yellow";
+				}
+				
+				//~~~~~~~~~~~~~ чи не вилетів за межі поля ? ~~~~~~~~~~~~~~~~~~~~
+				
+				
+				// ставимо м'ячика на нову позицію
+				eBall.style.left = xBall_new +"px";
+				eBall.style.top  = yBall_new +"px";
+				
+				
+				
+				// виводимо координати у таблицю
+				document.getElementById( "xBall" ).innerText = xBall_new;
+				document.getElementById( "yBall" ).innerText = yBall_new;
+				document.getElementById( "xFieldLeft" ).innerText = xFieldLeft;
+				document.getElementById( "xFieldRight" ).innerText = xFieldRight;
+				document.getElementById( "yFieldTop" ).innerText = yFieldTop;
+				document.getElementById( "yFieldBttm" ).innerText = yFieldBttm;
+				
+			}
+			
+		</script>
+		
+		
+	</head>
+	<body onload="start();" >
+		<h1>Літаючий м'ячик</h1>
+		<table>
+			<tr>
+				<th></th>
+				<th>Поле<br>лівий/верх</th>
+				<th>М'яч</th>
+				<th>Поле<br>правий/низ</th>
+			</tr>
+			<tr>
+				<th>X</th>
+				<td id="xFieldLeft" ></td>
+				<td id="xBall" ></td>
+				<td id="xFieldRight" ></td>
+			</tr>
+			<tr>
+				<th>Y</th>
+				<td id="yFieldTop" ></td>
+				<td id="yBall" ></td>
+				<td id="yFieldBttm" ></td>
+			</tr>
+		</table>
+		<p></p>
+		
+		<div id="Field">
+			<div id="Ball"></div>
+		</div>
+		
+		
+</html>

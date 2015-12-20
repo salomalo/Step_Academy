@@ -1,0 +1,112 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Об'єкти</title>
+        <meta charset="utf-8" >
+        <script type="text/javascript">
+        
+            // створення об'єктів
+			
+			
+			// створюємо об'єкт з властивостями
+            var objParent = {	  "name": "Об'єкт"
+								, number: 1
+								, 'ще властивість': 3 
+							};       
+            
+            alert(    "У об'єкті objParent \n"
+                    +"name = "+ objParent.name
+                    +"\n\n"
+                    );
+			
+            var objChild = { };        // створюємо пустий об'єкт
+            // додаємо або змінюємо властивості
+            objChild.name = "Дочірній об'єкт"	// створюємо нову властивість
+            objChild.name = "Об'єктятко"		// міняємо значення існуючої
+			
+            objParent.isFloat = true;		// створюємо нову властивість
+            objParent.child = objChild;		// створюємо нову властивість
+            objParent.name = "Батяня";		// міняємо значення існуючої
+            
+
+            // одержати властивості можна по імені - через крапку
+
+            alert(    "У об'єкті objParent \n"
+                    +"name = "+ objParent.name
+                    +"\n\n"
+                    );
+
+            alert(    "У вкладеному об'єкті (через крапку) \n"
+                    +"name = "+ objParent.child.name
+                    +"\n\n"
+                    );
+            
+            // одержати властивості можна по імені - через дужки []
+            alert(    "У вкладеному об'єкті (через []) \n"
+                    +"name = "+ objParent["child"]["name"]
+                    +"\n\n"
+                    );
+            
+            // а властивість з таким іменем - ЛИШЕ через дужки []
+            alert(    "У вкладеному об'єкті (через []) \n"
+                    +" «ще властивість» містить «"+ objParent["ще властивість"] +"»"
+                    +"\n\n"
+                    );
+            
+            // імена властивостей можна перебирати у циклі
+            for( var key in objParent ) {
+                alert(    "В циклі: \n\n"
+                        +"По ключу «"+ key +"»\n"
+                        +"значення «"+ objParent[key] +"»\n" 
+                        +"    тип: «"+ typeof( objParent[key] ) +"»\n" 
+                        +"\n"
+                    );
+            }
+                    
+            // можна додавати властивості і так
+            objChild["12"] = "дванадцята";
+            objChild["-12"] = "мінус дванадцята";
+            objChild["1"] = "перша";
+            objChild["2"] = "друга";
+            objChild["і так можна !"] = "рве мізки на частини";
+            
+            // зверніть увагу на порядок відображення властивостей
+            for( var key in objChild ) {
+                alert(    "В циклі: \n\n"
+                        +"По ключу «"+ key +"»\n"
+                        +"значення «"+ objChild[key] +"»\n" 
+                        +"    тип: «"+ typeof( objChild[key] ) +"»\n" 
+                        +"\n"
+                    );
+            }
+          
+        </script>
+    </head>
+    <body>
+        <h1>Об'єкти</h1>
+		
+		<script>
+			document.write( "<p>  у іншому скрипті існує objParent </p>" );
+			document.write( "<p>" );
+            for( var key in objParent.child ) {
+                document.write(    "В циклі: "
+                        +"По ключу «"+ key +"» "
+                        +"значення «"+ objParent.child[key] +"» " 
+                        +"    тип: «"+ typeof( objParent.child[key] ) +"» " 
+                        +"<br>"
+                    );
+            }
+			document.write( "</p>" );
+			
+			document.write( "<hr>" );
+			document.write(   "<p>objChild.unexisting =" 
+							+ objChild.unexisting 
+							+"</p>"
+							);
+			document.write( "<hr><h3>Властивості number`a</h3>" );
+		
+			
+		</script>
+		
+    </body>
+</html>

@@ -1,0 +1,16 @@
+--(localdb)\v11.0
+--BookmarksHolder
+
+
+use master
+
+drop database BookmarksHolder
+create database BookmarksHolder
+use BookmarksHolder
+
+create table [Users]
+(
+Id int not NULL primary key
+,UserLogin nvarchar(50)
+,UserPassword nvarchar(50)
+)

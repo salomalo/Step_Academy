@@ -1,0 +1,37 @@
+BODY  {
+	text-align: center;
+	font: 12pt Arial;
+}
+
+CANVAS {
+	border: 1px dotted black;
+	margin: 10px;
+}
+
+#idMagnifier{
+	margin: 20px 0;
+	position:relative;
+	text-align: center;
+	/* height: 300px; */
+}
+
+#idMagnifier  div{
+	display: inline-block;
+	position: relative;
+
+}
+
+.vert {
+	display: inline-block;
+	position: absolute;
+	top: 100px; ;
+}
+
+.left {
+	left: -30px;
+}
+
+.right{
+	right: -30px;
+}
+

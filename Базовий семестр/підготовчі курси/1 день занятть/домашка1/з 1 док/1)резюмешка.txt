@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+	cout<<"\t\...:::RESUME:::..."<<endl;
+	cout<<"Name:\t\tOksana"<<endl;
+	cout<<"Surname:\tYryivna"<<endl;
+	cout<<"Last name:\tMelnyk"<<endl;
+	cout<<endl;
+	cout<<"Date of birth:\t09.11.90"<<endl;;
+	cout<<"City:\t\tRivne"<<endl;;
+	cout<<"Age:\t\t\22"<<endl;;
+	cout<<endl;
+	cout<<"Hobby:\t\tC++"<<endl;
+	cout<<"::.........................::"<<endl;
+
+
+}

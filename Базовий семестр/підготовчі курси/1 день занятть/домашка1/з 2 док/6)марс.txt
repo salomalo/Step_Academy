@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+	int povnyi_obert_Marsa_navkolo_sun_in_days=686;
+	double zemnyi_ric=365;
+	double povnyi_obert_Marsa_navkolo_sun_in_zemnyi_roci;
+	cout<<"Enter,please, in what time povnyi_obert_Marsa_navkolo_sun_in_days:";
+	cin>>povnyi_obert_Marsa_navkolo_sun_in_days;
+	povnyi_obert_Marsa_navkolo_sun_in_zemnyi_roci=povnyi_obert_Marsa_navkolo_sun_in_days/zemnyi_ric;
+	cout<<povnyi_obert_Marsa_navkolo_sun_in_zemnyi_roci<<endl;
+
+

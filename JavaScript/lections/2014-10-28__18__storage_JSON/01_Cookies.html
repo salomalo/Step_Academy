@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cookies</title>
+		<script src="js/01_Cookies.js"></script>
+	</head>
+	<body onload=" setInterval( updateAll , 200 )">
+		<h1 align="center">Cookies</h1>
+		<p>
+			<a href="http://learn.javascript.ru/cookie" target="_blank" >learn.javascript.ru</a> <br>
+			<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.cookie" target="_blank" >developer.mozilla.org</a>
+		</p>
+		<p align="center"></p>
+		<table align="center" width="90%" >
+			<tbody>
+				<tr>
+					<td id="idCookiesTD">
+						<h2>Використання <code>document.cookie</code></h2>
+						<p>
+							<label>ключ: <input type="text" id="idNewKey" ></label>
+							<label for="idNewValue" >&nbsp; &nbsp; значення:</label> <input type="text" id="idNewValue" >
+							<label for="idMaxAge" >&nbsp; &nbsp; max-age:</label> <input type="text" id="idMaxAge" size="5">
+							<label for="idPath" >&nbsp; &nbsp; path:</label> <input type="text" id="idPath" >
+							<label for="idDomain" >&nbsp; &nbsp; domain:</label> <input type="text" id="idDomain" >
+							<br>
+							<input type="button" value="Додати" onclick="addCookie();">
+							<br>	
+							<br>
+							<label>ключ: <input type="text" id="idRemoveKey" ></label>&nbsp; &nbsp; 
+							<input type="button" value="Видалити" onclick="removeKey();">
+						</p>
+						<p>
+							Кількість значень у <code>document.cookie</code>: <b><span id="idLengthCookies"></span></b> &nbsp; &nbsp; 
+							<input type="button" value="Очистити" onclick="clearCookies();">
+						</p>
+						<p></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

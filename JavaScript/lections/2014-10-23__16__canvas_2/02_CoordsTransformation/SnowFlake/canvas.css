@@ -1,0 +1,22 @@
+BODY  {
+	text-align: center;
+	font: 12pt Arial;
+}
+
+CANVAS {
+	margin-left: 20px;
+	border: 1px dotted black;
+}
+
+P , H1{
+	margin: 0;
+}
+
+TABLE, TH, TD {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+TD {
+	padding: 0 5px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Обробка декількох клавіш</title>
+	</head>
+	<body onkeydown="handleKeys(event);" onkeyup="handleKeys(event);" > 
+		<h1>Обробка декількох клавіш</h1>
+		<h3>Натиснуто клавіші:<span id="idKeys"></span></h3>
+		
+	</body>
+	
+	<script>
+		var aKeysPressed = [];			// масив, у якому зберігаються натиснені в даний момент клавіші
+		setInterval( update, 100 );		// update кожні 100мс заглядає у масив і освіжає інфу на сторінці
+		
+		
+		// обробляє натискання клавіш, 
+		// додаючи скан-коди натиснених клавіш до масиву aKeysPressed
+		// і вилучаючи з нього скан-коди відпущених клавіш
+		function handleKeys(event){
+			switch( event.type ){
+			
+			case "keydown":
+				// додаємо натиснену клавішу, якщо її ще немає у масиві (бо keydown постійно повторюються, поки натиснена клавіша)
+				if( aKeysPressed.indexOf( event.keyCode ) < 0 ){
+					aKeysPressed.push( event.keyCode );		
+				}
+				break;
+				
+			case "keyup":
+				// вилучаємо відпущену клавішу, якщо вона є у масиві
+				var idx = aKeysPressed.indexOf( event.keyCode );
+				if( idx >= 0  ){
+					aKeysPressed.splice( idx, 1 );
+				}
+				break;
+
+			}// switch( event.type )
+			
+		}
+		
+
+		// виводить список натиснених клавіш у <span id="idKeys">
+		function update(){
+			var msg ="";
+			for( var i = 0 ; i < aKeysPressed.length ; i++ ){
+				if( msg.length ) 
+					msg += ", ";
+				msg += "&#"+ aKeysPressed[i] +";"; 			// &#1234;
+			}
+		
+			document.getElementById( "idKeys" ).innerHTML = msg;
+		}
+			
+		
+		/*
+			var keys = { up:false, down:false, w:false, s:false  }
+		*/
+		
+		
+	</script>
+	
+</html>

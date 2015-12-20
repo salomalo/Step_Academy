@@ -1,0 +1,6 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+cout<<"\t\t\t\"To be or not to be\""<<endl;
+cout<<"\t\t\t\t\\Shakespeare\\"<<endl;

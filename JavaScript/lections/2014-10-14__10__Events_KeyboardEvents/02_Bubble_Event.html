@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Bubble</title>
+		
+		<style>
+		
+			div{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				border: 1px solid black;
+				border-radius: 50%;
+				background: lightgray;
+				text-align: center;
+				color: blue;
+				font-size: 22pt;
+			}
+		
+			#idFirst{
+				width:  400px;
+				height: 400px;
+				margin-left: -200px;
+				margin-top:  -200px;
+			}
+		
+			#idSecond{
+				width:  300px;
+				height: 300px;
+				margin-left: -150px;
+				margin-top:  -150px;
+			}
+		
+			#idThird{
+				width:  200px;
+				height: 200px;
+				margin-left: -100px;
+				margin-top:  -100px;
+			}
+		
+			#idFourth{
+				width:  100px;
+				height: 100px;
+				margin-left: -50px;
+				margin-top:  -50px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<h1>Bubble</h1>
+		
+		<div id="idFirst"> 1 
+			<div id="idSecond"> 2
+				<div id="idThird"> 3
+					<div id="idFourth"> 4
+					</div> <!-- idFourth -->
+				</div> <!-- idThird -->
+			</div> <!-- idSecond -->
+		</div> <!-- idFirst -->
+		
+	</body>
+	
+	<script>
+	
+		aDiv = document.getElementsByTagName( "div" );
+		for( var i = 0; i < aDiv.length ; i++ ){
+			aDiv[i].onclick = onClick;
+			//aDiv[i].addEventListener( "click", onClick );
+		}
+		document.body.onclick = onClick;
+		//document.body.addEventListener( "click", onClick );
+		
+		function onClick( event ) {
+			var msg =	"onClick	():\n"
+						+ "this -- "+ this.tagName +"#"+ this.id +"\n"
+						+ "event.currentTarget -- "+ event.currentTarget.tagName +"#"+ event.currentTarget.id +"\n"
+						+ "event.target -- "+ event.target.tagName +"#"+ event.target.id +"\n"
+						+ "event.eventPhase = "+ event.eventPhase +"\n"
+						;
+
+			if( event.target === this ){
+				this.style.background = "blue";
+			}
+			else{
+				this.style.background = "yellow";
+			}
+			
+			alert( msg );
+			
+			this.style.background = "";
+		}// function onClick()
+		
+		
+	</script>
+	
+	
+</html>

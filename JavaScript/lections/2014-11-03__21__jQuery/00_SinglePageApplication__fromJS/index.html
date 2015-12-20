@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Шаблон</title>
+		
+		<script>
+			function appendExtJS( nameJS ){
+				eVarJS = document.createElement("script");
+				eVarJS.id = "idVarJS";
+				document.getElementsByTagName("head")[0].appendChild( eVarJS )
+				eVarJS.onload = function ( event ){
+					setContent(); 
+					event.target.parentElement.removeChild( event.target );
+				}
+				eVarJS.src = nameJS;
+			}
+		</script>
+		
+	</head>
+	<body>
+		<h1>Шаблон</h1>
+		<p>
+			<input type="button" value="Контент 1" onclick="appendExtJS('addNewContent1.js')" >
+			<input type="button" value="Контент 2" onclick="appendExtJS('addNewContent2.js')" >
+			<input type="button" value="Контент 3" onclick="appendExtJS('addNewContent3.js')" >
+		</p>
+		<div id="variableContent">
+		<div>
+	</body>
+</html>

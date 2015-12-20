@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Користувацькі атрибути</title>
+	</head>
+	<body onclick="handleClick( event )" >
+		<h1 >Користувацькі атрибути</h1>
+		<h3 data-style="color" data-value="red" >Червоний колір символів</h3>
+		<h3 data-style="backgroundColor" data-value="red" >Червоний колір тла</h3>
+		<h3 data-style="border" data-value="3px solid green" >Зелена рамка</h3>
+		<h3 data-style="margin" data-value="77px" >margin: 77px </h3>
+
+		<script>
+		
+			function handleClick( event ){
+				var nameProperty = event.target.getAttribute("data-style");
+				var valProperty = event.target.getAttribute("data-value");
+				event.target.style[nameProperty] = valProperty;
+			}
+			
+		</script>
+		
+	</body>
+	
+</html>

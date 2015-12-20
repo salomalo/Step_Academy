@@ -1,0 +1,100 @@
+#include <conio.h>
+#include <stdio.h>
+#include <cstring>
+#include <iostream>
+#include <windows.h>
+#define MaxNo_Menu 5
+
+void gotoxy(int xpos, int ypos)
+{
+	COORD scrn;
+	HANDLE hOuput = GetStdHandle(STD_OUTPUT_HANDLE);
+	scrn.X = xpos; 
+	scrn.Y = ypos;
+	SetConsoleCursorPosition(hOuput,scrn);
+}
+
+
+int main()
+{
+	HANDLE hndl=GetStdHandle(STD_OUTPUT_HANDLE);
+	char *menu_list[MaxNo_Menu] = { "ADD", "EDIT", "DELETE", "SAVE", "EXIT" };
+	int i,
+	xpos = 10,
+	ypos[MaxNo_Menu] = { 3, 6, 9, 12, 15 };
+
+	
+	for (i=0; i< MaxNo_Menu; ++i)// list the menu
+	{
+		gotoxy(xpos, ypos[i] );
+		SetConsoleTextAttribute(hndl,FOREGROUND_GREEN|FOREGROUND_RED);	//замальовує букви в інший колір при їх виборі
+		cprintf("%s",menu_list[i] );
+	}
+
+	
+	i=0;// make menu available to choose
+	while(1)
+	{
+		gotoxy(xpos, ypos[i]);
+		SetConsoleTextAttribute(hndl,FOREGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_BLUE);
+		cprintf("%s",menu_list[i] );
+
+		/* note : 72 -> UP button
+		75 -> RIGHT button
+		77 -> LEFT button
+		80 -> DOWN button
+		*/
+
+		switch(getch())
+		{
+		case 72: // в верх
+			if(i>0) 
+			{
+				gotoxy(xpos,ypos[i] );
+				SetConsoleTextAttribute(hndl,FOREGROUND_GREEN|FOREGROUND_RED);
+				cprintf("%s", menu_list[i] );
+				--i;
+			}
+			break;
+
+		case 80: //в низ
+			if(i< MaxNo_Menu-1 )
+			{
+				gotoxy(xpos,ypos[i] );
+				SetConsoleTextAttribute(hndl,FOREGROUND_GREEN|FOREGROUND_RED);
+				cprintf("%s", menu_list[i] );
+				++i;
+			}
+			break;
+
+		case 13: 
+			if(i==0) 
+			{  
+				gotoxy (10,1); 
+				printf("you choose ADD   "); 
+			}
+			if(i==1) 
+			{ 
+				gotoxy (10,1); 
+				printf("you choose EDIT  "); 
+			}
+			if(i==2)
+			{ 
+				gotoxy (10,1); 
+				printf("you choose DELETE"); 
+			}
+			if(i==3) 
+			{  
+				gotoxy (10,1);  
+				printf("you choose SAVE  "); 
+			}
+			if(i==4) 
+			{  
+				gotoxy (10,1);  
+				printf("you choose EXIT  ");  
+			}
+			break;
+		}
+	}
+
+}

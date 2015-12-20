@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>RegExp.test()</title>
+	</head>
+	<body>
+		<h1>RegExp.test()</h1>
+		
+		<p id="idOut"></p>
+		
+		<script>
+			var eOut = document.getElementById("idOut");
+			
+			// створюємо рег.вираз як літерал
+			//var regexp = /reg/;			// шукає лише перше співпадіння
+			//var regexp = /reg/g;		// g -- шукає УСІ співпадіння
+			//var regexp = /rreg/g;		// g -- шукає УСІ співпадіння
+			
+			
+			// створюємо рег.вираз конструктором
+			var regexp = new RegExp( "reg" )
+			var regexp = new RegExp( "reg" )
+			
+			
+			var str ="In theoretical computer science and formal language theory, a regular expression (abbreviated regex or regexp) and sometimes called a rational expression[1][2] is a sequence of characters that forms a search pattern, mainly for use in pattern matching with strings, or string matching, i.e. 'find and replace'-like operations. The concept arose in the 1950s, when the American mathematician Stephen Kleene formalized the description of a regular language, and came into common use with the Unix text processing utilities ed, an editor, and grep (global regular expression print), a filter."
+			
+			var res = regexp.test( str );
+			
+			eOut.innerText = "regexp.test( str ) повернув "+ res;
+			
+		</script>
+		
+	</body>
+</html>

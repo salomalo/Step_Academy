@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<META charset="utf-8">
+		<TITLE>Призначення подій через атрибути тегів</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>Призначення подій через атрибути тегів</H1>
+		<P>
+			<INPUT type="button" value="Ця кнопка працюватиме" 		onclick="handleClick();"/>
+			<INPUT type="button" value="Ця кнопка НЕ працюватиме" 	onclick="handleClick"/>
+			<INPUT type="button" value="A ця кнопка -- працюватиме"	onclick="getClickHandler()"/>
+		</P>
+		<P>
+			<INPUT type="button" value="Подивитись властивості кнопок"		onclick="showClickHandlers()"/>
+		</P>
+
+
+		<SCRIPT>
+			
+			function getClickHandler() {
+				alert(	"getClickHandler()" );
+				return handleClick;
+			}
+		
+			function handleClick() {
+				alert(	"handleClick()" );
+			}
+			
+			
+			function showClickHandlers() {
+				var buttons = document.getElementsByTagName( "input" );
+				for( var i = 0 ; i < buttons.length ; i++ ) {
+					alert(	"Кнопка «"+ buttons[i].value +"»\n" 
+							+"onclick == "+ buttons[i].onclick
+						);
+				}
+			}
+			
+		</SCRIPT>
+	</BODY>
+</HTML>

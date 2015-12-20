@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>canvas</title>
+		<style>
+			body{
+				background-color: gray;
+			}
+			
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+		
+		<script>
+			function draw(){
+				var eCanvas = document.getElementsByTagName("canvas")[0];
+				var ctx = eCanvas.getContext("2d");
+				
+				// методи і властивості контексту -- https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+				
+				ctx.beginPath();	// починаємо контур
+					
+					ctx.moveTo( 10,   10 );
+					ctx.lineTo( 300,  10 );
+					ctx.lineTo( 300, 300 );
+					ctx.lineTo(  10, 300 );
+					ctx.closePath();
+					
+				/*	var ptCenter1 	= { x: 50, y: 50};	// точка центру кола початку градієнта
+					var ptCenter2	= { x: 250, y: 250};	// точка центру кола завершення градієнта
+					var gradient = ctx.createRadialGradient( ptCenter1.x, ptCenter1.y, 30, ptCenter2.x, ptCenter2.y, 150 );
+				*/	
+					var ptCenter1 	= { x: 150, y: 150};	// точка центру кола початку градієнта
+					var ptCenter2	= { x: 150, y: 150};	// точка центру кола завершення градієнта
+					var gradient = ctx.createRadialGradient( ptCenter1.x, ptCenter1.y, 30, ptCenter2.x, ptCenter2.y, 150 );
+					
+					gradient.addColorStop( 0, "yellow");
+					gradient.addColorStop( 0.8, "blue");
+					gradient.addColorStop( 0.5, "red");
+					gradient.addColorStop( 1, "green");
+					ctx.fillStyle = gradient;
+					
+					
+					ctx.fill();				// заливає контур
+				ctx.stroke();		// промальовуємо контур
+				
+				
+			}
+		</script>
+		
+	</head>
+	<body onload="draw()" >
+		<h1>canvas</h1>
+		<canvas width="333" height="333"></canvas>
+	</body>
+</html>

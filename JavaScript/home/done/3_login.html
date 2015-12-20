@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Login</title>
+	</head>
+	<body>
+		<h1>Login</h1>
+		<script>
+					
+			var sLog = prompt( "Введіть логин ", "" );
+				
+				if(sLog==null)
+					{
+					alert( "this is yor desigion....." );
+					}
+					
+				else
+				{
+					if(sLog=="admin")
+						{
+						var sPas = prompt( "Введіть пароль ", "" );
+							if(sPas=="root")
+								alert( "WELCOME" );
+							else
+								{
+								alert( "ERROR!!!!!!Incorrect password" );
+								}
+						}
+					else
+						{
+						alert( "ERROR!!!!!!Incorrect login" );
+						}
+				
+				}
+
+						
+		</script>
+	</body>
+</html>

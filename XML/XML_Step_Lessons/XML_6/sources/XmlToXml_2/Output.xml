@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transform>
+	<record>
+		<id>MP123456</id>
+		<fullname>Иван Иванов</fullname>
+	</record>
+	<record>
+		<id>PK123456</id>
+		<fullname>Пётр Петров</fullname>
+	</record>
+</transform>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Масиви</title>
+		<script>
+			function showArr( array ) {
+				if( ! Array.isArray( array ) ){
+					alert( "Функція каже: Це не масив!" );
+					return "Це не масив!";
+				}
+				
+				var msg = "Функція каже: масив+ містить:\n";
+				for( var i = 0 ; i < array.length ; i++ ){
+					msg += "array[" + i +"]="+ array[i] +"\n";
+				}
+				alert( msg );
+			}
+			
+			function showArrForIn( array ) {
+				if( ! Array.isArray( array ) ){
+					alert( "Функція каже: Це не масив!" );
+					return "Це не масив!";
+				}
+				
+				var msg = "showArrForIn каже: масив+ містить:\n";
+				for( var i in array ){
+					msg += "array[" + i +"]="+ array[i] +"\n";
+				}
+				alert( msg );
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Масив -- це об'єкт !</h1>
+		
+		<script>
+			// створюємо пустий масив
+			//var arr = [55,1,25,385,874,"654",13,864,"654",5];	
+			var arr = new Array(55,1,25,385,874,13,864,5);	
+	
+			
+			
+			arr.unshift(235);
+			arr.unshift(430);
+			arr.unshift(452);
+	
+			showArr( arr );
+			showArrForIn( arr );
+			
+			alert( "arr instanceof Object  = " + ( arr instanceof Object)  );
+			
+			arr.name = "MyArray";
+			
+			// два способи доступу до властивості
+			alert( "arr.name = "+ arr.name );
+			alert( "arr[name] = "+ arr["name"] );
+			
+			showArr( arr );
+			showArrForIn( arr );
+			
+		</script>
+		
+		
+	</body>
+</html>

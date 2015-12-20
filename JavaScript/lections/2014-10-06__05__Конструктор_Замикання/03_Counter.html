@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Лічильник</title>
+		
+		<script>
+			function Counter( start, step ) {
+				
+				var value = start;
+				
+				function count() {
+					var oldValue = value;
+					value += step;
+					return oldValue;
+				}
+				
+				
+				function setStep( newStep ){
+					
+					if( isNaN(newStep) ) return;
+					
+					if ( newStep < 1 || newStep > 22 ) return;
+					
+					step = newStep;
+					
+				}
+				
+				this.count = count;
+				this.setStep = setStep;
+			
+			}
+		</script>
+		
+		
+	</head>
+	<body>
+		<h1>Лічильник</h1>
+		<script>
+
+			var cntr1 = new Counter( 1, 5 );
+			for( var i = 0 ; i < 5 ; i++ )
+				alert( cntr1.count() );
+				
+			var cntr2 = new Counter( -11, 3 );
+			for( var i = 0 ; i < 5 ; i++ )
+				alert( cntr2.count() );
+				
+		</script>
+	</body>
+</html>

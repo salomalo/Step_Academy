@@ -1,0 +1,27 @@
+@media all{
+	body{
+		/*background-color: red;*/
+		padding: 0 10%;
+	}
+
+	#Page {
+		min-width: 777px;
+		background-color: gray;
+	}
+}
+
+@media screen and (max-width: 999px) and (min-width: 400px){
+	body{
+			/*background-color: red;*/
+			padding: 0 5%;
+		}
+}
+
+@media screen and (max-width: 600px){
+	body{
+			/*background-color: red;*/
+			padding: 0 5%;
+		}
+
+
+}

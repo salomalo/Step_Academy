@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Багаторівневий список</title>
+		
+		<script>
+			//alert( document.body );	// на момент виконання BODY ще нема !
+			
+			function changeH1() {
+				//var eH1 = document.body.firstElementChild;
+				//var eH1 = document.body.children[0];
+				var eH1 = document.getElementsByTagName( "h1" )[0];
+				eH1.style.backgroundColor = "red";
+				
+				var aH1 = document.getElementsByTagName( "h1" );
+				for( var i = 0; i < aH1.length ; i++ ){
+					aH1[i].style.color = "rgb( "+ i*50 +","+ i*70 +","+ i*30 +")";
+				}
+			}
+			
+			function changeMutable() {
+				var aElems = document.getElementsByClassName( "mutable" );
+				for( var i = 0; i < aElems.length ; i++ ){
+					aElems[i].style.backgroundColor = "rgb( "+ ( 22+i*50) +","+ ( 55+i*70) +","+ ( 44+i*30) +")";
+				}
+			}
+			
+			
+			function changeMyID() {
+				document.getElementById( "myId" ).style.fontSize="22pt";
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<h1>Багаторівневий список</h1>
+		<!-- <ol>	 Ordered List -->	
+		<!-- <ol type="A">	 -->
+		<!-- <ol type="i">	 -->
+		<ol type="i" start="3" reversed >	
+			<li class="mutable" >Перший пункт</li>	<!-- List Item -->
+			<li>Другий пункт</li>
+			<li>Третій пункт
+				<ul style="list-style-type: disk ; list-style-image: url(Z:/img/icon_no2.png)" >	
+					<li class="mutable" >Перший пункт</li>	<!-- List Item -->
+					<li style="list-style-type: disk ; list-style-image: none" >Другий пункт</li>
+					<li>Третій пункт
+						<ol type="a" start="7" style="list-style-image:none" >	
+							<li id="myId" >Перший пункт</li>	<!-- List Item -->
+							<li style="list-style-type: square; list-style-image: none;" >Другий пункт</li>
+							<li>Третій пункт</li>
+						</ol>
+					</li>
+					<li class="mutable" >Четвертий пункт</li>
+					<li>П'ятий пункт</li>
+					<li>Шостий пункт</li>
+				</ul>
+			</li>
+			<li>Четвертий пункт</li>
+			<li class="mutable" >П'ятий пункт</li>
+			<li>Шостий пункт</li>
+		</ol>
+
+		<h1>Багаторівневий список 1</h1>
+		
+		<p>
+			<!-- <input type="button" value="Кнопочка" onclick="alert('Не клікай мене !');" > -->
+			<input type="button" value="Змінити &lt;H1&gt;" onclick="changeH1();" >
+			<input type="button" value="Змінити .mutable" onclick="changeMutable();" >
+			<input type="button" value="Змінити #myId" onclick="changeMyID();" >
+		</p>
+		
+		<h1>Багаторівневий список 2</h1>
+		
+	</body>
+	<script>
+		//alert( document.body );
+	</script>
+</html>

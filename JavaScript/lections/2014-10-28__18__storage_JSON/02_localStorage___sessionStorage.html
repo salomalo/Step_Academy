@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>localStorage і sessionStorage</title>
+		<script src="js/02_localStorage_&_sessionStorage.js"></script>
+		<style>
+			TR { vertical-align: top; }
+			H1, H2, TR { margin: 0; padding: 0; }
+			H1, H2 { text-align: center; }
+		</style>
+	</head>
+	<!-- <body onload=" setInterval( reportLS_blink, 200 )"> -->
+	<body onload=" setInterval( updateAll , 200 )">
+		<h4><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage" target="_blank" >developer.mozilla.org</a></h4>
+		<h1 align="center"><code>localStorage</code> і <code>sessionStorage</code></h1>
+		<p align="center"></p>
+		<table align="center" width="90%" >
+			<tbody>
+				<tr>
+					<td id="idLocalStorageTD">
+						<h2><code>localStorage</code></h2>
+						<p>
+							<label>ключ: <input type="text" id="idNewKeyLS" ></label>
+							<label for="idNewValueLS" >&nbsp; &nbsp; &nbsp; значення:</label> <input type="text" id="idNewValueLS" >
+							<input type="button" value="Додати" onclick="addPropertyLS();">
+							<br/>
+							<br/>
+							<label>ключ: <input type="text" id="idRemoveKeyLS" ></label>
+							<input type="button" value="Видалити" onclick="removePropertyLS();">
+						</p>
+						<p>
+							Кількість елементів у <code>localStorage</code>: <span id="idLengthLS"></span>
+							<input type="button" value="Очистити" onclick="localStorage.clear();">
+						</p>
+						<p></p>
+					</td>
+					<td id="idSessionStorageTD">
+						<h2><code>sessionStorage</code></h2>
+						<p>
+							<label>ключ: <input type="text" id="idNewKeySS" ></label>
+							<label for="value" >&nbsp; &nbsp; &nbsp; значення:</label> <input type="text" id="idNewValueSS" >
+							<input type="button" value="Додати" onclick="addPropertySS();">
+							<br/>
+							<label>ключ: <input type="text" id="idRemoveKeySS" ></label>
+							<input type="button" value="Видалити" onclick="removePropertySS();">
+						</p>
+						<p>
+							Кількість елементів у <code>sessionStorage</code>: <span id="idLengthSS"></span>
+							<input type="button" value="Очистити" onclick="sessionStorage.clear();">
+						</p>
+						<p></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Функція - конструктор</title>
+		
+		<script>
+			
+			//Функція - конструктор  (викликана через new) отримує в this новостворений об'єкт
+			function Student( name, surname ) {
+				
+				this.name = name;
+				this.surname = surname;
+				
+				this.show = function() {
+					alert(	"name="+ this.name +"\nsurname="+ this.surname );
+				}
+			}
+			
+
+		</script>
+	</head>
+	<body>
+		<h1>Функція - конструктор</h1>
+		
+		<script>
+			/*
+			var str = "dgsdfg";
+			var str = new String("dgsdfg");
+			
+			var arr = [1,1,2,3,45];
+			var arr = new Array(1,1,2,3,45);
+			*/
+			
+			var stud1 = new Student( "Vasya", "Pupkin" );
+			//alert(	"name="+ stud1.name +"\nsurname="+ stud1.surname );
+			stud1.show();
+			
+		</script>
+		
+	</body>
+</html>

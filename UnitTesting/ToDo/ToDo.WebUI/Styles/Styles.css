@@ -1,0 +1,48 @@
+﻿html {
+    background-image:url(bg.jpg);
+}
+
+body {
+    /*background-color:#def739;*/
+    /*background-image:url(bg.jpg);*/
+}
+
+.allBody {
+    margin-left:35%;
+    margin-right:35%;
+    margin-top:25px;
+}
+
+.form {
+    margin:15px;
+}
+
+.error {
+    margin:15px; 
+    height:20px;
+}
+
+p {
+    color:red;
+}
+
+.table {
+    margin:15px; 
+}
+
+table {
+    width:100%;
+}
+
+#num {
+    width:10%;
+}
+
+#yesno {
+    width:15%;
+}
+
+.td {
+    font-weight:bold; 
+    text-align:center;
+}

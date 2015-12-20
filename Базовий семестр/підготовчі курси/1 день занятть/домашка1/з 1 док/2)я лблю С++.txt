@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+	cout<<"\tI\t\t\t\t\t\tI"<<endl;
+	cout<<"\t\tlove\t\t\t\tLove"<<endl;
+	cout<<"\t\t\tyou\t\tyou"<<endl;
+	cout<<"\t\t\t\tC++!"<<endl;
+	cout<<endl;
+
+
+}

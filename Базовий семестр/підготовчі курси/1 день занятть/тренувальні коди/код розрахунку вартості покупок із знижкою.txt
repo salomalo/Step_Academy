@@ -1,0 +1,6 @@
+float discount = 0.05;
+	float cost = 10.50;
+	int count = 5;
+	float price;
+	price = count*cost-count*cost*discount;
+	cout << "please,pay:"<<price<<endl;

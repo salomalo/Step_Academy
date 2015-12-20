@@ -1,0 +1,17 @@
+group {
+	display: inline-block;
+	background-color: lightgray;
+	border: 3px solid green;
+}
+
+student {
+	display: inline-block;
+	background-color: gray;
+	border: 1px solid black;
+	margin: 10px;
+}
+
+name, surname {
+	display: block;
+}
+

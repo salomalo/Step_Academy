@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>setInterval</title>
+	</head>
+	<body>
+		<h1>setInterval</h1>
+		
+		<input type="button" value="setInterval для doIt без аргументів" onclick=" idTimeout = setInterval( doIt, 1000 ) " >
+		<input type="button" value="setInterval  для doIt з аргументами" onclick=" idTimeout = setInterval( doIt, 1000, 'gthibq',' second', 5, 'Ще якийсь аргумент' ) " >
+		<br>
+		<input type="button" value="clearTimeout" onclick=" clearInterval( idTimeout ) " >
+		
+	</body>
+	
+	<script>
+	
+		var idTimeout;	// сюди ловимо ID тамера
+	
+		function doIt() {
+			var eP = document.createElement("p");
+			var msg = "Виконано!";
+			if( arguments.length )
+				msg += "<br>з аргументами:<br>"
+			for( var i = 0 ; i < arguments.length ; i++ ){
+				msg += arguments[i] +"  ";
+			}
+			eP.innerHTML = msg;
+			document.body.appendChild( eP );
+		}
+	
+
+	</script>
+	
+	
+	
+</html>

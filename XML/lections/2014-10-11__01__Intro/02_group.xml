@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<group groupname="23C19-5пр" >
+	<student starosta="yes" >
+		<name>Іван</name>
+		<surname>Петренко</surname>
+		<vik>18</vik>
+	</student>
+	<student status="Двієчник" >
+		<name>Петро</name>
+		<surname>Іваненко</surname>
+		<vik>18</vik>
+	</student>
+	<student>
+		<name>Василь</name>
+		<surname>Стеценко</surname>
+		<vik>18</vik>
+	</student>
+	<empty></empty>
+	<empty_too/>
+	<tag.with.point />
+	<tag:withDoublePoint. />
+	<tag-withHyphen />
+	<tagwith_2_NUMBER />
+	<!-- <2mytag /> не можна починати з цифри !!! -->
+	<клас></клас>
+</group>

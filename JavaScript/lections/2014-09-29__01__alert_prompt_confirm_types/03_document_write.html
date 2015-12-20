@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>Взаємодія з користувачем</title>
+	</head>
+	<body>
+		<h1>Взаємодія з користувачем</h1>
+		<script>
+			var sResult = prompt( "Введи ім'я!", "текст по замовчуванню" );
+			//alert( "Привіт, " + sResult );
+			
+			var sMsg = "Привіт, " + sResult +"\n";
+			sMsg += "Успіхів у навчанні !";
+			document.write( "<h3 style=\"color:red;\" onclick=\"alert('не клікай!')\">" + sMsg +"</h3>" );
+		
+		</script>
+		<p>
+			якийсь текст`
+		</p>
+		
+		<script>
+			alert( "У другому скрипті sResult = " + sResult );
+		</script>
+	</body>
+</html>

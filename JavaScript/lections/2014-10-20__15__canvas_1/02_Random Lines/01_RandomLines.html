@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/canvas.css">
+		<title>Малювання у CANVAS -- випадкові лінії</title>
+
+<!-- 		<style>
+			canvas{
+				width:222px;
+				height: 222px;
+			}
+		</style>
+ -->		
+	</head>
+	<body>
+		<P>
+			<SPAN>
+				<input type="button" value="Лінію !" onclick="drawRandomLine()">
+				<br>
+				<input type="button" value="lineCap = 'round'" onclick="lineCap = 'round';">
+				<input type="button" value="lineCap = 'butt'" onclick="lineCap = 'butt';">
+				<input type="button" value="lineCap = 'square'" onclick="lineCap = 'square';">
+				<br>
+				<input type="button" value="Очистити !" onclick="clearCanvas()">
+			</SPAN>
+			<canvas width="333" height="300" ></canvas>
+			<!-- <canvas ></canvas> -->
+		</P>
+		<script src="js/00_common.js"></script>
+		<script src="js/01_RandomLines.js"></script>
+	</body>
+</html>

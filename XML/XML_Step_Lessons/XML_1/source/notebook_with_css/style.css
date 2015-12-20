@@ -1,0 +1,12 @@
+notebook
+{
+       background-color: red;
+       color: #000000;
+       display: block;   //блочне форматування
+}
+phone
+{
+       background-color: green;
+       color: #000000;
+       block: inline;  //лінійне форматування
+}

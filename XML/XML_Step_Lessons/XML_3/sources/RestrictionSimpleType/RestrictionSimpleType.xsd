@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:simpleType name="codeType">
+		<xs:restriction base="xs:string">
+			<xs:length value="7" /> <!-- обмежуємо можливу довжину рядка: 7 символів -->
+			<xs:pattern value="\w" /> <!-- шаблон на введене значення: лише символи -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="code" type="codeType" />
+				<xs:element name="header">
+					<xs:complexType>
+						<xs:attribute name="size">
+						  <xs:simpleType>
+							<xs:restriction base="xs:token">
+							  <xs:enumeration value="small" />
+							  <xs:enumeration value="medium" />
+							  <xs:enumeration value="large" />
+							</xs:restriction>
+						  </xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+
+			
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	<!-- 
+	<xs:element name="code">
+	  <xs:simpleType>
+		<xs:restriction base="xsd:string">
+		  <xs:length value="7" />  
+		  <xs:pattern value="\w" />
+		</xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
+	-->
+	
+	<xs:simpleType name="Year">
+	  <xs:restriction base="xs:gYear">
+		<xs:minExclusive value="1700" /> <!-- мінімальне введенне значення року - 1700 -->
+	  </xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="DateType">
+	  <xs:restriction base="xs:date">
+		<xs:minInclusive value="2003-01-01"/> <!-- мінімальна дата -->
+		<xs:maxInclusive value="2003-12-31"/> <!-- максимальна дата -->
+	  </xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TypeId">
+	  <xs:restriction base="xs:integer">
+		<xs:minInclusive value="10000" />      <!-- мінімальне значення >= 10 000 -->
+		<xs:pattern value="[1-7][0-7]{4}" />   <!-- шаблон на введення -->
+	  </xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="genderType">
+	  <xs:restriction base="xs:string">
+		<xs:pattern value="male|female"/>   <!--шаблон на введення одного з двох значень-->
+	  </xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="person">
+	  <xs:complexType>
+		<xs:sequence>
+		  <xs:element name="address" type="xs:string" />
+	
+		  <xs:choice>
+			<xs:element name="phone" type="xs:string" />
+			<xs:element name="phone-list">
+			  <xs:simpleType>
+				<xs:list itemType="xs:string" />
+			  </xs:simpleType>
+			</xs:element>
+		  </xs:choice>
+	
+		</xs:sequence>
+	
+		<xs:attribute name="firstname" type="xs:string" />
+		<xs:attribute name="lastname" type="xs:string" />
+	  </xs:complexType>
+	</xs:element>
+	
+	<xs:element name="person2">
+	  <xs:complexType>
+		<xs:sequence>
+
+      <xs:element name="address" type="xs:string" />
+		  <xs:choice>
+			<xs:element name="phone" type="xs:string" />
+			<xs:element name="phone-list">
+			  <xs:simpleType>
+				<xs:list itemType="xs:string" />
+			  </xs:simpleType>
+			</xs:element>
+		  </xs:choice>
+	
+		</xs:sequence>
+	  </xs:complexType>
+	</xs:element>
+
+
+</xs:schema>

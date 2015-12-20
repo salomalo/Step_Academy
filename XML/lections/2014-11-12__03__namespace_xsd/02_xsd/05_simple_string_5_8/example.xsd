@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--всередині описуємо структуру документа-->
+	
+	<!-- тип елемента <example> як рядок довжиною від 5 до 8 симолів -->
+	<xs:element name="example">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="5"/>
+				<xs:maxLength value="8"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

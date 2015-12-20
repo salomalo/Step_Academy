@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Регулярні вирази та Виділення</title>
+		<script src="01_RegExp.js"></script>
+		<style>
+			p{ margin: 0; margin-top: 5px; }
+			div {
+				display:inline-block; 
+				position:fixed; 
+				top:0;
+				height: 0px;
+				padding: 8px;
+				overflow: hidden;
+				background: #9f9;
+				opacity: 0.2;
+				transition: all 0.5s;
+				-moz-transition: all 0.5s;
+			}
+			div:hover {
+				opacity: 1;
+				height: auto;
+			}
+			
+			input {
+				opacity: 0.2;
+				transition: all 0.5s;
+			}
+			
+			div:hover input {
+				opacity: 1;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>
+				період вставки: 
+				&nbsp; &nbsp; <label>min: <input type="number" value="10" size="4" id="idPeriodMin"></label>
+				&nbsp; <label>max: <input type="number" value="50" size="4" id="idPeriodMax"></label>
+				&nbsp; &nbsp; 
+				<input type="button" onclick="insertSymbols()" value="символи">
+				<input type="button" onclick="insertDigits()" value="цифри">
+			</p>
+			<p>
+				<label>текст: <input type="number" value="50" size="50" id="idTextInsert"></label>
+				&nbsp; &nbsp; 
+				<input type="button" onclick="insertText()" value="текст">
+			</p>
+			<p>
+				<br/>
+				<label>регулярний вираз:
+					<input type="text" value="" size="20" id="idRegExpText">
+				</label>
+				&nbsp; &nbsp; 
+				<input type="button" onclick="selectFirst()" value="Знайти перше">
+				&nbsp;
+				<input type="button" onclick="selectAll()" value="Знайти усі">
+			</p>
+		</div>
+		<h1 align="center">Регулярні вирази та Виділення</h1>
+		<p id="idText">
+			Lorem ipsum dolor sit amet, quem putent ut mel. An etiam semper perfecto mei. Vulputate definiebas sit cu, quo ut unum dolorum. Mel eu elitr latine singulis. Quo ut tamquam assentior mediocritatem.
+
+			Noster complectitur eum ut, mel porro possim commune id, primis dolores usu ne. At sit mollis nusquam disputando, pro soleat imperdiet rationibus ne, eam te sanctus abhorreant. Paulo indoctum neglegentur eam in. Te sed primis doctus deserunt, id eam porro tation disputando, aliquid evertitur forensibus no quo.
+
+			Appareat eloquentiam ei pro, cu modo complectitur sea, at eos brute doctus assentior. Invenire pertinacia vix ei. Pri nonumy sapientem interpretaris ad, nam an congue consequat referrentur. Mei et dico meis brute, cu oportere suscipiantur vix, erat noluisse argumentum eos ex. Vis tation hendrerit ut, sit reque sapientem dissentiunt ex, delenit imperdiet id sed.
+
+			Laudem facilis adversarium per id, at cibo eripuit referrentur pri. Maiestatis adolescens qui id, no nam quem fabulas. An eum denique perfecto intellegat. Singulis accusata ad mel.
+
+			Et his iudico elaboraret, augue sadipscing no sed. Integre signiferumque duo ei, per perpetua praesent honestatis ad. Ubique saperet at eam, noster ornatus duo ea. Eu duo oblique mnesarchum, evertitur mnesarchum ea eam. Duo paulo clita menandri ea, partiendo accusamus pri in. Cu ius nominati inimicus, vel tractatos expetenda ea.
+
+			Per te mundi percipit, ius te sapientem definitionem. Vix in quis pertinax, usu et docendi rationibus, case comprehensam ad ius. Eos corpora recusabo no, electram iracundia instructior eam ut, sit meliore fastidii at. Ius ex probo habeo aeque, vim id nisl aliquando assueverit.
+
+			Minim vivendo vivendum vim ad, salutandi hendrerit eum cu. Facer vivendum pri no. Nec in vitae menandri adipisci, his iisque dissentiet cu. Vix te admodum perpetua. Pro ea quas labores, vim id nibh detraxit pertinax.
+
+			In vim odio utroque referrentur, ea nec lorem vivendo salutandi. Nihil iudico voluptaria qui ex, eum ex meis mnesarchum accommodare. Duo ea consequat pertinacia consectetuer. Falli ridens omnium mel eu, ius iuvaret recteque evertitur ex, usu laoreet propriae perpetua in. Expetendis mediocritatem te duo, ad usu agam epicurei evertitur. Ea ubique volumus repudiare mel, pro ne fugit placerat oportere, option singulis nam ea. Laudem audiam est ea, quo te graece facete.
+
+			Qui at idque veritus imperdiet, per cu velit inimicus consetetur, quidam nostro accommodare ei vis. Purto bonorum quo in. Mei aperiam delicatissimi te. Nam equidem tractatos at, ei denique aliquando definitiones mel, vix eruditi signiferumque ex.
+
+			Per eu nulla oportere posidonium. Nec saepe intellegam et, per ea latine ornatus laoreet. Assentior intellegebat ut pri, decore aliquam sed ad. Id quaeque accusamus mel. Pertinax reprehendunt ne nec. Per convenire mediocritatem ei, utroque postulant nec eu.
+
+			Mea eu debet civibus denique, ut tamquam postulant qui. Pro noster contentiones ad. Per ei nusquam persecuti omittantur, nonumes persequeris ex vix. At pri idque facer, in sale congue legimus mel. Alienum volutpat cu nec, mel malis dictas voluptatibus id, ut duo viris integre liberavisse. Veri percipit ei mei. Velit inimicus posidonium eu vis, velit impetus ornatus qui an.
+
+			An pri enim semper facete. An sit sonet altera audiam, mei duis reque prodesset cu. Odio munere mei te, cu mel iuvaret abhorreant. Sit commune prodesset an.
+
+			Ius lucilius torquatos adipiscing eu, in duo democritum delicatissimi. Civibus oporteat consequat cu eos, no qui minim nominavi. Summo partem eam ei. Ea cum doming everti iracundia, solum corpora electram vix ea. Everti iriure vis eu, no bonorum accusata nec.
+
+			Ut est petentium hendrerit. Clita soluta philosophia no nam. Tantas oporteat nam ut, vim ad illud pertinacia. Nec odio noster prodesset ne. Graeco singulis eu vix, quo iusto nemore ad.
+
+			Ea odio eligendi tincidunt quo, sit te dicta delenit recteque. Deleniti gloriatur instructior at nam. Ei sumo docendi apeirian ius, no sensibus sadipscing quo, legendos dissentiunt necessitatibus in eam. Vis altera prompta eu, ea quaerendum delicatissimi qui. Debitis salutandi vel eu.
+
+			Ei pro vocent laboramus torquatos. Tollit iuvaret suscipit cu eos, quo no illud blandit. Corrumpit mediocritatem sit eu, pri essent aliquam dolorem ea. Eam partem nullam intellegat an, et dicta iudicabit vel, nec volumus mediocritatem ut. Quo ad esse aliquip.
+
+			Mei erat laudem posidonium ad, erat summo suscipiantur sea ex. Porro delicatissimi ne sea. Qui elitr scriptorem accommodare no. Omittam accumsan luptatum duo cu, malorum civibus vix ad. Duo dolores antiopam an, et possit delicatissimi vix.
+
+			His ad probatus intellegat deterruisset. Ex duis brute tibique vis. Et has putent aperiri noluisse. Libris honestatis sea te.
+
+			Tollit pertinacia forensibus sit ea, id sit tamquam pericula mediocrem. Nam sanctus pertinax eu, nihil scaevola pro cu, nec ea laudem suavitate intellegam. Ei eos audiam integre ancillae, ei mea omnis porro. Choro libris eligendi qui ei. Ne eam dicant facilis, has ex noster splendide.
+
+			Docendi fabellas vix eu, te esse aliquip vim, et errem nonumy impedit has. Wisi ponderum maluisset sit ei. Iisque inimicus ius ei, vocent nostrud adipisci mea cu, pri ne saperet offendit. Id ridens copiosae dissentiet pro, diceret aliquam invidunt te pri.
+			
+		</p>
+		<h3>Читати:</h3>
+		<p>
+			<a href="http://learn.javascript.ru/vydelenie-range-textrange-i-selection" target="_blank">Про виділення у документі</a>
+		</p>
+	</body>
+</html>

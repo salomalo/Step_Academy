@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+	double days;
+	cout<<"enter, please haw many days:";
+	cin>>days;
+	const int in_1_day = 24;
+	const int in_1_hour = 60;
+	const int in_1_day_minutes=in_1_day*in_1_hour;
+	double minutes_in_days;
+	minutes_in_days=in_1_day_minutes*days;
+	cout<<minutes_in_days<<endl;
+
+
+
+
+
+}

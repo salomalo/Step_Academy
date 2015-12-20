@@ -1,0 +1,10 @@
+#include<iostream>
+using namespace std;
+void main ()
+{
+int a;
+int chuslo_v_kvadrati;
+cout<<"Enter, please, a:";
+cin>>a;
+chuslo_v_kvadrati=a*a;
+cout<<chuslo_v_kvadrati<<endl;

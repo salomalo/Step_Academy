@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Вступ до JavaScript :: Порівняння з null та undefined </title>
+    </head>
+    <body>
+        <h1>Порівняння з null та undefined</h1>
+        <script>
+            var varUndef; // неініціалізована змінна містить undefined
+            alert(    "Порівняння неініціалізованої змінної varUndef  \n\n"
+                    +"Порівняння 'varUndef ==  null' дає: "+            ( varUndef ==  null ) +"\n" 
+                    +"Порівняння 'varUndef !=  null' дає: "+            ( varUndef !=  null ) +"\n" 
+                    +"Порівняння 'varUndef === null' дає: "+        ( varUndef === null ) +"\n" 
+                    +"Порівняння 'varUndef !== null' дає: "+        ( varUndef !== null ) +"\n\n" 
+                    +"Порівняння 'varUndef == undefined' дає: "+    ( varUndef == undefined ) +"\n" 
+                    +"Порівняння 'varUndef != undefined' дає: "+    ( varUndef != undefined ) +"\n" 
+                    +"Порівняння 'varUndef === undefined' дає: "+    ( varUndef === undefined ) +"\n" 
+                    +"Порівняння 'varUndef !== null' дає: "+        ( varUndef !== null ) +"\n\n" 
+                );
+
+            alert(    "Порівняння null і undefined \n\n"
+                    +"Порівняння 'null ==  undefined' дає: "+ ( null == undefined ) +"\n" 
+                    +"Порівняння 'null !=  undefined' дає: "+ ( null != undefined ) +"\n\n" 
+                    +"Порівняння 'null >   undefined' дає: "+ ( null >  undefined ) +"\n" 
+                    +"Порівняння 'null >=  undefined' дає: "+ ( null >= undefined ) +"\n\n" 
+                    +"Порівняння 'null <   undefined' дає: "+ ( null <  undefined ) +"\n" 
+                    +"Порівняння 'null <=  undefined' дає: "+ ( null <= undefined ) +"\n\n" 
+                    +"Порівняння 'null === undefined' дає: "+ ( null === undefined ) +"\n" 
+                    +"Порівняння 'null !== undefined' дає: "+ ( null !== undefined ) +"\n\n" 
+                );
+
+            alert(    "А зараз – УВАГА \n\n"
+                    +"Порівняння '0 == null' дає: "+ ( 0 == null ) +"\n" 
+                    +"Порівняння '0 >  null' дає: "+ ( 0 >  null ) +"\n" 
+                    +"Порівняння '0 >= null' дає: "+ ( 0 >= null ) +"\n\n" 
+                    +"Порівняння '0 == null' дає: "+ ( 0 == null ) +"\n" 
+                    +"Порівняння '0 <  null' дає: "+ ( 0 <  null ) +"\n" 
+                    +"Порівняння '0 <= null' дає: "+ ( 0 <= null ) +"\n\n" 
+                    +"Порівняння '0 != null' дає: "+ ( 0 != null ) +"\n\n" 
+                    
+                );
+            
+        </script>
+    </body>
+</html>

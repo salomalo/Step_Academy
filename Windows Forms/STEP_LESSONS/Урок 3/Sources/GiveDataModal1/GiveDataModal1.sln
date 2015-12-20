@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiveDataModal1", "GiveDataModal1\GiveDataModal1.csproj", "{C9571B8C-5AA1-484D-88DA-47614DD9B9DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9571B8C-5AA1-484D-88DA-47614DD9B9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9571B8C-5AA1-484D-88DA-47614DD9B9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9571B8C-5AA1-484D-88DA-47614DD9B9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9571B8C-5AA1-484D-88DA-47614DD9B9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

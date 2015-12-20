@@ -1,0 +1,128 @@
+#include<iostream>
+#include<ctime>
+#include<cstring>
+#include <conio.h>
+using namespace std;
+
+char* NewString(char *str)
+{
+	cout<<"Put your string:"<<endl;
+	gets(str);
+	return str;
+}
+
+char** CreatArry(char **&RES, char *Word, int &countW)
+{
+	countW++;
+
+	char**tmp=new char*[countW];//допоміжний масив в який буду зберігати слова
+	for(int i=0; i<countW-1; i++)
+	{
+		tmp[i]=new char[strlen(RES[i])+1];
+		strcpy(tmp[i],RES[i]);
+	}
+	
+	tmp[countW-1]=new char[strlen(Word)+1];
+	strcpy(tmp[countW-1],Word);
+
+	for(int i=0; i<countW-1; i++)
+		delete[]RES[i];
+	delete[]RES;
+	
+	RES=tmp;
+
+	return  RES;
+}
+
+char** ArrayWords(char*str)
+{
+	int countW=0;
+	char tmp[255];
+	strcpy(tmp,str);
+	cout<<endl<<"Array of words: "<<endl;
+	
+	char **RES=new char*[countW];//результуючий масив
+	for(int i=0; i<countW; i++)
+		RES[i]=new char[255];
+
+	char *Word=new char[255];
+	Word=strtok(tmp,".,!? \0");
+	while (Word)
+	{
+		int count=0;
+		for (int i=0; i<strlen(Word); i++)
+		{
+			if ( (Word[i]<='9' && Word[i]>='0')||(Word[i]>=' '&& Word[i]<='/')||(Word[i]>=':'&& Word[i]<='@')||(Word[i]>='['&& Word[i]<='`')||(Word[i]>='{'&& Word[i]<='~'))
+			{
+				count++;
+			}
+		}
+		if(!count)
+		{
+			CreatArry(RES,Word,countW);
+
+		}
+		Word=strtok(NULL,".,!? ");
+	}
+
+	for(int i=0; i<countW; i++)
+	cout<<' '<<RES[i];
+	cout<<endl;
+	return RES;
+}
+
+char** ArrayDigit(char*str)
+{
+	char res[255];
+	strcpy(res,str);
+	int countW=0;
+	
+	cout<<endl<<"Array of Digit: "<<endl;
+	
+	char **RES=new char*[countW];
+	for(int i=0; i<countW; i++)
+		RES[i]=new char[255];
+
+	char *Word=new char[255];
+	Word=strtok(res,".,!? \0");
+	while (Word) 
+	{
+		int count=0;
+		for (int i=0; i<strlen(Word); i++) 
+		{
+			if ((Word[i]<='9' && Word[i]>='0'))
+			{
+				count++;
+			}
+		}
+		if(count)
+		{
+			atoi(*CreatArry(RES,Word,countW));
+		}
+		Word=strtok(NULL,".,!? ");
+	}
+
+	for(int i=0; i<countW; i++)
+	cout<<' '<<RES[i];
+	cout<<endl;
+	return RES;
+}
+
+void main()
+{	
+	char str[255];
+	int choice;
+	
+	do
+	{
+		NewString(str);
+		ArrayWords(str);
+		ArrayDigit(str);
+		
+		cout<<endl<<"Press esc to exit...\n";
+		cout<<endl<<"Press enter to continue...\n"<<endl;
+	}
+	while(getch()!= 27);
+	
+	cout<<endl;
+}

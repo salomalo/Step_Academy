@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE group SYSTEM "F:\Share\yarusol\19\2014-10-11__02__dtd\01_group_with_dtd\01_group.dtd" >
+<!-- <group > -->
+<group groupname="23C19-5пр" >
+
+	<!-- <student starosta="yes" > -->
+	<student id='_1' status="looser" >
+		<name>Іван</name>
+		<surname>Петренко</surname>
+		<vik>18</vik>
+		<starosta />
+		<!-- <starosta ></starosta> -->
+	</student>
+
+	<!-- <student status="Двієчник" > -->
+	<student id='_2' >	<!-- для цього  status="middle" по замовчуванню -->
+		<surname>&mr_;Іваненко</surname>	
+		<name>Петро</name>
+		<vik>18</vik>
+	</student>
+
+	<student id='_3' status="middle" >
+		<name>&mr;Вас&lt;&gt;иль</name>
+		<surname>Стеценко</surname>
+		<vik>18</vik>
+	</student>
+
+	<student id='_q' status="successful" >
+		<name>Валентина</name>
+		<surname>&mrs;Павленко</surname>
+	</student>
+
+  <teacher>
+    <name>Петро</name>
+    <surname>Павленко</surname>
+    <rang>docent</rang>
+  </teacher>
+  
+  <external>
+    Імпортовано: &import;
+  </external>
+  
+  
+
+</group>

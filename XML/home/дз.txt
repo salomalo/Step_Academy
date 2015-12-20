@@ -1,0 +1,29 @@
+book[@style] - оступ до елемента бук ыз атрибутом style
+author[first-name][3] - доступитись до елемента автор  який є  3 і має дочірній вузол first-name
+author[1] - доступ до дочірнього елемента author який має позицію 1
+price/@exchange/total - БРЕД
+x/y[position()=1] - доступ до дочырнього елемента х - у із позицією 1
+x[1]/y[2] - доступ до другого дочырнього елемента у лемента першого х
+
+(х/у)[1] - доступ до першого у дочірнього у х
+(book/author)[last()] - досьуп до author що є останнім і  дочірнім елемента book
+
+book[excerpt] - доступитись до book із дочірним елементом excerpt
+book[excerpt]/author[degree] - доступитись до author із дочірним елементом degree який э дочырным елементом book із дочірним елементом excerpt
+author[not(degree or award) and publication] - доступитись до елемента author який не містить дочірнього елемента degree чи award і містить publication
+
+author[last-name[position()=1]="Boob"] - всфі елементи author із першим дочірнім елементом last-name який має значення Boob
+degree[@from!="Harvard"] - всфі елементи degree із атрибутом from який не рівний Harvard
+author[.="Matthew Bob"] - елемент author текст якого рівний Matthew Bob
+author[last-name="Bob" and ../price &gt; 50] - елемент author з дочірнім елементом last-name із значеннм Bob і із сусіднім елементом price білшим 50
+author[* ="Bob"] - доступ до всіх дочірніх елементів author із значенням Bob
+author[last-name = "Bob" and first-name ="Joe"] доступ до елемента author який має дочірній елемент last-name із значенням Bob і елемент first-name із значкнням Joe
+price[@intl="Canada"] - доступ до елемента price із атрибутом intl значкння якго = Canada
+
+degree[position()&lt;3] -  всі елементи degree із дочірнім елементом позиція якого менша за 3
+p/text()[2] - БРЕД
+
+ancestor::author[parent::book][1] - всіх предків першого елемента author з батьківським вузлом book
+author[degree][award] - доступ до елемента  author із дочірнім елементом degree в якого є дочірній елемент award
+ancestor-or-self::div - всі елементи  дів в поточному вузллі та його предках(батьки)
+descendant-or-self::para - всі елементи пара в поточному вузлі та його потомках

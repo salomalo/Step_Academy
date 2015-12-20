@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>cort</title>
+			<style>	
+				#cort{
+					position:absolute;
+					width:500px;
+					height:500px;
+					border: 1px solid black;
+					border-collapse: collapse;
+				}
+			
+			#raket{
+				position:absolute;
+				left:0px;
+				top:0px;
+				width: 20px;
+				height:90px;
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+				
+				#raket2{
+					position:absolute;
+					right:0px;	
+					top:0px;
+					width: 20px;
+					height:90px;
+					border: 1px solid black;
+					border-collapse: collapse;
+				}
+			
+			#ball{
+				position:absolute;
+				right:50%;
+				top:50%;
+				width:50px;
+				height:50px;
+				border: 1px solid black;
+				border-collapse: collapse;
+				border-radius:50%;
+				transition: 0.5s linear 0s;
+			}
+			
+			#mydiv{
+			position:absolute;
+			right:30px;
+			display:block;
+			float:right;
+			}
+			
+			#forstart{
+			position:absolute;
+			display:block;
+			float:right;
+			font-size:50pt;
+			}
+			
+			</style>
+	</head>
+	<body onkeydown="HandleKey(event)"> 				<!-- onload="start();" --> 
+		<div id="mydiv">  </div>
+		<div id="forstart" >   </div>
+				<div id="cort"> 
+					<div id="raket"></div>
+					<div id="ball"></div>
+					<div id="raket2"></div>
+									
+					<audio hidden loop = 1><source src="ding.wav"></audio>
+				</div>
+				
+		<div style="float:right; margin-right: 222px;">
+			yBall_new = <span id="yBall_new"></span><br>
+			xBall_new = <span id="xBall_new"></span><br>
+		</div>
+			
+	</body>
+	<script>
+		document.getElementById("forstart").innerHTML="for start press Space...";
+	
+		eyBall_new = document.getElementById("yBall_new");
+		exBall_new = document.getElementById("xBall_new");
+	
+		function HandleKey(event){
+			//	var yFieldTop = document.getElementById("cort").offsetTop;
+			var yFieldTop	= 0;//eBall.parentElement.offsetTop;
+			var yFieldBttm	= yFieldTop + document.getElementById("cort").offsetHeight;
+			
+			var KEYCODE = { UP_W: 87, DOWN_S: 83, SPACE: 32, UP: 38, DOWN: 40  }; 	// event.keyCode`и клавіш курсора
+			var STEP = { X: 50, Y:50 };
+			
+			var eBlock = document.getElementById("raket");// одержуємо елемент, котрий рухаємо
+			var y = eBlock.offsetTop;						// його координата y відносно батьківського елемента
+			var x = eBlock.offsetLeft;						// його координата x відносно батьківського елемента
+			var yNew, xNew;
+				
+			var eBlock2 = document.getElementById( "raket2" );
+			var y2 = eBlock2.offsetTop;						
+			var x2 = eBlock2.offsetLeft;						
+			var yNew2, xNew2;
+			
+
+			switch( event.keyCode ){
+				case KEYCODE.UP_W :
+					yNew = y - STEP.Y;
+						if( yNew <= yFieldTop ){
+							yNew = yFieldTop;			
+							}
+					break;
+					
+				case KEYCODE.DOWN_S :
+					var yNew = y + STEP.Y;
+						if( (yNew+document.getElementById( "raket" ).offsetHeight) >= yFieldBttm ){
+							yNew = yFieldBttm - document.getElementById( "raket" ).offsetHeight;			
+							}
+					break;
+				
+				case KEYCODE.UP :
+					yNew2 = y2- STEP.Y;
+						if( yNew2 <= yFieldTop ){
+							yNew2 = yFieldTop;			
+							}
+					break;
+					
+				case KEYCODE.DOWN :
+					var yNew2 = y2 + STEP.Y;
+						if( (yNew2+document.getElementById( "raket2" ).offsetHeight) >= yFieldBttm ){
+							yNew2 = yFieldBttm - document.getElementById( "raket2" ).offsetHeight;			
+							}
+					break;				
+					
+				case KEYCODE.SPACE:
+					start();
+						document.getElementById("forstart").innerHTML="";
+					break;	
+					
+			}// switch( event.type )
+			
+			// змінюємо позицію блока
+			eBlock.style.top  = yNew +"px";
+			eBlock.style.left = xNew +"px";	
+			
+			eBlock2.style.top  = yNew2 +"px";
+			eBlock2.style.left = xNew2 +"px";	
+		}
+		
+		function update(){
+			var eBall = document.getElementById("ball");	
+			eBall.style.left = 240 +"px";
+			eBall.style.top  = 240 +"px";	
+		}
+		
+		
+		function start(){
+				var eBall = document.getElementById("ball");	
+				// швидкість руху по X i по Y
+				eBall.xStep = Math.round( Math.random() * 50 + 20 );
+				eBall.yStep = Math.round( Math.random() * 50 + 20 );
+				eBall.xStep *= ( Math.round( Math.random() * 10 ) % 2 ) ? 1 : -1;
+				eBall.yStep *= ( Math.round( Math.random() * 10 ) % 2 ) ? 1 : -1;
+				setInterval( moveBall , 400 );
+			}
+			
+			
+		function moveBall(){
+
+			var audio = document.getElementsByTagName( "audio" );
+			var eBall = document.getElementById("ball");
+				//////////////  визначаємо координати м'ячика і розміри поля //////////////
+				var xBall_cur		= eBall.offsetLeft;
+				var yBall_cur		= eBall.offsetTop;
+					var cxBall_width	= eBall.offsetWidth;
+					var cyBall_height	= eBall.offsetHeight;
+				
+				var eField = eBall.parentElement;
+				
+				var xFieldLeft		= 0;//eBall.parentElement.offsetLeft; 
+				var xFieldRight		= xFieldLeft + eField.offsetWidth;
+
+			var yFieldTop		= 0;//eBall.parentElement.offsetTop;
+			var yFieldBttm		= yFieldTop + eField.offsetHeight;
+				
+				/////////////// нові координати м'ячика   /////////////
+				var xBall_new = xBall_cur + eBall.xStep;
+				var yBall_new = yBall_cur + eBall.yStep;
+				
+				eyBall_new.innerText = yBall_new;
+				exBall_new.innerText = xBall_new;
+			
+			
+			var xLeftRBorder = xFieldLeft + document.getElementById("raket").offsetWidth;
+			var yLeftRTop = document.getElementById("raket").offsetTop;
+			var yLeftRBottom =document.getElementById("raket").offsetTop + document.getElementById("raket").offsetHeight;
+			
+			var xRightRRBorder=xFieldRight - document.getElementById("raket2").offsetWidth;
+			var yRightRTop = document.getElementById("raket2").offsetTop;
+			var yRightRBottom = document.getElementById("raket2").offsetTop + document.getElementById("raket2").offsetHeight;
+
+		///////////////////// from raket
+		var res1=0;
+		var res2=0;
+		
+		
+			if( ( xBall_new <= xLeftRBorder ) && ( yBall_new >= yLeftRTop )&&( yBall_new <= yLeftRBottom )){
+					xBall_new = xLeftRBorder;
+					eBall.xStep *= -1;	
+				}
+
+				
+				if(( (xBall_new + cxBall_width) >= xRightRRBorder )&&(yBall_new >= yRightRTop)&&( yBall_new <= yRightRBottom)){	
+					xBall_new = xRightRRBorder - cxBall_width;
+					eBall.xStep *= -1;	
+				}
+						if( xBall_new < xLeftRBorder){
+							<!-- update(); -->
+							res1++;
+							}
+							
+					if( xBall_new > xRightRRBorder){
+						<!-- update(); -->
+						res2++;
+						}	
+						
+					document.getElementById("mydiv").innerHTML="right  " + res1 + "  left  " +res2;
+				
+///////////////////////////// чи не вилетів за межі up and down поля ? //////////////////
+						if( yBall_new <= yFieldTop ){	// вдаряється об верхню межу поля
+							yBall_new = yFieldTop;			// ставимо м'ячик на верхню межу
+							eBall.yStep *= -1;				// міняємо напрямок руху по Y					
+							
+						document.getElementById("mydiv").innerHTML='<audio src="ding.wav" hidden repeat=1></audio>';
+						}
+
+					if( ( yBall_new + cxBall_width ) >= yFieldBttm ){// вдаряється об нижню межу поля( xBall_new + cxBall_width -- дає координату Y нижньої межі м'ячика )
+						yBall_new = yFieldBttm - cyBall_height;			
+						eBall.yStep *= -1;		
+					}
+					
+						eBall.style.left = xBall_new +"px";
+						eBall.style.top  = yBall_new +"px";	
+		}
+	</script>
+</html>

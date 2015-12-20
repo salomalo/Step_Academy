@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<title>&lt;Select&gt;</title>
+		
+		<script>
+			function processInput() {
+				if( ! arguments.length ) return;
+				
+				var msg="";
+				for( var i = 0; i < arguments.length ; i++ ){
+					var eSelect = document.getElementById( arguments[i] );
+					if ( eSelect ) {
+						msg += "Знайдено <select> з ID '"+ arguments[i] +"'\n"
+								+ "його value = '"+ eSelect.value +"'\n"
+								+ "обраний <option> містить: '"
+								+ eSelect.children[ eSelect.selectedIndex ].innerText +"'\n\n";
+					}else{
+						msg += "input з ID '"+ arguments[i] +"' не знайдено'\n";
+					}
+				}
+				
+				alert( msg );
+				
+			}
+		</script>
+		
+	</head>
+	<body>
+		<h1>&lt;Select&gt;</h1>
+		<p>
+			<select id="idSelect1" > 
+				<option >Перший варіант</option>
+				<option value="option2">Другий варіант</option>
+				<option value="option3">Третій варіант</option>
+				<option value="option4">Четвертий варіант</option>
+			</select > 
+			<br>
+			<select id="idSelect2" > 
+				<option value="chance1">Перша можливість</option>
+				<option value="chance2">Друга можливість</option>
+				<option value="chance3">Третя можливість</option>
+				<option value="chance4">Четверта можливість</option>
+				<option value="chance5">П'ята можливість</option>
+			</select > 
+			<br>
+			
+			<input type="button" value="Обробити !" onclick="processInput( 'idSelect1','idSelect2' );" > <br>
+		</p>
+	</body>
+</html>

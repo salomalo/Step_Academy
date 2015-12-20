@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<?xml:stylesheet type="text/xsl" href="common/layout.xsl" ?>
+
+<lesson title="Урок №2" next="section01.xml" prev="index.xml">
+<h2>Урок №2</h2>
+<ul>
+	<li><a href="section01.xml">Понятие оператора.</a></li>
+	<li><a href="section02.xml">Арифметические операции с числами.</a></li>
+	<li><a href="section021.xml">Применение арифметических операций.</a></li>
+	<li><a href="section03.xml">Преобразование типов.</a></li>
+	<li><a href="section04.xml">Логические операции.</a></li>
+	<li><a href="section05.xml">Конструкция логического выбора if.</a></li>
+	<li><a href="section051.xml">Лесенка if - else if.</a></li>
+	<li><a href="section06.xml">Практический пример на создание примитивного текстового квеста.</a></li>
+	<li><a href="section07.xml">Практический пример на принадлежность точки кольцу.</a></li>
+	<li><a href="section08.xml">Структура множественного выбора switch.</a></li>
+	<li><a href="runtest.xml">Тест для самопроверки.</a></li>
+	<li><a href="hometask.xml">Домашнее задание</a></li>
+</ul>
+</lesson>
