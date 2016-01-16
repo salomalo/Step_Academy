@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <color val="gray">dark-gray</color>
+    <bgcolor>#aaa</bgcolor>
+    <size>14pt</size>
+    <style>
+        <font-weight>bolder</font-weight>
+        <border>1px solid red</border>
+    </style>
+</config>
